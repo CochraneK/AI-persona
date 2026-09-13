@@ -24,6 +24,9 @@ dataset/persona_dataset_v1_summary.csv
 # 工作区
 .workbuddy/
 
+# 构建中间产物
+scripts/_scratch/
+
 # 操作系统
 Thumbs.db
 .DS_Store
