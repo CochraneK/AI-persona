@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 项目临时/分析脚本（_ 开头临时脚本）
+_*.py
+tmp/
+temp/
+
+# 数据集（大文件 + v1 已固化）
+dataset/persona_dataset_v1.json
+dataset/persona_dataset_v1_summary.csv
+
+# 工作区
+.workbuddy/
+
+# 操作系统
+Thumbs.db
+.DS_Store

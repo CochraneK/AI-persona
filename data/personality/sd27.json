@@ -1,0 +1,46 @@
+{
+  "name": "SD-27 黑暗三联征量表",
+  "description": "Short Dark Triad — 27 题，测量马基雅维利主义、自恋、精神病态",
+  "instruction": "请你以第一人称视角，根据自身感受回答以下问题。请诚实选择。对于每个描述，选择认同程度：1=非常不同意，2=不太同意，3=不确定，4=比较同意，5=非常同意。",
+  "scale": {
+    "1": "非常不同意",
+    "2": "不太同意",
+    "3": "不确定",
+    "4": "比较同意",
+    "5": "非常同意"
+  },
+  "traits": {
+    "MACH": "马基雅维利主义 (Machiavellianism) — 操纵、利用他人、策略性思维的程度",
+    "NARC": "自恋 (Narcissism) — 自我中心、优越感、渴望关注的程度",
+    "PSYC": "精神病态 (Psychopathy) — 冷酷、冲动、缺乏共情的程度"
+  },
+  "items": [
+    {"id": 1,  "text": "把自己的秘密告诉别人是不明智的",                                    "trait": "MACH", "direction": "+"},
+    {"id": 2,  "text": "我喜欢用巧妙的手段来达到我的目的",                                  "trait": "MACH", "direction": "+"},
+    {"id": 3,  "text": "不管用什么手段，你必须让重要人物站在你这边",                        "trait": "MACH", "direction": "+"},
+    {"id": 4,  "text": "应该避免与别人直接冲突，因为他们将来可能对你有用",                  "trait": "MACH", "direction": "+"},
+    {"id": 5,  "text": "明智的做法是收集那些将来可以用来对付别人的信息",                    "trait": "MACH", "direction": "+"},
+    {"id": 6,  "text": "你应该等待合适的时机来报复别人",                                    "trait": "MACH", "direction": "+"},
+    {"id": 7,  "text": "有些事情应该对别人隐瞒，以保护自己的名声",                          "trait": "MACH", "direction": "+"},
+    {"id": 8,  "text": "确保你的计划对自己有利，而不是对别人有利",                          "trait": "MACH", "direction": "+"},
+    {"id": 9,  "text": "大多数人是可以被操纵的",                                            "trait": "MACH", "direction": "+"},
+    {"id": 10, "text": "别人觉得我有天生的领导力",                                          "trait": "NARC", "direction": "+"},
+    {"id": 11, "text": "我讨厌成为众人关注的焦点",                                          "trait": "NARC", "direction": "-"},
+    {"id": 12, "text": "没有我的参与，很多集体活动都会很无聊",                              "trait": "NARC", "direction": "+"},
+    {"id": 13, "text": "我知道自己很特别，因为大家都这么说",                                "trait": "NARC", "direction": "+"},
+    {"id": 14, "text": "我喜欢结识重要人物",                                                "trait": "NARC", "direction": "+"},
+    {"id": 15, "text": "如果有人夸奖我，我会感到不好意思",                                  "trait": "NARC", "direction": "-"},
+    {"id": 16, "text": "有人把我比作一些知名人物",                                          "trait": "NARC", "direction": "+"},
+    {"id": 17, "text": "我是一个很普通的人",                                                "trait": "NARC", "direction": "-"},
+    {"id": 18, "text": "我坚持要得到我应得的尊重",                                          "trait": "NARC", "direction": "+"},
+    {"id": 19, "text": "我喜欢报复那些有权势的人",                                          "trait": "PSYC", "direction": "+"},
+    {"id": 20, "text": "我会避免身处危险的环境",                                            "trait": "PSYC", "direction": "-"},
+    {"id": 21, "text": "报复应该是迅速而残酷的",                                            "trait": "PSYC", "direction": "+"},
+    {"id": 22, "text": "别人常说我不受控制、有点失控",                                      "trait": "PSYC", "direction": "+"},
+    {"id": 23, "text": "我确实有时候会刻薄、不友善",                                        "trait": "PSYC", "direction": "+"},
+    {"id": 24, "text": "招惹我的人都会后悔",                                                "trait": "PSYC", "direction": "+"},
+    {"id": 25, "text": "我从未惹上过法律麻烦",                                              "trait": "PSYC", "direction": "-"},
+    {"id": 26, "text": "为了达到目的，我可以说什么都行",                                    "trait": "PSYC", "direction": "+"},
+    {"id": 27, "text": "我喜欢做些吓人的事情来取乐",                                        "trait": "PSYC", "direction": "+"}
+  ]
+}

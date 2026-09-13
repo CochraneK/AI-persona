@@ -1,0 +1,150 @@
+{
+  "adhd": {
+    "chinese": "注意缺陷/多动障碍",
+    "english": "Attention-Deficit/Hyperactivity Disorder"
+  },
+  "adjustment": {
+    "chinese": "适应障碍",
+    "english": "Adjustment Disorders"
+  },
+  "agoraphobia": {
+    "chinese": "广场恐怖",
+    "english": "Agoraphobia"
+  },
+  "alcohol": {
+    "chinese": "酒精使用障碍",
+    "english": "Alcohol Use Disorder"
+  },
+  "anorexia": {
+    "chinese": "神经性厌食",
+    "english": "Anorexia Nervosa"
+  },
+  "antisocial_pd": {
+    "chinese": "反社会型人格障碍",
+    "english": "Antisocial Personality Disorder"
+  },
+  "anxiety": {
+    "chinese": "分离焦虑障碍",
+    "english": "Separation Anxiety Disorder"
+  },
+  "asd": {
+    "chinese": "孤独症谱系障碍",
+    "english": "Autism Spectrum Disorder"
+  },
+  "avoidant_pd": {
+    "chinese": "回避/限制性摄食障碍",
+    "english": "Avoidant/Restrictive Food Intake Disorder"
+  },
+  "binge": {
+    "chinese": "暴食障碍",
+    "english": "Binge-Eating Disorder"
+  },
+  "bipolar_dep": {
+    "chinese": "双相I型障碍",
+    "english": "Bipolar I Disorder"
+  },
+  "bipolar_manic": {
+    "chinese": "双相I型障碍",
+    "english": "Bipolar I Disorder"
+  },
+  "body_dysmorphic": {
+    "chinese": "躯体变形障碍",
+    "english": "Body Dysmorphic Disorder"
+  },
+  "borderline_pd": {
+    "chinese": "边缘型人格障碍",
+    "english": "Borderline Personality Disorder"
+  },
+  "bulimia": {
+    "chinese": "神经性贪食",
+    "english": "Bulimia Nervosa"
+  },
+  "cyclothymia": {
+    "chinese": "环性心境障碍",
+    "english": "Cyclothymic Disorder"
+  },
+  "delusional": {
+    "chinese": "妄想性障碍",
+    "english": "Delusional Disorder"
+  },
+  "dependent_pd": {
+    "chinese": "依赖型人格障碍",
+    "english": "Dependent Personality Disorder"
+  },
+  "depressive": {
+    "chinese": "重性抑郁障碍，单次发作",
+    "english": "Major Depressive Disorder, Single Episode"
+  },
+  "dissociative": {
+    "chinese": "分离性身份障碍",
+    "english": "Dissociative Identity Disorder"
+  },
+  "dysthymia": {
+    "chinese": "持续性抑郁障碍（恶劣心境）",
+    "english": "Persistent Depressive Disorder (Dysthymia)"
+  },
+  "gambling": {
+    "chinese": "赌博障碍",
+    "english": "Gambling Disorder"
+  },
+  "healthy": {
+    "chinese": "healthy",
+    "english": "healthy"
+  },
+  "hoarding": {
+    "chinese": "囤积障碍",
+    "english": "Hoarding Disorder"
+  },
+  "insomnia": {
+    "chinese": "失眠障碍",
+    "english": "Insomnia Disorder"
+  },
+  "intellectual": {
+    "chinese": "智力残疾（智力发育障碍）",
+    "english": "Intellectual Disability (Intellectual Developmental Disorder)"
+  },
+  "narcissistic_pd": {
+    "chinese": "自恋型人格障碍",
+    "english": "Narcissistic Personality Disorder"
+  },
+  "obsessive_pd": {
+    "chinese": "强迫型人格障碍",
+    "english": "Obsessive-Compulsive Personality Disorder"
+  },
+  "ocd": {
+    "chinese": "强迫症",
+    "english": "Obsessive-Compulsive Disorder"
+  },
+  "panic": {
+    "chinese": "惊恐障碍",
+    "english": "Panic Disorder"
+  },
+  "ptsd": {
+    "chinese": "创伤后应激障碍",
+    "english": "Posttraumatic Stress Disorder"
+  },
+  "schizophrenia": {
+    "chinese": "精神分裂症样障碍",
+    "english": "Schizophreniform Disorder"
+  },
+  "schizotypal": {
+    "chinese": "分裂型（人格）障碍",
+    "english": "Schizotypal (Personality) Disorder"
+  },
+  "social_anxiety": {
+    "chinese": "社交焦虑障碍（社交恐怖症）",
+    "english": "Social Anxiety Disorder (Social Phobia)"
+  },
+  "somatic_symptom": {
+    "chinese": "躯体症状障碍",
+    "english": "Somatic Symptom Disorder"
+  },
+  "substance": {
+    "chinese": "物质/药物所致精神病性障碍",
+    "english": "Substance/Medication-Induced Psychotic Disorder"
+  },
+  "tic_disorder": {
+    "chinese": "社交（语用）沟通障碍",
+    "english": "Social (Pragmatic) Communication Disorder"
+  }
+}

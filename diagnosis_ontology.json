@@ -1,0 +1,4783 @@
+{
+  "meta": {
+    "title": "Comprehensive Mental Disorder Diagnosis Ontology",
+    "version": "1.0.0",
+    "date": "2026-08-29",
+    "sources": [
+      "ICD-11 Chapter 06 (Mental, Behavioural or Neurodevelopmental Disorders)",
+      "DSM-5-TR (Diagnostic and Statistical Manual of Mental Disorders, 5th Edition, Text Revision, 2022)"
+    ],
+    "description": "Complete hierarchical classification of mental disorders from ICD-11 and DSM-5-TR, including diagnostic codes, subtypes, common comorbidities, age of onset, gender ratios, and relevant scales."
+  },
+  "schema": {
+    "id": "06",
+    "name": "Mental, Behavioural or Neurodevelopmental Disorders",
+    "name_zh": "精神、行为或神经发育障碍",
+    "description": "Syndromes characterised by clinically significant disturbance in cognition, emotional regulation, or behaviour reflecting dysfunction in psychological, biological, or developmental processes underlying mental and behavioural functioning.",
+    "description_zh": "以个体认知、情绪调节或行为的临床显著紊乱为特征，反映心理、生物或发育过程功能障碍的综合征。",
+    "code_range": "6A00-6E8Z",
+    "exclusions": [
+      "Acute stress reaction (QE84)",
+      "Uncomplicated bereavement (QE62)"
+    ],
+    "coded_elsewhere": [
+      "Sleep-wake disorders (Ch.7)",
+      "Sexual dysfunctions (HA00-HA0Z)",
+      "Gender incongruence (HA60-HA6Z)"
+    ]
+  },
+  "icd11": {
+    "name": "ICD-11 Chapter 06 — Mental, Behavioural or Neurodevelopmental Disorders",
+    "code_range": "6A00-6E8Z",
+    "blocks": [
+      {
+        "id": "L1-6A0",
+        "name": "Neurodevelopmental disorders",
+        "name_zh": "神经发育障碍",
+        "description": "Behavioural and cognitive disorders arising during developmental period involving significant difficulties in acquisition and execution of intellectual, motor, or social functions.",
+        "description_zh": "",
+        "code_range": "6A00-6A0Z",
+        "disorders": [
+          {
+            "code": "6A00",
+            "name": "Disorders of intellectual development",
+            "name_zh": "智力发育障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A00.0",
+                "name": "Mild",
+                "name_zh": "轻度",
+                "description": "IQ ~50-69, approx 2-3 SD below mean"
+              },
+              {
+                "code": "6A00.1",
+                "name": "Moderate",
+                "name_zh": "中度",
+                "description": "IQ ~35-49, approx 3-4 SD below mean"
+              },
+              {
+                "code": "6A00.2",
+                "name": "Severe",
+                "name_zh": "重度",
+                "description": "IQ ~20-34"
+              },
+              {
+                "code": "6A00.3",
+                "name": "Profound",
+                "name_zh": "极重度",
+                "description": "IQ <20"
+              },
+              {
+                "code": "6A00.4",
+                "name": "Provisional",
+                "name_zh": "暂时的"
+              },
+              {
+                "code": "6A00.Z",
+                "name": "Unspecified",
+                "name_zh": "未特指的"
+              }
+            ],
+            "typical_age_of_onset": [
+              0,
+              18
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "Wechsler Intelligence Scales",
+              "Vineland Adaptive Behavior Scales"
+            ],
+            "severity_dimensions": [
+              "Intellectual functioning",
+              "Adaptive behavior",
+              "Social skills",
+              "Practical skills"
+            ]
+          },
+          {
+            "code": "6A01",
+            "name": "Developmental speech or language disorders",
+            "name_zh": "发育性言语或语言障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A01.0",
+                "name": "Developmental speech sound disorder",
+                "name_zh": "发育性语音障碍"
+              },
+              {
+                "code": "6A01.1",
+                "name": "Developmental speech fluency disorder",
+                "name_zh": "发育性言语流畅障碍（口吃）"
+              },
+              {
+                "code": "6A01.20",
+                "name": "Developmental language disorder with receptive and expressive impairment",
+                "name_zh": "发育性语言障碍伴感受性和表达性语言受损"
+              },
+              {
+                "code": "6A01.21",
+                "name": "Developmental language disorder mainly with expressive impairment",
+                "name_zh": "发育性语言障碍主要伴表达性语言受损"
+              },
+              {
+                "code": "6A01.22",
+                "name": "Developmental language disorder mainly with pragmatic impairment",
+                "name_zh": "发育性语言障碍主要伴语用语言受损"
+              }
+            ],
+            "typical_age_of_onset": [
+              2,
+              7
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6A02",
+            "name": "Autism spectrum disorder",
+            "name_zh": "孤独症谱系障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A02.0",
+                "name": "Without intellectual disability, with mild/no language impairment",
+                "name_zh": "不伴智力发育障碍，伴轻度或不伴功能性语言受损"
+              },
+              {
+                "code": "6A02.1",
+                "name": "With intellectual disability, with mild/no language impairment",
+                "name_zh": "伴智力发育障碍，伴轻度或不伴功能性语言损害"
+              },
+              {
+                "code": "6A02.2",
+                "name": "Without intellectual disability, with functional language impairment",
+                "name_zh": "不伴智力发育障碍，伴功能性语言损害"
+              },
+              {
+                "code": "6A02.3",
+                "name": "With intellectual disability, with functional language impairment",
+                "name_zh": "伴智力发育障碍，伴功能性语言损害"
+              },
+              {
+                "code": "6A02.4",
+                "name": "Without intellectual disability, with absence of functional language",
+                "name_zh": "不伴智力发育障碍，伴功能性语言缺失"
+              },
+              {
+                "code": "6A02.5",
+                "name": "With intellectual disability, with absence of functional language",
+                "name_zh": "伴智力发育障碍，伴功能性语言缺失"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "ADHD",
+                "rate": 0.3
+              },
+              {
+                "disorder": "Intellectual disability",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.4
+              }
+            ],
+            "typical_age_of_onset": [
+              2,
+              5
+            ],
+            "gender_ratio": "M>F(4:1)",
+            "relevant_scales": [
+              "ADOS-2",
+              "ADI-R",
+              "SCQ",
+              "SRS-2"
+            ]
+          },
+          {
+            "code": "6A03",
+            "name": "Developmental learning disorder",
+            "name_zh": "发育性学习障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A03.0",
+                "name": "With impairment in reading",
+                "name_zh": "伴阅读受损（阅读障碍）"
+              },
+              {
+                "code": "6A03.1",
+                "name": "With impairment in written expression",
+                "name_zh": "伴书面表达受损"
+              },
+              {
+                "code": "6A03.2",
+                "name": "With impairment in mathematics",
+                "name_zh": "伴数学受损（计算障碍）"
+              }
+            ],
+            "typical_age_of_onset": [
+              6,
+              12
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "WRAT-5",
+              "Woodcock-Johnson"
+            ]
+          },
+          {
+            "code": "6A04",
+            "name": "Developmental motor coordination disorder",
+            "name_zh": "发育性运动共济障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              3,
+              10
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6A05",
+            "name": "Attention deficit hyperactivity disorder",
+            "name_zh": "注意缺陷多动障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A05.0",
+                "name": "Predominantly inattentive",
+                "name_zh": "主要表现为注意力不集中"
+              },
+              {
+                "code": "6A05.1",
+                "name": "Predominantly hyperactive-impulsive",
+                "name_zh": "主要表现为多动-冲动"
+              },
+              {
+                "code": "6A05.2",
+                "name": "Combined presentation",
+                "name_zh": "联合表现"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Anxiety",
+                "rate": 0.25
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.2
+              },
+              {
+                "disorder": "ASD",
+                "rate": 0.15
+              }
+            ],
+            "typical_age_of_onset": [
+              3,
+              12
+            ],
+            "gender_ratio": "M>F(2:1 in children; ~1:1 in adults)",
+            "relevant_scales": [
+              "ASRS",
+              "Conners-3",
+              "SNAP-IV",
+              "Vanderbilt"
+            ]
+          },
+          {
+            "code": "6A06",
+            "name": "Stereotyped movement disorder",
+            "name_zh": "刻板性运动障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A06.0",
+                "name": "Without self-injurious behaviour",
+                "name_zh": "不伴自伤"
+              },
+              {
+                "code": "6A06.1",
+                "name": "With self-injurious behaviour",
+                "name_zh": "伴自伤"
+              }
+            ],
+            "typical_age_of_onset": [
+              2,
+              10
+            ]
+          },
+          {
+            "code": "6A0Y",
+            "name": "Other specified neurodevelopmental disorders",
+            "name_zh": "其他特指的神经发育障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6A0Z",
+            "name": "Neurodevelopmental disorders, unspecified",
+            "name_zh": "神经发育障碍，未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6A2",
+        "name": "Schizophrenia or other primary psychotic disorders",
+        "name_zh": "精神分裂症或其他原发性精神病性障碍",
+        "description": "Characterized by disturbances in thinking, perception, emotions, and behaviour, with reality testing impairment and delusions/hallucinations.",
+        "description_zh": "",
+        "code_range": "6A20-6A2Z",
+        "disorders": [
+          {
+            "code": "6A20",
+            "name": "Schizophrenia",
+            "name_zh": "精神分裂症",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A20.0",
+                "name": "First episode",
+                "name_zh": "首次发作",
+                "description": "subtyped: currently symptomatic / partial remission / full remission"
+              },
+              {
+                "code": "6A20.1",
+                "name": "Multiple episodes",
+                "name_zh": "多次发作"
+              },
+              {
+                "code": "6A20.2",
+                "name": "Continuous",
+                "name_zh": "连续病程"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Substance use",
+                "rate": 0.4
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.3
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.25
+              }
+            ],
+            "typical_age_of_onset": [
+              18,
+              35
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "PANSS",
+              "SANS",
+              "SAPS",
+              "PSP",
+              "BCIS"
+            ],
+            "severity_dimensions": [
+              "Positive symptoms",
+              "Negative symptoms",
+              "Cognitive impairment",
+              "Functional impairment"
+            ]
+          },
+          {
+            "code": "6A21",
+            "name": "Schizoaffective disorder",
+            "name_zh": "分裂情感性障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A21.0",
+                "name": "First episode",
+                "name_zh": "首次发作"
+              },
+              {
+                "code": "6A21.1",
+                "name": "Multiple episodes",
+                "name_zh": "多次发作"
+              },
+              {
+                "code": "6A21.2",
+                "name": "Continuous",
+                "name_zh": "连续病程"
+              }
+            ],
+            "typical_age_of_onset": [
+              18,
+              30
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "PANSS",
+              "YMRS",
+              "HDRS"
+            ]
+          },
+          {
+            "code": "6A22",
+            "name": "Schizotypal disorder",
+            "name_zh": "分裂型障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              18,
+              30
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "SPQ-B",
+              "SPQ",
+              "PAS"
+            ]
+          },
+          {
+            "code": "6A23",
+            "name": "Acute and transient psychotic disorder",
+            "name_zh": "急性短暂性精神病性障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A23.0",
+                "name": "First episode",
+                "name_zh": "首次发作"
+              },
+              {
+                "code": "6A23.1",
+                "name": "Multiple episodes",
+                "name_zh": "多次发作"
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6A24",
+            "name": "Delusional disorder",
+            "name_zh": "妄想性障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A24.0",
+                "name": "Currently symptomatic",
+                "name_zh": "目前为症状性"
+              },
+              {
+                "code": "6A24.1",
+                "name": "In partial remission",
+                "name_zh": "目前为部分缓解"
+              },
+              {
+                "code": "6A24.2",
+                "name": "In full remission",
+                "name_zh": "目前为完全缓解"
+              }
+            ],
+            "typical_age_of_onset": [
+              30,
+              50
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6A25",
+            "name": "Symptomatic manifestations of primary psychotic disorders",
+            "name_zh": "原发性精神病性障碍的症状表现",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A25.0",
+                "name": "Positive symptoms",
+                "name_zh": "阳性症状"
+              },
+              {
+                "code": "6A25.1",
+                "name": "Negative symptoms",
+                "name_zh": "阴性症状"
+              },
+              {
+                "code": "6A25.2",
+                "name": "Depressive symptoms",
+                "name_zh": "抑郁症状"
+              },
+              {
+                "code": "6A25.3",
+                "name": "Manic symptoms",
+                "name_zh": "躁狂症状"
+              },
+              {
+                "code": "6A25.4",
+                "name": "Psychomotor symptoms",
+                "name_zh": "精神运动性症状"
+              },
+              {
+                "code": "6A25.5",
+                "name": "Cognitive symptoms",
+                "name_zh": "认知症状"
+              }
+            ]
+          },
+          {
+            "code": "6A2Y",
+            "name": "Other specified primary psychotic disorders",
+            "name_zh": "其他特指的精神分裂症或其他原发性精神病性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6A2Z",
+            "name": "Primary psychotic disorders, unspecified",
+            "name_zh": "精神分裂症或其他原发性精神病性障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6A4",
+        "name": "Catatonia",
+        "name_zh": "紧张症",
+        "description": "Psychomotor syndrome characterized by marked disturbances in activity, posture, speech, and responsiveness.",
+        "description_zh": "",
+        "code_range": "6A40-6A4Z",
+        "disorders": [
+          {
+            "code": "6A40",
+            "name": "Catatonia associated with another mental disorder",
+            "name_zh": "与其他精神障碍有关的紧张症",
+            "description": "",
+            "description_zh": "",
+            "common_comorbidities": [
+              {
+                "disorder": "Schizophrenia",
+                "rate": 0.1
+              },
+              {
+                "disorder": "Mood disorders",
+                "rate": 0.15
+              },
+              {
+                "disorder": "ASD",
+                "rate": 0.05
+              }
+            ]
+          },
+          {
+            "code": "6A41",
+            "name": "Catatonia induced by substances or medications",
+            "name_zh": "精神活性物质(包括治疗药物)所致紧张症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6A4Z",
+            "name": "Catatonia, unspecified",
+            "name_zh": "紧张症,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6A6",
+        "name": "Mood disorders",
+        "name_zh": "心境障碍",
+        "description": "Disorders characterized by disturbances in mood or affect, either depressive (sadness/hopelessness) or manic (elation/irritability).",
+        "description_zh": "以情绪或情感的紊乱为特征的障碍，抑郁（悲伤/无望）或躁狂（兴奋/易怒）。",
+        "code_range": "6A60-6A8Z",
+        "disorders": [
+          {
+            "id": "L2-6A6",
+            "name": "Bipolar or related disorders",
+            "name_zh": "双相及相关障碍",
+            "code_range": "6A60-6A6Z",
+            "disorders": [
+              {
+                "code": "6A60",
+                "name": "Bipolar type I disorder",
+                "name_zh": "双相障碍I型",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6A60.0",
+                    "name": "Current manic with no psychotic symptoms",
+                    "name_zh": "目前为不伴精神病性症状的躁狂发作"
+                  },
+                  {
+                    "code": "6A60.1",
+                    "name": "Current manic with psychotic symptoms",
+                    "name_zh": "目前为伴精神病性症状的躁狂发作"
+                  },
+                  {
+                    "code": "6A60.2",
+                    "name": "Current hypomanic",
+                    "name_zh": "目前为轻躁狂发作"
+                  },
+                  {
+                    "code": "6A60.3",
+                    "name": "Current mild depression",
+                    "name_zh": "目前为轻度抑郁发作"
+                  },
+                  {
+                    "code": "6A60.6",
+                    "name": "Current severe depression without psychotic",
+                    "name_zh": "目前为不伴精神病性症状的重度抑郁发作"
+                  },
+                  {
+                    "code": "6A60.7",
+                    "name": "Current severe depression with psychotic",
+                    "name_zh": "目前为伴精神病性症状的重度抑郁发作"
+                  },
+                  {
+                    "code": "6A60.9",
+                    "name": "Current mixed",
+                    "name_zh": "目前为混合性发作"
+                  },
+                  {
+                    "code": "6A60.F",
+                    "name": "In full remission",
+                    "name_zh": "目前为完全缓解"
+                  }
+                ],
+                "common_comorbidities": [
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.6
+                  },
+                  {
+                    "disorder": "Substance use",
+                    "rate": 0.4
+                  },
+                  {
+                    "disorder": "ADHD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  15,
+                  30
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "YMRS",
+                  "MDQ",
+                  "HCL-32",
+                  "BDI"
+                ]
+              },
+              {
+                "code": "6A61",
+                "name": "Bipolar type II disorder",
+                "name_zh": "双相障碍Ⅱ型",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6A61.0",
+                    "name": "Current hypomanic",
+                    "name_zh": "目前为轻躁狂发作"
+                  },
+                  {
+                    "code": "6A61.1",
+                    "name": "Current mild depression",
+                    "name_zh": "目前为轻度抑郁发作"
+                  },
+                  {
+                    "code": "6A61.4",
+                    "name": "Current severe depression",
+                    "name_zh": "目前为重度抑郁发作"
+                  },
+                  {
+                    "code": "6A61.A",
+                    "name": "In full remission",
+                    "name_zh": "目前为完全缓解"
+                  }
+                ],
+                "typical_age_of_onset": [
+                  15,
+                  30
+                ],
+                "gender_ratio": "F>M",
+                "relevant_scales": [
+                  "YMRS",
+                  "MDQ",
+                  "HCL-32"
+                ]
+              },
+              {
+                "code": "6A62",
+                "name": "Cyclothymic disorder",
+                "name_zh": "环性心境障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Bipolar I/II",
+                    "rate": 0.25
+                  }
+                ],
+                "typical_age_of_onset": [
+                  15,
+                  25
+                ],
+                "gender_ratio": "M=F"
+              },
+              {
+                "code": "6A6Y",
+                "name": "Other specified bipolar or related disorders",
+                "name_zh": "其他特指的双相及相关障碍",
+                "description": "",
+                "description_zh": ""
+              },
+              {
+                "code": "6A6Z",
+                "name": "Bipolar or related disorders, unspecified",
+                "name_zh": "双相及相关障碍,未特指的",
+                "description": "",
+                "description_zh": ""
+              }
+            ]
+          },
+          {
+            "id": "L2-6A7",
+            "name": "Depressive disorders",
+            "name_zh": "抑郁障碍",
+            "code_range": "6A70-6A7Z",
+            "disorders": [
+              {
+                "code": "6A70",
+                "name": "Single episode depressive disorder",
+                "name_zh": "单次发作的抑郁障碍",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6A70.0",
+                    "name": "Mild",
+                    "name_zh": "轻度"
+                  },
+                  {
+                    "code": "6A70.1",
+                    "name": "Moderate without psychotic",
+                    "name_zh": "中度,不伴精神病性症状"
+                  },
+                  {
+                    "code": "6A70.2",
+                    "name": "Moderate with psychotic",
+                    "name_zh": "中度,伴精神病性症状"
+                  },
+                  {
+                    "code": "6A70.3",
+                    "name": "Severe without psychotic",
+                    "name_zh": "重度,不伴精神病性症状"
+                  },
+                  {
+                    "code": "6A70.4",
+                    "name": "Severe with psychotic",
+                    "name_zh": "重度,伴精神病性症状"
+                  }
+                ],
+                "common_comorbidities": [
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.5
+                  },
+                  {
+                    "disorder": "Substance use",
+                    "rate": 0.2
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "F>M(2:1)",
+                "relevant_scales": [
+                  "PHQ-9",
+                  "BDI-II",
+                  "HDRS",
+                  "QIDS-SR"
+                ],
+                "severity_dimensions": [
+                  "Mood",
+                  "Anhedonia",
+                  "Energy",
+                  "Sleep",
+                  "Appetite",
+                  "Concentration",
+                  "Psychomotor"
+                ]
+              },
+              {
+                "code": "6A71",
+                "name": "Recurrent depressive disorder",
+                "name_zh": "复发性抑郁障碍",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6A71.0",
+                    "name": "Current mild",
+                    "name_zh": "目前为轻度发作"
+                  },
+                  {
+                    "code": "6A71.1",
+                    "name": "Current moderate",
+                    "name_zh": "目前为中度发作"
+                  },
+                  {
+                    "code": "6A71.3",
+                    "name": "Current severe",
+                    "name_zh": "目前为重度发作"
+                  },
+                  {
+                    "code": "6A71.6",
+                    "name": "In partial remission",
+                    "name_zh": "目前为部分缓解"
+                  },
+                  {
+                    "code": "6A71.7",
+                    "name": "In full remission",
+                    "name_zh": "目前为完全缓解"
+                  }
+                ],
+                "common_comorbidities": [
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.5
+                  },
+                  {
+                    "disorder": "Substance use",
+                    "rate": 0.2
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "F>M",
+                "relevant_scales": [
+                  "PHQ-9",
+                  "BDI-II",
+                  "HDRS"
+                ]
+              },
+              {
+                "code": "6A72",
+                "name": "Dysthymic disorder",
+                "name_zh": "恶劣心境障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Major depression",
+                    "rate": 0.4
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.5
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  30
+                ],
+                "gender_ratio": "F>M",
+                "relevant_scales": [
+                  "PHQ-9",
+                  "BDI-II"
+                ]
+              },
+              {
+                "code": "6A73",
+                "name": "Mixed depressive and anxiety disorder",
+                "name_zh": "混合性抑郁焦虑障碍",
+                "description": "",
+                "description_zh": "",
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "F>M",
+                "relevant_scales": [
+                  "HADS",
+                  "PHQ-9",
+                  "GAD-7"
+                ]
+              },
+              {
+                "code": "6A7Y",
+                "name": "Other specified depressive disorders",
+                "name_zh": "其他特指的抑郁障碍",
+                "description": "",
+                "description_zh": ""
+              },
+              {
+                "code": "6A7Z",
+                "name": "Depressive disorders, unspecified",
+                "name_zh": "抑郁障碍,未特指的",
+                "description": "",
+                "description_zh": ""
+              }
+            ]
+          },
+          {
+            "code": "6A80",
+            "name": "Symptomatic and course manifestations of mood disorders",
+            "name_zh": "心境障碍中发作的症状和病程表现",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6A80.0",
+                "name": "Prominent anxiety",
+                "name_zh": "突出的焦虑症状"
+              },
+              {
+                "code": "6A80.1",
+                "name": "Panic attacks",
+                "name_zh": "惊恐发作"
+              },
+              {
+                "code": "6A80.2",
+                "name": "Current persistent depression",
+                "name_zh": "目前抑郁发作持续"
+              },
+              {
+                "code": "6A80.3",
+                "name": "Melancholic features",
+                "name_zh": "伴忧郁特征"
+              },
+              {
+                "code": "6A80.4",
+                "name": "Seasonal pattern",
+                "name_zh": "季节特征"
+              },
+              {
+                "code": "6A80.5",
+                "name": "Rapid cycling",
+                "name_zh": "快速循环"
+              }
+            ]
+          },
+          {
+            "code": "6A8Y",
+            "name": "Other specified mood disorders",
+            "name_zh": "其他特指的心境障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6A8Z",
+            "name": "Mood disorders, unspecified",
+            "name_zh": "心境障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6B0",
+        "name": "Anxiety or fear-related disorders",
+        "name_zh": "焦虑或恐惧相关性障碍",
+        "description": "Disorders characterized by excessive fear, anxiety, and avoidance behaviours.",
+        "description_zh": "以过度的恐惧、焦虑和回避行为为特征的障碍。",
+        "code_range": "6B00-6B0Z",
+        "disorders": [
+          {
+            "code": "6B00",
+            "name": "Generalized anxiety disorder",
+            "name_zh": "广泛性焦虑障碍",
+            "description": "Excessive anxiety and worry about multiple events/activities, most days for at least several months.",
+            "description_zh": "对多种事件或活动的过度焦虑和担忧，持续至少数月。",
+            "common_comorbidities": [
+              {
+                "disorder": "Depression",
+                "rate": 0.6
+              },
+              {
+                "disorder": "Other anxiety",
+                "rate": 0.5
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M(2:1)",
+            "relevant_scales": [
+              "GAD-7",
+              "BAI",
+              "HADS-A"
+            ]
+          },
+          {
+            "code": "6B01",
+            "name": "Panic disorder",
+            "name_zh": "惊恐障碍",
+            "description": "Recurrent unexpected panic attacks with fear of future attacks.",
+            "description_zh": "反复的意外惊恐发作，伴对未来发作的恐惧。",
+            "typical_age_of_onset": [
+              20,
+              30
+            ],
+            "gender_ratio": "F>M(2:1)",
+            "relevant_scales": [
+              "PDSS",
+              "ASI"
+            ]
+          },
+          {
+            "code": "6B02",
+            "name": "Agoraphobia",
+            "name_zh": "广场恐怖",
+            "description": "Fear of situations where escape might be difficult or help unavailable.",
+            "description_zh": "对难以逃离或无法获得帮助的场合的恐惧。",
+            "typical_age_of_onset": [
+              20,
+              30
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6B03",
+            "name": "Specific phobia",
+            "name_zh": "特定的恐怖",
+            "description": "Intense fear of a specific object or situation (e.g., animals, heights, blood).",
+            "description_zh": "对特定物体或情境（如动物、高处、血液）的强烈恐惧。",
+            "typical_age_of_onset": [
+              5,
+              20
+            ],
+            "gender_ratio": "F>M(2:1)"
+          },
+          {
+            "code": "6B04",
+            "name": "Social anxiety disorder",
+            "name_zh": "社交性焦虑障碍",
+            "description": "Marked fear of social situations involving potential scrutiny by others.",
+            "description_zh": "对可能被他人审视的社交场合的显著恐惧。",
+            "typical_age_of_onset": [
+              10,
+              20
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "SIAS",
+              "SPIN",
+              "LSAS"
+            ]
+          },
+          {
+            "code": "6B05",
+            "name": "Separation anxiety disorder",
+            "name_zh": "分离性焦虑障碍",
+            "description": "Developmentally inappropriate fear of separation from attachment figures.",
+            "description_zh": "与依恋对象分离时出现与发育水平不相称的恐惧。",
+            "typical_age_of_onset": [
+              3,
+              10
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B06",
+            "name": "Selective mutism",
+            "name_zh": "选择性缄默症",
+            "description": "Consistent failure to speak in specific social situations despite speaking in others.",
+            "description_zh": "在特定社交场合持续不说话，尽管在其他场合能说话。",
+            "typical_age_of_onset": [
+              3,
+              8
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B0Y",
+            "name": "Other specified anxiety or fear-related disorders",
+            "name_zh": "其他特指的焦虑或恐惧相关性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B0Z",
+            "name": "Anxiety or fear-related disorders, unspecified",
+            "name_zh": "焦虑或恐惧相关性障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6B2",
+        "name": "Obsessive-compulsive or related disorders",
+        "name_zh": "强迫性或相关障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6B20-6B2Z",
+        "disorders": [
+          {
+            "code": "6B20",
+            "name": "Obsessive-compulsive disorder",
+            "name_zh": "强迫性障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B20.0",
+                "name": "With good or fair insight",
+                "name_zh": "伴一般或良好自知力"
+              },
+              {
+                "code": "6B20.1",
+                "name": "With poor or absent insight",
+                "name_zh": "伴较差自知力或缺乏自知力"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Anxiety",
+                "rate": 0.6
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.4
+              },
+              {
+                "disorder": "Tic disorders",
+                "rate": 0.2
+              }
+            ],
+            "typical_age_of_onset": [
+              10,
+              25
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "Y-BOCS",
+              "OCI-R",
+              "MOCI"
+            ]
+          },
+          {
+            "code": "6B21",
+            "name": "Body dysmorphic disorder",
+            "name_zh": "躯体变形障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B21.0",
+                "name": "With good or fair insight",
+                "name_zh": "伴一般或良好自知力"
+              },
+              {
+                "code": "6B21.1",
+                "name": "With poor or absent insight",
+                "name_zh": "伴较差自知力或缺乏自知力"
+              }
+            ],
+            "typical_age_of_onset": [
+              15,
+              30
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "BDD-YBOCS"
+            ]
+          },
+          {
+            "code": "6B22",
+            "name": "Olfactory reference disorder",
+            "name_zh": "嗅觉牵连障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B22.0",
+                "name": "With good or fair insight",
+                "name_zh": "伴一般或良好自知力"
+              },
+              {
+                "code": "6B22.1",
+                "name": "With poor or absent insight",
+                "name_zh": "伴较差或缺乏自知力"
+              }
+            ]
+          },
+          {
+            "code": "6B23",
+            "name": "Hypochondriasis",
+            "name_zh": "疑病症",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B23.0",
+                "name": "With good or fair insight",
+                "name_zh": "伴一般或良好自知力"
+              },
+              {
+                "code": "6B23.1",
+                "name": "With poor or absent insight",
+                "name_zh": "伴较差自知力或缺乏自知力"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Anxiety",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.3
+              }
+            ],
+            "relevant_scales": [
+              "SHAI",
+              "WI"
+            ]
+          },
+          {
+            "code": "6B24",
+            "name": "Hoarding disorder",
+            "name_zh": "囤积障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B24.0",
+                "name": "With good or fair insight",
+                "name_zh": "伴一般或良好自知力"
+              },
+              {
+                "code": "6B24.1",
+                "name": "With poor or absent insight",
+                "name_zh": "伴较差或缺乏自知力"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Depression",
+                "rate": 0.4
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.3
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B25",
+            "name": "Body-focused repetitive behaviour disorders",
+            "name_zh": "聚焦于躯体的重复行为障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B25.0",
+                "name": "Trichotillomania",
+                "name_zh": "拔毛癖"
+              },
+              {
+                "code": "6B25.1",
+                "name": "Excoriation disorder",
+                "name_zh": "抓痕障碍"
+              }
+            ],
+            "typical_age_of_onset": [
+              10,
+              20
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "MGH-HPS",
+              "NIMH-TSS"
+            ]
+          },
+          {
+            "code": "6B2Y",
+            "name": "Other specified OCRDs",
+            "name_zh": "其他特指的强迫性或相关障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B2Z",
+            "name": "OCRD, unspecified",
+            "name_zh": "强迫性或相关障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6B4",
+        "name": "Disorders specifically associated with stress",
+        "name_zh": "应激相关障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6B40-6B4Z",
+        "disorders": [
+          {
+            "code": "6B40",
+            "name": "Post-traumatic stress disorder",
+            "name_zh": "创伤后应激障碍",
+            "description": "Develops following exposure to an extremely threatening or horrific event; characterized by re-experiencing, avoidance, hyperarousal.",
+            "description_zh": "在经历极端威胁或恐怖事件后发展；以再体验、回避、过度警觉为特征。",
+            "common_comorbidities": [
+              {
+                "disorder": "Depression",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Substance use",
+                "rate": 0.3
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.5
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "PCL-5",
+              "CAPS-5",
+              "IES-R",
+              "C-SSRS"
+            ]
+          },
+          {
+            "code": "6B41",
+            "name": "Complex post-traumatic stress disorder",
+            "name_zh": "复杂性创伤后应激障碍",
+            "description": "Develops after sustained/repeated trauma; includes PTSD symptoms + disturbances in self-organization (affect dysregulation, negative self-concept, interpersonal difficulties).",
+            "description_zh": "在持续/重复的创伤后发展；除PTSD症状外，还有自我组织障碍（情感调节障碍、消极自我概念、人际关系困难）。",
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "ITQ"
+            ]
+          },
+          {
+            "code": "6B42",
+            "name": "Prolonged grief disorder",
+            "name_zh": "延长哀伤障碍",
+            "description": "Persistent and pervasive grief response lasting >6 months after bereavement.",
+            "description_zh": "在丧亲后持续>6个月的弥漫性哀伤反应。",
+            "relevant_scales": [
+              "PG-13",
+              "ICG"
+            ]
+          },
+          {
+            "code": "6B43",
+            "name": "Adjustment disorder",
+            "name_zh": "适应障碍",
+            "description": "Emotional/behavioural symptoms in response to an identifiable psychosocial stressor.",
+            "description_zh": "对可识别的心理社会应激源的适应性情绪/行为反应。",
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B44",
+            "name": "Reactive attachment disorder",
+            "name_zh": "反应性依恋障碍",
+            "description": "Severely disturbed attachment behaviour in young children due to social neglect.",
+            "description_zh": "因社会忽视导致的幼儿严重依恋行为紊乱。",
+            "typical_age_of_onset": [
+              1,
+              5
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B45",
+            "name": "Disinhibited social engagement disorder",
+            "name_zh": "脱抑制性社会参与障碍",
+            "description": "Indiscriminate social approach in young children due to social neglect.",
+            "description_zh": "因社会忽视导致的幼儿不加区别的社交行为。",
+            "typical_age_of_onset": [
+              1,
+              5
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B4Y",
+            "name": "Other specified stress-related disorders",
+            "name_zh": "其他特指的应激相关障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B4Z",
+            "name": "Stress-related disorders, unspecified",
+            "name_zh": "应激相关障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6B6",
+        "name": "Dissociative disorders",
+        "name_zh": "分离障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6B60-6B6Z",
+        "disorders": [
+          {
+            "code": "6B60",
+            "name": "Dissociative neurological symptom disorder",
+            "name_zh": "分离性神经症状障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B60.0",
+                "name": "With visual symptoms",
+                "name_zh": "伴视觉症状"
+              },
+              {
+                "code": "6B60.1",
+                "name": "With auditory symptoms",
+                "name_zh": "伴听觉症状"
+              },
+              {
+                "code": "6B60.2",
+                "name": "With vertigo",
+                "name_zh": "伴眩晕"
+              },
+              {
+                "code": "6B60.3",
+                "name": "With sensory changes",
+                "name_zh": "伴感觉改变"
+              },
+              {
+                "code": "6B60.4",
+                "name": "With non-epileptic seizures",
+                "name_zh": "不伴抽搐或痉挛"
+              },
+              {
+                "code": "6B60.5",
+                "name": "With speech disturbance",
+                "name_zh": "伴言语生成症状"
+              },
+              {
+                "code": "6B60.6",
+                "name": "With paresis or weakness",
+                "name_zh": "伴无力或麻痹"
+              },
+              {
+                "code": "6B60.7",
+                "name": "With gait disturbance",
+                "name_zh": "伴步态症状"
+              },
+              {
+                "code": "6B60.8",
+                "name": "With movement disturbance",
+                "name_zh": "伴运动症状"
+              }
+            ],
+            "typical_age_of_onset": [
+              15,
+              35
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6B61",
+            "name": "Dissociative amnesia",
+            "name_zh": "分离遗忘症",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B61.0",
+                "name": "With dissociative fugue",
+                "name_zh": "伴分离性漫游"
+              },
+              {
+                "code": "6B61.1",
+                "name": "Without dissociative fugue",
+                "name_zh": "不伴分离性漫游"
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6B62",
+            "name": "Trance disorder",
+            "name_zh": "出神障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B63",
+            "name": "Possession trance disorder",
+            "name_zh": "附体出神障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B64",
+            "name": "Dissociative identity disorder",
+            "name_zh": "分离性身份障碍",
+            "description": "Disruption of identity with two or more distinct personality states.",
+            "description_zh": "身份瓦解，存在两个或更多不同的人格状态。",
+            "typical_age_of_onset": [
+              20,
+              30
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "SCID-D",
+              "DES"
+            ]
+          },
+          {
+            "code": "6B65",
+            "name": "Partial dissociative identity disorder",
+            "name_zh": "部分分离性身份障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              20,
+              30
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6B66",
+            "name": "Depersonalization-derealization disorder",
+            "name_zh": "人格解体-现实解体障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              16,
+              25
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B6Y",
+            "name": "Other specified dissociative disorders",
+            "name_zh": "其他特指的分离障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B6Z",
+            "name": "Dissociative disorders, unspecified",
+            "name_zh": "分离障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6B8",
+        "name": "Feeding or eating disorders",
+        "name_zh": "喂食或进食障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6B80-6B8Z",
+        "disorders": [
+          {
+            "code": "6B80",
+            "name": "Anorexia nervosa",
+            "name_zh": "神经性厌食",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6B80.0",
+                "name": "With significantly low body weight",
+                "name_zh": "伴显著的低体重",
+                "sub": [
+                  {
+                    "code": "6B80.00",
+                    "name": "Restricting type",
+                    "name_zh": "限制型"
+                  },
+                  {
+                    "code": "6B80.01",
+                    "name": "Binge-purge type",
+                    "name_zh": "暴食-清除型"
+                  }
+                ]
+              },
+              {
+                "code": "6B80.1",
+                "name": "With dangerously low body weight",
+                "name_zh": "伴危险的低体重"
+              },
+              {
+                "code": "6B80.2",
+                "name": "In recovery with normal body weight",
+                "name_zh": "恢复期伴正常体重"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Depression",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.5
+              },
+              {
+                "disorder": "OCD",
+                "rate": 0.2
+              }
+            ],
+            "typical_age_of_onset": [
+              14,
+              25
+            ],
+            "gender_ratio": "F>M(10:1)",
+            "relevant_scales": [
+              "EDE-Q",
+              "EAT-26",
+              "SCOFF"
+            ],
+            "severity_dimensions": [
+              "BMI",
+              "Restriction severity",
+              "Binge-purge frequency"
+            ]
+          },
+          {
+            "code": "6B81",
+            "name": "Bulimia nervosa",
+            "name_zh": "神经性贪食",
+            "description": "",
+            "description_zh": "",
+            "common_comorbidities": [
+              {
+                "disorder": "Depression",
+                "rate": 0.5
+              },
+              {
+                "disorder": "BPD",
+                "rate": 0.25
+              }
+            ],
+            "typical_age_of_onset": [
+              16,
+              30
+            ],
+            "gender_ratio": "F>M(10:1)",
+            "relevant_scales": [
+              "EDE-Q",
+              "BULIT-R"
+            ]
+          },
+          {
+            "code": "6B82",
+            "name": "Binge eating disorder",
+            "name_zh": "暴食障碍",
+            "description": "",
+            "description_zh": "",
+            "common_comorbidities": [
+              {
+                "disorder": "Obesity",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.4
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M(1.5:1)",
+            "relevant_scales": [
+              "BES",
+              "EDE-Q"
+            ]
+          },
+          {
+            "code": "6B83",
+            "name": "Avoidant-restrictive food intake disorder",
+            "name_zh": "回避-限制性摄食障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              3,
+              20
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B84",
+            "name": "Pica",
+            "name_zh": "异食癖",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              2,
+              10
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B85",
+            "name": "Rumination-regurgitation disorder",
+            "name_zh": "反刍-反流障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              3,
+              12
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6B8Y",
+            "name": "Other specified feeding/eating disorders",
+            "name_zh": "其他特指的喂食或进食障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6B8Z",
+            "name": "Feeding/eating disorders, unspecified",
+            "name_zh": "喂食或进食障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6C0",
+        "name": "Elimination disorders",
+        "name_zh": "排泄障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6C00-6C0Z",
+        "disorders": [
+          {
+            "code": "6C00",
+            "name": "Enuresis",
+            "name_zh": "遗尿症",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6C00.0",
+                "name": "Nocturnal",
+                "name_zh": "夜间遗尿症"
+              },
+              {
+                "code": "6C00.1",
+                "name": "Diurnal",
+                "name_zh": "日间遗尿症"
+              },
+              {
+                "code": "6C00.2",
+                "name": "Nocturnal and diurnal",
+                "name_zh": "夜间和日间遗尿症"
+              }
+            ],
+            "typical_age_of_onset": [
+              5,
+              12
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6C01",
+            "name": "Encopresis",
+            "name_zh": "遗粪症",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6C01.0",
+                "name": "With constipation/overflow",
+                "name_zh": "伴便秘或溢出性失禁"
+              },
+              {
+                "code": "6C01.1",
+                "name": "Without constipation",
+                "name_zh": "不伴便秘或溢出性失禁"
+              }
+            ],
+            "typical_age_of_onset": [
+              5,
+              12
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6C0Z",
+            "name": "Elimination disorders, unspecified",
+            "name_zh": "排泄障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6C2",
+        "name": "Disorders of bodily distress or bodily experience",
+        "name_zh": "躯体不适或躯体体验障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6C20-6C2Z",
+        "disorders": [
+          {
+            "code": "6C20",
+            "name": "Bodily distress disorder",
+            "name_zh": "躯体不适障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6C20.0",
+                "name": "Mild",
+                "name_zh": "轻度"
+              },
+              {
+                "code": "6C20.1",
+                "name": "Moderate",
+                "name_zh": "中度"
+              },
+              {
+                "code": "6C20.2",
+                "name": "Severe",
+                "name_zh": "重度"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "Anxiety",
+                "rate": 0.4
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.4
+              }
+            ],
+            "typical_age_of_onset": [
+              20,
+              50
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "PHQ-15",
+              "SSS-8",
+              "WI"
+            ]
+          },
+          {
+            "code": "6C21",
+            "name": "Body integrity dysphoria",
+            "name_zh": "身体一致性烦恼",
+            "description": "Persistent desire to have a specific physical impairment (e.g., amputation).",
+            "description_zh": "持续渴望拥有某种特定的身体残疾（如截肢）。"
+          },
+          {
+            "code": "6C2Y",
+            "name": "Other specified bodily distress disorders",
+            "name_zh": "其他特指的躯体不适或躯体体验障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6C2Z",
+            "name": "Bodily distress disorders, unspecified",
+            "name_zh": "躯体不适或躯体体验障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6C4",
+        "name": "Disorders due to substance use or addictive behaviours",
+        "name_zh": "物质使用或成瘾行为所致障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6C40-6C5Z",
+        "disorders": [
+          {
+            "id": "L2-6C4",
+            "name": "Disorders due to substance use",
+            "name_zh": "物质使用所致障碍",
+            "code_range": "6C40-6C4Z",
+            "disorders": [
+              {
+                "code": "6C40",
+                "name": "Disorders due to use of Alcohol",
+                "name_zh": "酒精使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  40
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "AUDIT",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C41",
+                "name": "Disorders due to use of Cannabis",
+                "name_zh": "大麻使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  16,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C42",
+                "name": "Disorders due to use of Synthetic cannabinoids",
+                "name_zh": "合成大麻素使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C43",
+                "name": "Disorders due to use of Opioids",
+                "name_zh": "阿片类使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C44",
+                "name": "Disorders due to use of Sedatives, hypnotics or anxiolytics",
+                "name_zh": "镇静催眠或抗焦虑药使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  50
+                ],
+                "gender_ratio": "F>M",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C45",
+                "name": "Disorders due to use of Cocaine",
+                "name_zh": "可卡因使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C46",
+                "name": "Disorders due to use of Stimulants (amphetamines, methamphetamine)",
+                "name_zh": "兴奋剂（安非他明、甲基苯丙胺）使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  35
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C47",
+                "name": "Disorders due to use of Synthetic cathinones",
+                "name_zh": "合成卡西酮使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C48",
+                "name": "Disorders due to use of Caffeine",
+                "name_zh": "咖啡因使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C49",
+                "name": "Disorders due to use of Hallucinogens",
+                "name_zh": "致幻剂使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4A",
+                "name": "Disorders due to use of Nicotine",
+                "name_zh": "尼古丁使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  16,
+                  30
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4B",
+                "name": "Disorders due to use of Volatile inhalants",
+                "name_zh": "挥发性吸入剂使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  14,
+                  25
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4C",
+                "name": "Disorders due to use of MDMA or related drugs",
+                "name_zh": "MDMA及相关药物使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  30
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4D",
+                "name": "Disorders due to use of Dissociative drugs (ketamine, PCP)",
+                "name_zh": "解离性药物（氯胺酮、PCP）使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  18,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4E",
+                "name": "Disorders due to use of Other specified psychoactive substances",
+                "name_zh": "其他特指的精神活性物质使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4F",
+                "name": "Disorders due to use of Multiple specified psychoactive substances",
+                "name_zh": "多种特指的精神活性物质使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4G",
+                "name": "Disorders due to use of Unknown/unspecified psychoactive substances",
+                "name_zh": "未知或未特指的精神活性物质使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4H",
+                "name": "Disorders due to use of Non-psychoactive substances",
+                "name_zh": "非精神活性物质使用所致障碍",
+                "description": "",
+                "description_zh": "",
+                "common_comorbidities": [
+                  {
+                    "disorder": "Depression",
+                    "rate": 0.3
+                  },
+                  {
+                    "disorder": "Anxiety",
+                    "rate": 0.25
+                  },
+                  {
+                    "disorder": "PTSD",
+                    "rate": 0.15
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  50
+                ],
+                "gender_ratio": "M=F",
+                "relevant_scales": [
+                  "DAST-10",
+                  "ASSIST",
+                  "CAGE"
+                ],
+                "severity_dimensions": [
+                  "Use severity",
+                  "Dependence",
+                  "Intoxication/Withdrawal",
+                  "Substance-induced mental disorders"
+                ]
+              },
+              {
+                "code": "6C4Y",
+                "name": "Other specified substance use disorders",
+                "name_zh": "其他特指的物质使用所致障碍",
+                "description": "",
+                "description_zh": ""
+              },
+              {
+                "code": "6C4Z",
+                "name": "Substance use disorders, unspecified",
+                "name_zh": "物质使用所致障碍,未特指的",
+                "description": "",
+                "description_zh": ""
+              }
+            ]
+          },
+          {
+            "id": "L2-6C5",
+            "name": "Disorders due to addictive behaviours",
+            "name_zh": "成瘾行为所致障碍",
+            "code_range": "6C50-6C5Z",
+            "disorders": [
+              {
+                "code": "6C50",
+                "name": "Gambling disorder",
+                "name_zh": "赌博障碍",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6C50.0",
+                    "name": "Predominantly offline",
+                    "name_zh": "线下为主"
+                  },
+                  {
+                    "code": "6C50.1",
+                    "name": "Predominantly online",
+                    "name_zh": "线上为主"
+                  }
+                ],
+                "typical_age_of_onset": [
+                  20,
+                  40
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "PGSI",
+                  "SOGS"
+                ]
+              },
+              {
+                "code": "6C51",
+                "name": "Gaming disorder",
+                "name_zh": "游戏障碍",
+                "description": "",
+                "description_zh": "",
+                "subtypes": [
+                  {
+                    "code": "6C51.0",
+                    "name": "Predominantly online",
+                    "name_zh": "线上为主"
+                  },
+                  {
+                    "code": "6C51.1",
+                    "name": "Predominantly offline",
+                    "name_zh": "线下为主"
+                  }
+                ],
+                "typical_age_of_onset": [
+                  12,
+                  30
+                ],
+                "gender_ratio": "M>F",
+                "relevant_scales": [
+                  "IGD-20",
+                  "GAS"
+                ]
+              },
+              {
+                "code": "6C5Y",
+                "name": "Other specified addictive behaviour disorders",
+                "name_zh": "其他特指的成瘾行为所致障碍",
+                "description": "",
+                "description_zh": ""
+              },
+              {
+                "code": "6C5Z",
+                "name": "Addictive behaviour disorders, unspecified",
+                "name_zh": "成瘾行为所致障碍,未特指的",
+                "description": "",
+                "description_zh": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "L1-6C7",
+        "name": "Impulse control disorders",
+        "name_zh": "冲动控制障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6C70-6C7Z",
+        "disorders": [
+          {
+            "code": "6C70",
+            "name": "Pyromania",
+            "name_zh": "纵火癖",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              10,
+              25
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6C71",
+            "name": "Kleptomania",
+            "name_zh": "盗窃癖",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              15,
+              30
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6C72",
+            "name": "Compulsive sexual behaviour disorder",
+            "name_zh": "强迫性性行为障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "CSBI",
+              "SAST-R"
+            ]
+          },
+          {
+            "code": "6C73",
+            "name": "Intermittent explosive disorder",
+            "name_zh": "间歇性暴怒障碍",
+            "description": "",
+            "description_zh": "",
+            "common_comorbidities": [
+              {
+                "disorder": "Anxiety",
+                "rate": 0.3
+              },
+              {
+                "disorder": "Depression",
+                "rate": 0.3
+              },
+              {
+                "disorder": "Substance use",
+                "rate": 0.4
+              }
+            ],
+            "typical_age_of_onset": [
+              15,
+              30
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "AIAQ-CF"
+            ]
+          },
+          {
+            "code": "6C7Y",
+            "name": "Other specified impulse control disorders",
+            "name_zh": "其他特指的冲动控制障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6C7Z",
+            "name": "Impulse control disorders, unspecified",
+            "name_zh": "冲动控制障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6C9",
+        "name": "Disruptive behaviour or dissocial disorders",
+        "name_zh": "破坏行为或反社会障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6C90-6C9Z",
+        "disorders": [
+          {
+            "code": "6C90",
+            "name": "Oppositional defiant disorder",
+            "name_zh": "对立违抗障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6C90.0",
+                "name": "With chronic irritability-anger",
+                "name_zh": "伴慢性易怒-愤怒"
+              },
+              {
+                "code": "6C90.1",
+                "name": "Without chronic irritability-anger",
+                "name_zh": "不伴慢性易怒-愤怒"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "ADHD",
+                "rate": 0.5
+              },
+              {
+                "disorder": "Anxiety",
+                "rate": 0.2
+              }
+            ],
+            "typical_age_of_onset": [
+              8,
+              16
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "CPRS",
+              "Conners-3"
+            ]
+          },
+          {
+            "code": "6C91",
+            "name": "Conduct-dissocial disorder",
+            "name_zh": "品行-反社会障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6C91.0",
+                "name": "Childhood onset",
+                "name_zh": "儿童期起病"
+              },
+              {
+                "code": "6C91.1",
+                "name": "Adolescent onset",
+                "name_zh": "青少年期起病"
+              }
+            ],
+            "common_comorbidities": [
+              {
+                "disorder": "ADHD",
+                "rate": 0.4
+              },
+              {
+                "disorder": "Substance use",
+                "rate": 0.3
+              }
+            ],
+            "typical_age_of_onset": [
+              8,
+              16
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "CPRS",
+              "ASPD criteria"
+            ]
+          },
+          {
+            "code": "6C9Y",
+            "name": "Other specified disruptive behaviour disorders",
+            "name_zh": "其他特指的破坏行为或反社会障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6C9Z",
+            "name": "Disruptive behaviour disorders, unspecified",
+            "name_zh": "破坏行为或反社会障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6D1",
+        "name": "Personality disorders and related traits",
+        "name_zh": "人格障碍及相关特质",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6D10-6D11.5",
+        "disorders": [
+          {
+            "code": "6D10",
+            "name": "Personality disorder",
+            "name_zh": "人格障碍",
+            "description": "A marked disturbance in personality functioning, manifested in impairments in self-functioning (identity, self-worth, self-direction) and/or interpersonal functioning.",
+            "description_zh": "人格功能的显著紊乱，表现在自我功能（身份、自我价值、自我导向）和/或人际功能方面的损害。",
+            "subtypes": [
+              {
+                "code": "6D10.0",
+                "name": "Mild",
+                "name_zh": "轻度"
+              },
+              {
+                "code": "6D10.1",
+                "name": "Moderate",
+                "name_zh": "中度"
+              },
+              {
+                "code": "6D10.2",
+                "name": "Severe",
+                "name_zh": "重度"
+              },
+              {
+                "code": "6D10.Z",
+                "name": "Severity unspecified",
+                "name_zh": "严重度未特指"
+              }
+            ],
+            "severity_dimensions": [
+              "Self-functioning",
+              "Interpersonal functioning",
+              "Emotional/behavioural problems",
+              "Risk of harm"
+            ]
+          },
+          {
+            "code": "6D11",
+            "name": "Prominent personality traits or patterns",
+            "name_zh": "突出人格特质或模式",
+            "description": "Trait domain specifiers that describe the characteristics of personality functioning. The borderline pattern corresponds closely to DSM-5 borderline PD.",
+            "description_zh": "描述人格功能特征的特质领域限定词。边缘型模式与DSM-5边缘型人格障碍高度对应。",
+            "subtypes": [
+              {
+                "code": "6D11.0",
+                "name": "Negative affectivity",
+                "name_zh": "负性情绪倾向"
+              },
+              {
+                "code": "6D11.1",
+                "name": "Detachment",
+                "name_zh": "疏离"
+              },
+              {
+                "code": "6D11.2",
+                "name": "Dissociality",
+                "name_zh": "反社会性"
+              },
+              {
+                "code": "6D11.3",
+                "name": "Disinhibition",
+                "name_zh": "去抑制"
+              },
+              {
+                "code": "6D11.4",
+                "name": "Anankastia",
+                "name_zh": "强迫性"
+              },
+              {
+                "code": "6D11.5",
+                "name": "Borderline pattern",
+                "name_zh": "边缘型模式"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "L1-6D3",
+        "name": "Paraphilic disorders",
+        "name_zh": "性偏好障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6D30-6D3Z",
+        "disorders": [
+          {
+            "code": "6D30",
+            "name": "Exhibitionistic disorder",
+            "name_zh": "露阴障碍",
+            "description": "",
+            "description_zh": "",
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D31",
+            "name": "Voyeuristic disorder",
+            "name_zh": "窥阴障碍",
+            "description": "",
+            "description_zh": "",
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D32",
+            "name": "Pedophilic disorder",
+            "name_zh": "恋童障碍",
+            "description": "",
+            "description_zh": "",
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D33",
+            "name": "Coercive sexual sadism disorder",
+            "name_zh": "强制性施虐障碍",
+            "description": "",
+            "description_zh": "",
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D34",
+            "name": "Frotteuristic disorder",
+            "name_zh": "摩擦障碍",
+            "description": "",
+            "description_zh": "",
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D35",
+            "name": "Other paraphilic disorder involving non-consenting individuals",
+            "name_zh": "其他涉及非自愿者的性偏好障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6D36",
+            "name": "Paraphilic disorder involving solitary behaviour or consenting individuals",
+            "name_zh": "涉及独处行为或自愿者的性偏好障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6D3Z",
+            "name": "Paraphilic disorders, unspecified",
+            "name_zh": "性偏好障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6D5",
+        "name": "Factitious disorders",
+        "name_zh": "做作性障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6D50-6D5Z",
+        "disorders": [
+          {
+            "code": "6D50",
+            "name": "Factitious disorder imposed on self",
+            "name_zh": "自身做作性障碍（Munchausen综合征）",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6D51",
+            "name": "Factitious disorder imposed on another",
+            "name_zh": "他人做作性障碍（代理性Munchausen）",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              20,
+              40
+            ],
+            "gender_ratio": "F>M"
+          },
+          {
+            "code": "6D5Z",
+            "name": "Factitious disorders, unspecified",
+            "name_zh": "做作性障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6D7",
+        "name": "Neurocognitive disorders",
+        "name_zh": "神经认知障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6D70-6E0Z",
+        "disorders": [
+          {
+            "code": "6D70",
+            "name": "Delirium",
+            "name_zh": "谵妄",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6D70.0",
+                "name": "Due to disease classified elsewhere",
+                "name_zh": "由于分类于他处的疾病"
+              },
+              {
+                "code": "6D70.1",
+                "name": "Due to psychoactive substances/medications",
+                "name_zh": "由于精神活性物质（包括治疗药物）"
+              },
+              {
+                "code": "6D70.2",
+                "name": "Due to multiple etiological factors",
+                "name_zh": "由于多种病因因素"
+              }
+            ],
+            "typical_age_of_onset": [
+              65,
+              90
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "CAM",
+              "MDAS",
+              "DOS"
+            ]
+          },
+          {
+            "code": "6D71",
+            "name": "Mild neurocognitive disorder",
+            "name_zh": "轻度神经认知障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              60,
+              90
+            ],
+            "gender_ratio": "M=F",
+            "relevant_scales": [
+              "MoCA",
+              "MMSE",
+              "CDR"
+            ]
+          },
+          {
+            "code": "6D72",
+            "name": "Amnestic disorder",
+            "name_zh": "遗忘障碍",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              50,
+              80
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6D80",
+            "name": "Dementia due to Alzheimer disease",
+            "name_zh": "阿尔茨海默病性痴呆",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              65,
+              90
+            ],
+            "gender_ratio": "F>M",
+            "relevant_scales": [
+              "NPI-Q",
+              "ADAS-Cog",
+              "CDR"
+            ],
+            "severity_dimensions": [
+              "Cognitive decline",
+              "Functional impairment",
+              "Behavioural disturbances"
+            ]
+          },
+          {
+            "code": "6D81",
+            "name": "Dementia due to cerebrovascular disease",
+            "name_zh": "脑血管病性痴呆（血管性痴呆）",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              60,
+              85
+            ],
+            "gender_ratio": "M>F",
+            "relevant_scales": [
+              "Hachinski",
+              "NINDS-AIREN"
+            ]
+          },
+          {
+            "code": "6D82",
+            "name": "Dementia with Lewy bodies",
+            "name_zh": "路易体痴呆",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              60,
+              85
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D83",
+            "name": "Frontotemporal dementia",
+            "name_zh": "额颞叶痴呆",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              45,
+              70
+            ],
+            "gender_ratio": "M=F"
+          },
+          {
+            "code": "6D84",
+            "name": "Dementia due to psychoactive substances",
+            "name_zh": "精神活性物质性痴呆",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              40,
+              60
+            ],
+            "gender_ratio": "M>F"
+          },
+          {
+            "code": "6D85",
+            "name": "Dementia due to diseases classified elsewhere",
+            "name_zh": "分类于他处的疾病所致痴呆",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6D85.0",
+                "name": "Due to Parkinson disease",
+                "name_zh": "帕金森病性痴呆"
+              },
+              {
+                "code": "6D85.1",
+                "name": "Due to Huntington disease",
+                "name_zh": "亨廷顿病性痴呆"
+              },
+              {
+                "code": "6D85.2",
+                "name": "Due to HIV",
+                "name_zh": "HIV性痴呆"
+              },
+              {
+                "code": "6D85.3",
+                "name": "Due to prion disease",
+                "name_zh": "朊蛋白病性痴呆"
+              },
+              {
+                "code": "6D85.4",
+                "name": "Due to traumatic brain injury",
+                "name_zh": "创伤性脑损伤性痴呆"
+              }
+            ]
+          },
+          {
+            "code": "6D86",
+            "name": "Behavioural or psychological disturbances in dementia",
+            "name_zh": "痴呆中的精神或行为紊乱",
+            "description": "",
+            "description_zh": "",
+            "relevant_scales": [
+              "NPI-Q",
+              "BEHAVE-AD",
+              "MOSES"
+            ]
+          },
+          {
+            "code": "6D8Z",
+            "name": "Dementia, unknown cause",
+            "name_zh": "痴呆,原因未知或未特定",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E0Y",
+            "name": "Other specified neurocognitive disorders",
+            "name_zh": "其他特指的神经认知障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E0Z",
+            "name": "Neurocognitive disorders, unspecified",
+            "name_zh": "神经认知障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6E2",
+        "name": "Mental/behavioural disorders associated with pregnancy, childbirth or the puerperium",
+        "name_zh": "与妊娠、分娩和产褥期有关的精神或行为障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6E20-6E2Z",
+        "disorders": [
+          {
+            "code": "6E20",
+            "name": "Perinatal mental disorders without psychotic symptoms",
+            "name_zh": "不伴精神病性症状",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6E20.0",
+                "name": "Postpartum depression NOS",
+                "name_zh": "产后抑郁NOS"
+              }
+            ],
+            "typical_age_of_onset": [
+              16,
+              45
+            ],
+            "gender_ratio": "F only",
+            "relevant_scales": [
+              "EPDS"
+            ]
+          },
+          {
+            "code": "6E21",
+            "name": "Perinatal mental disorders with psychotic symptoms",
+            "name_zh": "伴精神病性症状",
+            "description": "",
+            "description_zh": "",
+            "typical_age_of_onset": [
+              16,
+              45
+            ],
+            "gender_ratio": "F only"
+          },
+          {
+            "code": "6E2Z",
+            "name": "Perinatal mental disorders, unspecified",
+            "name_zh": "未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6E4",
+        "name": "Psychological or behavioural factors affecting disorders classified elsewhere",
+        "name_zh": "心理或行为因素影响分类于他处的疾患或疾病",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6E40",
+        "disorders": [
+          {
+            "code": "6E40",
+            "name": "Psychological/behavioural factors affecting medical conditions",
+            "name_zh": "影响分类于他处的疾患或疾病的心理或行为因素",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6E40.0",
+                "name": "Mental disorder",
+                "name_zh": "精神障碍"
+              },
+              {
+                "code": "6E40.1",
+                "name": "Psychological symptoms",
+                "name_zh": "心理症状"
+              },
+              {
+                "code": "6E40.2",
+                "name": "Personality traits/coping",
+                "name_zh": "人格特征或应对方式"
+              },
+              {
+                "code": "6E40.3",
+                "name": "Maladaptive health behaviours",
+                "name_zh": "适应不良健康行为"
+              },
+              {
+                "code": "6E40.4",
+                "name": "Stress-related physiological response",
+                "name_zh": "应激相关生理反应"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "L1-6E6",
+        "name": "Secondary mental/behavioural syndromes associated with disorders classified elsewhere",
+        "name_zh": "与分类于他处的障碍或疾病相关的继发性精神或行为综合征",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6E60-6E6Z",
+        "disorders": [
+          {
+            "code": "6E60",
+            "name": "Secondary neurodevelopmental syndrome",
+            "name_zh": "继发性神经发育综合征",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6E60.0",
+                "name": "Secondary speech/language syndrome",
+                "name_zh": "继发性言语或语言综合征"
+              }
+            ]
+          },
+          {
+            "code": "6E61",
+            "name": "Secondary psychotic syndrome",
+            "name_zh": "继发性精神病性综合征",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6E61.0",
+                "name": "With hallucinations",
+                "name_zh": "伴幻觉"
+              },
+              {
+                "code": "6E61.1",
+                "name": "With delusions",
+                "name_zh": "伴妄想"
+              }
+            ]
+          },
+          {
+            "code": "6E62",
+            "name": "Secondary mood syndrome",
+            "name_zh": "继发性心境障碍",
+            "description": "",
+            "description_zh": "",
+            "subtypes": [
+              {
+                "code": "6E62.0",
+                "name": "With depressive symptoms",
+                "name_zh": "伴抑郁症状"
+              },
+              {
+                "code": "6E62.1",
+                "name": "With manic symptoms",
+                "name_zh": "伴躁狂症状"
+              }
+            ]
+          },
+          {
+            "code": "6E63",
+            "name": "Secondary anxiety syndrome",
+            "name_zh": "继发性焦虑综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E64",
+            "name": "Secondary obsessive-compulsive or related syndrome",
+            "name_zh": "继发性强迫或相关综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E65",
+            "name": "Secondary dissociative syndrome",
+            "name_zh": "继发性分离综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E66",
+            "name": "Secondary impulse control syndrome",
+            "name_zh": "继发性冲动控制综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E67",
+            "name": "Secondary neurocognitive syndrome",
+            "name_zh": "继发性神经认知综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E68",
+            "name": "Secondary personality change",
+            "name_zh": "继发性人格改变",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E69",
+            "name": "Secondary catatonia syndrome",
+            "name_zh": "继发性紧张症综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E6Y",
+            "name": "Other specified secondary syndrome",
+            "name_zh": "其他特指的继发性精神或行为综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E6Z",
+            "name": "Secondary syndrome, unspecified",
+            "name_zh": "未特指的继发性精神或行为综合征",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "id": "L1-6E8",
+        "name": "Other specified/unspecified mental disorders",
+        "name_zh": "其他或未特指的精神、行为或神经发育障碍",
+        "description": "",
+        "description_zh": "",
+        "code_range": "6E8Y-6E8Z",
+        "disorders": [
+          {
+            "code": "6E8Y",
+            "name": "Other specified mental/behavioural/neurodevelopmental disorders",
+            "name_zh": "其他特指的精神、行为或神经发育障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "6E8Z",
+            "name": "Mental/behavioural/neurodevelopmental disorders, unspecified",
+            "name_zh": "精神、行为或神经发育障碍,未特指的",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      }
+    ]
+  },
+  "dsm5tr": {
+    "id": "dsm5tr",
+    "name": "Diagnostic and Statistical Manual of Mental Disorders, 5th Edition, Text Revision",
+    "name_zh": "精神障碍诊断与统计手册（第五版·文本修订）",
+    "year": 2022,
+    "publisher": "American Psychiatric Association",
+    "total_categories": 297,
+    "chapters": [
+      {
+        "name": "Neurodevelopmental Disorders",
+        "name_zh": "神经发育障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Intellectual Disability (Intellectual Developmental Disorder)",
+            "name_zh": "智力残疾（智力发育障碍）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Global Developmental Delay",
+            "name_zh": "全面发育迟缓",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Language Disorder",
+            "name_zh": "语言障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Speech Sound Disorder",
+            "name_zh": "语音障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Childhood-Onset Fluency Disorder (Stuttering)",
+            "name_zh": "儿童期起病的言语流畅障碍（口吃）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Social (Pragmatic) Communication Disorder",
+            "name_zh": "社交（语用）沟通障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Autism Spectrum Disorder",
+            "name_zh": "孤独症谱系障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Attention-Deficit/Hyperactivity Disorder",
+            "name_zh": "注意缺陷/多动障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Specific Learning Disorder",
+            "name_zh": "特定学习障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Developmental Coordination Disorder",
+            "name_zh": "发育性协调障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Stereotypic Movement Disorder",
+            "name_zh": "刻板性运动障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Tourette's Disorder",
+            "name_zh": "妥瑞氏障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Persistent (Chronic) Motor or Vocal Tic Disorder",
+            "name_zh": "持续性（慢性）运动或发声抽动障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Provisional Tic Disorder",
+            "name_zh": "暂时性抽动障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Schizophrenia Spectrum and Other Psychotic Disorders",
+        "name_zh": "精神分裂症谱系及其他精神病性障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Schizotypal (Personality) Disorder",
+            "name_zh": "分裂型（人格）障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Delusional Disorder",
+            "name_zh": "妄想性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Brief Psychotic Disorder",
+            "name_zh": "短暂精神病性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Schizophreniform Disorder",
+            "name_zh": "精神分裂症样障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Schizophrenia",
+            "name_zh": "精神分裂症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Schizoaffective Disorder",
+            "name_zh": "分裂情感性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Psychotic Disorder",
+            "name_zh": "物质/药物所致精神病性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Psychotic Disorder Due to Another Medical Condition",
+            "name_zh": "由于其他躯体疾病所致精神病性障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Catatonia Associated With Another Mental Disorder",
+            "name_zh": "与其他精神障碍相关的紧张症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Catatonic Disorder Due to Another Medical Condition",
+            "name_zh": "由于其他躯体疾病所致紧张症障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Bipolar and Related Disorders",
+        "name_zh": "双相及相关障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Bipolar I Disorder",
+            "name_zh": "双相I型障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Bipolar II Disorder",
+            "name_zh": "双相II型障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Cyclothymic Disorder",
+            "name_zh": "环性心境障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Bipolar and Related Disorder",
+            "name_zh": "物质/药物所致双相及相关障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Bipolar and Related Disorder Due to Another Medical Condition",
+            "name_zh": "由于其他躯体疾病所致双相及相关障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Depressive Disorders",
+        "name_zh": "抑郁障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Disruptive Mood Dysregulation Disorder",
+            "name_zh": "破坏性心境失调障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major Depressive Disorder, Single Episode",
+            "name_zh": "重性抑郁障碍，单次发作",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major Depressive Disorder, Recurrent",
+            "name_zh": "重性抑郁障碍，复发性",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Persistent Depressive Disorder (Dysthymia)",
+            "name_zh": "持续性抑郁障碍（恶劣心境）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Premenstrual Dysphoric Disorder",
+            "name_zh": "经前期烦躁障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Depressive Disorder",
+            "name_zh": "物质/药物所致抑郁障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Depressive Disorder Due to Another Medical Condition",
+            "name_zh": "由于其他躯体疾病所致抑郁障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Anxiety Disorders",
+        "name_zh": "焦虑障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "F93.0",
+            "name": "Separation Anxiety Disorder",
+            "name_zh": "分离焦虑障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F94.0",
+            "name": "Selective Mutism",
+            "name_zh": "选择性缄默症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F40.2",
+            "name": "Specific Phobia",
+            "name_zh": "特定恐怖症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F40.10",
+            "name": "Social Anxiety Disorder (Social Phobia)",
+            "name_zh": "社交焦虑障碍（社交恐怖症）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F41.0",
+            "name": "Panic Disorder",
+            "name_zh": "惊恐障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F40.00",
+            "name": "Agoraphobia",
+            "name_zh": "广场恐怖",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F41.1",
+            "name": "Generalized Anxiety Disorder",
+            "name_zh": "广泛性焦虑障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Anxiety Disorder",
+            "name_zh": "物质/药物所致焦虑障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F06.4",
+            "name": "Anxiety Disorder Due to Another Medical Condition",
+            "name_zh": "由于其他躯体疾病所致焦虑障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Obsessive-Compulsive and Related Disorders",
+        "name_zh": "强迫及相关障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "F42.2",
+            "name": "Obsessive-Compulsive Disorder",
+            "name_zh": "强迫症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "F45.22",
+            "name": "Body Dysmorphic Disorder",
+            "name_zh": "躯体变形障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Hoarding Disorder",
+            "name_zh": "囤积障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Trichotillomania (Hair-Pulling Disorder)",
+            "name_zh": "拔毛癖（拔毛障碍）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Excoriation (Skin-Picking) Disorder",
+            "name_zh": "抓痕障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced OCD and Related Disorder",
+            "name_zh": "物质/药物所致强迫及相关障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Trauma- and Stressor-Related Disorders",
+        "name_zh": "创伤及应激相关障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Reactive Attachment Disorder",
+            "name_zh": "反应性依恋障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Disinhibited Social Engagement Disorder",
+            "name_zh": "脱抑制性社会参与障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Posttraumatic Stress Disorder",
+            "name_zh": "创伤后应激障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Acute Stress Disorder",
+            "name_zh": "急性应激障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Adjustment Disorders",
+            "name_zh": "适应障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Prolonged Grief Disorder",
+            "name_zh": "延长哀伤障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Dissociative Disorders",
+        "name_zh": "分离障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Dissociative Identity Disorder",
+            "name_zh": "分离性身份障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Dissociative Amnesia",
+            "name_zh": "分离性遗忘症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Depersonalization/Derealization Disorder",
+            "name_zh": "人格解体/现实解体障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Somatic Symptom and Related Disorders",
+        "name_zh": "躯体症状及相关障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Somatic Symptom Disorder",
+            "name_zh": "躯体症状障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Illness Anxiety Disorder",
+            "name_zh": "疾病焦虑障碍（疑病症）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Functional Neurological Symptom Disorder (Conversion Disorder)",
+            "name_zh": "功能性神经症状障碍（转换障碍）",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Psychological Factors Affecting Other Medical Conditions",
+            "name_zh": "影响其他医疗状况的心理因素",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Factitious Disorder",
+            "name_zh": "做作性障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Feeding and Eating Disorders",
+        "name_zh": "喂食及进食障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Pica",
+            "name_zh": "异食癖",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Rumination Disorder",
+            "name_zh": "反刍障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Avoidant/Restrictive Food Intake Disorder",
+            "name_zh": "回避/限制性摄食障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Anorexia Nervosa",
+            "name_zh": "神经性厌食",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Bulimia Nervosa",
+            "name_zh": "神经性贪食",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Binge-Eating Disorder",
+            "name_zh": "暴食障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Elimination Disorders",
+        "name_zh": "排泄障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Enuresis",
+            "name_zh": "遗尿症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Encopresis",
+            "name_zh": "遗粪症",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Sleep-Wake Disorders",
+        "name_zh": "睡眠-觉醒障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Insomnia Disorder",
+            "name_zh": "失眠障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Hypersomnolence Disorder",
+            "name_zh": "嗜睡障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Narcolepsy",
+            "name_zh": "发作性睡病",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Obstructive Sleep Apnea Hypopnea",
+            "name_zh": "阻塞性睡眠呼吸暂停低通气",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Central Sleep Apnea",
+            "name_zh": "中枢性睡眠呼吸暂停",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Sleep-Related Hypoventilation",
+            "name_zh": "睡眠相关性低通气",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Circadian Rhythm Sleep-Wake Disorder",
+            "name_zh": "昼夜节律睡眠-觉醒障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Non-Rapid Eye Movement Sleep Arousal Disorders",
+            "name_zh": "非快速眼动睡眠唤醒障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Nightmare Disorder",
+            "name_zh": "梦魇障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "REM Sleep Behavior Disorder",
+            "name_zh": "REM睡眠行为障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Restless Legs Syndrome",
+            "name_zh": "不宁腿综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Sleep Disorder",
+            "name_zh": "物质/药物所致睡眠障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Sexual Dysfunctions",
+        "name_zh": "性功能障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Delayed Ejaculation",
+            "name_zh": "延迟射精",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Erectile Disorder",
+            "name_zh": "勃起障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Female Orgasmic Disorder",
+            "name_zh": "女性高潮障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Female Sexual Interest/Arousal Disorder",
+            "name_zh": "女性性兴趣/唤起障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Genito-Pelvic Pain/Penetration Disorder",
+            "name_zh": "生殖-盆腔痛/插入障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Male Hypoactive Sexual Desire Disorder",
+            "name_zh": "男性性欲减退障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Premature (Early) Ejaculation",
+            "name_zh": "早泄",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Substance/Medication-Induced Sexual Dysfunction",
+            "name_zh": "物质/药物所致性功能障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Gender Dysphoria",
+        "name_zh": "性别烦躁",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Gender Dysphoria",
+            "name_zh": "性别烦躁",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Disruptive, Impulse-Control, and Conduct Disorders",
+        "name_zh": "破坏性、冲动控制及品行障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Oppositional Defiant Disorder",
+            "name_zh": "对立违抗障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Intermittent Explosive Disorder",
+            "name_zh": "间歇性暴怒障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Conduct Disorder",
+            "name_zh": "品行障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Antisocial Personality Disorder",
+            "name_zh": "反社会型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Pyromania",
+            "name_zh": "纵火癖",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Kleptomania",
+            "name_zh": "盗窃癖",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Substance-Related and Addictive Disorders",
+        "name_zh": "物质相关及成瘾障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Alcohol Use Disorder",
+            "name_zh": "酒精使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Caffeine Intoxication/Withdrawal",
+            "name_zh": "咖啡因中毒/戒断",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Cannabis Use Disorder",
+            "name_zh": "大麻使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Hallucinogen Use Disorder",
+            "name_zh": "致幻剂使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Inhalant Use Disorder",
+            "name_zh": "吸入剂使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Opioid Use Disorder",
+            "name_zh": "阿片类使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Sedative/Hypnotic/Anxiolytic Use Disorder",
+            "name_zh": "镇静/催眠/抗焦虑药使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Stimulant Use Disorder",
+            "name_zh": "兴奋剂使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Tobacco Use Disorder",
+            "name_zh": "烟草使用障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Gambling Disorder",
+            "name_zh": "赌博障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Neurocognitive Disorders",
+        "name_zh": "神经认知障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Delirium",
+            "name_zh": "谵妄",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to Alzheimer's Disease",
+            "name_zh": "阿尔茨海默病所致重度或轻度NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild Frontotemporal NCD",
+            "name_zh": "额颞叶NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD With Lewy Bodies",
+            "name_zh": "路易体NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild Vascular NCD",
+            "name_zh": "血管性NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to Traumatic Brain Injury",
+            "name_zh": "创伤性脑损伤所致NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to HIV Infection",
+            "name_zh": "HIV感染所致NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to Prion Disease",
+            "name_zh": "朊蛋白病所致NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to Parkinson's Disease",
+            "name_zh": "帕金森病所致NCD",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Major or Mild NCD Due to Huntington's Disease",
+            "name_zh": "亨廷顿病所致NCD",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Personality Disorders",
+        "name_zh": "人格障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Paranoid Personality Disorder",
+            "name_zh": "偏执型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Schizoid Personality Disorder",
+            "name_zh": "分裂样人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Schizotypal Personality Disorder",
+            "name_zh": "分裂型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Antisocial Personality Disorder",
+            "name_zh": "反社会型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Borderline Personality Disorder",
+            "name_zh": "边缘型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Histrionic Personality Disorder",
+            "name_zh": "表演型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Narcissistic Personality Disorder",
+            "name_zh": "自恋型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Avoidant Personality Disorder",
+            "name_zh": "回避型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Dependent Personality Disorder",
+            "name_zh": "依赖型人格障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Obsessive-Compulsive Personality Disorder",
+            "name_zh": "强迫型人格障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Paraphilic Disorders",
+        "name_zh": "性偏好障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Voyeuristic Disorder",
+            "name_zh": "窥阴障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Exhibitionistic Disorder",
+            "name_zh": "露阴障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Frotteuristic Disorder",
+            "name_zh": "摩擦障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Sexual Masochism Disorder",
+            "name_zh": "性受虐障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Sexual Sadism Disorder",
+            "name_zh": "性施虐障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Pedophilic Disorder",
+            "name_zh": "恋童障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Fetishistic Disorder",
+            "name_zh": "恋物障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Transvestic Disorder",
+            "name_zh": "异装障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Other Mental Disorders and Additional Codes",
+        "name_zh": "其他精神障碍及附加编码",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Other Specified Mental Disorder Due to Medical Condition",
+            "name_zh": "由于躯体疾病的其他特指精神障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Unspecified Mental Disorder Due to Medical Condition",
+            "name_zh": "由于躯体疾病的未特指精神障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Other Specified Mental Disorder",
+            "name_zh": "其他特指的精神障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Unspecified Mental Disorder",
+            "name_zh": "未特指的精神障碍",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      },
+      {
+        "name": "Medication-Induced Movement Disorders",
+        "name_zh": "药物所致运动障碍",
+        "description": "",
+        "description_zh": "",
+        "disorders": [
+          {
+            "code": "",
+            "name": "Medication-Induced Parkinsonism",
+            "name_zh": "药物所致帕金森症",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Neuroleptic Malignant Syndrome",
+            "name_zh": "神经阻滞剂恶性综合征",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Medication-Induced Acute Dystonia",
+            "name_zh": "药物所致急性肌张力障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Medication-Induced Acute Akathisia",
+            "name_zh": "药物所致急性静坐不能",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Tardive Dyskinesia",
+            "name_zh": "迟发性运动障碍",
+            "description": "",
+            "description_zh": ""
+          },
+          {
+            "code": "",
+            "name": "Antidepressant Discontinuation Syndrome",
+            "name_zh": "抗抑郁药停药综合征",
+            "description": "",
+            "description_zh": ""
+          }
+        ]
+      }
+    ]
+  }
+}

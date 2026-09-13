@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "title": "中国人口学基准数据 — 2025年全国1%人口抽样调查（小普查）",
+    "source": "国家统计局《2025年全国1%人口抽样调查主要数据公报》",
+    "published": "2026-05-22",
+    "survey_date": "2025-11-01",
+    "sample_size": 20520000,
+    "sample_ratio": 0.0146,
+    "net_undercount_rate": 0.0072,
+    "notes": [
+      "本文件为当前最新全国口径人口基准，取代2020年七普数据作为Persona Generator默认基线",
+      "详细年龄/职业/行业分布数据待2026年调查年鉴出版后补充",
+      "精神障碍患病率数据来自CMHS（2013-2015现场），暂为最新全国代表性流行病学数据",
+      "男性概率 = 0.5103 + 诊断层面性别分布(DIAGNOSIS_GENDER_DIST)联合采样可更精确"
+    ]
+  },
+
+  "summary": {
+    "total_population": 1405450000,
+    "total_population_display": "14.0545亿",
+    "household_count": 514650000,
+    "household_count_display": "5.1465亿户",
+    "avg_household_size": 2.52,
+    "floating_population": 357880000,
+    "floating_population_display": "3.5788亿"
+  },
+
+  "gender": {
+    "male_pct": 51.03,
+    "female_pct": 48.97,
+    "sex_ratio": 104.21,
+    "description": "以女性=100的男性比例"
+  },
+
+  "age": {
+    "official_bands": [
+      {"name": "0-14岁",  "pct": 15.25, "population": 214360000},
+      {"name": "15-59岁", "pct": 61.89, "population": 869870000},
+      {"name": "60+岁",   "pct": 22.86, "population": 321220000},
+      {"name": "其中65+岁","pct": 15.87, "population": 223090000, "note": "已包含在60+中"}
+    ],
+    "detail_bands_estimated": [
+      {
+        "name": "adolescent",
+        "name_cn": "青少年",
+        "range": [13, 17],
+        "pct_estimated": 4.6,
+        "weight_normalized": 0.054,
+        "note": "13-14岁≈1.9%(0-14岁部分)+15-17岁≈2.7%(15-59岁部分)，待年鉴核实"
+      },
+      {
+        "name": "young_adult",
+        "name_cn": "青年",
+        "range": [18, 25],
+        "pct_estimated": 8.6,
+        "weight_normalized": 0.101,
+        "note": "18-19岁≈1.8%+20-24岁≈5.5%+25岁≈1.3%，待年鉴核实"
+      },
+      {
+        "name": "adult",
+        "name_cn": "成年早期",
+        "range": [26, 40],
+        "pct_estimated": 22.1,
+        "weight_normalized": 0.259,
+        "note": "26-29岁≈5.2%+30-34岁≈8.0%+35-39岁≈7.5%+40岁≈1.4%，待年鉴核实"
+      },
+      {
+        "name": "middle",
+        "name_cn": "中年",
+        "range": [41, 55],
+        "pct_estimated": 22.1,
+        "weight_normalized": 0.259,
+        "note": "41-44岁≈5.6%+45-49岁≈7.5%+50-54岁≈7.5%+55岁≈1.5%，待年鉴核实"
+      },
+      {
+        "name": "young_old",
+        "name_cn": "初老",
+        "range": [56, 65],
+        "pct_estimated": 14.0,
+        "weight_normalized": 0.164,
+        "note": "56-59岁≈5.9%+60-64岁≈7.0%+65岁≈1.1%，待年鉴核实"
+      },
+      {
+        "name": "elderly",
+        "name_cn": "老年",
+        "range": [66, 85],
+        "pct_estimated": 13.8,
+        "weight_normalized": 0.163,
+        "note": "66-69岁≈4.4%+70-74岁≈4.5%+75-79岁≈3.0%+80-85岁≈1.9%，待年鉴核实"
+      }
+    ]
+  },
+
+  "education": {
+    "levels": [
+      {
+        "level": "未接受正式教育",
+        "pct": 7.57,
+        "population": 106350000,
+        "note": "剩余人口：总人口减已统计教育人口"
+      },
+      {
+        "level": "小学",
+        "pct": 23.57,
+        "population": 331220000
+      },
+      {
+        "level": "初中",
+        "pct": 32.22,
+        "population": 452830000
+      },
+      {
+        "level": "高中/中专",
+        "pct": 17.27,
+        "population": 242720000
+      },
+      {
+        "level": "大专及以上",
+        "pct": 19.38,
+        "population": 272330000,
+        "detail": {
+          "大专": {"pct_estimated": 8.5, "note": "基于七普大专/本科比例推算"},
+          "本科": {"pct_estimated": 8.8, "note": "基于七普大专/本科比例推算"},
+          "硕士及以上": {"pct_estimated": 2.1, "note": "基于七普比例推算"}
+        }
+      }
+    ],
+    "official_aggregate": {
+      "大学及以上": 19.38,
+      "高中(含中专)": 17.27,
+      "初中": 32.22,
+      "小学": 23.57
+    }
+  },
+
+  "urban_rural": {
+    "urban_pct": 67.74,
+    "urban_population": 952080000,
+    "rural_pct": 32.26,
+    "rural_population": 453370000
+  },
+
+  "trend_vs_2020": {
+    "period": "2020(七普) → 2025(小普查)",
+    "changes": [
+      {"dimension": "总人口", "from": "14.1178亿", "to": "14.0545亿", "delta": "-633万（连续4年净减）"},
+      {"dimension": "男性比例", "from": "51.24%", "to": "51.03%", "delta": "-0.21pp"},
+      {"dimension": "女性比例", "from": "48.76%", "to": "48.97%", "delta": "+0.21pp"},
+      {"dimension": "0-14岁", "from": "17.95%", "to": "15.25%", "delta": "-2.70pp 少子化加速"},
+      {"dimension": "15-59岁", "from": "63.35%", "to": "61.89%", "delta": "-1.46pp"},
+      {"dimension": "60+岁", "from": "18.70%", "to": "22.86%", "delta": "+4.16pp 老龄化急加速"},
+      {"dimension": "65+岁", "from": "13.50%", "to": "15.87%", "delta": "+2.37pp"},
+      {"dimension": "大学+比例", "from": "15.47%", "to": "19.38%", "delta": "+3.91pp"},
+      {"dimension": "城镇化率", "from": "63.89%", "to": "67.74%", "delta": "+3.85pp"},
+      {"dimension": "家庭户均", "from": "2.62人", "to": "2.52人", "delta": "家庭规模持续缩小"}
+    ]
+  },
+
+  "mental_health": {
+    "source": "CMHS（中国精神卫生调查，2013-2015现场）",
+    "source_note": "迄今唯一全国代表性精神障碍流行病学调查；2025小普查未包含精神健康模块",
+    "lifetime_prevalence": {
+      "任何精神障碍（不含痴呆）": 16.57,
+      "焦虑障碍": 7.6,
+      "心境障碍": 7.4,
+      "其中抑郁症": 6.8,
+      "物质使用障碍": 4.7,
+      "强迫症": 2.43,
+      "冲动控制障碍": 1.5,
+      "酒精/物质使用": 1.94,
+      "精神分裂症": 0.7,
+      "双相情感障碍": 0.6,
+      "进食障碍": 0.1
+    },
+    "12_month_prevalence": {
+      "任何精神障碍": 9.32,
+      "抑郁障碍": 3.6,
+      "焦虑障碍": 5.0
+    },
+    "treatment_gap": {
+      "12个月内专业就诊率": 9.5,
+      "规范治疗率": "不足10%",
+      "平均就诊延误": "2-5年",
+      "老年抑郁12个月就诊率": 11.3
+    },
+    "older_adults_2026_findings": {
+      "source": "Frontiers in Psychiatry, 2026年8月（CMHS 60+子样本）",
+      "老年抑郁终生患病率": "7.9%",
+      "老年抑郁12个月患病率": "4.1%",
+      "合并3+躯体疾病OR": 11.4,
+      "角色功能损害率（工作）": "73.2%",
+      "角色功能损害率（家务）": "67.9%",
+      "角色功能损害率（社交）": "60.7%"
+    }
+  },
+
+  "occupation_industry_2026": {
+    "source": "多源综合（爱企查/IBISWorld/行业统计）",
+    "note": "2025小普查长表职业行业数据待年鉴发布",
+    "employment_by_industry": [
+      {"rank": 1,  "industry": "批发零售业",   "employment_estimate": "~1.35亿"},
+      {"rank": 2,  "industry": "制造业",       "employment_estimate": "~1.10亿"},
+      {"rank": 3,  "industry": "建筑业",       "employment_estimate": "~5200万"},
+      {"rank": 4,  "industry": "家政服务业",   "employment_estimate": "~4000万"},
+      {"rank": 5,  "industry": "餐饮业",       "employment_estimate": "~2300万"},
+      {"rank": 6,  "industry": "教育（教师）",  "employment_estimate": "~2000万"},
+      {"rank": 7,  "industry": "外卖与快递",   "employment_estimate": "~1800万"},
+      {"rank": 8,  "industry": "医疗健康（医护）","employment_estimate": "~1100万"},
+      {"rank": 9,  "industry": "公务员",       "employment_estimate": "~800万"},
+      {"rank": 10, "industry": "网约车司机",   "employment_estimate": "~750万"}
+    ],
+    "ibisworld_2026_top_employers": [
+      {"rank": 1, "industry": "物业管理",             "employment": 15380784},
+      {"rank": 2, "industry": "桥隧地铁建设",          "employment": 13612908},
+      {"rank": 3, "industry": "快餐餐饮",              "employment": 11377145},
+      {"rank": 4, "industry": "软件开发",              "employment": 7567795},
+      {"rank": 5, "industry": "家禽养殖",              "employment": 7269274},
+      {"rank": 6, "industry": "综合医院",              "employment": 5914872},
+      {"rank": 7, "industry": "保险经纪与评估",        "employment": 5654285},
+      {"rank": 8, "industry": "学前教育",              "employment": 5573339},
+      {"rank": 9, "industry": "豆类种植",              "employment": 5115154},
+      {"rank": 10, "industry": "煤炭开采",             "employment": 4641641}
+    ]
+  }
+}
