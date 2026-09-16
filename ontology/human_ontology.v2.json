@@ -1,11 +1,12 @@
 {
   "ontology_id": "human-ontology",
-  "version": "2.0.0-rc1",
+  "version": "2.0.0-rc2",
   "status": "release_candidate",
   "semantic_model": {
     "principle": "one canonical semantic home; cross-domain reuse by typed reference, never duplicate definition",
+    "domain_model": "Canonical domains are semantic namespaces, not ontological kinds. Ontological kind is assigned at concept/field level.",
     "ontological_kinds": ["entity", "quality_disposition", "role", "relation", "process_event", "state"],
-    "mece_scope": "MECE is enforced locally for sibling classifications that answer the same question; relations are orthogonal rather than forced into a single tree."
+    "mece_scope": "MECE is enforced locally for sibling classifications that answer the same question at the same abstraction level. Multi-valued, continuous, temporal and relational facts are not forced into false mutual exclusivity."
   },
   "person_root": {
     "id": "person",
@@ -13,31 +14,189 @@
     "definition": "A human individual represented independently of diagnosis, role, relationship, institution, or current state."
   },
   "canonical_domains": [
-    {"id":"development","kind":"quality_disposition","question":"When in the life course is this person, and how are they developing?","temporal_class":"slow_changing"},
-    {"id":"body_functioning_health","kind":"quality_disposition","question":"What bodily characteristics, functioning and physical-health properties apply?","temporal_class":"slow_changing"},
-    {"id":"mental_neurodevelopmental_health","kind":"quality_disposition","question":"What mental-health, neurodevelopmental, symptom, functioning and care properties apply?","temporal_class":"dynamic_state","optional":true,"domain_modules":["psychiatric_diagnosis"]},
-    {"id":"personality_psychology","kind":"quality_disposition","question":"What relatively stable traits, motives, beliefs, regulation strategies and narrative organization apply?","temporal_class":"slow_changing","layers":["temperament_traits","motives_values_goals","cognition_beliefs","emotion_regulation_coping","relational_dispositions","narrative_identity","surface_expression"]},
-    {"id":"abilities_skills_interests","kind":"quality_disposition","question":"What abilities, learned skills, expertise and interests apply?","temporal_class":"slow_changing"},
-    {"id":"identity_affiliations","kind":"quality_disposition","question":"How does the person identify or affiliate in culturally and personally meaningful ways?","temporal_class":"slow_changing","sensitivity":"context_dependent"},
-    {"id":"roles","kind":"role","question":"What social, family, education, work, care or community roles does the person currently bear?","temporal_class":"role_dependent"},
-    {"id":"relationships","kind":"relation","question":"To whom or what is the person related, and what properties belong to that relation?","temporal_class":"relationship_specific"},
-    {"id":"place_mobility","kind":"relation","question":"What places is the person related to through birth, upbringing, residence, migration or mobility?","temporal_class":"event_history"},
-    {"id":"education_work_economy","kind":"relation","question":"How is the person related to education, occupations, organizations, labour and economic resources?","temporal_class":"role_dependent"},
-    {"id":"social_institutional_position","kind":"relation","question":"How is the person positioned relative to legal, civic, institutional and stratification systems?","temporal_class":"role_dependent"},
-    {"id":"culture_language","kind":"relation","question":"What cultural, linguistic, religious or socialization environments has the person participated in or been exposed to?","temporal_class":"event_history","sensitivity":"context_dependent"},
-    {"id":"life_events","kind":"process_event","question":"What happened to or was done by the person, when, with whom, and with what consequences?","temporal_class":"event_history"},
-    {"id":"context_ecology","kind":"relation","question":"What household, neighborhood, institutional, economic, policy, technological, historical and environmental contexts constrain or enable the person?","temporal_class":"dynamic_state"},
-    {"id":"resources_constraints_opportunities","kind":"relation","question":"What resources, constraints and actionable opportunities are currently available?","temporal_class":"dynamic_state"},
-    {"id":"lifestyle_routines","kind":"process_event","question":"What recurring activities and routines characterize daily life?","temporal_class":"dynamic_state"},
-    {"id":"current_state","kind":"state","question":"What is true of the person right now but should not be mistaken for a stable trait?","temporal_class":"dynamic_state"}
+    {
+      "id": "development",
+      "domain_type": "semantic_namespace",
+      "question": "Where is the person in the life course, and what developmental transitions characterize that placement?",
+      "allowed_kinds": ["quality_disposition", "process_event", "state"],
+      "default_temporal_class": "slow_changing"
+    },
+    {
+      "id": "body_functioning_health",
+      "domain_type": "semantic_namespace",
+      "question": "What bodily characteristics, functioning, disability and physical-health properties apply?",
+      "allowed_kinds": ["quality_disposition", "state", "relation", "process_event"],
+      "default_temporal_class": "slow_changing"
+    },
+    {
+      "id": "mental_neurodevelopmental_health",
+      "domain_type": "semantic_namespace",
+      "question": "What mental-health, neurodevelopmental, symptom/experience, functioning, care and recovery properties apply?",
+      "allowed_kinds": ["quality_disposition", "state", "relation", "process_event"],
+      "default_temporal_class": "dynamic_state",
+      "optional": true,
+      "domain_modules": ["psychiatric_diagnosis"]
+    },
+    {
+      "id": "personality_psychology",
+      "domain_type": "semantic_namespace",
+      "question": "What relatively stable traits, motives, beliefs, regulation strategies, relational dispositions and narrative organization apply?",
+      "allowed_kinds": ["quality_disposition", "state"],
+      "default_temporal_class": "slow_changing",
+      "layers": ["temperament_traits", "motives_values_goals", "cognition_beliefs", "emotion_regulation_coping", "relational_dispositions", "narrative_identity", "surface_expression"]
+    },
+    {
+      "id": "abilities_skills_interests",
+      "domain_type": "semantic_namespace",
+      "question": "What abilities, learned skills, expertise, self-efficacy and interests apply?",
+      "allowed_kinds": ["quality_disposition", "state"],
+      "default_temporal_class": "slow_changing"
+    },
+    {
+      "id": "identity_self_concept",
+      "domain_type": "semantic_namespace",
+      "question": "How does the person describe or understand self-identities that are not reducible to a role, legal status, place or cultural participation relation?",
+      "allowed_kinds": ["quality_disposition", "state", "relation"],
+      "default_temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "boundary_rules": [
+        "citizenship/legal status belongs to social_institutional_position",
+        "cultural participation/exposure belongs to culture_language",
+        "sex characteristics belong to body_functioning_health",
+        "relationship-specific orientation/behavior may be represented through relationships"
+      ]
+    },
+    {
+      "id": "roles",
+      "domain_type": "semantic_namespace",
+      "question": "What social, family, education, work, care or community roles does the person bear?",
+      "allowed_kinds": ["role", "relation", "state"],
+      "default_temporal_class": "role_dependent"
+    },
+    {
+      "id": "relationships",
+      "domain_type": "semantic_namespace",
+      "question": "To which people is the person related, by what relation type, and what properties belong to that relation?",
+      "allowed_kinds": ["relation", "state", "process_event"],
+      "default_temporal_class": "relationship_specific"
+    },
+    {
+      "id": "place_mobility",
+      "domain_type": "semantic_namespace",
+      "question": "What places is the person related to through birth, upbringing, residence, migration or mobility?",
+      "allowed_kinds": ["relation", "process_event", "state"],
+      "default_temporal_class": "event_history"
+    },
+    {
+      "id": "education_learning",
+      "domain_type": "semantic_namespace",
+      "question": "What formal/non-formal education, learning participation, credentials and learning opportunities characterize the person?",
+      "allowed_kinds": ["relation", "role", "process_event", "state"],
+      "default_temporal_class": "slow_changing",
+      "boundary_rules": [
+        "general ability/skill belongs to abilities_skills_interests",
+        "student role belongs to roles and is referenced here",
+        "education events belong to life_events and are referenced here"
+      ]
+    },
+    {
+      "id": "work_economic_participation",
+      "domain_type": "semantic_namespace",
+      "question": "How does the person participate in work, occupations, organizations, labour markets, income/assets/debt and economic position?",
+      "allowed_kinds": ["relation", "role", "quality_disposition", "state", "process_event"],
+      "default_temporal_class": "role_dependent",
+      "boundary_rules": [
+        "current usable resources belong to resources_constraints_opportunities",
+        "worker/manager/caregiver roles belong to roles and are referenced here"
+      ]
+    },
+    {
+      "id": "social_institutional_position",
+      "domain_type": "semantic_namespace",
+      "question": "How is the person positioned relative to legal, civic, institutional, stratification and rights/access systems?",
+      "allowed_kinds": ["relation", "role", "state", "quality_disposition"],
+      "default_temporal_class": "role_dependent"
+    },
+    {
+      "id": "culture_language",
+      "domain_type": "semantic_namespace",
+      "question": "What cultural, linguistic, religious/spiritual or socialization environments has the person participated in, used or been exposed to?",
+      "allowed_kinds": ["relation", "process_event", "state"],
+      "default_temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "boundary_rules": [
+        "birthplace/residence belongs to place_mobility",
+        "citizenship belongs to social_institutional_position",
+        "self-ascribed identity may reference this domain from identity_self_concept"
+      ]
+    },
+    {
+      "id": "life_events",
+      "domain_type": "semantic_namespace",
+      "question": "What happened to or was done by the person, when, with whom, in what context and with what consequences?",
+      "allowed_kinds": ["process_event", "relation", "state"],
+      "default_temporal_class": "event_history"
+    },
+    {
+      "id": "context_ecology",
+      "domain_type": "semantic_namespace",
+      "question": "What external household, neighborhood, institutional, economic, policy, technological, historical and environmental contexts surround the person?",
+      "allowed_kinds": ["relation", "state", "process_event"],
+      "default_temporal_class": "dynamic_state",
+      "boundary_rules": [
+        "context describes external conditions",
+        "person-accessible resources/constraints are derived projections in resources_constraints_opportunities"
+      ]
+    },
+    {
+      "id": "resources_constraints_opportunities",
+      "domain_type": "semantic_namespace",
+      "question": "What resources, constraints and actionable opportunities are actually available to the person at a given time?",
+      "allowed_kinds": ["relation", "state"],
+      "default_temporal_class": "dynamic_state"
+    },
+    {
+      "id": "lifestyle_routines",
+      "domain_type": "semantic_namespace",
+      "question": "What recurring activities, routines and habitual practices characterize daily life?",
+      "allowed_kinds": ["process_event", "state"],
+      "default_temporal_class": "dynamic_state"
+    },
+    {
+      "id": "current_state",
+      "domain_type": "semantic_namespace",
+      "question": "What is true of the person now that should not be mistaken for a stable trait, enduring relation or historical event?",
+      "allowed_kinds": ["state"],
+      "default_temporal_class": "dynamic_state"
+    }
   ],
-  "relation_families": ["has_role","related_to_person","located_in","lived_in","participates_in_culture","uses_language","member_of","works_for","studies_at","has_resource","faces_constraint","experienced_event","has_health_condition","has_symptom","receives_support"],
+  "relation_families": [
+    "has_role",
+    "related_to_person",
+    "located_in",
+    "born_in",
+    "grew_up_in",
+    "lived_in",
+    "participates_in_culture",
+    "uses_language",
+    "member_of",
+    "works_for",
+    "studies_at",
+    "holds_credential",
+    "has_resource",
+    "faces_constraint",
+    "has_opportunity",
+    "experienced_event",
+    "has_health_condition",
+    "has_symptom_or_experience",
+    "receives_support"
+  ],
   "domain_modules": {
     "psychiatric_diagnosis": {
       "canonical_home": "mental_neurodevelopmental_health",
       "required": false,
       "legacy_asset": "../diagnosis_ontology.json",
-      "rule": "Diagnosis is a referenced health classification. It must never define the Person root or deterministically generate personality, values, competence, morality, or life outcome.",
+      "rule": "Diagnosis is a referenced health classification. It must never define the Person root or deterministically generate personality, values, competence, morality, relationships, biography or life outcome.",
       "external_alignment_targets": ["ICD-11", "DSM-5-TR", "Mental Functioning Ontology", "ICF"]
     }
   },
@@ -49,12 +208,12 @@
   "consumer_contract": {
     "ai_persona": "instantiate and generate ontology-native Persona Kernels",
     "p003": "simulate events, choices, relationships and state transitions without redefining human semantics",
-    "ai_ques": "map observations and measurements into ontology paths with provenance and confidence",
+    "ai_ques": "map observations and measurements into canonical paths with provenance and confidence",
     "future_consumers": ["future_self", "avatar", "research_agents", "games", "digital_humans"]
   },
   "migration": {
     "from": "1.x",
     "mapping_file": "V1_TO_V2_MIGRATION.json",
-    "policy": "v1 remains readable until all production consumers pass v2 compatibility tests"
+    "policy": "v1 remains readable until production consumers pass v2 compatibility tests"
   }
 }
