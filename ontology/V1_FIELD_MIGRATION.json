@@ -303,9 +303,9 @@
       "legacy_path": "sex_gender_orientation.gender_role_context",
       "action": "move",
       "canonical_targets": [
-        "identity_self_concept.gender_role_context"
+        "context_ecology.gender_role_context"
       ],
-      "rationale": "Same concept moved to a more semantically precise canonical home."
+      "rationale": "Gender-role context is an external social-norm/context property, not a self-identity property."
     },
     {
       "legacy_path": "body_health.body_morphology",
@@ -327,9 +327,9 @@
       "legacy_path": "body_health.self_presentation",
       "action": "move",
       "canonical_targets": [
-        "personality_psychology.surface_expression.self_presentation"
+        "identity_self_concept.self_presentation"
       ],
-      "rationale": "Same concept moved to a more semantically precise canonical home."
+      "rationale": "Self-presentation is identity/expression content; recurring grooming behavior remains in lifestyle_routines."
     },
     {
       "legacy_path": "body_health.physical_health",
@@ -365,11 +365,12 @@
     },
     {
       "legacy_path": "body_health.substance_use",
-      "action": "retain",
+      "action": "split",
       "canonical_targets": [
-        "body_functioning_health.substance_use"
+        "lifestyle_routines.substance_use",
+        "body_functioning_health.substance_related_health"
       ],
-      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+      "rationale": "Legacy substance_use conflated behavior/exposure with health consequences; rc2 separates the routine/process from health impact."
     },
     {
       "legacy_path": "body_health.reproductive_health",
@@ -381,11 +382,12 @@
     },
     {
       "legacy_path": "body_health.healthcare_access",
-      "action": "relationize",
+      "action": "split",
       "canonical_targets": [
-        "body_functioning_health.healthcare_access"
+        "social_institutional_position.healthcare_entitlement_access",
+        "resources_constraints_opportunities.healthcare_access"
       ],
-      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+      "rationale": "Institutional eligibility/access and currently usable healthcare resources are distinct from bodily health."
     },
     {
       "legacy_path": "body_health.health_history",
@@ -1410,11 +1412,11 @@
     },
     {
       "legacy_path": "roles_responsibilities.role_transition",
-      "action": "relationize",
+      "action": "move",
       "canonical_targets": [
-        "roles.role_transition"
+        "life_events.role_transition"
       ],
-      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+      "rationale": "Taking on/leaving a role is a time-indexed process/event; the resulting role itself lives under roles."
     },
     {
       "legacy_path": "current_state.energy",
