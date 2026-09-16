@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> **v2 migration notice:** this document describes the legacy v1.x PersonaGenerator.
+> Human Ontology v2 is the semantic authority. New integrations should use
+> `PersonaKernel` / `generate_persona_kernel()` and follow `../ontology/README.md`.
+> The default v2 generator isolates optional psychiatric information to the health/current-state layer;
+> legacy cross-domain conditioning remains available only for compatibility.
+
 > ## Canonical ontology notice
 >
 > Shared human/persona concepts are now governed by `../ontology/human_ontology.v1.json`.
