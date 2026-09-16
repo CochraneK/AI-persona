@@ -132,6 +132,10 @@ def canonical_v2_domain_ids() -> tuple[str, ...]:
     return tuple(item["id"] for item in load_human_ontology_v2()["canonical_domains"])
 
 
+def canonical_relation_families() -> tuple[str, ...]:
+    return tuple(load_human_ontology_v2()["relation_families"])
+
+
 def canonical_field_paths() -> tuple[str, ...]:
     return tuple(
         item["canonical_path"] for item in load_canonical_field_registry()["fields"]
