@@ -96,6 +96,14 @@ def main() -> None:
         f"ontology_only={sorted(domain_ids - schema_domains)}"
     )
     assert kernel_schema["properties"]["ontology_version"]["const"] == o["version"]
+    schema_source_types = set(
+        kernel_schema["$defs"]["fieldMetadata"]["properties"]["source_type"]["enum"]
+    )
+    ontology_source_types = set(o["field_metadata_contract"]["source_type_values"])
+    assert schema_source_types == ontology_source_types, (
+        f"metadata source-type drift: schema_only={sorted(schema_source_types-ontology_source_types)}, "
+        f"ontology_only={sorted(ontology_source_types-schema_source_types)}"
+    )
 
     assert r["version"] == o["version"], "field registry version must match ontology version"
     domain_by_id = {d["id"]: d for d in domains}
