@@ -2,20 +2,20 @@
 
 # AI-Persona
 
-**Canonical Human Ontology + psychiatric AI persona generation engine**
+**Canonical Human Ontology + ontology-native Persona Engine**
 
 <p>
-  <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v1-6C63FF">
+  <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v2%20RC-6C63FF">
   <img alt="Engine" src="https://img.shields.io/badge/engine-Persona%20Generator-2F80ED">
-  <img alt="Version" src="https://img.shields.io/badge/version-v1.2-27AE60">
+  <img alt="Version" src="https://img.shields.io/badge/version-v2%20refactor-27AE60">
   <img alt="Research use" src="https://img.shields.io/badge/use-research%20%2F%20simulation-F2994A">
 </p>
 
-**正交维度 · 轴内 MECE · 可复现生成 · 本体优先**
+**唯一语义归属 · 局部 MECE · 类型化关系 · 可追溯生成**
 
 </div>
 
-AI-Persona 从统一的人类本体出发，将人口学、人格、生命事件、心理状态与诊断相关约束拆成可审计的独立层，再生成多样化 Persona，用于精神科 AI 研究、评估与模拟。
+AI-Persona 从统一的 Human Ontology 出发，把“人是什么”与“如何生成一个具体人物”分开。Human Ontology 定义唯一 canonical semantic homes；Persona Engine 负责实例化、生成与迁移。精神疾病知识库继续保留，但只是 Mental / Neurodevelopmental Health 下的可选 domain module，不再作为人的根结构。
 
 > [!IMPORTANT]
 > 这是研究与模拟基础设施，不是临床诊断工具，也不应把生成 Persona 直接视为真实患者群体的统计代表。
@@ -124,7 +124,7 @@ AI-persona/
 
 ## 核心能力
 
-### 1️⃣ 三层理论空间 → Archetype Grid（v1.2 修正）
+### 1️⃣ Legacy Archetype Grid → Narrative Identity asset
 
 > ⚠️ **v1.1 及以前的「三层空间」模型已作废**。
 
@@ -158,7 +158,7 @@ python core/archetypes.py   # 查看完整空间报告
 ```
 
 **设计原则**：
-1. **型优先于诊断** — 型决定心理内核（wound→desire→need 因果链），诊断只决定症状学外壳
+1. **叙事模板不等于心理真值** — Archetype Grid 作为 `narrative_identity` 的 legacy generative asset；旧版 diagnosis-keyed 采样不应解释为诊断决定人格
 2. **型是硬网格** — 有限、显式声明，不是概率软约束，使「有多少种不同的人」成为可回答的问题
 3. **OCEAN 只微调不覆盖** — 旧 `adjust_*_by_ocean` 在极端 OCEAN 下会整体替换文本、抹平型，v1.2 已规避
 4. **向后兼容** — 未定义网格的诊断自动回退旧逻辑，不破坏现有行为
@@ -167,7 +167,7 @@ python core/archetypes.py   # 查看完整空间报告
 
 37 个诊断 × 5 维 OCEAN 范围（基于 Kotov et al. 2010 等 5 项元分析），每个 Persona 自动依此范围随机采样并组合。
 
-### 3️⃣ MECE v2 六维
+### 3️⃣ Legacy 六维生成模块（非 canonical ontology）
 
 | 维度 | 描述 |
 |------|------|
