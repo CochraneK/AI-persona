@@ -52,7 +52,7 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
     put("place_mobility", "legacy_residence_context", persona.locale, temporal="dynamic_state")
     put("education_learning", "education_attainment", persona.education, temporal="slow_changing")
     put(
-        "education_work_economy",
+        "work_economic_participation",
         "occupation",
         {"label": persona.occupation, "code": persona.occupation_code},
         temporal="role_dependent",
