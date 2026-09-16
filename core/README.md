@@ -5,13 +5,14 @@
 > The default v2 generator isolates optional psychiatric information to the health/current-state layer;
 > legacy cross-domain conditioning remains available only for compatibility.
 
-> ## Canonical ontology notice
+> ## Ontology notice
 >
-> Shared human/persona concepts are now governed by `../ontology/human_ontology.v1.json`.
-> This core generator may keep legacy field names and the 6-domain × 4-stage event matrix for compatibility, but those structures are not the canonical ontology.
+> `../ontology/human_ontology.v1.json` remains the compatibility schema while
+> `../ontology/human_ontology.v2.json` is the current release candidate and semantic authority for new integrations.
+> This legacy generator may keep old field names and the 6-domain × 4-stage event matrix for reproducibility; those are not canonical ontology structures.
 >
-> **Rule: orthogonal axes across the system; MECE within each axis.**
-> Personality fields must map to the canonical 7-layer personality model. New ontology concepts require `../ontology/HUMAN_ONTOLOGY_REVIEW.md`.
+> **Rule: one canonical semantic home + local MECE + typed relations.**
+> New ontology concepts require `../ontology/HUMAN_ONTOLOGY_REVIEW.md`.
 
 # Legacy Persona Generator — v1.x psychiatric evaluation compatibility engine
 
