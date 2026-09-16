@@ -255,7 +255,68 @@
           "minLength": 1
         }
       },
-      "additionalProperties": true
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "enum": [
+                  "inferred",
+                  "generated"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "confidence",
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "input_constraint"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     },
     "eventRecord": {
       "type": "object",
@@ -299,7 +360,68 @@
           "minLength": 1
         }
       },
-      "additionalProperties": true
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "enum": [
+                  "inferred",
+                  "generated"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "confidence",
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "input_constraint"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }
