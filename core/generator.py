@@ -1,5 +1,5 @@
 """
-主生成逻辑 — 整合四大模块 + 诊断本体，生成完整 Persona
+Legacy-compatible Persona 生成器 — 保留 v1.x 行为并向 Human Ontology v2 迁移
 
 用法：
   from core import generate_persona
