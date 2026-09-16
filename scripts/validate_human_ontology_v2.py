@@ -62,6 +62,9 @@ def main() -> None:
     )
     assert kernel_schema["properties"]["ontology_version"]["const"] == o["version"]
 
+    assert r["version"] == o["version"], "field registry version must match ontology version"
+    domain_by_id = {d["id"]: d for d in domains}
+
     fields = r["fields"]
     concepts = [f["concept"] for f in fields]
     paths = [f["canonical_path"] for f in fields]
@@ -74,6 +77,10 @@ def main() -> None:
         root = field["canonical_path"].split(".", 1)[0]
         assert root in domain_ids, f"registry path uses unknown domain: {field['canonical_path']}"
         assert field.get("temporal_class"), f"missing temporal class: {field['concept']}"
+        assert field.get("cardinality"), f"missing cardinality: {field['concept']}"
+        assert field["kind"] in set(domain_by_id[root]["allowed_kinds"]), (
+            f"field kind {field['kind']} not allowed by domain {root}: {field['concept']}"
+        )
         aliases.extend(field.get("legacy_aliases", []))
     assert not duplicates(aliases), f"legacy alias mapped to multiple concepts: {duplicates(aliases)}"
 
