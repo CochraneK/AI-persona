@@ -47,10 +47,10 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
 
     put("development", "chronological_age", persona.age, temporal="dynamic_state")
     put("development", "erikson_stage", persona.erikson_stage, temporal="slow_changing")
-    put("identity_affiliations", "legacy_gender_label", persona.gender, temporal="slow_changing")
+    put("identity_self_concept", "legacy_gender_label", persona.gender, temporal="slow_changing")
 
     put("place_mobility", "legacy_residence_context", persona.locale, temporal="dynamic_state")
-    put("education_work_economy", "education_attainment", persona.education, temporal="slow_changing")
+    put("education_learning", "education_attainment", persona.education, temporal="slow_changing")
     put(
         "education_work_economy",
         "occupation",
