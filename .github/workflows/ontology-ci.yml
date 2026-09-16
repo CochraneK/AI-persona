@@ -4,18 +4,18 @@ on:
   push:
     paths:
       - "ontology/**"
-      - "core/human_ontology.py"
-      - "core/persona_kernel.py"
+      - "core/**"
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
+      - "scripts/test_persona_kernel_compat.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
       - "ontology/**"
-      - "core/human_ontology.py"
-      - "core/persona_kernel.py"
+      - "core/**"
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
+      - "scripts/test_persona_kernel_compat.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
       - name: Validate Human Ontology v2 release candidate
         run: python scripts/validate_human_ontology_v2.py
       - name: Compile ontology runtime
-        run: python -m py_compile core/human_ontology.py core/persona_kernel.py
+        run: python -m py_compile core/*.py
       - name: Smoke-test Persona Kernel metadata contract
         run: |
           python - <<'PY'
@@ -42,3 +42,5 @@ jobs:
           assert p.to_dict()["ontology_version"] == "2.0.0-rc1"
           print("Persona Kernel smoke test: OK")
           PY
+      - name: Test legacy Persona compatibility bridge
+        run: python scripts/test_persona_kernel_compat.py
