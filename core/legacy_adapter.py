@@ -140,7 +140,10 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
     put("body_functioning_health", "physical_appearance", persona.physical_appearance, temporal="dynamic_state")
     put("current_state", "summary", persona.current_status, temporal="dynamic_state")
 
-    kernel.events = [\n        _event_to_dict(e, persona_id=str(persona.id), index=i)\n        for i, e in enumerate(persona.life_events, start=1)\n    ]
+    kernel.events = [
+        _event_to_dict(e, persona_id=str(persona.id), index=i)
+        for i, e in enumerate(persona.life_events, start=1)
+    ]
     kernel.validate()
     return kernel
 
