@@ -82,8 +82,19 @@ def main() -> None:
     allowed_actions = set(field_migration["allowed_actions"])
     for item in migration_entries:
         assert item["action"] in allowed_actions
-        assert item.get("canonical_targets"), f"no target for {item['legacy_path']}"
-        for target in item["canonical_targets"]:
+        targets = item.get("canonical_targets", [])
+        assert targets, f"no target for {item['legacy_path']}"
+        assert len(targets) == len(set(targets)), (
+            f"duplicate targets for {item['legacy_path']}: {targets}"
+        )
+        if item["action"] == "split":
+            assert len(targets) >= 2, f"split requires >=2 targets: {item['legacy_path']}"
+        else:
+            assert len(targets) == 1, (
+                f"{item['action']} should have exactly one target: "
+                f"{item['legacy_path']} -> {targets}"
+            )
+        for target in targets:
             root = target.split(".", 1)[0]
             assert root in domain_ids, (
                 f"field migration target uses unknown domain: {item['legacy_path']} -> {target}"
