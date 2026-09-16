@@ -1,25 +1,23 @@
 """Ontology-native Persona Kernel v2.
 
-The kernel is deliberately diagnosis-neutral. It stores canonical domain payloads
-and provenance separately, allowing AI-persona, P003 and AI-Ques to share one
-human representation without sharing one application model.
+The kernel is diagnosis-neutral. It stores canonical domain payloads and
+field-level provenance separately so AI-Persona, P003 and AI-Ques can share one
+human representation without sharing application-specific semantics.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 from typing import Any, Mapping
 
-V2_DOMAIN_IDS = frozenset({
-    "development", "body_functioning_health", "mental_neurodevelopmental_health",
-    "personality_psychology", "abilities_skills_interests", "identity_affiliations",
-    "roles", "relationships", "place_mobility", "education_work_economy",
-    "social_institutional_position", "culture_language", "life_events",
-    "context_ecology", "resources_constraints_opportunities", "lifestyle_routines",
-    "current_state",
-})
+from .human_ontology import canonical_v2_domain_ids, ontology_v2_version
 
 SOURCE_TYPES = frozenset({
-    "user_provided", "observed", "measured", "inferred", "generated", "derived",
+    "user_provided",
+    "observed",
+    "measured",
+    "inferred",
+    "generated",
+    "derived",
     "external_reference",
 })
 
@@ -46,30 +44,42 @@ class FieldMetadata:
 @dataclass
 class PersonaKernel:
     persona_id: str
-    ontology_version: str = "2.0.0-rc1"
+    ontology_version: str = field(default_factory=ontology_v2_version)
     domains: dict[str, dict[str, Any]] = field(default_factory=dict)
     field_metadata: dict[str, FieldMetadata] = field(default_factory=dict)
     relations: list[dict[str, Any]] = field(default_factory=list)
     events: list[dict[str, Any]] = field(default_factory=list)
 
+    @staticmethod
+    def allowed_domain_ids() -> frozenset[str]:
+        return frozenset(canonical_v2_domain_ids())
+
     def __post_init__(self) -> None:
         self.validate()
 
     def validate(self) -> None:
-        unknown = sorted(set(self.domains) - V2_DOMAIN_IDS)
+        allowed = self.allowed_domain_ids()
+        unknown = sorted(set(self.domains) - allowed)
         if unknown:
             raise ValueError(f"Unknown Human Ontology v2 domains: {unknown}")
         if "person" in self.domains:
             raise ValueError("Person root is identity, not a domain payload")
+        if self.ontology_version != ontology_v2_version():
+            raise ValueError(
+                f"Kernel ontology_version={self.ontology_version!r} does not match "
+                f"runtime ontology={ontology_v2_version()!r}"
+            )
         for path, meta in self.field_metadata.items():
             domain = path.split(".", 1)[0]
-            if domain not in V2_DOMAIN_IDS:
+            if domain not in allowed:
                 raise ValueError(f"Metadata path has unknown domain: {path}")
             if not isinstance(meta, FieldMetadata):
                 raise TypeError(f"Metadata for {path} must be FieldMetadata")
 
-    def set_value(self, domain: str, key: str, value: Any, metadata: FieldMetadata) -> None:
-        if domain not in V2_DOMAIN_IDS:
+    def set_value(
+        self, domain: str, key: str, value: Any, metadata: FieldMetadata
+    ) -> None:
+        if domain not in self.allowed_domain_ids():
             raise ValueError(f"Unknown Human Ontology v2 domain: {domain}")
         self.domains.setdefault(domain, {})[key] = value
         self.field_metadata[f"{domain}.{key}"] = metadata
@@ -78,6 +88,7 @@ class PersonaKernel:
         return self.domains.get(domain, {}).get(key, default)
 
     def to_dict(self) -> dict[str, Any]:
+        self.validate()
         return {
             "persona_id": self.persona_id,
             "ontology_version": self.ontology_version,
@@ -95,7 +106,7 @@ class PersonaKernel:
         }
         return cls(
             persona_id=str(payload["persona_id"]),
-            ontology_version=str(payload.get("ontology_version", "2.0.0-rc1")),
+            ontology_version=str(payload.get("ontology_version", ontology_v2_version())),
             domains={k: dict(v) for k, v in payload.get("domains", {}).items()},
             field_metadata=metadata,
             relations=list(payload.get("relations", [])),
