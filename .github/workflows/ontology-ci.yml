@@ -8,6 +8,7 @@ on:
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
       - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_events_sampling.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
       - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_events_sampling.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
@@ -42,5 +44,7 @@ jobs:
           assert p.to_dict()["ontology_version"] == "2.0.0-rc1"
           print("Persona Kernel smoke test: OK")
           PY
-      - name: Test legacy Persona compatibility bridge
+      - name: Test Persona Kernel compatibility and semantic firewall
         run: python scripts/test_persona_kernel_compat.py
+      - name: Regression-test event allocation
+        run: python scripts/test_events_sampling.py
