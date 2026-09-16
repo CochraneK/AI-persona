@@ -12,6 +12,8 @@ MIGRATION = ROOT / "ontology" / "V1_TO_V2_MIGRATION.json"
 REGISTRY = ROOT / "ontology" / "CANONICAL_FIELD_REGISTRY.json"
 PSYCHIATRIC_MODULE = ROOT / "ontology" / "domains" / "psychiatric_diagnosis.module.json"
 KERNEL_SCHEMA = ROOT / "ontology" / "persona_kernel.schema.json"
+V1 = ROOT / "ontology" / "human_ontology.v1.json"
+FIELD_MIGRATION = ROOT / "ontology" / "V1_FIELD_MIGRATION.json"
 
 ALLOWED_KINDS = {"entity", "quality_disposition", "role", "relation", "process_event", "state"}
 
@@ -31,6 +33,8 @@ def main() -> None:
     r = load(REGISTRY)
     psychiatric_module = load(PSYCHIATRIC_MODULE)
     kernel_schema = load(KERNEL_SCHEMA)
+    v1 = load(V1)
+    field_migration = load(FIELD_MIGRATION)
 
     assert o["ontology_id"] == "human-ontology"
     assert o["status"] in {"release_candidate", "canonical"}
@@ -49,10 +53,41 @@ def main() -> None:
         assert d.get("question"), f"missing competency question for {d['id']}"
         assert d.get("default_temporal_class"), f"missing default temporal class for {d['id']}"
 
+    # Axis-level migration targets must exist.
     mapped = {target for targets in m["axis_map"].values() for target in targets}
     missing_targets = sorted(mapped - domain_ids)
     assert not missing_targets, f"migration points to unknown v2 domains: {missing_targets}"
     assert set(o["semantic_model"]["ontological_kinds"]) == ALLOWED_KINDS
+
+    # Field-level migration must cover every v1 subaxis/personality layer exactly once.
+    expected_v1_paths = []
+    for axis in v1["axes"]:
+        expected_v1_paths.extend(
+            f"{axis['id']}.{name}" for name in axis.get("subaxes", [])
+        )
+        expected_v1_paths.extend(
+            f"{axis['id']}.{layer['id']}" for layer in axis.get("layers", [])
+        )
+    migration_entries = field_migration["entries"]
+    migrated_paths = [item["legacy_path"] for item in migration_entries]
+    assert not duplicates(migrated_paths), (
+        f"duplicate v1 field migration entries: {duplicates(migrated_paths)}"
+    )
+    assert set(migrated_paths) == set(expected_v1_paths), (
+        f"v1 field migration coverage mismatch: "
+        f"missing={sorted(set(expected_v1_paths)-set(migrated_paths))}, "
+        f"extra={sorted(set(migrated_paths)-set(expected_v1_paths))}"
+    )
+    assert field_migration["to_version"] == o["version"]
+    allowed_actions = set(field_migration["allowed_actions"])
+    for item in migration_entries:
+        assert item["action"] in allowed_actions
+        assert item.get("canonical_targets"), f"no target for {item['legacy_path']}"
+        for target in item["canonical_targets"]:
+            root = target.split(".", 1)[0]
+            assert root in domain_ids, (
+                f"field migration target uses unknown domain: {item['legacy_path']} -> {target}"
+            )
 
     schema_domains = set(kernel_schema["properties"]["domains"]["properties"])
     assert schema_domains == domain_ids, (
