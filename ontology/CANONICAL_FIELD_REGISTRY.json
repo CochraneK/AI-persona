@@ -308,5 +308,6 @@
     }
   ],
   "scope": "Normative registry for first-class/runtime interoperability concepts. Exhaustive v1 legacy leaf coverage is governed by V1_FIELD_MIGRATION.json; a migration target is a canonical semantic path but need not be promoted to a first-class registry concept.",
-  "promotion_rule": "Add a first-class registry concept when it is exchanged across consumers, independently queried/reasoned over, or requires stable aliases/kind/cardinality metadata."
+  "promotion_rule": "Add a first-class registry concept when it is exchanged across consumers, independently queried/reasoned over, or requires stable aliases/kind/cardinality metadata.",
+  "storage_contract": "canonical_path is the semantic home. Relation/event instances are physically stored once in PersonaKernel.relations/events with stable IDs + canonical_path; the corresponding domain payload must not copy the same fact."
 }
