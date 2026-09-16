@@ -1,0 +1,28 @@
+name: Human Ontology CI
+
+on:
+  push:
+    paths:
+      - "ontology/**"
+      - "core/human_ontology.py"
+      - "scripts/validate_human_ontology.py"
+      - ".github/workflows/ontology-ci.yml"
+  pull_request:
+    paths:
+      - "ontology/**"
+      - "core/human_ontology.py"
+      - "scripts/validate_human_ontology.py"
+      - ".github/workflows/ontology-ci.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate canonical Human Ontology
+        run: python scripts/validate_human_ontology.py
+      - name: Compile ontology loader
+        run: python -m py_compile core/human_ontology.py
