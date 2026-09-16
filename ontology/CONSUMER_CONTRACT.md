@@ -19,7 +19,7 @@ Every consumer-facing record must identify:
 - a stable `persona_id` / subject identifier;
 - canonical domain payloads;
 - field-level provenance for inferred/generated/derived values;
-- typed relations and events when applicable.
+- typed relations and events when applicable. Relation/event records carry stable IDs and a `canonical_path` back to their semantic namespace.
 
 ## Epistemic contract
 
@@ -31,7 +31,7 @@ For inferred/generated values, store confidence, provenance and temporal class. 
 
 ## Update contract
 
-Consumers may update values in their canonical homes. They may not create a second semantic home for convenience. A UI may project the same value in several screens, but all views must reference one canonical path.
+Consumers may update values in their canonical homes. They may not create a second semantic home for convenience. A UI may project the same value in several screens, but all views must reference one canonical path. When a fact is represented as a top-level `relations` or `events` record, the same fact must **not** also be copied into the domain payload; the graph record carries its `canonical_path`, and domain views may hold only references/projections.
 
 ## Cross-repository interoperability
 
