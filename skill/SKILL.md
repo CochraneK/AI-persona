@@ -1,157 +1,141 @@
 ---
-title: "Persona Generator — 全量 Persona 生成引擎"
-summary: "为精神病学 AI 评估生成结构化模拟人物（健康/患者），含人口学、职业、OCEAN 性格、生活事件时间线、System Prompt"
+title: "AI-Persona — Human Ontology + Persona Kernel"
+summary: "用 canonical Human Ontology 生成/迁移结构化 Persona；精神疾病知识作为可选健康域模块"
 created: "2026-08-29"
 category: "persona-generator"
-version: "1.2.0"
+version: "2.0.0-rc1"
 ---
 
-# Persona Generator
+# AI-Persona Skill
 
-> **来源**：`AI-persona/` 独立项目  
-> **用途**：生成结构化模拟人物（健康/患者）用于精神病学 AI 评估
+> **来源**：`AI-persona/`  
+> **默认用途**：生成 ontology-native `PersonaKernel`，供 AI-Persona / P003 / AI-Ques 等共享。
 
----
-
-## 基本原理
-
-用五个模块分别覆盖人物的基本面，然后组装为 Structured System Prompt：
+## 首选模式：Human Ontology v2
 
 ```mermaid
 flowchart LR
-    A[诊断本体<br/>diagnosis_ontology.json] --> B[generator.py]
-    C[occupations.py<br/>职业分类大典2022<br/>79中类] --> B
-    D[personality.py<br/>OCEAN+MECE标签<br/>诊断→OCEAN映射] --> B
-    E[events.py<br/>2D矩阵<br/>6领域×4阶段=143事件] --> B
-    F[archetypes.py<br/>人设元类型网格<br/>45型/10诊断] --> B
-    B --> G[结构化Persona<br/>+ System Prompt]
+    H[Human Ontology v2] --> K[PersonaKernel]
+    R[Canonical Field Registry] --> K
+    P[Psychiatric module<br/>optional] -->|health-only overlay| K
+    K --> A[AI-Persona]
+    K --> Q[AI-Ques]
+    K --> G[P003]
+    K --> F[Future Self / Avatar]
 ```
 
----
-
-## ⭐ 人设元类型网格（v1.2 核心）
-
-**问题**：v1.1 宣称的「三层空间 10²⁹ → 10⁷~10⁸」是虚假的——
-`stratification.calculate_total_compression()` 自己承认分层只是**软约束**，
-理论组合数仍 ≥10²⁸ 不可枚举；而决定人设内核的模板池实测极小
-（价值观 11 种 / 社交 17 种 / 创伤每诊断 5 条 / 补偿欲望与内在需要各仅 1 条）。
-
-**解法**：每个诊断定义有限个**人设型（archetype）**，型决定心理内核
-（wound→desire→need 因果链），诊断只决定症状学外壳。
-
-```
-诊断 (37) → 人设型 (每诊断 4~5 个，硬网格可枚举) → 型内变体 → 表层 OCEAN/标签/事件
-```
-
-当前：**10 诊断 / 45 型 / 720 深层身份**。未覆盖的 27 个诊断自动回退旧逻辑。
-
-```python
-from core.archetypes import sample_archetype, calculate_archetype_compression
-a = sample_archetype("depressive", rng)   # None = 该诊断未定义网格
-calculate_archetype_compression()         # 或命令行 python core/archetypes.py
-```
-
-**⚠️ 坑**：`cross_constraints.adjust_storr_*_by_ocean()` 在极端 OCEAN 下会
-**整体替换** wound/desire/need 文本、抹平人设型。`generator.py` 因此刻意不传
-ocean 给这些函数。新增调整逻辑须沿用「型专属优先，OCEAN 只微调」。
-
-效果（200 次同诊断同人口学去重率）：
-values 11→39 / social 17→61 / wound 5→20 / comp_desire 1→10 / storr_need 1→10
-
----
-
----
+核心规则：
+- 一个概念只有一个 canonical semantic home；
+- MECE 只用于回答同一问题的同级分类；
+- entity / quality-disposition / role / relation / process-event / state 分开；
+- diagnosis 是可选健康信息，不是 Person 根节点；
+- generated / inferred / observed / measured 必须区分；
+- 诊断默认只能影响 mental-health/current-state，不得决定人格、价值、道德、能力或人生史。
 
 ## 快速使用
 
+### v2 安全 API
+
 ```python
-from core import generate_persona, batch_generate
+from core import generate_persona_kernel
 
-# 生成一个重度抑郁患者 Persona
-p = generate_persona(primary_diagnosis="重度抑郁障碍", rng_seed=42)
-print(p.system_prompt)
+kernel = generate_persona_kernel(
+    primary_diagnosis="重度抑郁障碍",
+    rng_seed=42,
+)
 
-# 批量生成（含健康对照）
-personas = batch_generate(20, seed_pool=[
-    "重度抑郁障碍", "广泛性焦虑障碍", "精神分裂症",
-    "双相I型障碍", "无精神障碍（健康）",
-])
+print(kernel.to_dict())
 ```
 
----
+默认 `health_only` semantic firewall：同一个 seed 换不同诊断时，非健康域的人格与人生事件保持独立。
 
-## 职业分类 — 79 中类取舍
+需要明确复刻 v1.x 旧行为时：
 
-基于《职业分类大典(2022)》，选择 **79 中类**而非 1636 细类。
+```python
+from core import KernelGenerationPolicy, KernelGenerator
 
-**理由**：
-1. Persona 不需要精确职业代码（中类粒度足矣）
-2. 79 中类可读可筛选（`--occupation-filter`），1636 细类会淹没 CLI
-3. 可通过 `occupation_detail` 字段自然语言补充精确岗位
+kernel = KernelGenerator(
+    rng_seed=42,
+    policy=KernelGenerationPolicy("legacy_full"),
+).generate("重度抑郁障碍")
+```
 
-**默认加权**：大类 2(专业技术 30%)、4(生活服务 25%)、6(生产制造 18%) 权重最高，类 1(党政 5%)、7(军人 2%) 最低。
+### legacy API
 
-**诊断-职业压力关联**：标注了每个中类的 stress_level（high/medium/low），诊断采样时自动匹配（如抑郁→倾向于高压职业）。
+```python
+from core import generate_persona
 
----
+p = generate_persona(primary_diagnosis="重度抑郁障碍", rng_seed=42)
+print(p.system_prompt)
+```
 
-## 性格系统 — OCEAN + MECE 标签库
+仅用于旧数据集、旧实验与兼容性复现。
 
-**理论**：McCrae & Costa 大五人格(FFM)，50+ 国家跨文化验证。
+## 精神疾病体系怎么处理
 
-**MECE 设计**：
-- 5 维 × 2 极 = 10 个特质簇
-- 每个簇 5-7 个标签 = **50 个核心标签**
-- 正交因子确保互斥+全覆盖
+`diagnosis_ontology.json` **保留，不删除**。它被挂载在：
 
-**诊断关联**：每个诊断有预置 OCEAN 范围（1-10 分），基于 Kotov et al. (2010) 等 5 项元分析。
+```
+mental_neurodevelopmental_health
+  ├─ symptoms / experiences
+  ├─ functional impact
+  ├─ diagnoses (optional)
+  ├─ treatment / support
+  ├─ course / recovery
+  └─ risk / protective factors
+```
 
----
+旧版按诊断采样 OCEAN、archetype、事件等机制仍保留在 legacy generator，但不能继续被当作 canonical ontology 逻辑。
 
-## 生活事件 — 2D 矩阵
+## Archetype
 
-**MECE 设计**：
-- 6 个领域（家庭/教育/职业/健康/经济/人际）× 4 个阶段（童年/青少年/成年/中老年）
-- **143 个事件模板**，每个标注效价（44+/67-/32●）和诊断关联（trigger/maintain）
-- 采样时优先抽取诊断触发事件（1-2 个）
+`core/archetypes.py` 的 45 个既有人设型是 **narrative_identity 生成资产**：
+- 可以继续复用其 wound / desire / need / arc 内容；
+- 不是临床人格类型；
+- 不是心理测量真值；
+- diagnosis-keyed 采样属于 legacy compatibility；
+- native v2 应优先做 diagnosis-neutral narrative sampling。
 
----
+## Big Five / OCEAN
 
-## 完整 Persona 字段
+OCEAN 属于：
 
-| 字段 | 说明 |
-|------|------|
-| id/label | 唯一标识 |
-| age/gender | 根据诊断发病年龄采样 |
-| occupation/code | 79 中类+编码 |
-| education/locale/marital | 人口学 |
-| primary_diagnosis/comorbidities | 诊断+共病 |
-| **archetype_key/name/one_liner** | **人设元类型（v1.2，未覆盖诊断为空串）** |
-| ocean 5-dim | 1-10 分 |
-| personality_tags | 精选标签 |
-| cognitive/coping_styles | 认知+应对 |
-| life_events | 时间线 |
-| system_prompt | 组装结果 |
+`personality_psychology.temperament_traits`
 
----
+它是一个特质模型，不是 Human Ontology 的严格 MECE 划分，也不覆盖 motives / values / beliefs / coping / relationships / narrative identity / surface expression。
 
-## 参数调整清单
+## 关键文件
 
-所有参数通过 `PersonaGenerator()` 构造函数可调：
+- `ontology/human_ontology.v2.json`
+- `ontology/CANONICAL_FIELD_REGISTRY.json`
+- `ontology/V1_TO_V2_MIGRATION.json`
+- `ontology/persona_kernel.schema.json`
+- `ontology/CONSUMER_CONTRACT.md`
+- `ontology/HUMAN_ONTOLOGY_REVIEW.md`
+- `core/persona_kernel.py`
+- `core/kernel_generator.py`
+- `core/legacy_adapter.py`
 
-- `occupation_major_weights` — 8 类权重
-- `occupation_major_filter` — 限定大类
-- `occupation_stress_filter` — 限定压力水平
-- `event_count` (默认 6) — 事件数
-- `event_*_ratio` — 效价比
-- `personality_tag_count` (默认 4)
-- `healthy_ratio` (默认 0.2)
-- `age_range` (默认 18-75)
+## 修改 ontology 前
 
----
+先检查 `CANONICAL_FIELD_REGISTRY.json`，再回答：
+1. canonical home 是什么？
+2. ontological kind 是什么？
+3. 是新概念，还是现有概念的 relation/view？
+4. cardinality / temporality 是什么？
+5. 是否 sensitive？
+6. 是否存在 deterministic inference 风险？
+7. v1 字段怎么迁移？
+8. P003 / AI-Ques 是否仍能读？
 
-## 路径
+## 质量门
 
-- 代码：`AI-persona/core/`
-- 诊断本体：`AI-persona/diagnosis_ontology.json`
-- 详细文档：`AI-persona/core/README.md` / `AI-persona/README.md`
+```bash
+python scripts/validate_human_ontology.py
+python scripts/validate_human_ontology_v2.py
+python scripts/test_persona_kernel_compat.py
+python scripts/test_events_sampling.py
+python -m py_compile core/*.py
+```
+
+全部通过后才能考虑将 v2 从 release candidate 提升为 canonical。
