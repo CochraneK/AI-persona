@@ -1,3 +1,11 @@
+> ## Canonical ontology notice
+>
+> Shared human/persona concepts are now governed by `../ontology/human_ontology.v1.json`.
+> This core generator may keep legacy field names and the 6-domain × 4-stage event matrix for compatibility, but those structures are not the canonical ontology.
+>
+> **Rule: orthogonal axes across the system; MECE within each axis.**
+> Personality fields must map to the canonical 7-layer personality model. New ontology concepts require `../ontology/HUMAN_ONTOLOGY_REVIEW.md`.
+
 # Persona Generator — 精神病学评估用全量 Persona 生成引擎
 
 > 生成具有统计学意义的模拟人物（Patient/Healthy），用于精神病学 AI 评估与模拟。
