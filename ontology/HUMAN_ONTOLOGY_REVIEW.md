@@ -63,17 +63,17 @@ Every ontology change must answer:
 1. **Canonical home** — Which single axis owns this concept?
 2. **Orthogonality** — Is it actually distinct from existing axes, or a duplicate description?
 3. **MECE** — At this abstraction level, are categories non-overlapping and sufficiently exhaustive?
-4. **Cardinality** — single value, multi-select, ordered history, graph/relationship, or continuous measure?
-5. **Temporality** — origin-fixed, slow-changing, role-dependent, relationship-specific, event history, dynamic state, or derived?
-6. **Level** — trait, motive, cognition, strategy, relationship pattern, narrative identity, surface expression, health, context, role, or state?
-7. **Cross-cultural portability** — Is this a universal concept or a region-specific code system?
-8. **Sensitivity** — Is this health, race/ethnicity, religion, orientation, legal status or another sensitive attribute?
-9. **Non-determinism** — Could the proposed rule accidentally turn correlation into destiny?
-10. **Provenance** — What source/version/population supports any empirical prior?
-11. **Interoperability** — What happens to AI-persona, P003, AI-Ques admin data and persona-kernel schemas?
-12. **Migration** — How are old IDs/fields mapped?
-13. **Coverage** — Which valid people/lives cannot be represented after this change?
-14. **Counterexamples** — Give at least two people who would break a naive version of the classification.
+5. **Cardinality** — single value, multi-select, ordered history, graph/relationship, or continuous measure?
+6. **Temporality** — origin-fixed, slow-changing, role-dependent, relationship-specific, event history, dynamic state, or derived?
+7. **Level** — trait, motive, cognition, strategy, relationship pattern, narrative identity, surface expression, health, context, role, or state?
+8. **Cross-cultural portability** — Is this a universal concept or a region-specific code system?
+9. **Sensitivity** — Is this health, race/ethnicity, religion, orientation, legal status or another sensitive attribute?
+10. **Non-determinism** — Could the proposed rule accidentally turn correlation into destiny?
+11. **Provenance** — What source/version/population supports any empirical prior?
+12. **Interoperability** — What happens to AI-persona, P003, AI-Ques admin data and persona-kernel schemas?
+13. **Migration** — How are old IDs/fields mapped?
+14. **Coverage** — Which valid people/lives cannot be represented after this change?
+15. **Counterexamples** — Give at least two people who would break a naive version of the classification.
 
 ## Review outcomes
 
