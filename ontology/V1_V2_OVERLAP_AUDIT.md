@@ -14,14 +14,17 @@ This register prevents a cosmetic rename from being mistaken for MECE.
 | family relation vs family/caregiving role | kinship/relation and role are represented separately | `relationships.*` + `roles.*` | resolved |
 | relationship quality vs relational pattern | dyad-specific observation ≠ person-level disposition | `relationships.relationship_quality` + `personality_psychology.relational_dispositions` | resolved |
 | health sleep vs sleep routine | functioning/problem ≠ recurring behavior | `body_functioning_health.sleep_functioning` + `lifestyle_routines.sleep_routine` | resolved |
-| self-presentation vs grooming routine | expression ≠ behavior/routine | `personality_psychology.surface_expression.self_presentation` + `lifestyle_routines.appearance_grooming_routine` | resolved |
+| self-presentation vs grooming routine | identity/expression ≠ recurring behavior/routine | `identity_self_concept.self_presentation` + `lifestyle_routines.appearance_grooming_routine` | resolved |
 | household context vs family/household graph | context describes external conditions; membership remains a relationship | `context_ecology.household_context` references relationship/household entities | resolved_reference |
 | school/work institutions vs education/work/social structural views | institution is not duplicated; domains hold typed relations/projections | context institution references + education/work/social institutional relations | resolved_reference |
 | institutional memberships vs roles/education/work | membership relation is canonical; role/education/work views reference it | `social_institutional_position.institutional_memberships` | resolved_reference |
 | life events vs migration/education/work/health histories | event is canonical process/event; domain histories are projections/references | `life_events.*`; migration manifest relationizes histories | resolved_reference |
 | current_state vs health/work/resources/personality | current state is a timestamped projection, not second source-of-truth for enduring facts | `current_state.*` with derived action where source facts live elsewhere | resolved_derived |
 | self-efficacy vs ability | self-efficacy is a belief about capability, not the capability itself | `personality_psychology.cognition_beliefs.self_efficacy`; removed from ability-domain question | resolved |
-| religion/spirituality vs values | participation/affiliation/exposure ≠ personally endorsed value/meaning | `culture_language.religion_spirituality` vs `personality_psychology.motives_values_goals` | resolved |
+| religion/spirituality vs values | participation/affiliation/exposure ≠ personally endorsed value/meaning | `culture_language.religion_spirituality` vs `personality_psychology.motives_values_goals` | resolved |\n| substance use vs consumption/health | behavior/exposure ≠ health consequence | split legacy field into `lifestyle_routines.substance_use` and `body_functioning_health.substance_related_health` | resolved_split |
+| healthcare access vs health state | institutional entitlement/current usable access ≠ bodily health | split to `social_institutional_position.healthcare_entitlement_access` + `resources_constraints_opportunities.healthcare_access` | resolved_split |
+| gender-role context vs gender identity | external norm/context ≠ self-concept | `context_ecology.gender_role_context` vs `identity_self_concept.gender_identity` | resolved |
+| role transition vs role | transition is process/event; resulting position is role | `life_events.role_transition` vs `roles.*` | resolved |
 
 ## Machine-checkable migration
 
