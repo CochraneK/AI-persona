@@ -23,6 +23,8 @@ def main() -> None:
     assert kernel.persona_id == legacy.id
     assert "personality_psychology" in kernel.domains
     assert "mental_neurodevelopmental_health" in kernel.domains
+    assert "education_learning" in kernel.domains
+    assert "work_economic_participation" in kernel.domains
     diagnoses = kernel.get_value("mental_neurodevelopmental_health", "diagnoses")
     assert diagnoses and diagnoses[0]["role"] == "primary"
     assert kernel.events
@@ -34,12 +36,20 @@ def main() -> None:
     assert dep_dx and gad_dx and dep_dx[0]["label"] != gad_dx[0]["label"]
 
     # Sensitive diagnosis may alter health/current-state payloads, but under the
-    # default health-only policy it must not determine personality or life history.
-    assert safe_dep.domains["personality_psychology"] == safe_gad.domains["personality_psychology"]
-    assert safe_dep.domains["abilities_skills_interests"] == safe_gad.domains["abilities_skills_interests"]
-    assert safe_dep.domains["education_learning"] == safe_gad.domains["education_learning"]
-    assert safe_dep.domains["work_economic_participation"] == safe_gad.domains["work_economic_participation"]
-    assert safe_dep.domains["identity_self_concept"] == safe_gad.domains["identity_self_concept"]
+    # default health-only policy it must not determine non-health person semantics.
+    invariant_domains = (
+        "personality_psychology",
+        "abilities_skills_interests",
+        "education_learning",
+        "work_economic_participation",
+        "identity_self_concept",
+        "relationships",
+        "place_mobility",
+        "lifestyle_routines",
+    )
+    for domain in invariant_domains:
+        assert safe_dep.domains.get(domain) == safe_gad.domains.get(domain), domain
+    assert safe_dep.relations == safe_gad.relations
     assert safe_dep.events == safe_gad.events
 
     direct = safe_dep.to_dict()
