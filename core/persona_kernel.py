@@ -9,17 +9,35 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any, Mapping
 
-from .human_ontology import canonical_v2_domain_ids, ontology_v2_version
+from .human_ontology import (
+    canonical_relation_families,
+    canonical_v2_domain_ids,
+    load_human_ontology_v2,
+    ontology_v2_version,
+)
 
-SOURCE_TYPES = frozenset({
-    "user_provided",
-    "observed",
-    "measured",
-    "inferred",
-    "generated",
-    "derived",
-    "external_reference",
-})
+SOURCE_TYPES = frozenset(
+    load_human_ontology_v2()["field_metadata_contract"]["source_type_values"]
+)
+
+
+def _validate_provenance_record(record: Mapping[str, Any], *, context: str) -> None:
+    source_type = record.get("source_type")
+    if source_type not in SOURCE_TYPES:
+        raise ValueError(f"{context} has invalid source_type: {source_type!r}")
+    if source_type in {"inferred", "generated"}:
+        confidence = record.get("confidence")
+        if not isinstance(confidence, (int, float)) or not 0.0 <= float(confidence) <= 1.0:
+            raise ValueError(f"{context} generated/inferred confidence must be 0..1")
+        if not record.get("provenance") or not record.get("temporal_class"):
+            raise ValueError(
+                f"{context} generated/inferred record requires provenance and temporal_class"
+            )
+    if source_type == "input_constraint":
+        if not record.get("provenance") or not record.get("temporal_class"):
+            raise ValueError(
+                f"{context} input_constraint requires provenance and temporal_class"
+            )
 
 
 @dataclass(frozen=True)
@@ -38,6 +56,11 @@ class FieldMetadata:
             if self.confidence is None or not self.provenance or not self.temporal_class:
                 raise ValueError(
                     "inferred/generated values require confidence, provenance and temporal_class"
+                )
+        if self.source_type == "input_constraint":
+            if not self.provenance or not self.temporal_class:
+                raise ValueError(
+                    "input_constraint values require provenance and temporal_class"
                 )
 
 
@@ -75,6 +98,24 @@ class PersonaKernel:
                 raise ValueError(f"Metadata path has unknown domain: {path}")
             if not isinstance(meta, FieldMetadata):
                 raise TypeError(f"Metadata for {path} must be FieldMetadata")
+
+        allowed_relations = set(canonical_relation_families())
+        for index, relation in enumerate(self.relations):
+            if not isinstance(relation, dict):
+                raise TypeError(f"relation[{index}] must be a dict")
+            predicate = relation.get("predicate")
+            if predicate not in allowed_relations:
+                raise ValueError(
+                    f"relation[{index}] has unknown predicate {predicate!r}"
+                )
+            _validate_provenance_record(relation, context=f"relation[{index}]")
+
+        for index, event in enumerate(self.events):
+            if not isinstance(event, dict):
+                raise TypeError(f"event[{index}] must be a dict")
+            if not event.get("type"):
+                raise ValueError(f"event[{index}] requires type")
+            _validate_provenance_record(event, context=f"event[{index}]")
 
     def set_value(
         self, domain: str, key: str, value: Any, metadata: FieldMetadata
