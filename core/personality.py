@@ -1,40 +1,20 @@
-"""
-性格系统模块 — 大五人格(OCEAN) + MECE 性格标签库
+"""Personality generation utilities.
 
+Human Ontology v2 classification
 =========================================================================
-理论基础
-=========================================================================
-采用 McCrae & Costa 的五因素模型(FFM / OCEAN)，这是心理学界最成熟、
-跨文化验证最充分的人格模型（已验证于 50+ 国家和地区）。
+Big Five / OCEAN belongs under personality_psychology.temperament_traits.
 
-MECE 性保证：
-  大五的 5 个维度是因子分析得到的正交因子，彼此独立且共同覆盖人格空间的全部方差。
-  每个维度进一步分为高低两极 → 10 个"特质簇"(trait cluster)，
-  每个簇内的标签是近义词/同义描述，可以互换。
-  
-  维度独立性（正交性）：
-  ┌─────────┬─────────────────────────┬─────────────────────────┐
-  │ 维度    │ 低分端                  │ 高分端                  │
-  ├─────────┼─────────────────────────┼─────────────────────────┤
-  │ N 神经质│ 情绪稳定                 │ 情绪敏感/不稳定         │
-  │ E 外向性│ 内向/安静               │ 外向/活跃               │
-  │ O 开放性│ 传统/务实               │ 好奇/开放               │
-  │ A 宜人性│ 怀疑/竞争               │ 友善/合作               │
-  │ C 尽责性│ 随意/散漫               │ 自律/有序               │
-  └─────────┴─────────────────────────┴─────────────────────────┘
+The five broad traits are useful, well-studied dimensions, but they are not the
+Human Ontology's MECE partition of personality. Conceptual distinctness does
+not require zero empirical correlation, and the model is not claimed to
+exhaust motives, values, beliefs, coping, relationships, narrative identity or
+surface expression.
 
-=========================================================================
-诊断-OCEAN 关联依据
-=========================================================================
-每个诊断的 OCEAN 范围基于以下实证研究：
-  - Kotov et al. (2010): J Abnorm Psychol 上的大型元分析
-    → 几乎所有精神障碍均与高 N 相关
-  - Malouff et al. (2005): 抑郁与高 N + 低 E + 低 C
-  - Samuel & Widiger (2008): 人格障碍的 FFM 特征
-  - Ruiz et al. (2008): 物质使用障碍与低 A + 低 C
-  - 强迫障碍: 高 C + 高 N (Samuel et al., 2009)
-  - ASD: 低 E + 低 O (变化的社交偏好) + 高 C (strickland et al.)
-=========================================================================
+Legacy diagnosis-conditioned OCEAN priors are retained for backwards
+compatibility and research reproduction. Native v2 generation must treat such
+associations as optional, provenance-bearing priors rather than deterministic
+rules, and the default KernelGenerator prevents diagnosis from changing
+non-health personality domains.
 """
 
 from dataclasses import dataclass, field
