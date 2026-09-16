@@ -1,0 +1,432 @@
+{
+  "ontology_id": "human-ontology",
+  "version": "1.0.0",
+  "status": "canonical",
+  "host_repository": "CochraneK/AI-persona",
+  "design_principles": {
+    "orthogonal_axes": "Top-level axes answer different questions. A concept must have one canonical home; other appearances are references, not duplicate definitions.",
+    "mece_within_axis": "Within each axis, categories should be mutually exclusive where the concept is single-valued, and collectively exhaustive at the declared abstraction level. Multi-valued concepts must be explicitly marked multi_select.",
+    "health_not_identity_root": "Physical and mental health are layers of a person, never the root identity of the person.",
+    "place_not_culture": "Birthplace, upbringing place, residence and cultural environment are separate constructs.",
+    "trait_not_state": "Stable traits, learned strategies, relationships, narrative identity and current state are separate layers.",
+    "provenance_required": "Empirical priors and external code systems require source, scope, date/version and representativeness metadata.",
+    "no_deterministic_sensitive_inference": "Sensitive attributes may constrain plausibility only when justified; they must not deterministically infer personality, health, values or life outcomes.",
+    "content_open_ontology_governed": "Persona/story/event content may expand freely. Canonical ontology axes/enums require ontology review."
+  },
+  "temporal_classes": [
+    "origin_fixed",
+    "slow_changing",
+    "role_dependent",
+    "relationship_specific",
+    "event_history",
+    "dynamic_state",
+    "derived"
+  ],
+  "axes": [
+    {
+      "id": "time_development",
+      "label_zh": "时间与发展",
+      "question": "这个人处在人生的什么时候？",
+      "subaxes": [
+        "birth_date_year",
+        "chronological_age",
+        "developmental_stage",
+        "life_role_stage",
+        "birth_cohort",
+        "historical_period",
+        "major_transition_status"
+      ]
+    },
+    {
+      "id": "place_mobility",
+      "label_zh": "地点、居住与迁移",
+      "question": "这个人在哪里出生、成长、生活和移动？",
+      "subaxes": [
+        "birth_place",
+        "upbringing_places",
+        "current_residence",
+        "urbanicity",
+        "housing_context",
+        "migration_history",
+        "mobility_pattern",
+        "physical_environment"
+      ]
+    },
+    {
+      "id": "culture_language",
+      "label_zh": "文化与语言环境",
+      "question": "这个人在哪些文化和语言体系中被社会化？",
+      "subaxes": [
+        "cultural_backgrounds",
+        "enculturation_contexts",
+        "languages",
+        "religion_spirituality",
+        "ethnocultural_identity",
+        "customs_norms_exposure",
+        "media_culture_exposure",
+        "cross_cultural_experience"
+      ],
+      "notes": [
+        "Cultural environment is multi_select and exposure-based; it is not inferred from birthplace.",
+        "Ethnicity/race/caste categories are region-specific code systems, not one universal global enum."
+      ]
+    },
+    {
+      "id": "sex_gender_orientation",
+      "label_zh": "生理性别、性别与亲密取向",
+      "question": "身体性征、性别身份/表达与亲密取向分别是什么？",
+      "subaxes": [
+        "sex_characteristics",
+        "sex_assigned_at_birth",
+        "gender_identity",
+        "gender_expression",
+        "sexual_orientation",
+        "romantic_orientation"
+      ],
+      "sensitivity": "sensitive"
+    },
+    {
+      "id": "body_health",
+      "label_zh": "身体、功能与健康",
+      "question": "身体功能、健康状态与医疗经历如何？",
+      "subaxes": [
+        "physical_health",
+        "disability_functioning",
+        "sensory_motor_function",
+        "sleep",
+        "substance_use",
+        "reproductive_health",
+        "healthcare_access",
+        "health_history"
+      ],
+      "notes": ["Use ICF-like functioning concepts where appropriate; diagnosis does not define worth or identity."]
+    },
+    {
+      "id": "mental_neurodevelopmental_health",
+      "label_zh": "心理、精神与神经发育健康",
+      "question": "精神健康、神经发育和症状/功能状态如何？",
+      "subaxes": [
+        "mental_health_status",
+        "diagnoses",
+        "neurodevelopmental_conditions",
+        "symptoms_experiences",
+        "functional_impact",
+        "treatment_support",
+        "recovery_course",
+        "risk_protective_factors"
+      ],
+      "sensitivity": "highly_sensitive",
+      "notes": [
+        "Diagnosis is one optional health layer.",
+        "Symptoms, diagnosis, impairment and treatment are distinct concepts.",
+        "Healthy people receive the same richness in every non-health axis."
+      ]
+    },
+    {
+      "id": "education_learning",
+      "label_zh": "教育与学习",
+      "question": "接受过什么教育、正在如何学习、有哪些学习机会？",
+      "subaxes": [
+        "education_attainment",
+        "current_education_status",
+        "education_field",
+        "learning_access",
+        "training_credentials",
+        "learning_history"
+      ]
+    },
+    {
+      "id": "work_economic_position",
+      "label_zh": "工作与经济位置",
+      "question": "如何参与劳动市场、拥有哪些物质资源与经济安全？",
+      "subaxes": [
+        "employment_status",
+        "occupation",
+        "occupation_detail",
+        "industry",
+        "work_conditions",
+        "authority_responsibility",
+        "income",
+        "wealth_assets",
+        "debt",
+        "material_security"
+      ]
+    },
+    {
+      "id": "social_structural_position",
+      "label_zh": "社会结构位置与制度身份",
+      "question": "在社会结构和制度中处于什么位置？",
+      "subaxes": [
+        "socioeconomic_class",
+        "citizenship_nationality",
+        "legal_residency_status",
+        "institutional_memberships",
+        "social_status_prestige",
+        "discrimination_stigma_exposure",
+        "rights_access",
+        "service_access"
+      ],
+      "notes": ["Nationality/citizenship is legal-political and must not be used as a proxy for culture."]
+    },
+    {
+      "id": "family_household",
+      "label_zh": "家庭、亲属与家庭户",
+      "question": "与谁构成家庭/亲属网络，如何共同生活？",
+      "subaxes": [
+        "family_of_origin",
+        "caregiver_structure",
+        "siblings",
+        "kinship_network",
+        "partner_spouse",
+        "children_dependents",
+        "household_membership",
+        "living_arrangement",
+        "family_climate",
+        "intergenerational_patterns"
+      ]
+    },
+    {
+      "id": "relationships_networks",
+      "label_zh": "关系与社会网络",
+      "question": "与家庭之外的人如何连接，关系质量和网络结构怎样？",
+      "subaxes": [
+        "friendships",
+        "peer_relations",
+        "romantic_relationships",
+        "mentors",
+        "work_relations",
+        "community_ties",
+        "support_network",
+        "network_size_structure",
+        "relationship_quality",
+        "conflict_repair_patterns"
+      ]
+    },
+    {
+      "id": "personality_psychology",
+      "label_zh": "人格与心理组织",
+      "question": "相对稳定的倾向、动机、策略和叙事如何分层？",
+      "layers": [
+        {
+          "id": "temperament_traits",
+          "label_zh": "气质与稳定特质",
+          "examples": ["Big Five", "temperament"],
+          "rule": "Describe relatively stable distributions, not motives or symptoms."
+        },
+        {
+          "id": "motives_values_goals",
+          "label_zh": "动机、价值与目标",
+          "examples": ["values", "core_desire", "core_fear", "needs", "goals"],
+          "rule": "What matters and what is pursued; not trait strength."
+        },
+        {
+          "id": "cognition_beliefs",
+          "label_zh": "认知、信念与解释风格",
+          "examples": ["worldview", "self-beliefs", "cognitive_styles", "appraisal"],
+          "rule": "How situations are interpreted; not mental-health diagnosis."
+        },
+        {
+          "id": "emotion_regulation_coping",
+          "label_zh": "情绪调节与应对策略",
+          "examples": ["reappraisal", "suppression", "problem-focused coping", "avoidance", "support seeking"],
+          "rule": "Learned or situational strategies; distinguish from trait."
+        },
+        {
+          "id": "relational_patterns",
+          "label_zh": "关系模式",
+          "examples": ["trust", "rejection sensitivity", "attachment expression", "reciprocity", "boundary style"],
+          "rule": "Prefer relationship-specific representation over one global label."
+        },
+        {
+          "id": "narrative_identity",
+          "label_zh": "叙事身份与人物内核",
+          "examples": ["archetype", "formative pressure", "compensatory strategy", "developmental need", "character arc"],
+          "rule": "Narrative causal model for generation/story, not psychometric truth."
+        },
+        {
+          "id": "surface_expression",
+          "label_zh": "表层表达",
+          "examples": ["communication style", "disclosure", "conflict style", "social energy", "manner"],
+          "rule": "How deeper layers are expressed; must not overwrite them."
+        }
+      ]
+    },
+    {
+      "id": "abilities_skills_interests",
+      "label_zh": "能力、技能与兴趣",
+      "question": "会什么、擅长什么、喜欢做什么？",
+      "subaxes": [
+        "cognitive_abilities",
+        "physical_skills",
+        "technical_skills",
+        "social_skills",
+        "creative_skills",
+        "interests_hobbies",
+        "expertise",
+        "self_efficacy"
+      ]
+    },
+    {
+      "id": "lifestyle_routines",
+      "label_zh": "生活方式与日常习惯",
+      "question": "日常生活怎么过？",
+      "subaxes": [
+        "daily_routine",
+        "sleep_routine",
+        "diet",
+        "exercise",
+        "leisure",
+        "digital_use",
+        "consumption_habits",
+        "caregiving_routine"
+      ]
+    },
+    {
+      "id": "life_events_history",
+      "label_zh": "人生事件与历史",
+      "question": "发生过什么重要事件，它们何时、在哪个领域、以什么压力形状发生？",
+      "subaxes": [
+        "event_time",
+        "life_domain",
+        "actors",
+        "event_type",
+        "pressure_shape",
+        "impact_profile",
+        "turning_point",
+        "immediate_consequence",
+        "delayed_consequence",
+        "memory_callback"
+      ]
+    },
+    {
+      "id": "ecology_macro_context",
+      "label_zh": "生态与宏观环境",
+      "question": "个人之外的环境如何塑造机会和限制？",
+      "subaxes": [
+        "household_context",
+        "school_work_institutions",
+        "neighborhood",
+        "regional_context",
+        "economic_conditions",
+        "policy_legal_context",
+        "technology_media_environment",
+        "historical_events",
+        "social_norms",
+        "environment_climate"
+      ],
+      "notes": ["This axis describes context; do not rewrite structural constraints as personality."]
+    },
+    {
+      "id": "resources_constraints_opportunities",
+      "label_zh": "资源、限制与机会结构",
+      "question": "当前能使用什么资源、受什么限制、有哪些真实可选路径？",
+      "subaxes": [
+        "material_resources",
+        "social_resources",
+        "institutional_resources",
+        "time_resources",
+        "care_resources",
+        "mobility_options",
+        "learning_opportunities",
+        "career_opportunities",
+        "barriers_constraints"
+      ]
+    },
+    {
+      "id": "roles_responsibilities",
+      "label_zh": "社会角色与责任",
+      "question": "当前承担哪些角色，各角色对时间、责任和身份有什么要求？",
+      "subaxes": [
+        "family_roles",
+        "education_roles",
+        "work_roles",
+        "caregiving_roles",
+        "community_roles",
+        "role_load",
+        "role_conflict",
+        "role_transition"
+      ]
+    },
+    {
+      "id": "current_state",
+      "label_zh": "当前状态",
+      "question": "此时此刻处于什么状态？",
+      "temporal_class": "dynamic_state",
+      "subaxes": [
+        "energy",
+        "stress",
+        "mood",
+        "support",
+        "autonomy",
+        "competence",
+        "relatedness",
+        "financial_strain",
+        "health_burden",
+        "current_goals",
+        "current_conflicts"
+      ],
+      "notes": ["Current state is not personality and must not be stored as a permanent trait."]
+    }
+  ],
+  "canonical_shared_classifications": {
+    "life_domains": [
+      "health_body",
+      "self_identity",
+      "family_kinship",
+      "friendship_social",
+      "intimacy",
+      "education_learning",
+      "work_career",
+      "material_life",
+      "community_society",
+      "meaning_creation"
+    ],
+    "developmental_stages": [
+      { "id": "origin", "typical_age": [0, 1] },
+      { "id": "early_childhood", "typical_age": [2, 5] },
+      { "id": "middle_childhood", "typical_age": [6, 11] },
+      { "id": "adolescence", "typical_age": [12, 17] },
+      { "id": "emerging_adulthood", "typical_age": [18, 24] },
+      { "id": "early_adulthood", "typical_age": [25, 39] },
+      { "id": "middle_adulthood", "typical_age": [40, 59] },
+      { "id": "later_adulthood", "typical_age": [60, 74] },
+      { "id": "late_life", "typical_age": [75, 120] }
+    ],
+    "event_pressure_shapes": [
+      "loss",
+      "danger",
+      "humiliation",
+      "entrapment",
+      "role_overload",
+      "uncertainty",
+      "conflict",
+      "belonging",
+      "opportunity",
+      "achievement",
+      "transition",
+      "caregiving",
+      "neutral"
+    ]
+  },
+  "legacy_mappings": {
+    "ai_persona_event_domains_v1": {
+      "family": "family_kinship",
+      "education": "education_learning",
+      "occupation": "work_career",
+      "health": "health_body",
+      "finance": "material_life",
+      "interpersonal": "friendship_social"
+    },
+    "ai_persona_event_stages_v1": {
+      "childhood": ["early_childhood", "middle_childhood"],
+      "adolescence": ["adolescence"],
+      "adulthood": ["emerging_adulthood", "early_adulthood"],
+      "mid_older": ["middle_adulthood", "later_adulthood", "late_life"]
+    },
+    "ai_persona_locale_v1": {
+      "城市": { "axis": "place_mobility", "target": "urbanicity", "value": "urban" },
+      "城镇": { "axis": "place_mobility", "target": "urbanicity", "value": "town" },
+      "农村": { "axis": "place_mobility", "target": "urbanicity", "value": "rural" }
+    }
+  }
+}
