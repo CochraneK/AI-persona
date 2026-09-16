@@ -104,6 +104,12 @@ def main() -> None:
         f"metadata source-type drift: schema_only={sorted(schema_source_types-ontology_source_types)}, "
         f"ontology_only={sorted(ontology_source_types-schema_source_types)}"
     )
+    schema_relation_families = set(
+        kernel_schema["$defs"]["relationRecord"]["properties"]["predicate"]["enum"]
+    )
+    assert schema_relation_families == set(o["relation_families"]), (
+        "relation-family drift between ontology and Kernel schema"
+    )
 
     assert r["version"] == o["version"], "field registry version must match ontology version"
     domain_by_id = {d["id"]: d for d in domains}
