@@ -38,6 +38,8 @@ def main() -> None:
     assert safe_dep.domains["personality_psychology"] == safe_gad.domains["personality_psychology"]
     assert safe_dep.domains["abilities_skills_interests"] == safe_gad.domains["abilities_skills_interests"]
     assert safe_dep.domains["education_learning"] == safe_gad.domains["education_learning"]
+    assert safe_dep.domains["work_economic_participation"] == safe_gad.domains["work_economic_participation"]
+    assert safe_dep.domains["identity_self_concept"] == safe_gad.domains["identity_self_concept"]
     assert safe_dep.events == safe_gad.events
 
     direct = safe_dep.to_dict()
