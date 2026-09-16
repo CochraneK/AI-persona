@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CochraneK/AI-persona/ontology/persona_kernel.schema.json",
+  "title": "Human Ontology v2 Persona Kernel",
+  "type": "object",
+  "required": ["persona_id", "ontology_version", "domains", "field_metadata", "relations", "events"],
+  "additionalProperties": false,
+  "properties": {
+    "persona_id": {"type": "string", "minLength": 1},
+    "ontology_version": {"const": "2.0.0-rc1"},
+    "domains": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "development": {"type": "object"},
+        "body_functioning_health": {"type": "object"},
+        "mental_neurodevelopmental_health": {"type": "object"},
+        "personality_psychology": {"type": "object"},
+        "abilities_skills_interests": {"type": "object"},
+        "identity_affiliations": {"type": "object"},
+        "roles": {"type": "object"},
+        "relationships": {"type": "object"},
+        "place_mobility": {"type": "object"},
+        "education_work_economy": {"type": "object"},
+        "social_institutional_position": {"type": "object"},
+        "culture_language": {"type": "object"},
+        "life_events": {"type": "object"},
+        "context_ecology": {"type": "object"},
+        "resources_constraints_opportunities": {"type": "object"},
+        "lifestyle_routines": {"type": "object"},
+        "current_state": {"type": "object"}
+      }
+    },
+    "field_metadata": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/fieldMetadata"}
+    },
+    "relations": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "events": {
+      "type": "array",
+      "items": {"type": "object"}
+    }
+  },
+  "$defs": {
+    "fieldMetadata": {
+      "type": "object",
+      "required": ["source_type"],
+      "additionalProperties": false,
+      "properties": {
+        "source_type": {
+          "enum": ["user_provided", "observed", "measured", "inferred", "generated", "derived", "external_reference"]
+        },
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "provenance": {"type": ["string", "null"]},
+        "temporal_class": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
