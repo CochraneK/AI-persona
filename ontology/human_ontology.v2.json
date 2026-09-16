@@ -48,7 +48,7 @@
     {
       "id": "abilities_skills_interests",
       "domain_type": "semantic_namespace",
-      "question": "What abilities, learned skills, expertise, self-efficacy and interests apply?",
+      "question": "What abilities, learned skills, expertise and interests apply?",
       "allowed_kinds": ["quality_disposition", "state"],
       "default_temporal_class": "slow_changing"
     },
