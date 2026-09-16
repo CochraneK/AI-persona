@@ -10,6 +10,7 @@ on:
       - "scripts/test_persona_kernel_compat.py"
       - "scripts/test_events_sampling.py"
       - "scripts/test_ontology_json_assets.py"
+      - "scripts/check_ontology_release_gate.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
@@ -51,3 +52,5 @@ jobs:
         run: python scripts/test_persona_kernel_compat.py
       - name: Regression-test event allocation
         run: python scripts/test_events_sampling.py
+      - name: Repository release gate
+        run: python scripts/check_ontology_release_gate.py
