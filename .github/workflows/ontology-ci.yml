@@ -8,6 +8,7 @@ on:
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
       - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_persona_kernel_contract.py"
       - "scripts/test_events_sampling.py"
       - "scripts/test_ontology_json_assets.py"
       - "scripts/check_ontology_release_gate.py"
@@ -50,6 +51,8 @@ jobs:
           PY
       - name: Test Persona Kernel compatibility and semantic firewall
         run: python scripts/test_persona_kernel_compat.py
+      - name: Round-trip Persona Kernel contract example
+        run: python scripts/test_persona_kernel_contract.py
       - name: Regression-test event allocation
         run: python scripts/test_events_sampling.py
       - name: Repository release gate
