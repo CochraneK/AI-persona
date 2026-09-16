@@ -41,7 +41,7 @@ jobs:
           p = PersonaKernel("ci-person")
           p.set_value("current_state", "mood", "neutral", FieldMetadata("generated", 0.5, "ci-smoke", "dynamic_state"))
           assert p.get_value("current_state", "mood") == "neutral"
-          assert p.to_dict()["ontology_version"] == "2.0.0-rc1"
+          assert p.to_dict()["ontology_version"] == "2.0.0-rc2"
           print("Persona Kernel smoke test: OK")
           PY
       - name: Test Persona Kernel compatibility and semantic firewall
