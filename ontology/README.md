@@ -4,12 +4,18 @@ AI-Persona hosts the canonical Human Ontology intended for AI-Persona, P003, AI-
 
 ## Current status
 
-- `human_ontology.v1.json` remains the **canonical compatibility schema** while v2 is being migrated.
-- `HUMAN_ONTOLOGY_V2_ARCHITECTURE.md` is the normative architecture contract for the refactor.
-- `V1_V2_OVERLAP_AUDIT.md` records unresolved semantic overlaps; v2 cannot become canonical while material overlaps remain unresolved.
-- `EXTERNAL_ONTOLOGY_REGISTRY.json` records external standards/ontologies considered for alignment or mapping.
+- `human_ontology.v1.json` remains the canonical compatibility schema while migration proceeds.
+- `human_ontology.v2.json` is the executable **v2 release candidate**.
+- `CANONICAL_FIELD_REGISTRY.json` enforces one canonical semantic home per concept and a unique mapping for legacy aliases.
+- `V1_TO_V2_MIGRATION.json` records semantic migration from the 19 v1 coverage views.
+- `persona_kernel.schema.json` defines the exchange envelope for v2 consumers.
+- `core/persona_kernel.py` loads domain IDs/version from ontology JSON rather than maintaining a competing hardcoded schema.
+- `core/kernel_generator.py` applies a health-only psychiatric semantic firewall by default.
+- `CONSUMER_CONTRACT.md` defines interoperability for AI-Persona, P003, AI-Ques and future consumers.
+- `V1_V2_OVERLAP_AUDIT.md` records the overlap problems that motivated the refactor.
+- `EXTERNAL_ONTOLOGY_REGISTRY.json` tracks external standards/ontologies considered for alignment.
 
-This avoids a flag day: existing generators and psychiatric assets keep working while the ontology is made structurally cleaner.
+v2 is not promoted to canonical until migration tests, semantic-firewall tests and repository-wide consistency checks pass.
 
 ## Core rule
 
