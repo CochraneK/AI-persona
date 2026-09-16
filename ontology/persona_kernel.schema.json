@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "properties": {
     "persona_id": {"type": "string", "minLength": 1},
-    "ontology_version": {"const": "2.0.0-rc1"},
+    "ontology_version": {"const": "2.0.0-rc2"},
     "domains": {
       "type": "object",
       "additionalProperties": false,
@@ -17,11 +17,11 @@
         "mental_neurodevelopmental_health": {"type": "object"},
         "personality_psychology": {"type": "object"},
         "abilities_skills_interests": {"type": "object"},
-        "identity_affiliations": {"type": "object"},
+        "identity_self_concept": {"type": "object"},
         "roles": {"type": "object"},
         "relationships": {"type": "object"},
         "place_mobility": {"type": "object"},
-        "education_work_economy": {"type": "object"},
+        "education_learning": {"type": "object"},\n        "work_economic_participation": {"type": "object"},
         "social_institutional_position": {"type": "object"},
         "culture_language": {"type": "object"},
         "life_events": {"type": "object"},
