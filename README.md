@@ -24,26 +24,44 @@ AI-Persona 从统一的 Human Ontology 出发，把“人是什么”与“如�
 
 ## Canonical Human Ontology
 
-AI-persona now hosts the shared **Human Ontology v1**, intended to be the single canonical ontology for AI-persona, P003 and future BJTU human/persona systems.
+AI-Persona hosts the shared Human Ontology for AI-Persona, P003, AI-Ques and future person-centered systems.
 
-**System-wide rule: orthogonal axes; MECE within each axis.**
+**Current status**
+- `human_ontology.v1.json` — compatibility canonical for legacy consumers.
+- `human_ontology.v2.json` — **v2.0.0-rc2 release candidate** and semantic authority for new integrations.
+- v2 is promoted to canonical only after the release gate is green and the PR is merged.
 
-Canonical files:
-- `ontology/human_ontology.v1.json`
-- `ontology/HUMAN_ONTOLOGY_REVIEW.md`
-- `ontology/README.md`
-- `core/human_ontology.py`
+**System-wide rule**
+
+> **One canonical semantic home + local MECE + typed relations.**
+
+v2 does **not** force all human facts into one globally MECE tree. Domains are semantic namespaces; concrete concepts are typed as entity, quality/disposition, role, relation, process/event or state.
+
+Key files:
+- `ontology/human_ontology.v2.json` — v2 semantic namespaces and relation families
+- `ontology/CANONICAL_FIELD_REGISTRY.json` — first-class canonical runtime/interoperability concepts
+- `ontology/V1_TO_V2_MIGRATION.json` — v1 axis migration
+- `ontology/V1_FIELD_MIGRATION.json` — complete migration of all 186 v1 subaxes/personality layers
+- `ontology/persona_kernel.schema.json` — exchange schema
+- `ontology/CONSUMER_CONTRACT.md` — AI-Persona / P003 / AI-Ques contract
+- `ontology/HUMAN_ONTOLOGY_REVIEW.md` — ontology governance
+- `ontology/RELEASE_GATE.md` — canonical-promotion gate
+- `core/persona_kernel.py` — ontology-native runtime representation
+- `core/kernel_generator.py` — safe v2 generation layer
+- `core/legacy_adapter.py` — v1 Persona → v2 PersonaKernel bridge
 
 Important consequences:
-- birthplace / upbringing / residence / migration are geographic-history concepts;
-- culture / language / religion / ethnocultural identity are separate cultural-environment concepts;
-- nationality/citizenship is a legal-political concept, not a culture proxy;
-- mental/physical health are human layers, not the root identity of a Persona;
-- personality is split into trait → motivation/value → cognition/belief → emotion/coping → relational pattern → narrative identity → surface expression;
-- current stress/mood/resources are dynamic state, not stable personality;
-- the existing 6-domain × 4-stage event matrix and “MECE v2 six dimensions” remain compatibility/content structures, **not the canonical Human Ontology**.
+- birthplace / residence / migration are place relations; they do not imply culture;
+- culture / language / religion are participation/exposure relations; citizenship is legal/institutional;
+- identity/self-concept is distinct from roles, culture participation and legal status;
+- diagnosis is an optional health-domain concept, never the root identity of a person;
+- trait ≠ motive/value ≠ belief ≠ coping ≠ relationship observation ≠ narrative identity ≠ current state;
+- relationship-specific facts live on relationships; person-level relational tendencies live under personality;
+- events are time-indexed processes; roles are not events; role transitions are events;
+- current resources/opportunities may be derived projections from work, relationships, institutions and context;
+- generated/inferred/observed/measured/input-constraint values are epistemically distinct and carry provenance.
 
-Any new top-level axis, shared life stage/domain, personality layer or event-pressure type must pass ontology review.
+The existing 6-domain × 4-stage event matrix, Archetype Grid and legacy six-field generation modules remain useful compatibility/content assets, but they are **not** the canonical ontology.
 
 ## 项目结构
 
@@ -59,7 +77,7 @@ AI-persona/
 │   ├── __init__.py                    # 完整公开 API
 │   ├── generator.py                   # PersonaGenerator 主类
 │   ├── archetypes.py                  # ⭐ 人设元类型网格 (v1.2, 45型/10诊断)
-│   ├── personality.py                 # OCEAN 人格映射 + MECE v2 六维
+│   ├── personality.py                 # OCEAN/legacy generation utilities
 │   ├── events.py                      # 生活事件矩阵 (6域×4阶段,143模板)
 │   ├── occupations.py                 # 职业体系 (79中类×8大类)
 │   ├── triggers.py                    # 触发器系统 (ACEs/创伤/应激)
@@ -81,7 +99,14 @@ AI-persona/
 │   ├── persona_dataset_v1.json        # 740条人设 (3.9MB)
 │   └── persona_dataset_v1_summary.csv # 统计摘要 (220KB)
 │
-├── ontology_build/                    # 本体构建工具链
+├── ontology/                          # Human Ontology v1 compatibility + v2 rc2 contracts
+│   ├── human_ontology.v2.json
+│   ├── CANONICAL_FIELD_REGISTRY.json
+│   ├── V1_FIELD_MIGRATION.json
+│   ├── persona_kernel.schema.json
+│   └── RELEASE_GATE.md
+│
+├── ontology_build/                    # legacy psychiatric ontology build toolchain
 │   ├── build_ontology_part1.py        # 三部分构建脚本 (ICD-11 Chapter 06)
 │   ├── build_ontology_part2.py        # DSM-5-TR
 │   ├── build_ontology_part3.py        # 共病关联
@@ -113,10 +138,11 @@ AI-persona/
 | 阶段 | 状态 | 内容 |
 |------|------|------|
 | **Phase 1** | ✅ 完成 | 诊断本体知识库 (ICD-11 + DSM-5-TR, 278诊断, 156KB) |
-| **Phase 2** | ✅ 完成 | 核心引擎 (9模块, 37诊断OCEAN映射, 79职业, 143事件, MECE v2六维) |
+| **Phase 2** | ✅ 完成 | legacy v1.x 核心引擎（用于兼容与复现） |
 | **Phase 3** | ✅ 完成 | v1 数据集 (740条人设, 37诊断×20种子) |
 | **Phase 3.5** | ✅ 完成 | **Archetype Grid v1.2** (10诊断/45型/720深层身份，深层字段多样性 3.5~10×) |
-| **Phase 3.6** | 📋 规划 | 网格扩展到全部 37 诊断（当前 10，剩 27） |
+| **Phase 3.6** | ⏸️ legacy | 网格扩展不再是 v2 canonical ontology 的前置条件 |
+| **Phase 3.7** | ✅ rc2 | Human Ontology v2 + PersonaKernel + 186-field migration + semantic firewall |
 | **Phase 4** | 📋 规划 | 临床多样性验证 / 外部专家审查 |
 | **Phase 5** | 📋 规划 | LLM 心理评估应用集成 |
 
@@ -163,9 +189,9 @@ python core/archetypes.py   # 查看完整空间报告
 3. **OCEAN 只微调不覆盖** — 旧 `adjust_*_by_ocean` 在极端 OCEAN 下会整体替换文本、抹平型，v1.2 已规避
 4. **向后兼容** — 未定义网格的诊断自动回退旧逻辑，不破坏现有行为
 
-### 2️⃣ OCEAN 人格映射
+### 2️⃣ Legacy OCEAN 诊断条件化先验
 
-37 个诊断 × 5 维 OCEAN 范围（基于 Kotov et al. 2010 等 5 项元分析），每个 Persona 自动依此范围随机采样并组合。
+旧生成器保留 37 个诊断 × 5 维 OCEAN 范围用于兼容/研究复现。Human Ontology v2 中，OCEAN 只是 `personality_psychology.temperament_traits` 下的一个特质模型；默认 `KernelGenerator` 不允许诊断决定非健康人格。
 
 ### 3️⃣ Legacy 六维生成模块（非 canonical ontology）
 
@@ -188,7 +214,7 @@ python core/archetypes.py   # 查看完整空间报告
 - 诊断（3）：primary_diagnosis / primary_diagnosis_en / comorbidities
 - **人设元类型（3，v1.2）**：archetype_key / archetype_name / archetype_one_liner
 - 心理剖面（5）：ocean / ocean_description / personality_tags / cognitive_styles / coping_styles
-- MECE v2 六维（6）：social_relations / values_beliefs / communication_style / lifestyle_habits / skills_abilities / erikson_stage
+- legacy 六维生成字段（6）：social_relations / values_beliefs / communication_style / lifestyle_habits / skills_abilities / erikson_stage
 - 动机与信念（4）：core_desire / core_fear / dysfunctional_beliefs / stress_pattern
 - Storr 叙事链（3）：formative_wound / compensatory_desire / storr_need
 - Weiland 弧线（2）：arc_type / arc_description
@@ -263,14 +289,18 @@ personas = gen.batch(5)
 
 ## 设计哲学
 
-1. **正交轴 + 轴内 MECE** — 系统级概念采用多个正交维度；每个维度内部在声明的抽象层级上追求互斥与穷尽。禁止把出生地、文化、国籍、人格、疾病、当前状态混为同一分类树
-2. **实证驱动** — OCEAN 诊断映射基于 5 项元分析，触发机制基于 Brown & Harris / Felitti ACEs 等经典研究
-3. **约束而非随机** — 交叉约束保证诊断、OCEAN、人口学、事件四者不矛盾
-4. **Seed 可复现** — 每条 Persona 由 seed 可完全复现，存储仅需 50 bytes
+1. **一个 canonical semantic home** — 同一概念只定义一次；其他位置通过 typed reference / projection 使用。
+2. **Local MECE** — 只有回答同一个问题、同一抽象层级的 sibling classification 才要求互斥/穷尽；连续、多值、关系、时间性事实不强行 MECE。
+3. **类型分离** — entity / quality-disposition / role / relation / process-event / state 不混为一棵树。
+4. **证据来源分离** — observed / measured / inferred / generated / input_constraint 不互相冒充，推断与生成值带 provenance。
+5. **Health is a domain, not identity** — 精神疾病体系完整保留，但不会定义人的人格、价值、能力或人生轨迹。
+6. **Legacy 可复现** — v1.x PersonaGenerator、Archetype Grid、诊断条件化 OCEAN 与旧数据集继续可运行，但不再主导 canonical ontology。
 
 ---
 
 ## 版本
+
+`v2.0.0-rc2` — Human Ontology v2 release candidate：18 个 semantic namespaces、PersonaKernel、186 个 v1 字段级迁移、psychiatric health-only semantic firewall、provenance contract 与自动 release gate。
 
 `v1.2` — 2026-09-09 **Archetype Grid**：新增 `core/archetypes.py`，用「人设元类型硬网格」替代作废的三层空间模型，深层字段多样性提升 3.5~10×，修正 README 中 10²⁹ 的错误表述
 
