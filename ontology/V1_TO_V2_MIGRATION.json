@@ -4,25 +4,73 @@
   "to_version": "2.0.0-rc2",
   "strategy": "semantic-home migration; preserve data, replace duplicated ownership with typed references",
   "axis_map": {
-    "time_development": ["development"],
-    "place_mobility": ["place_mobility"],
-    "culture_language": ["culture_language", "identity_self_concept"],
-    "sex_gender_orientation": ["body_functioning_health", "identity_self_concept", "relationships"],
-    "body_health": ["body_functioning_health"],
-    "mental_neurodevelopmental_health": ["mental_neurodevelopmental_health"],
-    "education_learning": ["education_learning", "abilities_skills_interests", "roles"],
-    "work_economic_position": ["work_economic_participation", "roles", "resources_constraints_opportunities"],
-    "social_structural_position": ["social_institutional_position", "identity_self_concept"],
-    "family_household": ["relationships", "roles", "context_ecology"],
-    "relationships_networks": ["relationships"],
-    "personality_psychology": ["personality_psychology"],
-    "abilities_skills_interests": ["abilities_skills_interests"],
-    "lifestyle_routines": ["lifestyle_routines"],
-    "life_events_history": ["life_events"],
-    "ecology_macro_context": ["context_ecology"],
-    "resources_constraints_opportunities": ["resources_constraints_opportunities"],
-    "roles_responsibilities": ["roles"],
-    "current_state": ["current_state"]
+    "time_development": [
+      "development"
+    ],
+    "place_mobility": [
+      "place_mobility"
+    ],
+    "culture_language": [
+      "culture_language",
+      "identity_self_concept"
+    ],
+    "sex_gender_orientation": [
+      "body_functioning_health",
+      "identity_self_concept",
+      "relationships"
+    ],
+    "body_health": [
+      "body_functioning_health"
+    ],
+    "mental_neurodevelopmental_health": [
+      "mental_neurodevelopmental_health"
+    ],
+    "education_learning": [
+      "education_learning",
+      "abilities_skills_interests",
+      "roles"
+    ],
+    "work_economic_position": [
+      "work_economic_participation",
+      "roles",
+      "resources_constraints_opportunities"
+    ],
+    "social_structural_position": [
+      "social_institutional_position",
+      "identity_self_concept"
+    ],
+    "family_household": [
+      "relationships",
+      "roles",
+      "context_ecology"
+    ],
+    "relationships_networks": [
+      "relationships"
+    ],
+    "personality_psychology": [
+      "personality_psychology"
+    ],
+    "abilities_skills_interests": [
+      "abilities_skills_interests"
+    ],
+    "lifestyle_routines": [
+      "lifestyle_routines"
+    ],
+    "life_events_history": [
+      "life_events"
+    ],
+    "ecology_macro_context": [
+      "context_ecology"
+    ],
+    "resources_constraints_opportunities": [
+      "resources_constraints_opportunities"
+    ],
+    "roles_responsibilities": [
+      "roles"
+    ],
+    "current_state": [
+      "current_state"
+    ]
   },
   "overlap_resolutions": {
     "partner_spouse_vs_romantic_relationships": "Represent the other person once; encode partner/spouse as relationship type and spouse/partner obligations as roles where applicable.",
@@ -43,5 +91,7 @@
     "ocean": "retain; map to personality_psychology.temperament_traits",
     "events": "retain; migrate to typed process_event records",
     "flat_persona_fields": "retain through adapter until Persona Kernel v2 is production default"
-  }
+  },
+  "field_level_mapping_file": "V1_FIELD_MIGRATION.json",
+  "field_level_coverage": "all v1 subaxes and personality layers"
 }
