@@ -100,9 +100,28 @@ class PersonaKernel:
                 raise TypeError(f"Metadata for {path} must be FieldMetadata")
 
         allowed_relations = set(canonical_relation_families())
+        relation_ids: set[str] = set()
         for index, relation in enumerate(self.relations):
             if not isinstance(relation, dict):
                 raise TypeError(f"relation[{index}] must be a dict")
+            relation_id = relation.get("relation_id")
+            if not relation_id:
+                raise ValueError(f"relation[{index}] requires relation_id")
+            if relation_id in relation_ids:
+                raise ValueError(f"duplicate relation_id: {relation_id}")
+            relation_ids.add(str(relation_id))
+            canonical_path = relation.get("canonical_path")
+            if not canonical_path or "." not in canonical_path:
+                raise ValueError(f"relation[{index}] requires canonical_path")
+            domain, key = canonical_path.split(".", 1)
+            if domain not in allowed:
+                raise ValueError(
+                    f"relation[{index}] canonical_path has unknown domain: {canonical_path}"
+                )
+            if key in self.domains.get(domain, {}):
+                raise ValueError(
+                    f"relation[{index}] duplicates domain payload at {canonical_path}"
+                )
             predicate = relation.get("predicate")
             if predicate not in allowed_relations:
                 raise ValueError(
@@ -110,9 +129,28 @@ class PersonaKernel:
                 )
             _validate_provenance_record(relation, context=f"relation[{index}]")
 
+        event_ids: set[str] = set()
         for index, event in enumerate(self.events):
             if not isinstance(event, dict):
                 raise TypeError(f"event[{index}] must be a dict")
+            event_id = event.get("event_id")
+            if not event_id:
+                raise ValueError(f"event[{index}] requires event_id")
+            if event_id in event_ids:
+                raise ValueError(f"duplicate event_id: {event_id}")
+            event_ids.add(str(event_id))
+            canonical_path = event.get("canonical_path")
+            if not canonical_path or "." not in canonical_path:
+                raise ValueError(f"event[{index}] requires canonical_path")
+            domain, key = canonical_path.split(".", 1)
+            if domain not in allowed:
+                raise ValueError(
+                    f"event[{index}] canonical_path has unknown domain: {canonical_path}"
+                )
+            if key in self.domains.get(domain, {}):
+                raise ValueError(
+                    f"event[{index}] duplicates domain payload at {canonical_path}"
+                )
             if not event.get("type"):
                 raise ValueError(f"event[{index}] requires type")
             _validate_provenance_record(event, context=f"event[{index}]")
