@@ -22,7 +22,9 @@ def _event_to_dict(event: Any) -> dict[str, Any]:
         "lcu": getattr(event, "lcu", None),
         "diagnosis_relation": getattr(event, "diagnosis_relation", None),
         "source_type": "generated",
+        "confidence": 1.0,
         "provenance": "legacy events.py",
+        "temporal_class": "event_history",
     }
 
 
@@ -63,7 +65,9 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
         "value": persona.occupation,
         "code": persona.occupation_code,
         "source_type": "generated",
+        "confidence": 1.0,
         "provenance": "legacy PersonaGenerator adapter",
+        "temporal_class": "role_dependent",
     })
 
     put("relationships", "legacy_marital_status", persona.marital_status, temporal="relationship_specific")
@@ -74,8 +78,19 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
             "label": persona.primary_diagnosis,
             "label_en": persona.primary_diagnosis_en,
             "role": "primary",
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "slow_changing",
         }]
-        diagnoses.extend({"label": x, "role": "comorbid"} for x in persona.comorbidities)
+        diagnoses.extend({
+            "label": x,
+            "role": "comorbid",
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "slow_changing",
+        } for x in persona.comorbidities)
         put("mental_neurodevelopmental_health", "diagnoses", diagnoses, temporal="slow_changing")
     else:
         put(
