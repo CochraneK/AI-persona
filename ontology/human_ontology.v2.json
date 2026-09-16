@@ -1,0 +1,60 @@
+{
+  "ontology_id": "human-ontology",
+  "version": "2.0.0-rc1",
+  "status": "release_candidate",
+  "semantic_model": {
+    "principle": "one canonical semantic home; cross-domain reuse by typed reference, never duplicate definition",
+    "ontological_kinds": ["entity", "quality_disposition", "role", "relation", "process_event", "state"],
+    "mece_scope": "MECE is enforced locally for sibling classifications that answer the same question; relations are orthogonal rather than forced into a single tree."
+  },
+  "person_root": {
+    "id": "person",
+    "kind": "entity",
+    "definition": "A human individual represented independently of diagnosis, role, relationship, institution, or current state."
+  },
+  "canonical_domains": [
+    {"id":"development","kind":"quality_disposition","question":"When in the life course is this person, and how are they developing?","temporal_class":"slow_changing"},
+    {"id":"body_functioning_health","kind":"quality_disposition","question":"What bodily characteristics, functioning and physical-health properties apply?","temporal_class":"slow_changing"},
+    {"id":"mental_neurodevelopmental_health","kind":"quality_disposition","question":"What mental-health, neurodevelopmental, symptom, functioning and care properties apply?","temporal_class":"dynamic_state","optional":true,"domain_modules":["psychiatric_diagnosis"]},
+    {"id":"personality_psychology","kind":"quality_disposition","question":"What relatively stable traits, motives, beliefs, regulation strategies and narrative organization apply?","temporal_class":"slow_changing","layers":["temperament_traits","motives_values_goals","cognition_beliefs","emotion_regulation_coping","relational_dispositions","narrative_identity","surface_expression"]},
+    {"id":"abilities_skills_interests","kind":"quality_disposition","question":"What abilities, learned skills, expertise and interests apply?","temporal_class":"slow_changing"},
+    {"id":"identity_affiliations","kind":"quality_disposition","question":"How does the person identify or affiliate in culturally and personally meaningful ways?","temporal_class":"slow_changing","sensitivity":"context_dependent"},
+    {"id":"roles","kind":"role","question":"What social, family, education, work, care or community roles does the person currently bear?","temporal_class":"role_dependent"},
+    {"id":"relationships","kind":"relation","question":"To whom or what is the person related, and what properties belong to that relation?","temporal_class":"relationship_specific"},
+    {"id":"place_mobility","kind":"relation","question":"What places is the person related to through birth, upbringing, residence, migration or mobility?","temporal_class":"event_history"},
+    {"id":"education_work_economy","kind":"relation","question":"How is the person related to education, occupations, organizations, labour and economic resources?","temporal_class":"role_dependent"},
+    {"id":"social_institutional_position","kind":"relation","question":"How is the person positioned relative to legal, civic, institutional and stratification systems?","temporal_class":"role_dependent"},
+    {"id":"culture_language","kind":"relation","question":"What cultural, linguistic, religious or socialization environments has the person participated in or been exposed to?","temporal_class":"event_history","sensitivity":"context_dependent"},
+    {"id":"life_events","kind":"process_event","question":"What happened to or was done by the person, when, with whom, and with what consequences?","temporal_class":"event_history"},
+    {"id":"context_ecology","kind":"relation","question":"What household, neighborhood, institutional, economic, policy, technological, historical and environmental contexts constrain or enable the person?","temporal_class":"dynamic_state"},
+    {"id":"resources_constraints_opportunities","kind":"relation","question":"What resources, constraints and actionable opportunities are currently available?","temporal_class":"dynamic_state"},
+    {"id":"lifestyle_routines","kind":"process_event","question":"What recurring activities and routines characterize daily life?","temporal_class":"dynamic_state"},
+    {"id":"current_state","kind":"state","question":"What is true of the person right now but should not be mistaken for a stable trait?","temporal_class":"dynamic_state"}
+  ],
+  "relation_families": ["has_role","related_to_person","located_in","lived_in","participates_in_culture","uses_language","member_of","works_for","studies_at","has_resource","faces_constraint","experienced_event","has_health_condition","has_symptom","receives_support"],
+  "domain_modules": {
+    "psychiatric_diagnosis": {
+      "canonical_home": "mental_neurodevelopmental_health",
+      "required": false,
+      "legacy_asset": "../diagnosis_ontology.json",
+      "rule": "Diagnosis is a referenced health classification. It must never define the Person root or deterministically generate personality, values, competence, morality, or life outcome.",
+      "external_alignment_targets": ["ICD-11", "DSM-5-TR", "Mental Functioning Ontology", "ICF"]
+    }
+  },
+  "field_metadata_contract": {
+    "required_for_inferred_or_generated_values": ["source_type", "confidence", "provenance", "temporal_class"],
+    "source_type_values": ["user_provided", "observed", "measured", "inferred", "generated", "derived", "external_reference"],
+    "rule": "Unknown is distinct from absent. Inferred is distinct from observed. Generated is distinct from empirical."
+  },
+  "consumer_contract": {
+    "ai_persona": "instantiate and generate ontology-native Persona Kernels",
+    "p003": "simulate events, choices, relationships and state transitions without redefining human semantics",
+    "ai_ques": "map observations and measurements into ontology paths with provenance and confidence",
+    "future_consumers": ["future_self", "avatar", "research_agents", "games", "digital_humans"]
+  },
+  "migration": {
+    "from": "1.x",
+    "mapping_file": "V1_TO_V2_MIGRATION.json",
+    "policy": "v1 remains readable until all production consumers pass v2 compatibility tests"
+  }
+}
