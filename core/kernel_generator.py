@@ -80,8 +80,19 @@ class KernelGenerator:
             return base
 
         health = self._diagnosed_source(primary_diagnosis, **kwargs)
-        mental = health.domains.get("mental_neurodevelopmental_health", {})
-        base.domains["mental_neurodevelopmental_health"] = deepcopy(mental)
+        mental = deepcopy(health.domains.get("mental_neurodevelopmental_health", {}))
+
+        # The requested primary diagnosis is a generation constraint, not evidence
+        # that a real person was observed/clinically diagnosed. Preserve that
+        # epistemic distinction at item level; generated comorbidities remain generated.
+        for diagnosis in mental.get("diagnoses", []):
+            if diagnosis.get("role") == "primary":
+                diagnosis["source_type"] = "input_constraint"
+                diagnosis["confidence"] = None
+                diagnosis["provenance"] = "generate_kernel(primary_diagnosis=...)"
+                diagnosis["temporal_class"] = "slow_changing"
+
+        base.domains["mental_neurodevelopmental_health"] = mental
 
         prefix = "mental_neurodevelopmental_health."
         base.field_metadata = {
@@ -91,12 +102,23 @@ class KernelGenerator:
         }
         for path, meta in health.field_metadata.items():
             if path.startswith(prefix):
-                base.field_metadata[path] = FieldMetadata(
-                    source_type=meta.source_type,
-                    confidence=meta.confidence,
-                    provenance="psychiatric domain module: health-only overlay",
-                    temporal_class=meta.temporal_class,
-                )
+                if path == "mental_neurodevelopmental_health.diagnoses":
+                    base.field_metadata[path] = FieldMetadata(
+                        source_type="generated",
+                        confidence=1.0,
+                        provenance=(
+                            "mixed collection: primary=input_constraint; "
+                            "legacy comorbidities=generated"
+                        ),
+                        temporal_class="slow_changing",
+                    )
+                else:
+                    base.field_metadata[path] = FieldMetadata(
+                        source_type=meta.source_type,
+                        confidence=meta.confidence,
+                        provenance="psychiatric domain module: health-only overlay",
+                        temporal_class=meta.temporal_class,
+                    )
 
         # Current state may legitimately reflect an explicitly supplied diagnosis,
         # but it remains a dynamic generated state, never a personality trait.
