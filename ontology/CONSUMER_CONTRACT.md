@@ -23,11 +23,11 @@ Every consumer-facing record must identify:
 
 ## Epistemic contract
 
-`user_provided`, `observed`, `measured`, `inferred`, `generated`, `derived`, and `external_reference` are not interchangeable.
+`user_provided`, `observed`, `measured`, `inferred`, `generated`, `derived`, `external_reference`, and `input_constraint` are not interchangeable.
 
-Unknown is not false. Missing is not absent. Generated is not measured.
+Unknown is not false. Missing is not absent. Generated is not measured. An `input_constraint` is a condition requested by a generator/simulation caller; it is **not evidence that the represented person was observed to have that property**.
 
-For inferred/generated values, store confidence, provenance and temporal class. Sensitive inferences require a purpose-specific policy in the consuming application.
+For inferred/generated values, store confidence, provenance and temporal class. Input constraints require provenance and temporal class; do not assign an epistemic confidence score merely because the caller requested the condition. Collections with mixed origins should carry item-level provenance. Sensitive inferences require a purpose-specific policy in the consuming application.
 
 ## Update contract
 
