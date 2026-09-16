@@ -5,12 +5,6 @@
     "development": {
       "chronological_age": 29
     },
-    "culture_language": {
-      "languages": [
-        "en",
-        "zh"
-      ]
-    },
     "personality_psychology": {
       "temperament_traits": {
         "ocean": {
@@ -39,12 +33,6 @@
       "provenance": "example fixture",
       "temporal_class": "dynamic_state"
     },
-    "culture_language.languages": {
-      "source_type": "user_provided",
-      "confidence": null,
-      "provenance": "example fixture",
-      "temporal_class": "dynamic_state"
-    },
     "personality_psychology.temperament_traits": {
       "source_type": "measured",
       "confidence": 0.8,
@@ -66,6 +54,8 @@
   },
   "relations": [
     {
+      "relation_id": "example-001:relation:language:en",
+      "canonical_path": "culture_language.languages",
       "predicate": "uses_language",
       "language": "en",
       "source_type": "user_provided",
@@ -76,6 +66,8 @@
   ],
   "events": [
     {
+      "event_id": "example-001:event:1",
+      "canonical_path": "life_events.items",
       "type": "life_event",
       "name": "started university",
       "source_type": "user_provided",
