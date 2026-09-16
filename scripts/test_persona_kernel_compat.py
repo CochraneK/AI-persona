@@ -28,12 +28,18 @@ def main() -> None:
     diagnoses = kernel.get_value("mental_neurodevelopmental_health", "diagnoses")
     assert diagnoses and diagnoses[0]["role"] == "primary"
     assert kernel.events
+    assert all(e["source_type"] == "generated" for e in kernel.events)
+    assert all("provenance" in e and "temporal_class" in e for e in kernel.events)
+    assert all(r["predicate"] for r in kernel.relations)
 
     safe_dep = generate_persona_kernel("重度抑郁障碍", rng_seed=19, event_count=3)
     safe_gad = generate_persona_kernel("广泛性焦虑障碍", rng_seed=19, event_count=3)
     dep_dx = safe_dep.get_value("mental_neurodevelopmental_health", "diagnoses")
     gad_dx = safe_gad.get_value("mental_neurodevelopmental_health", "diagnoses")
     assert dep_dx and gad_dx and dep_dx[0]["label"] != gad_dx[0]["label"]
+    assert dep_dx[0]["source_type"] == "input_constraint"
+    assert gad_dx[0]["source_type"] == "input_constraint"
+    assert dep_dx[0]["provenance"] == "generate_kernel(primary_diagnosis=...)"
 
     # Sensitive diagnosis may alter health/current-state payloads, but under the
     # default health-only policy it must not determine non-health person semantics.
