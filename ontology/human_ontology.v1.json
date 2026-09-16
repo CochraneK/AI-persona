@@ -11,7 +11,8 @@
     "trait_not_state": "Stable traits, learned strategies, relationships, narrative identity and current state are separate layers.",
     "provenance_required": "Empirical priors and external code systems require source, scope, date/version and representativeness metadata.",
     "no_deterministic_sensitive_inference": "Sensitive attributes may constrain plausibility only when justified; they must not deterministically infer personality, health, values or life outcomes.",
-    "content_open_ontology_governed": "Persona/story/event content may expand freely. Canonical ontology axes/enums require ontology review."
+    "content_open_ontology_governed": "Persona/story/event content may expand freely. Canonical ontology axes/enums require ontology review.",
+    "navigation_not_semantics": "Navigation groups are for readability only. They do not create alternate canonical homes or semantic inheritance."
   },
   "temporal_classes": [
     "origin_fixed",
@@ -49,7 +50,9 @@
         "housing_context",
         "migration_history",
         "mobility_pattern",
-        "physical_environment"
+        "physical_environment",
+        "migration_generation",
+        "place_attachment"
       ]
     },
     {
@@ -64,11 +67,17 @@
         "ethnocultural_identity",
         "customs_norms_exposure",
         "media_culture_exposure",
-        "cross_cultural_experience"
+        "cross_cultural_experience",
+        "language_proficiency",
+        "acculturation_bicultural_orientation",
+        "racialized_identity",
+        "caste_tribe_clan_identity"
       ],
       "notes": [
         "Cultural environment is multi_select and exposure-based; it is not inferred from birthplace.",
-        "Ethnicity/race/caste categories are region-specific code systems, not one universal global enum."
+        "Ethnicity/race/caste categories are region-specific code systems, not one universal global enum.",
+        "Racialized, caste, tribe and clan identities are socially constructed/context-specific and must use region-specific vocabularies with provenance.",
+        "Religious/spiritual affiliation, cultural background and personal values are related but not interchangeable."
       ]
     },
     {
@@ -81,7 +90,9 @@
         "gender_identity",
         "gender_expression",
         "sexual_orientation",
-        "romantic_orientation"
+        "romantic_orientation",
+        "pronouns",
+        "gender_role_context"
       ],
       "sensitivity": "sensitive"
     },
@@ -90,6 +101,9 @@
       "label_zh": "身体、功能与健康",
       "question": "身体功能、健康状态与医疗经历如何？",
       "subaxes": [
+        "body_morphology",
+        "physical_appearance",
+        "self_presentation",
         "physical_health",
         "disability_functioning",
         "sensory_motor_function",
@@ -99,7 +113,9 @@
         "healthcare_access",
         "health_history"
       ],
-      "notes": ["Use ICF-like functioning concepts where appropriate; diagnosis does not define worth or identity."]
+      "notes": [
+        "Use ICF-like functioning concepts where appropriate; diagnosis does not define worth or identity."
+      ]
     },
     {
       "id": "mental_neurodevelopmental_health",
@@ -164,9 +180,13 @@
         "social_status_prestige",
         "discrimination_stigma_exposure",
         "rights_access",
-        "service_access"
+        "service_access",
+        "justice_system_exposure",
+        "civic_institutional_participation"
       ],
-      "notes": ["Nationality/citizenship is legal-political and must not be used as a proxy for culture."]
+      "notes": [
+        "Nationality/citizenship is legal-political and must not be used as a proxy for culture."
+      ]
     },
     {
       "id": "family_household",
@@ -182,7 +202,9 @@
         "household_membership",
         "living_arrangement",
         "family_climate",
-        "intergenerational_patterns"
+        "intergenerational_patterns",
+        "birth_order_family_position",
+        "fictive_kin_chosen_family"
       ]
     },
     {
@@ -199,7 +221,8 @@
         "support_network",
         "network_size_structure",
         "relationship_quality",
-        "conflict_repair_patterns"
+        "conflict_repair_patterns",
+        "online_relationships_communities"
       ]
     },
     {
@@ -210,43 +233,86 @@
         {
           "id": "temperament_traits",
           "label_zh": "气质与稳定特质",
-          "examples": ["Big Five", "temperament"],
+          "examples": [
+            "Big Five",
+            "temperament"
+          ],
           "rule": "Describe relatively stable distributions, not motives or symptoms."
         },
         {
           "id": "motives_values_goals",
           "label_zh": "动机、价值与目标",
-          "examples": ["values", "core_desire", "core_fear", "needs", "goals"],
+          "examples": [
+            "values",
+            "core_desire",
+            "core_fear",
+            "needs",
+            "goals",
+            "moral values",
+            "civic values",
+            "political values when purposefully represented"
+          ],
           "rule": "What matters and what is pursued; not trait strength."
         },
         {
           "id": "cognition_beliefs",
           "label_zh": "认知、信念与解释风格",
-          "examples": ["worldview", "self-beliefs", "cognitive_styles", "appraisal"],
+          "examples": [
+            "worldview",
+            "self-beliefs",
+            "cognitive_styles",
+            "appraisal",
+            "self-concept",
+            "identity beliefs"
+          ],
           "rule": "How situations are interpreted; not mental-health diagnosis."
         },
         {
           "id": "emotion_regulation_coping",
           "label_zh": "情绪调节与应对策略",
-          "examples": ["reappraisal", "suppression", "problem-focused coping", "avoidance", "support seeking"],
+          "examples": [
+            "reappraisal",
+            "suppression",
+            "problem-focused coping",
+            "avoidance",
+            "support seeking"
+          ],
           "rule": "Learned or situational strategies; distinguish from trait."
         },
         {
           "id": "relational_patterns",
           "label_zh": "关系模式",
-          "examples": ["trust", "rejection sensitivity", "attachment expression", "reciprocity", "boundary style"],
+          "examples": [
+            "trust",
+            "rejection sensitivity",
+            "attachment expression",
+            "reciprocity",
+            "boundary style"
+          ],
           "rule": "Prefer relationship-specific representation over one global label."
         },
         {
           "id": "narrative_identity",
           "label_zh": "叙事身份与人物内核",
-          "examples": ["archetype", "formative pressure", "compensatory strategy", "developmental need", "character arc"],
+          "examples": [
+            "archetype",
+            "formative pressure",
+            "compensatory strategy",
+            "developmental need",
+            "character arc"
+          ],
           "rule": "Narrative causal model for generation/story, not psychometric truth."
         },
         {
           "id": "surface_expression",
           "label_zh": "表层表达",
-          "examples": ["communication style", "disclosure", "conflict style", "social energy", "manner"],
+          "examples": [
+            "communication style",
+            "disclosure",
+            "conflict style",
+            "social energy",
+            "manner"
+          ],
           "rule": "How deeper layers are expressed; must not overwrite them."
         }
       ]
@@ -263,7 +329,9 @@
         "creative_skills",
         "interests_hobbies",
         "expertise",
-        "self_efficacy"
+        "self_efficacy",
+        "artistic_preferences",
+        "knowledge_domains"
       ]
     },
     {
@@ -278,7 +346,9 @@
         "leisure",
         "digital_use",
         "consumption_habits",
-        "caregiving_routine"
+        "caregiving_routine",
+        "appearance_grooming_routine",
+        "media_consumption"
       ]
     },
     {
@@ -295,7 +365,9 @@
         "turning_point",
         "immediate_consequence",
         "delayed_consequence",
-        "memory_callback"
+        "memory_callback",
+        "event_source_provenance",
+        "event_subjective_meaning"
       ]
     },
     {
@@ -312,9 +384,15 @@
         "technology_media_environment",
         "historical_events",
         "social_norms",
-        "environment_climate"
+        "environment_climate",
+        "healthcare_system",
+        "education_system",
+        "labor_market",
+        "digital_platform_environment"
       ],
-      "notes": ["This axis describes context; do not rewrite structural constraints as personality."]
+      "notes": [
+        "This axis describes context; do not rewrite structural constraints as personality."
+      ]
     },
     {
       "id": "resources_constraints_opportunities",
@@ -365,7 +443,9 @@
         "current_goals",
         "current_conflicts"
       ],
-      "notes": ["Current state is not personality and must not be stored as a permanent trait."]
+      "notes": [
+        "Current state is not personality and must not be stored as a permanent trait."
+      ]
     }
   ],
   "canonical_shared_classifications": {
@@ -382,15 +462,69 @@
       "meaning_creation"
     ],
     "developmental_stages": [
-      { "id": "origin", "typical_age": [0, 1] },
-      { "id": "early_childhood", "typical_age": [2, 5] },
-      { "id": "middle_childhood", "typical_age": [6, 11] },
-      { "id": "adolescence", "typical_age": [12, 17] },
-      { "id": "emerging_adulthood", "typical_age": [18, 24] },
-      { "id": "early_adulthood", "typical_age": [25, 39] },
-      { "id": "middle_adulthood", "typical_age": [40, 59] },
-      { "id": "later_adulthood", "typical_age": [60, 74] },
-      { "id": "late_life", "typical_age": [75, 120] }
+      {
+        "id": "origin",
+        "typical_age": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "early_childhood",
+        "typical_age": [
+          2,
+          5
+        ]
+      },
+      {
+        "id": "middle_childhood",
+        "typical_age": [
+          6,
+          11
+        ]
+      },
+      {
+        "id": "adolescence",
+        "typical_age": [
+          12,
+          17
+        ]
+      },
+      {
+        "id": "emerging_adulthood",
+        "typical_age": [
+          18,
+          24
+        ]
+      },
+      {
+        "id": "early_adulthood",
+        "typical_age": [
+          25,
+          39
+        ]
+      },
+      {
+        "id": "middle_adulthood",
+        "typical_age": [
+          40,
+          59
+        ]
+      },
+      {
+        "id": "later_adulthood",
+        "typical_age": [
+          60,
+          74
+        ]
+      },
+      {
+        "id": "late_life",
+        "typical_age": [
+          75,
+          120
+        ]
+      }
     ],
     "event_pressure_shapes": [
       "loss",
@@ -418,15 +552,102 @@
       "interpersonal": "friendship_social"
     },
     "ai_persona_event_stages_v1": {
-      "childhood": ["early_childhood", "middle_childhood"],
-      "adolescence": ["adolescence"],
-      "adulthood": ["emerging_adulthood", "early_adulthood"],
-      "mid_older": ["middle_adulthood", "later_adulthood", "late_life"]
+      "childhood": [
+        "early_childhood",
+        "middle_childhood"
+      ],
+      "adolescence": [
+        "adolescence"
+      ],
+      "adulthood": [
+        "emerging_adulthood",
+        "early_adulthood"
+      ],
+      "mid_older": [
+        "middle_adulthood",
+        "later_adulthood",
+        "late_life"
+      ]
     },
     "ai_persona_locale_v1": {
-      "城市": { "axis": "place_mobility", "target": "urbanicity", "value": "urban" },
-      "城镇": { "axis": "place_mobility", "target": "urbanicity", "value": "town" },
-      "农村": { "axis": "place_mobility", "target": "urbanicity", "value": "rural" }
+      "城市": {
+        "axis": "place_mobility",
+        "target": "urbanicity",
+        "value": "urban"
+      },
+      "城镇": {
+        "axis": "place_mobility",
+        "target": "urbanicity",
+        "value": "town"
+      },
+      "农村": {
+        "axis": "place_mobility",
+        "target": "urbanicity",
+        "value": "rural"
+      }
     }
-  }
+  },
+  "navigation_groups": [
+    {
+      "id": "where_when_context",
+      "label_zh": "何时、何地、何种环境",
+      "axes": [
+        "time_development",
+        "place_mobility",
+        "culture_language",
+        "ecology_macro_context"
+      ]
+    },
+    {
+      "id": "embodied_identity_health",
+      "label_zh": "身体、身份与健康",
+      "axes": [
+        "sex_gender_orientation",
+        "body_health",
+        "mental_neurodevelopmental_health"
+      ]
+    },
+    {
+      "id": "institutional_material",
+      "label_zh": "教育、工作、物质与制度位置",
+      "axes": [
+        "education_learning",
+        "work_economic_position",
+        "social_structural_position",
+        "resources_constraints_opportunities"
+      ]
+    },
+    {
+      "id": "family_relationships_roles",
+      "label_zh": "家庭、关系与社会角色",
+      "axes": [
+        "family_household",
+        "relationships_networks",
+        "roles_responsibilities"
+      ]
+    },
+    {
+      "id": "mind_personality_capability",
+      "label_zh": "人格、心理、能力与兴趣",
+      "axes": [
+        "personality_psychology",
+        "abilities_skills_interests"
+      ]
+    },
+    {
+      "id": "everyday_life",
+      "label_zh": "日常生活",
+      "axes": [
+        "lifestyle_routines",
+        "current_state"
+      ]
+    },
+    {
+      "id": "life_history",
+      "label_zh": "人生历史",
+      "axes": [
+        "life_events_history"
+      ]
+    }
+  ]
 }
