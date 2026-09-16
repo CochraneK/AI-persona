@@ -197,6 +197,8 @@
     "relationRecord": {
       "type": "object",
       "required": [
+        "relation_id",
+        "canonical_path",
         "predicate",
         "source_type",
         "provenance",
@@ -253,6 +255,14 @@
         "temporal_class": {
           "type": "string",
           "minLength": 1
+        },
+        "relation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_path": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+\\.[a-z0-9_.]+$"
         }
       },
       "additionalProperties": true,
@@ -321,6 +331,8 @@
     "eventRecord": {
       "type": "object",
       "required": [
+        "event_id",
+        "canonical_path",
         "type",
         "source_type",
         "provenance",
@@ -358,6 +370,14 @@
         "temporal_class": {
           "type": "string",
           "minLength": 1
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_path": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+\\.[a-z0-9_.]+$"
         }
       },
       "additionalProperties": true,
