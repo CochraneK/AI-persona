@@ -306,5 +306,7 @@
         "Persona.current_status"
       ]
     }
-  ]
+  ],
+  "scope": "Normative registry for first-class/runtime interoperability concepts. Exhaustive v1 legacy leaf coverage is governed by V1_FIELD_MIGRATION.json; a migration target is a canonical semantic path but need not be promoted to a first-class registry concept.",
+  "promotion_rule": "Add a first-class registry concept when it is exchanged across consumers, independently queried/reasoned over, or requires stable aliases/kind/cardinality metadata."
 }
