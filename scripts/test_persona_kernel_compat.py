@@ -24,14 +24,12 @@ def main() -> None:
     assert "personality_psychology" in kernel.domains
     assert "mental_neurodevelopmental_health" in kernel.domains
     assert "education_learning" in kernel.domains
-    assert "work_economic_participation" in kernel.domains
-    diagnoses = kernel.get_value("mental_neurodevelopmental_health", "diagnoses")
+    assert "work_economic_participation" not in kernel.domains\n    occupation_relations = [\n        r for r in kernel.relations\n        if r["canonical_path"] == "work_economic_participation.occupation"\n    ]\n    assert len(occupation_relations) == 1\n    diagnoses = kernel.get_value("mental_neurodevelopmental_health", "diagnoses")
     assert diagnoses and diagnoses[0]["role"] == "primary"
     assert kernel.events
     assert all(e["source_type"] == "generated" for e in kernel.events)
     assert all("provenance" in e and "temporal_class" in e for e in kernel.events)
-    assert all(r["predicate"] for r in kernel.relations)
-
+    assert all(r["predicate"] for r in kernel.relations)\n    assert all(r["relation_id"] and r["canonical_path"] for r in kernel.relations)\n    assert all(e["event_id"] and e["canonical_path"] for e in kernel.events)\n
     safe_dep = generate_persona_kernel("重度抑郁障碍", rng_seed=19, event_count=3)
     safe_gad = generate_persona_kernel("广泛性焦虑障碍", rng_seed=19, event_count=3)
     dep_dx = safe_dep.get_value("mental_neurodevelopmental_health", "diagnoses")
