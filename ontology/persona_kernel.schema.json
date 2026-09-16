@@ -21,7 +21,8 @@
         "roles": {"type": "object"},
         "relationships": {"type": "object"},
         "place_mobility": {"type": "object"},
-        "education_learning": {"type": "object"},\n        "work_economic_participation": {"type": "object"},
+        "education_learning": {"type": "object"},
+        "work_economic_participation": {"type": "object"},
         "social_institutional_position": {"type": "object"},
         "culture_language": {"type": "object"},
         "life_events": {"type": "object"},
@@ -47,7 +48,7 @@
   "$defs": {
     "fieldMetadata": {
       "type": "object",
-      "required": ["source_type"],
+      "required": ["source_type", "confidence", "provenance", "temporal_class"],
       "additionalProperties": false,
       "properties": {
         "source_type": {
@@ -56,7 +57,23 @@
         "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "provenance": {"type": ["string", "null"]},
         "temporal_class": {"type": ["string", "null"]}
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {"enum": ["inferred", "generated"]}
+            }
+          },
+          "then": {
+            "properties": {
+              "confidence": {"type": "number"},
+              "provenance": {"type": "string", "minLength": 1},
+              "temporal_class": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
     }
   }
 }
