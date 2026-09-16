@@ -37,11 +37,11 @@ def main() -> None:
     # default health-only policy it must not determine personality or life history.
     assert safe_dep.domains["personality_psychology"] == safe_gad.domains["personality_psychology"]
     assert safe_dep.domains["abilities_skills_interests"] == safe_gad.domains["abilities_skills_interests"]
-    assert safe_dep.domains["education_work_economy"] == safe_gad.domains["education_work_economy"]
+    assert safe_dep.domains["education_learning"] == safe_gad.domains["education_learning"]
     assert safe_dep.events == safe_gad.events
 
     direct = safe_dep.to_dict()
-    assert direct["ontology_version"] == "2.0.0-rc1"
+    assert direct["ontology_version"] == "2.0.0-rc2"
 
     legacy_full = KernelGenerator(
         rng_seed=19,
