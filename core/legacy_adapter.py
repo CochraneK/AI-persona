@@ -11,8 +11,10 @@ from typing import Any
 from .persona_kernel import FieldMetadata, PersonaKernel
 
 
-def _event_to_dict(event: Any) -> dict[str, Any]:
+def _event_to_dict(event: Any, *, persona_id: str, index: int) -> dict[str, Any]:
     return {
+        "event_id": f"{persona_id}:event:{index}",
+        "canonical_path": "life_events.items",
         "type": "life_event",
         "legacy_domain": getattr(event, "domain", None),
         "legacy_stage": getattr(event, "stage", None),
@@ -53,13 +55,9 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
 
     put("place_mobility", "legacy_residence_context", persona.locale, temporal="dynamic_state")
     put("education_learning", "education_attainment", persona.education, temporal="slow_changing")
-    put(
-        "work_economic_participation",
-        "occupation",
-        {"label": persona.occupation, "code": persona.occupation_code},
-        temporal="role_dependent",
-    )
     kernel.relations.append({
+        "relation_id": f"{persona.id}:relation:occupation",
+        "canonical_path": "work_economic_participation.occupation",
         "predicate": "has_role",
         "relation_type": "occupation",
         "value": persona.occupation,
@@ -142,7 +140,7 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
     put("body_functioning_health", "physical_appearance", persona.physical_appearance, temporal="dynamic_state")
     put("current_state", "summary", persona.current_status, temporal="dynamic_state")
 
-    kernel.events = [_event_to_dict(e) for e in persona.life_events]
+    kernel.events = [\n        _event_to_dict(e, persona_id=str(persona.id), index=i)\n        for i, e in enumerate(persona.life_events, start=1)\n    ]
     kernel.validate()
     return kernel
 
