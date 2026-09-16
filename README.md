@@ -1,6 +1,24 @@
-# AI-Persona — 精神科 AI 人设生成引擎
+<div align="center">
 
-通过**诊断驱动的人格建模**，从诊断本体出发，自动生成多样化、临床逼真的 AI 人设（Persona），用于精神科 AI 评估与模拟。
+# AI-Persona
+
+**Canonical Human Ontology + psychiatric AI persona generation engine**
+
+<p>
+  <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v1-6C63FF">
+  <img alt="Engine" src="https://img.shields.io/badge/engine-Persona%20Generator-2F80ED">
+  <img alt="Version" src="https://img.shields.io/badge/version-v1.2-27AE60">
+  <img alt="Research use" src="https://img.shields.io/badge/use-research%20%2F%20simulation-F2994A">
+</p>
+
+**正交维度 · 轴内 MECE · 可复现生成 · 本体优先**
+
+</div>
+
+AI-Persona 从统一的人类本体出发，将人口学、人格、生命事件、心理状态与诊断相关约束拆成可审计的独立层，再生成多样化 Persona，用于精神科 AI 研究、评估与模拟。
+
+> [!IMPORTANT]
+> 这是研究与模拟基础设施，不是临床诊断工具，也不应把生成 Persona 直接视为真实患者群体的统计代表。
 
 ---
 
