@@ -42,9 +42,12 @@ def main() -> None:
     domain_ids = set(ids)
 
     for d in domains:
-        assert d["kind"] in ALLOWED_KINDS, f"invalid kind for {d['id']}"
+        assert d.get("domain_type") == "semantic_namespace", f"invalid domain type for {d['id']}"
+        allowed = set(d.get("allowed_kinds", []))
+        assert allowed, f"missing allowed_kinds for {d['id']}"
+        assert allowed <= ALLOWED_KINDS, f"invalid allowed_kinds for {d['id']}: {sorted(allowed - ALLOWED_KINDS)}"
         assert d.get("question"), f"missing competency question for {d['id']}"
-        assert d.get("temporal_class"), f"missing temporal class for {d['id']}"
+        assert d.get("default_temporal_class"), f"missing default temporal class for {d['id']}"
 
     mapped = {target for targets in m["axis_map"].values() for target in targets}
     missing_targets = sorted(mapped - domain_ids)
