@@ -5,13 +5,17 @@ on:
     paths:
       - "ontology/**"
       - "core/human_ontology.py"
+      - "core/persona_kernel.py"
       - "scripts/validate_human_ontology.py"
+      - "scripts/validate_human_ontology_v2.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
       - "ontology/**"
       - "core/human_ontology.py"
+      - "core/persona_kernel.py"
       - "scripts/validate_human_ontology.py"
+      - "scripts/validate_human_ontology_v2.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
@@ -22,7 +26,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Validate canonical Human Ontology
+      - name: Validate stable Human Ontology v1
         run: python scripts/validate_human_ontology.py
-      - name: Compile ontology loader
-        run: python -m py_compile core/human_ontology.py
+      - name: Validate Human Ontology v2 release candidate
+        run: python scripts/validate_human_ontology_v2.py
+      - name: Compile ontology runtime
+        run: python -m py_compile core/human_ontology.py core/persona_kernel.py
+      - name: Smoke-test Persona Kernel metadata contract
+        run: |
+          python - <<'PY'
+          from core.persona_kernel import PersonaKernel, FieldMetadata
+          p = PersonaKernel("ci-person")
+          p.set_value("current_state", "mood", "neutral", FieldMetadata("generated", 0.5, "ci-smoke", "dynamic_state"))
+          assert p.get_value("current_state", "mood") == "neutral"
+          assert p.to_dict()["ontology_version"] == "2.0.0-rc1"
+          print("Persona Kernel smoke test: OK")
+          PY
