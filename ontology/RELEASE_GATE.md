@@ -12,6 +12,7 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 - [x] Self-efficacy is separated from underlying ability and lives under cognition/beliefs.
 - [x] Relationship observation is separated from person-level relational disposition.
 - [x] Current-state projections are separated from enduring source facts.
+- [x] Relation/event instances have one physical home with stable IDs + canonical_path; duplicate storage is rejected.
 
 ## Migration gates
 
@@ -41,9 +42,9 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 - [x] Event-allocation negative-count bug has a regression test.
 - [x] Diagnosis-linked event count is capped by requested event count.
 - [x] Repository stale rc1/removed-domain tokens are checked by release gate.
-- [ ] Latest PR head GitHub Actions is green.
-- [ ] Final PR diff/self-review has no unresolved issue.
-- [ ] PR body reflects final architecture and compatibility implications.
+- [x] Latest PR head GitHub Actions is green.
+- [x] Final PR diff/self-review has no unresolved issue.
+- [x] PR body reflects final architecture and compatibility implications.
 
 ## Promotion rule
 
