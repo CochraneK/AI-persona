@@ -89,13 +89,13 @@
     "relations": {
       "type": "array",
       "items": {
-        "type": "object"
+        "$ref": "#/$defs/relationRecord"
       }
     },
     "events": {
       "type": "array",
       "items": {
-        "type": "object"
+        "$ref": "#/$defs/eventRecord"
       }
     }
   },
@@ -193,6 +193,113 @@
           }
         }
       ]
+    },
+    "relationRecord": {
+      "type": "object",
+      "required": [
+        "predicate",
+        "source_type",
+        "provenance",
+        "temporal_class"
+      ],
+      "properties": {
+        "predicate": {
+          "enum": [
+            "has_role",
+            "related_to_person",
+            "located_in",
+            "born_in",
+            "grew_up_in",
+            "lived_in",
+            "participates_in_culture",
+            "uses_language",
+            "member_of",
+            "works_for",
+            "studies_at",
+            "holds_credential",
+            "has_resource",
+            "faces_constraint",
+            "has_opportunity",
+            "experienced_event",
+            "has_health_condition",
+            "has_symptom_or_experience",
+            "receives_support"
+          ]
+        },
+        "source_type": {
+          "enum": [
+            "user_provided",
+            "observed",
+            "measured",
+            "inferred",
+            "generated",
+            "derived",
+            "external_reference",
+            "input_constraint"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temporal_class": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "eventRecord": {
+      "type": "object",
+      "required": [
+        "type",
+        "source_type",
+        "provenance",
+        "temporal_class"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "user_provided",
+            "observed",
+            "measured",
+            "inferred",
+            "generated",
+            "derived",
+            "external_reference",
+            "input_constraint"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temporal_class": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
     }
   }
 }
