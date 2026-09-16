@@ -1,0 +1,87 @@
+{
+  "persona_id": "example-001",
+  "ontology_version": "2.0.0-rc2",
+  "domains": {
+    "development": {
+      "chronological_age": 29
+    },
+    "culture_language": {
+      "languages": [
+        "en",
+        "zh"
+      ]
+    },
+    "personality_psychology": {
+      "temperament_traits": {
+        "ocean": {
+          "O": 7,
+          "C": 6,
+          "E": 4,
+          "A": 7,
+          "N": 5
+        }
+      },
+      "motives_values_goals": {
+        "current_values": [
+          "learning",
+          "care"
+        ]
+      }
+    },
+    "current_state": {
+      "mood": "neutral"
+    }
+  },
+  "field_metadata": {
+    "development.chronological_age": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    },
+    "culture_language.languages": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    },
+    "personality_psychology.temperament_traits": {
+      "source_type": "measured",
+      "confidence": 0.8,
+      "provenance": "example Big Five measurement",
+      "temporal_class": "slow_changing"
+    },
+    "personality_psychology.motives_values_goals": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "slow_changing"
+    },
+    "current_state.mood": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    }
+  },
+  "relations": [
+    {
+      "predicate": "uses_language",
+      "language": "en",
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    }
+  ],
+  "events": [
+    {
+      "type": "life_event",
+      "name": "started university",
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "event_history"
+    }
+  ]
+}
