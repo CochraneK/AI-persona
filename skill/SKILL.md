@@ -134,6 +134,9 @@ OCEAN 属于：
 python scripts/validate_human_ontology.py
 python scripts/validate_human_ontology_v2.py
 python scripts/test_persona_kernel_compat.py
+python scripts/test_persona_kernel_contract.py
+python scripts/test_ontology_json_assets.py
+python scripts/check_ontology_release_gate.py
 python scripts/test_events_sampling.py
 python -m py_compile core/*.py
 ```
