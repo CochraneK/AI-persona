@@ -11,6 +11,7 @@ ONTOLOGY = ROOT / "ontology" / "human_ontology.v2.json"
 MIGRATION = ROOT / "ontology" / "V1_TO_V2_MIGRATION.json"
 REGISTRY = ROOT / "ontology" / "CANONICAL_FIELD_REGISTRY.json"
 PSYCHIATRIC_MODULE = ROOT / "ontology" / "domains" / "psychiatric_diagnosis.module.json"
+KERNEL_SCHEMA = ROOT / "ontology" / "persona_kernel.schema.json"
 
 ALLOWED_KINDS = {"entity", "quality_disposition", "role", "relation", "process_event", "state"}
 
@@ -29,6 +30,7 @@ def main() -> None:
     m = load(MIGRATION)
     r = load(REGISTRY)
     psychiatric_module = load(PSYCHIATRIC_MODULE)
+    kernel_schema = load(KERNEL_SCHEMA)
 
     assert o["ontology_id"] == "human-ontology"
     assert o["status"] in {"release_candidate", "canonical"}
@@ -48,6 +50,14 @@ def main() -> None:
     missing_targets = sorted(mapped - domain_ids)
     assert not missing_targets, f"migration points to unknown v2 domains: {missing_targets}"
     assert set(o["semantic_model"]["ontological_kinds"]) == ALLOWED_KINDS
+
+    schema_domains = set(kernel_schema["properties"]["domains"]["properties"])
+    assert schema_domains == domain_ids, (
+        "Persona Kernel schema/domain drift: "
+        f"schema_only={sorted(schema_domains - domain_ids)}, "
+        f"ontology_only={sorted(domain_ids - schema_domains)}"
+    )
+    assert kernel_schema["properties"]["ontology_version"]["const"] == o["version"]
 
     fields = r["fields"]
     concepts = [f["concept"] for f in fields]
