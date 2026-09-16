@@ -13,9 +13,9 @@
 > **Rule: orthogonal axes across the system; MECE within each axis.**
 > Personality fields must map to the canonical 7-layer personality model. New ontology concepts require `../ontology/HUMAN_ONTOLOGY_REVIEW.md`.
 
-# Persona Generator — 精神病学评估用全量 Persona 生成引擎
+# Legacy Persona Generator — v1.x psychiatric evaluation compatibility engine
 
-> 生成具有统计学意义的模拟人物（Patient/Healthy），用于精神病学 AI 评估与模拟。
+> 生成 v1.x 风格模拟人物（Patient/Healthy），用于旧实验、评估和数据集复现；生成结果不代表真实人群统计分布。
 
 ---
 
@@ -61,7 +61,7 @@
 | `compensatory_desires` | 补偿性欲望（2-3 条，取代旧的全局单值） |
 | `storr_needs` | 内在需要（2-3 条，取代旧的全局单值） |
 | core_desire / core_fear | 覆盖诊断默认 |
-| `values_tone` / `social_tone` | 注入 MECE 六维的型专属基调 |
+| `values_tone` / `social_tone` | 注入 legacy 六维生成字段的型专属基调 |
 | `ocean_bias` | OCEAN 偏置（微调，使同诊断不同型轮廓可区分） |
 
 ### 用法
@@ -212,12 +212,9 @@ N_low  (情绪稳定): 沉着冷静, 情绪稳定, 心理韧性好, 抗压能力
 ...
 ```
 
-**MECE 保证**：
-- 每个维度的低/高两极**互斥**——一个人不可能同时"敏感多虑"和"沉着冷静"
-- 10 个特质簇 **联合覆盖** 所有人格空间——OCEAN 的正交因子结构确保任何人格特征均可映射到 5 维 × 2 极的坐标中
-- 每个簇内的标签是同义/近义描述，可互换而不损失语义
+**v2 语义说明**：Big Five 是 `temperament_traits` 下的特质模型，不是 Human Ontology 的 MECE 分区。高/低标签是 legacy 生成桶；五维不要求经验上严格零相关，也不声称覆盖动机、价值、信念、应对、关系、叙事身份与表层表达。
 
-### 诊断→OCEAN 范围映射（实证依据）
+### Legacy 诊断条件化 OCEAN 先验（仅兼容/研究复现）
 
 每个诊断预置了 OCEAN 的典型分数范围（1-10 分），依据以下实证研究：
 
