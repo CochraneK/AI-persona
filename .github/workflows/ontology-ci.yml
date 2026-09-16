@@ -20,7 +20,10 @@ on:
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
       - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_persona_kernel_contract.py"
       - "scripts/test_events_sampling.py"
+      - "scripts/test_ontology_json_assets.py"
+      - "scripts/check_ontology_release_gate.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
