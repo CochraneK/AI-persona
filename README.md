@@ -4,6 +4,29 @@
 
 ---
 
+## Canonical Human Ontology
+
+AI-persona now hosts the shared **Human Ontology v1**, intended to be the single canonical ontology for AI-persona, P003 and future BJTU human/persona systems.
+
+**System-wide rule: orthogonal axes; MECE within each axis.**
+
+Canonical files:
+- `ontology/human_ontology.v1.json`
+- `ontology/HUMAN_ONTOLOGY_REVIEW.md`
+- `ontology/README.md`
+- `core/human_ontology.py`
+
+Important consequences:
+- birthplace / upbringing / residence / migration are geographic-history concepts;
+- culture / language / religion / ethnocultural identity are separate cultural-environment concepts;
+- nationality/citizenship is a legal-political concept, not a culture proxy;
+- mental/physical health are human layers, not the root identity of a Persona;
+- personality is split into trait → motivation/value → cognition/belief → emotion/coping → relational pattern → narrative identity → surface expression;
+- current stress/mood/resources are dynamic state, not stable personality;
+- the existing 6-domain × 4-stage event matrix and “MECE v2 six dimensions” remain compatibility/content structures, **not the canonical Human Ontology**.
+
+Any new top-level axis, shared life stage/domain, personality layer or event-pressure type must pass ontology review.
+
 ## 项目结构
 
 ```
@@ -222,7 +245,7 @@ personas = gen.batch(5)
 
 ## 设计哲学
 
-1. **MECE 全覆盖** — 性格标签、事件、社会关系等维度严格遵循 MECE 原则，不重叠、不遗漏
+1. **正交轴 + 轴内 MECE** — 系统级概念采用多个正交维度；每个维度内部在声明的抽象层级上追求互斥与穷尽。禁止把出生地、文化、国籍、人格、疾病、当前状态混为同一分类树
 2. **实证驱动** — OCEAN 诊断映射基于 5 项元分析，触发机制基于 Brown & Harris / Felitti ACEs 等经典研究
 3. **约束而非随机** — 交叉约束保证诊断、OCEAN、人口学、事件四者不矛盾
 4. **Seed 可复现** — 每条 Persona 由 seed 可完全复现，存储仅需 50 bytes
