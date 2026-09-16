@@ -1,12 +1,12 @@
 # Human Ontology v2 — Architecture
 
-Status: **architecture contract for the v2 refactor**. Human Ontology v1 remains the machine-readable compatibility schema until the v2 migration is complete.
+Status: **Human Ontology v2.0.0-rc2 architecture contract**. Human Ontology v1 remains the compatibility schema until the v2 release gate is complete.
 
 ## Goal
 
 Represent a human without making diagnosis, occupation, nationality, personality, or any other single domain the root identity.
 
-The v2 model separates six ontological kinds that v1 sometimes mixes:
+The v2 model separates six ontological kinds that v1 sometimes mixes. **These kinds apply to concepts/fields; rc2 canonical domains are semantic namespaces and are not themselves forced to have one ontological kind:**
 
 1. **Entity** — relatively persistent things: person, body, organization, place.
 2. **Quality / disposition** — properties borne by an entity: traits, abilities, relatively stable tendencies.
@@ -34,7 +34,7 @@ Therefore the project-level invariant is:
 
 > **Orthogonal semantic homes + local MECE + typed cross-axis relations.**
 
-## Canonical layers
+## Semantic namespaces and conceptual layers\n\nThe sections below are navigation/coverage views. They do not create a second hierarchy or alternate semantic homes.
 
 ### A. Person core
 Identity-independent anchors and relatively persistent characteristics.
