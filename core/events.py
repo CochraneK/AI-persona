@@ -431,7 +431,7 @@ def sample_events_for_persona(
             unique_diag_events.append(e)
 
     # 选 1-2 个诊断关联事件（优先高 LCU；无放回，避免重复事件）
-    n_diag = min(rng.randint(1, 2), len(unique_diag_events))
+    n_diag = min(rng.randint(1, 2), len(unique_diag_events), max(0, n_events))
     if n_diag > 0 and lcu_bias > 0:
         diag_pool = list(unique_diag_events)
         selected = []
