@@ -9,6 +9,7 @@ on:
       - "scripts/validate_human_ontology_v2.py"
       - "scripts/test_persona_kernel_compat.py"
       - "scripts/test_events_sampling.py"
+      - "scripts/test_ontology_json_assets.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
@@ -28,6 +29,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Parse ontology JSON assets
+        run: python scripts/test_ontology_json_assets.py
       - name: Validate stable Human Ontology v1
         run: python scripts/validate_human_ontology.py
       - name: Validate Human Ontology v2 release candidate
