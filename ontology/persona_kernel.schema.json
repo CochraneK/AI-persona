@@ -200,6 +200,8 @@
         "relation_id",
         "canonical_path",
         "predicate",
+        "subject",
+        "object",
         "source_type",
         "provenance",
         "temporal_class"
@@ -263,6 +265,686 @@
         "canonical_path": {
           "type": "string",
           "pattern": "^[a-z0-9_]+\\.[a-z0-9_.]+$"
+        },
+        "subject": {
+          "$ref": "#/$defs/entityRef"
+        },
+        "object": {
+          "$ref": "#/$defs/entityRef"
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "enum": [
+                  "inferred",
+                  "generated"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "confidence",
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "input_constraint"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "provenance",
+              "temporal_class"
+            ],
+            "properties": {
+              "provenance": {
+                "type": "string",
+                "minLength": 1
+              },
+              "temporal_class": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_role"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "role"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "related_to_person"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "person"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "located_in"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "born_in"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "grew_up_in"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "lived_in"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "participates_in_culture"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "culture_context"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "uses_language"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "language"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "member_of"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "organization"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "works_for"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "organization"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "studies_at"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "organization"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "holds_credential"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "credential"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_resource"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "resource"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "faces_constraint"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "constraint"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_opportunity"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "opportunity"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "experienced_event"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "event"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_health_condition"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "health_condition"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_symptom_or_experience"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "generic"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "receives_support"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "person",
+                      "organization",
+                      "resource"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "eventRecord": {
+      "type": "object",
+      "required": [
+        "event_id",
+        "canonical_path",
+        "type",
+        "source_type",
+        "provenance",
+        "temporal_class"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "user_provided",
+            "observed",
+            "measured",
+            "inferred",
+            "generated",
+            "derived",
+            "external_reference",
+            "input_constraint"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temporal_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_path": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+\\.[a-z0-9_.]+$"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entityRef"
+          }
         }
       },
       "additionalProperties": true,
@@ -328,120 +1010,54 @@
         }
       ]
     },
-    "eventRecord": {
+    "entityRef": {
       "type": "object",
       "required": [
-        "event_id",
-        "canonical_path",
-        "type",
-        "source_type",
-        "provenance",
-        "temporal_class"
+        "entity_id",
+        "entity_type"
       ],
+      "additionalProperties": false,
       "properties": {
-        "type": {
+        "entity_id": {
           "type": "string",
           "minLength": 1
         },
-        "source_type": {
+        "entity_type": {
           "enum": [
-            "user_provided",
-            "observed",
-            "measured",
-            "inferred",
-            "generated",
-            "derived",
-            "external_reference",
-            "input_constraint"
+            "person",
+            "role",
+            "place",
+            "organization",
+            "language",
+            "culture_context",
+            "health_condition",
+            "credential",
+            "resource",
+            "constraint",
+            "opportunity",
+            "event",
+            "generic"
           ]
         },
-        "confidence": {
+        "label": {
           "type": [
-            "number",
+            "string",
             "null"
-          ],
-          "minimum": 0,
-          "maximum": 1
+          ]
         },
-        "provenance": {
-          "type": "string",
-          "minLength": 1
+        "source_system": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "temporal_class": {
-          "type": "string",
-          "minLength": 1
-        },
-        "event_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "canonical_path": {
-          "type": "string",
-          "pattern": "^[a-z0-9_]+\\.[a-z0-9_.]+$"
+        "source_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
-      },
-      "additionalProperties": true,
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "source_type": {
-                "enum": [
-                  "inferred",
-                  "generated"
-                ]
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "confidence",
-              "provenance",
-              "temporal_class"
-            ],
-            "properties": {
-              "confidence": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1
-              },
-              "provenance": {
-                "type": "string",
-                "minLength": 1
-              },
-              "temporal_class": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "source_type": {
-                "const": "input_constraint"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "provenance",
-              "temporal_class"
-            ],
-            "properties": {
-              "provenance": {
-                "type": "string",
-                "minLength": 1
-              },
-              "temporal_class": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
-        }
-      ]
+      }
     }
   }
 }
