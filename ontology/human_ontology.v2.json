@@ -395,5 +395,104 @@
       "entity_type"
     ],
     "stable_identity_rule": "entity_id must be stable within the producing system; externally mapped entities should also carry source_system/source_id when available."
+  },
+  "relation_constraints": {
+    "has_role": {
+      "object_entity_types": [
+        "role"
+      ]
+    },
+    "related_to_person": {
+      "object_entity_types": [
+        "person"
+      ]
+    },
+    "located_in": {
+      "object_entity_types": [
+        "place"
+      ]
+    },
+    "born_in": {
+      "object_entity_types": [
+        "place"
+      ]
+    },
+    "grew_up_in": {
+      "object_entity_types": [
+        "place"
+      ]
+    },
+    "lived_in": {
+      "object_entity_types": [
+        "place"
+      ]
+    },
+    "participates_in_culture": {
+      "object_entity_types": [
+        "culture_context"
+      ]
+    },
+    "uses_language": {
+      "object_entity_types": [
+        "language"
+      ]
+    },
+    "member_of": {
+      "object_entity_types": [
+        "organization"
+      ]
+    },
+    "works_for": {
+      "object_entity_types": [
+        "organization"
+      ]
+    },
+    "studies_at": {
+      "object_entity_types": [
+        "organization"
+      ]
+    },
+    "holds_credential": {
+      "object_entity_types": [
+        "credential"
+      ]
+    },
+    "has_resource": {
+      "object_entity_types": [
+        "resource"
+      ]
+    },
+    "faces_constraint": {
+      "object_entity_types": [
+        "constraint"
+      ]
+    },
+    "has_opportunity": {
+      "object_entity_types": [
+        "opportunity"
+      ]
+    },
+    "experienced_event": {
+      "object_entity_types": [
+        "event"
+      ]
+    },
+    "has_health_condition": {
+      "object_entity_types": [
+        "health_condition"
+      ]
+    },
+    "has_symptom_or_experience": {
+      "object_entity_types": [
+        "generic"
+      ]
+    },
+    "receives_support": {
+      "object_entity_types": [
+        "person",
+        "organization",
+        "resource"
+      ]
+    }
   }
 }
