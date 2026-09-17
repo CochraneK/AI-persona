@@ -55,13 +55,27 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
 
     put("place_mobility", "legacy_residence_context", persona.locale, temporal="dynamic_state")
     put("education_learning", "education_attainment", persona.education, temporal="slow_changing")
+    occupation_entity_id = (
+        f"legacy:occupation:{persona.occupation_code}"
+        if persona.occupation_code
+        else f"legacy:occupation:{persona.occupation}"
+    )
     kernel.relations.append({
         "relation_id": f"{persona.id}:relation:occupation",
         "canonical_path": "work_economic_participation.occupation",
         "predicate": "has_role",
+        "subject": {
+            "entity_id": str(persona.id),
+            "entity_type": "person",
+        },
+        "object": {
+            "entity_id": occupation_entity_id,
+            "entity_type": "role",
+            "label": persona.occupation,
+            "source_system": "legacy PersonaGenerator",
+            "source_id": persona.occupation_code or persona.occupation,
+        },
         "relation_type": "occupation",
-        "value": persona.occupation,
-        "code": persona.occupation_code,
         "source_type": "generated",
         "confidence": 1.0,
         "provenance": "legacy PersonaGenerator adapter",
