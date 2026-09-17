@@ -8,8 +8,8 @@
     "provisional_migrated": "Canonical semantic home accepted through migration review; leaf-level kind/value details may be refined without moving the semantic home unless a major ontology review approves it."
   },
   "counts": {
-    "concepts": 189,
-    "reviewed": 15,
+    "concepts": 205,
+    "reviewed": 31,
     "provisional_migrated": 174
   },
   "concepts": [
@@ -196,6 +196,24 @@
           "migration_action": "retain"
         }
       ]
+    },
+    {
+      "concept_id": "skill_ability_interest_profile",
+      "canonical_path": "abilities_skills_interests.profile",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Structured profile of abilities, learned skills, expertise and interests.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "abilities_skills_interests__social_skills",
@@ -495,6 +513,28 @@
           "migration_action": "split"
         }
       ]
+    },
+    {
+      "concept_id": "ecological_context",
+      "canonical_path": "context_ecology.contexts",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "A relation to an external ecological/contextual entity; external conditions are distinct from the person's traits.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place",
+          "organization",
+          "generic"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "context_ecology__digital_platform_environment",
@@ -934,6 +974,26 @@
       ]
     },
     {
+      "concept_id": "cultural_participation",
+      "canonical_path": "culture_language.cultural_participation",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Participation in or exposure to a cultural/religious/socialization context; not inferred from geography or citizenship.",
+      "cardinality": "0..*",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "culture_context"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "culture_language__customs_norms_exposure",
       "canonical_path": "culture_language.customs_norms_exposure",
       "domain": "culture_language",
@@ -1279,6 +1339,24 @@
           "migration_action": "retain"
         }
       ]
+    },
+    {
+      "concept_id": "current_state",
+      "canonical_path": "current_state.summary",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Time-indexed current person state that must not be mistaken for an enduring trait or historical event.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "current_state__support",
@@ -2022,6 +2100,23 @@
       ]
     },
     {
+      "concept_id": "life_event",
+      "canonical_path": "life_events.items",
+      "domain": "life_events",
+      "kind": "process_event",
+      "definition": "A time-indexed event/process involving or affecting the person.",
+      "cardinality": "0..*",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "event_graph",
+      "value_contract": {
+        "type": "event_record"
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "life_events__life_domain",
       "canonical_path": "life_events.life_domain",
       "domain": "life_events",
@@ -2344,6 +2439,24 @@
       ]
     },
     {
+      "concept_id": "routine_profile",
+      "canonical_path": "lifestyle_routines.profile",
+      "domain": "lifestyle_routines",
+      "kind": "state",
+      "definition": "A time-indexed summary/projection of recurring lifestyle routines; underlying activities may be represented as processes/events.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "lifestyle_routines__sleep_routine",
       "canonical_path": "lifestyle_routines.sleep_routine",
       "domain": "lifestyle_routines",
@@ -2541,6 +2654,26 @@
       ]
     },
     {
+      "concept_id": "safety_behavior",
+      "canonical_path": "mental_neurodevelopmental_health.safety_behaviors",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "process_event",
+      "definition": "A recurring or situational behavior used to reduce perceived threat or distress.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "highly_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string_or_object"
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "mental_neurodevelopmental_health__symptoms_experiences",
       "canonical_path": "mental_neurodevelopmental_health.symptoms_experiences",
       "domain": "mental_neurodevelopmental_health",
@@ -2585,6 +2718,27 @@
           "migration_action": "relationize"
         }
       ]
+    },
+    {
+      "concept_id": "mental_health_trigger",
+      "canonical_path": "mental_neurodevelopmental_health.triggers",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "relation",
+      "definition": "A typed relation to a situation, event or cue associated with a mental-health response.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "highly_sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "generic",
+          "event"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "cognition_beliefs",
@@ -2779,6 +2933,52 @@
       ]
     },
     {
+      "concept_id": "personality_tags",
+      "canonical_path": "personality_psychology.temperament_traits.legacy_tags",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Legacy descriptive personality labels retained for compatibility; not canonical psychometric categories.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "big_five_traits",
+      "canonical_path": "personality_psychology.temperament_traits.ocean",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Big Five/OCEAN trait estimates with explicit scoring scale/instrument metadata.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "trait_vector",
+        "dimensions": [
+          "O",
+          "C",
+          "E",
+          "A",
+          "N"
+        ],
+        "score_type": "number",
+        "scale_metadata_required": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "place_mobility__birth_place",
       "canonical_path": "place_mobility.birth_place",
       "domain": "place_mobility",
@@ -2961,6 +3161,26 @@
           "migration_action": "retain"
         }
       ]
+    },
+    {
+      "concept_id": "residence",
+      "canonical_path": "place_mobility.residence",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "A typed relation to a current or historical place of residence.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "place_mobility__upbringing_places",
@@ -3266,6 +3486,26 @@
       ]
     },
     {
+      "concept_id": "marital_relationship_status",
+      "canonical_path": "relationships.marital_status",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Relationship-specific marital/partnership status; canonical relationship facts should reference the other person when known.",
+      "cardinality": "0..*",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "person"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "relationships__mentors",
       "canonical_path": "relationships.mentors",
       "domain": "relationships",
@@ -3310,6 +3550,26 @@
           "migration_action": "derived"
         }
       ]
+    },
+    {
+      "concept_id": "relationship_observation",
+      "canonical_path": "relationships.observations",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Observation about a specific relationship/dyad, not a global personality disposition.",
+      "cardinality": "0..*",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref_with_relation_properties",
+        "allowed_entity_types": [
+          "person"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "relationships__online_relationships_communities",
@@ -3565,6 +3825,26 @@
       ]
     },
     {
+      "concept_id": "constraint",
+      "canonical_path": "resources_constraints_opportunities.constraints",
+      "domain": "resources_constraints_opportunities",
+      "kind": "relation",
+      "definition": "A barrier/constraint relation affecting the person's feasible actions.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "constraint"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
       "concept_id": "resources_constraints_opportunities__healthcare_access",
       "canonical_path": "resources_constraints_opportunities.healthcare_access",
       "domain": "resources_constraints_opportunities",
@@ -3686,6 +3966,26 @@
           "migration_action": "derived"
         }
       ]
+    },
+    {
+      "concept_id": "resource",
+      "canonical_path": "resources_constraints_opportunities.resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "relation",
+      "definition": "A currently accessible resource relation, possibly derived from economic, social or institutional source facts.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "resource"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "resources_constraints_opportunities__social_resources",
@@ -3851,6 +4151,26 @@
           "migration_action": "relationize"
         }
       ]
+    },
+    {
+      "concept_id": "role",
+      "canonical_path": "roles.items",
+      "domain": "roles",
+      "kind": "role",
+      "definition": "A context-dependent role borne by the person.",
+      "cardinality": "0..*",
+      "temporal_class": "role_dependent",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "role"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
     },
     {
       "concept_id": "roles__role_conflict",
@@ -4406,5 +4726,6 @@
         }
       ]
     }
-  ]
+  ],
+  "coverage_rule": "Catalog paths equal the union of all V1_FIELD_MIGRATION canonical_targets and all first-class CANONICAL_FIELD_REGISTRY paths."
 }
