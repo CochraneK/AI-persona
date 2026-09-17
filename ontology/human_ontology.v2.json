@@ -331,5 +331,69 @@
     "from": "1.x",
     "mapping_file": "V1_TO_V2_MIGRATION.json",
     "policy": "v1 remains readable until production consumers pass v2 compatibility tests"
+  },
+  "entity_types": [
+    {
+      "id": "person",
+      "definition": "A human individual represented by a PersonaKernel subject."
+    },
+    {
+      "id": "role",
+      "definition": "A context-dependent social, family, education, work, care or community role."
+    },
+    {
+      "id": "place",
+      "definition": "A geographic or dwelling location."
+    },
+    {
+      "id": "organization",
+      "definition": "A formal or informal organization, institution or group."
+    },
+    {
+      "id": "language",
+      "definition": "A natural or signed language used or learned by a person."
+    },
+    {
+      "id": "culture_context",
+      "definition": "A cultural, religious/spiritual or socialization context in which a person participates or is exposed."
+    },
+    {
+      "id": "health_condition",
+      "definition": "A health or neurodevelopmental condition/classification referenced by the person record."
+    },
+    {
+      "id": "credential",
+      "definition": "A qualification, degree, certificate or other education credential."
+    },
+    {
+      "id": "resource",
+      "definition": "A resource that may be accessible to the person."
+    },
+    {
+      "id": "constraint",
+      "definition": "A barrier or constraint affecting the person's feasible actions."
+    },
+    {
+      "id": "opportunity",
+      "definition": "An actionable opportunity available to the person."
+    },
+    {
+      "id": "event",
+      "definition": "A referenced process/event entity when another relation points to an event record."
+    },
+    {
+      "id": "generic",
+      "definition": "Fallback external entity type; use only when no reviewed specific entity type applies."
+    }
+  ],
+  "relation_contract": {
+    "rule": "Relations connect a PersonaKernel subject to a typed EntityRef. Literal labels may accompany a reference for display/legacy compatibility but are never the identity of the target.",
+    "subject_type": "person",
+    "object_ref_required": true,
+    "entity_ref_fields": [
+      "entity_id",
+      "entity_type"
+    ],
+    "stable_identity_rule": "entity_id must be stable within the producing system; externally mapped entities should also carry source_system/source_id when available."
   }
 }
