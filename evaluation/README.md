@@ -17,7 +17,7 @@ A green CI run proves that the current contracts are internally consistent. It d
 
 ## Current assets
 
-- `competency_questions.json` — 172 machine-checkable structural/regression CQs.
+- `competency_questions.json` — 184 machine-checkable structural/regression CQs, including reviewed graph-predicate representability.
 - `adversarial_cases.json` — 24 hand-authored semantic boundary cases.
 - `diversity_cases.json` — 30 synthetic diversity stress-test cases.
 - `external_alignment_matrix.json` — external-standard evaluation registry and evidence sources.
@@ -33,4 +33,4 @@ python scripts/evaluate_human_ontology.py
 python scripts/analyze_annotation_reliability.py evaluation/annotation_template.csv
 ```
 
-The machine evaluation is intentionally a **regression baseline**. Scientific claims require independent human review and downstream empirical tests.
+The machine evaluation is intentionally a **regression baseline**. Current reviewed runtime contract baseline: **184/184 critical CQs pass**. The catalog still contains **56 provisional relation leaves** whose semantic homes are accepted but whose predicate/runtime contracts remain under review. Scientific claims require independent human review and downstream empirical tests.
