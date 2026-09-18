@@ -67,6 +67,24 @@ Important consequences:
 
 The existing 6-domain × 4-stage event matrix, Archetype Grid and legacy six-field generation modules remain useful compatibility/content assets, but they are **not** the canonical ontology.
 
+## Scientific validation
+
+Human Ontology distinguishes engineering conformance from scientific validation.
+
+- **Current: Tier A — machine validated**: 172/172 declared machine competency questions pass.
+- **Tier B — not yet achieved**: requires independent semantic mapping / inter-rater evidence, adversarial and diversity adjudication, and reviewed external mapping decisions.
+- **Tier C — not yet achieved**: additionally requires downstream P003 / AI-Ques evidence, external reproduction, RDF/OWL reasoning + SHACL validation, and FAIR assessment.
+
+Evaluation assets live under `evaluation/`. Run:
+
+```bash
+python scripts/evaluate_human_ontology.py
+python scripts/build_annotation_pack.py --annotators 3
+python scripts/analyze_annotation_reliability.py evaluation/generated_annotation_pack.csv
+```
+
+A green machine gate must not be described as full scientific validation.
+
 ## 项目结构
 
 ```
