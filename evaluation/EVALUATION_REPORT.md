@@ -18,8 +18,9 @@
 | Epistemic validity | Runtime source/provenance contract exists; dedicated evaluation cases included | partial |
 | Pragmatic P003 validation | Not yet run | not_tested |
 | Pragmatic AI-Ques validation | Not yet run | not_tested |
-| RDF/OWL reasoner validation | Not yet implemented | not_tested |
-| SHACL validation | Not yet implemented | not_tested |
+| Semantic projection drift | RDF/OWL + SHACL projection regenerates **4/4 identical files** from canonical JSON | passed_machine |
+| RDF/OWL reasoner validation | Projection exists; full reasoner validation not yet run | not_tested |
+| SHACL validation | Shapes + positive/negative fixtures + pinned validator exist; pySHACL execution not yet run | not_tested |
 | FAIR external assessment | Planned after semantic-web publication | not_tested |
 
 ## Interpretation
