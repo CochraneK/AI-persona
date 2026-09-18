@@ -100,6 +100,7 @@ Legacy diagnosis-conditioned personality/archetype/event generation is compatibi
 
 ## Tests / quality gate
 
+Preferred full gate:\n\n```bash\npython scripts/run_ontology_ci.py\n```\n\nIndividual checks:\n
 Run:
 
 ```bash
