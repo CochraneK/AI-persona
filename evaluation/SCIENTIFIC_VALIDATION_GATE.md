@@ -13,7 +13,9 @@ Requirements:
 - [x] 184/184 current machine competency questions pass;
 - [x] provenance/source distinctions are represented;
 - [x] adversarial and diversity evaluation assets exist;
-- [x] portable machine gate exists.
+- [x] portable machine gate exists;
+- [x] semantic-web projection is reproducibly generated and drift-checked (4/4 files);
+- [ ] actual SHACL execution has passed in an environment with the pinned semantic-web dependencies.
 
 This tier does **not** justify the claim “scientifically validated ontology”.
 
