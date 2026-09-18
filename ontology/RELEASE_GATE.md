@@ -13,6 +13,9 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 - [x] Relationship observation is separated from person-level relational disposition.
 - [x] Current-state projections are separated from enduring source facts.
 - [x] Relation/event instances have one physical home with stable IDs + canonical_path; duplicate storage is rejected.
+- [x] Relations use typed EntityRef endpoints with predicate-specific allowed target entity types.
+- [x] First-class concept storage modes are enforced at runtime.
+- [x] Canonical Concept Catalog covers the union of migration targets and first-class concepts.
 
 ## Migration gates
 
@@ -25,7 +28,8 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 
 ## Epistemic/safety gates
 
-- [x] Generated/inferred values require confidence, provenance and temporal class.
+- [x] Every stored domain value requires provenance and temporal class; generated/inferred values additionally require confidence.
+- [x] Missing or orphan field metadata is rejected by PersonaKernel.
 - [x] Unknown/absent and generated/observed are explicitly distinct.
 - [x] Psychiatric module declares that diagnosis does not determine personality, values, morality, competence or life outcome.
 - [x] Default v2 KernelGenerator applies a health-only psychiatric semantic firewall.
@@ -37,12 +41,15 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 - [x] v2 semantic validator added.
 - [x] All ontology JSON assets parse in CI.
 - [x] JSON Schema domain/version drift is checked.
-- [x] Field registry version/domain/kind/cardinality consistency is checked.
+- [x] Field registry version/domain/kind/cardinality/storage/value-contract consistency is checked.
+- [x] 205-concept catalog coverage is machine checked (31 reviewed + 174 provisional migrated).
+- [x] Entity-type, relation-family and predicate-target constraints are machine checked.
+- [x] Portable local full gate exists: `python scripts/run_ontology_ci.py`.
 - [x] 100% v1 field migration coverage is machine checked.
 - [x] Event-allocation negative-count bug has a regression test.
 - [x] Diagnosis-linked event count is capped by requested event count.
 - [x] Repository stale rc1/removed-domain tokens are checked by release gate.
-- [x] Latest PR head GitHub Actions is green.
+- [ ] Latest PR head GitHub Actions executes real steps and is green. **Current blocker: hosted Actions jobs are failing at 0 steps with no logs, so the runner is not executing repository code.**
 - [x] Final PR diff/self-review has no unresolved issue.
 - [x] PR body reflects final architecture and compatibility implications.
 
