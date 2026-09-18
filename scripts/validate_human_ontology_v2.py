@@ -14,6 +14,7 @@ PSYCHIATRIC_MODULE = ROOT / "ontology" / "domains" / "psychiatric_diagnosis.modu
 KERNEL_SCHEMA = ROOT / "ontology" / "persona_kernel.schema.json"
 V1 = ROOT / "ontology" / "human_ontology.v1.json"
 FIELD_MIGRATION = ROOT / "ontology" / "V1_FIELD_MIGRATION.json"
+CONCEPT_CATALOG = ROOT / "ontology" / "CANONICAL_CONCEPT_CATALOG.json"
 
 ALLOWED_KINDS = {"entity", "quality_disposition", "role", "relation", "process_event", "state"}
 
@@ -35,6 +36,7 @@ def main() -> None:
     kernel_schema = load(KERNEL_SCHEMA)
     v1 = load(V1)
     field_migration = load(FIELD_MIGRATION)
+    catalog = load(CONCEPT_CATALOG)
 
     assert o["ontology_id"] == "human-ontology"
     assert o["status"] in {"release_candidate", "canonical"}
@@ -121,6 +123,23 @@ def main() -> None:
     assert schema_relation_families == set(o["relation_families"]), (
         "relation-family drift between ontology and Kernel schema"
     )
+    ontology_entity_types = {item["id"] for item in o["entity_types"]}
+    schema_entity_types = set(
+        kernel_schema["$defs"]["entityRef"]["properties"]["entity_type"]["enum"]
+    )
+    assert schema_entity_types == ontology_entity_types, (
+        "entity-type drift between ontology and Kernel schema"
+    )
+    assert set(o["relation_constraints"]) == set(o["relation_families"]), (
+        "every relation family must have a relation constraint"
+    )
+    for predicate, rule in o["relation_constraints"].items():
+        object_types = set(rule.get("object_entity_types", []))
+        assert object_types, f"relation constraint has no object types: {predicate}"
+        assert object_types <= ontology_entity_types, (
+            f"relation constraint {predicate} references unknown entity types: "
+            f"{sorted(object_types - ontology_entity_types)}"
+        )
 
     assert r["version"] == o["version"], "field registry version must match ontology version"
     domain_by_id = {d["id"]: d for d in domains}
@@ -144,6 +163,38 @@ def main() -> None:
         aliases.extend(field.get("legacy_aliases", []))
     assert not duplicates(aliases), f"legacy alias mapped to multiple concepts: {duplicates(aliases)}"
 
+    # Exhaustive canonical concept catalog = migration targets UNION first-class registry.
+    catalog_paths = [item["canonical_path"] for item in catalog["concepts"]]
+    assert not duplicates(catalog_paths), f"duplicate catalog paths: {duplicates(catalog_paths)}"
+    expected_catalog_paths = {
+        target
+        for item in migration_entries
+        for target in item["canonical_targets"]
+    } | set(paths)
+    assert set(catalog_paths) == expected_catalog_paths, (
+        f"canonical concept catalog coverage mismatch: "
+        f"missing={sorted(expected_catalog_paths-set(catalog_paths))}, "
+        f"extra={sorted(set(catalog_paths)-expected_catalog_paths)}"
+    )
+    assert catalog["version"] == o["version"]
+    catalog_by_path = {item["canonical_path"]: item for item in catalog["concepts"]}
+    for field in fields:
+        item = catalog_by_path[field["canonical_path"]]
+        assert item["review_status"] == "reviewed"
+        assert item["kind"] == field["kind"]
+        assert item["storage"] == field["storage"]
+        assert item["value_contract"] == field["value_contract"]
+    for item in catalog["concepts"]:
+        root = item["domain"]
+        assert root in domain_ids, f"catalog concept has unknown domain: {item['canonical_path']}"
+        assert item["kind"] in ALLOWED_KINDS
+        assert item["kind"] in set(domain_by_id[root]["allowed_kinds"]), (
+            f"catalog kind not allowed by domain: {item['canonical_path']} -> {item['kind']}"
+        )
+        assert item.get("review_status") in {"reviewed", "provisional_migrated"}
+        assert item.get("storage")
+        assert item.get("value_contract")
+
     psychiatric = o["domain_modules"]["psychiatric_diagnosis"]
     assert psychiatric["canonical_home"] == "mental_neurodevelopmental_health"
     assert psychiatric["required"] is False
@@ -160,7 +211,8 @@ def main() -> None:
 
     print(
         "Human Ontology v2 validation: OK "
-        f"({len(ids)} domains, {len(fields)} canonical fields, {len(aliases)} legacy aliases)"
+        f"({len(ids)} domains, {len(fields)} first-class fields, "
+        f"{len(catalog_paths)} catalog concepts, {len(aliases)} legacy aliases)"
     )
 
 
