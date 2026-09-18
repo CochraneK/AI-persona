@@ -19,6 +19,9 @@ on:
       - "scripts/run_ontology_ci.py"
       - "scripts/evaluate_human_ontology.py"
       - "scripts/analyze_annotation_reliability.py"
+      - "scripts/export_semantic_projection.py"
+      - "scripts/validate_semantic_web.py"
+      - "evaluation/requirements-semantic-web.txt"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
@@ -35,6 +38,9 @@ on:
       - "scripts/run_ontology_ci.py"
       - "scripts/evaluate_human_ontology.py"
       - "scripts/analyze_annotation_reliability.py"
+      - "scripts/export_semantic_projection.py"
+      - "scripts/validate_semantic_web.py"
+      - "evaluation/requirements-semantic-web.txt"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
@@ -133,6 +139,28 @@ jobs:
           python-version: "3.11"
       - run: python scripts/evaluate_human_ontology.py
 
+  semantic-projection:
+    name: Semantic projection drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/export_semantic_projection.py --check
+
+  semantic-web-validation:
+    name: SHACL standards validation
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r evaluation/requirements-semantic-web.txt
+      - run: python scripts/validate_semantic_web.py
+
   release-gate:
     name: Repository release gate
     runs-on: ubuntu-latest
@@ -145,6 +173,7 @@ jobs:
       - kernel-contract
       - event-regression
       - scientific-evaluation
+      - semantic-projection
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
