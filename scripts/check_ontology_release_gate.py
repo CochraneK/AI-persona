@@ -117,6 +117,17 @@ def main() -> None:
         ROOT / "core" / "persona_kernel.py",
         ROOT / "core" / "kernel_generator.py",
         ROOT / "core" / "legacy_adapter.py",
+        ROOT / "evaluation" / "README.md",
+        ROOT / "evaluation" / "EVALUATION_PROTOCOL.md",
+        ROOT / "evaluation" / "SCIENTIFIC_VALIDATION_GATE.md",
+        ROOT / "evaluation" / "competency_questions.json",
+        ROOT / "evaluation" / "adversarial_cases.json",
+        ROOT / "evaluation" / "diversity_cases.json",
+        ROOT / "evaluation" / "external_alignment_matrix.json",
+        ROOT / "evaluation" / "baseline_machine_report.json",
+        ROOT / "scripts" / "evaluate_human_ontology.py",
+        ROOT / "scripts" / "analyze_annotation_reliability.py",
+        ROOT / "scripts" / "build_annotation_pack.py",
     )
     missing = [str(p.relative_to(ROOT)) for p in required if not p.exists()]
     if missing:
