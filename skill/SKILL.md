@@ -130,6 +130,7 @@ OCEAN 属于：
 
 ## 质量门
 
+首选一键全量验证：\n\n```bash\npython scripts/run_ontology_ci.py\n```\n\n等价的分项检查：\n
 ```bash
 python scripts/validate_human_ontology.py
 python scripts/validate_human_ontology_v2.py
