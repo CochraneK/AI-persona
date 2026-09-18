@@ -1,0 +1,645 @@
+@prefix ho: <https://w3id.org/human-ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ho:HumanOntology a owl:Ontology ;
+  owl:versionInfo "2.0.0-rc2" ;
+  rdfs:comment "Semantic-web projection of the Human Ontology application contract. The JSON ontology/PersonaKernel remain the executable source of truth during v2 RC." .
+
+ho:canonicalPath a owl:AnnotationProperty .
+ho:ontologicalKind a owl:AnnotationProperty .
+ho:storageMode a owl:AnnotationProperty .
+ho:temporalClass a owl:AnnotationProperty .
+ho:reviewStatus a owl:AnnotationProperty .
+ho:relationPredicate a owl:AnnotationProperty .
+
+ho:SemanticNamespaceScheme a skos:ConceptScheme ;
+  skos:prefLabel "Human Ontology semantic namespaces" .
+
+ho:CanonicalConceptScheme a skos:ConceptScheme ;
+  skos:prefLabel "Human Ontology reviewed canonical concepts" .
+
+ho:Person a owl:Class ;
+  rdfs:label "person" ;
+  rdfs:comment "A human individual represented by a PersonaKernel subject." .
+
+ho:Role a owl:Class ;
+  rdfs:label "role" ;
+  rdfs:comment "A context-dependent social, family, education, work, care or community role." .
+
+ho:Place a owl:Class ;
+  rdfs:label "place" ;
+  rdfs:comment "A geographic or dwelling location." .
+
+ho:Organization a owl:Class ;
+  rdfs:label "organization" ;
+  rdfs:comment "A formal or informal organization, institution or group." .
+
+ho:Language a owl:Class ;
+  rdfs:label "language" ;
+  rdfs:comment "A natural or signed language used or learned by a person." .
+
+ho:CultureContext a owl:Class ;
+  rdfs:label "culture_context" ;
+  rdfs:comment "A cultural, religious/spiritual or socialization context in which a person participates or is exposed." .
+
+ho:HealthCondition a owl:Class ;
+  rdfs:label "health_condition" ;
+  rdfs:comment "A health or neurodevelopmental condition/classification referenced by the person record." .
+
+ho:Credential a owl:Class ;
+  rdfs:label "credential" ;
+  rdfs:comment "A qualification, degree, certificate or other education credential." .
+
+ho:Resource a owl:Class ;
+  rdfs:label "resource" ;
+  rdfs:comment "A resource that may be accessible to the person." .
+
+ho:Constraint a owl:Class ;
+  rdfs:label "constraint" ;
+  rdfs:comment "A barrier or constraint affecting the person's feasible actions." .
+
+ho:Opportunity a owl:Class ;
+  rdfs:label "opportunity" ;
+  rdfs:comment "An actionable opportunity available to the person." .
+
+ho:Event a owl:Class ;
+  rdfs:label "event" ;
+  rdfs:comment "A referenced process/event entity when another relation points to an event record." .
+
+ho:Generic a owl:Class ;
+  rdfs:label "generic" ;
+  rdfs:comment "Fallback external entity type; use only when no reviewed specific entity type applies." .
+
+ho:domain_development a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "development" ;
+  skos:prefLabel "development" ;
+  skos:definition "Where is the person in the life course, and what developmental transitions characterize that placement?" .
+
+ho:domain_body_functioning_health a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "body_functioning_health" ;
+  skos:prefLabel "body_functioning_health" ;
+  skos:definition "What bodily characteristics, functioning, disability and physical-health properties apply?" .
+
+ho:domain_mental_neurodevelopmental_health a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "mental_neurodevelopmental_health" ;
+  skos:prefLabel "mental_neurodevelopmental_health" ;
+  skos:definition "What mental-health, neurodevelopmental, symptom/experience, functioning, care and recovery properties apply?" .
+
+ho:domain_personality_psychology a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "personality_psychology" ;
+  skos:prefLabel "personality_psychology" ;
+  skos:definition "What relatively stable traits, motives, beliefs, regulation strategies, relational dispositions and narrative organization apply?" .
+
+ho:domain_abilities_skills_interests a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "abilities_skills_interests" ;
+  skos:prefLabel "abilities_skills_interests" ;
+  skos:definition "What abilities, learned skills, expertise and interests apply?" .
+
+ho:domain_identity_self_concept a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "identity_self_concept" ;
+  skos:prefLabel "identity_self_concept" ;
+  skos:definition "How does the person describe or understand self-identities that are not reducible to a role, legal status, place or cultural participation relation?" .
+
+ho:domain_roles a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "roles" ;
+  skos:prefLabel "roles" ;
+  skos:definition "What social, family, education, work, care or community roles does the person bear?" .
+
+ho:domain_relationships a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "relationships" ;
+  skos:prefLabel "relationships" ;
+  skos:definition "To which people is the person related, by what relation type, and what properties belong to that relation?" .
+
+ho:domain_place_mobility a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "place_mobility" ;
+  skos:prefLabel "place_mobility" ;
+  skos:definition "What places is the person related to through birth, upbringing, residence, migration or mobility?" .
+
+ho:domain_education_learning a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "education_learning" ;
+  skos:prefLabel "education_learning" ;
+  skos:definition "What formal/non-formal education, learning participation, credentials and learning opportunities characterize the person?" .
+
+ho:domain_work_economic_participation a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "work_economic_participation" ;
+  skos:prefLabel "work_economic_participation" ;
+  skos:definition "How does the person participate in work, occupations, organizations, labour markets, income/assets/debt and economic position?" .
+
+ho:domain_social_institutional_position a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "social_institutional_position" ;
+  skos:prefLabel "social_institutional_position" ;
+  skos:definition "How is the person positioned relative to legal, civic, institutional, stratification and rights/access systems?" .
+
+ho:domain_culture_language a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "culture_language" ;
+  skos:prefLabel "culture_language" ;
+  skos:definition "What cultural, linguistic, religious/spiritual or socialization environments has the person participated in, used or been exposed to?" .
+
+ho:domain_life_events a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "life_events" ;
+  skos:prefLabel "life_events" ;
+  skos:definition "What happened to or was done by the person, when, with whom, in what context and with what consequences?" .
+
+ho:domain_context_ecology a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "context_ecology" ;
+  skos:prefLabel "context_ecology" ;
+  skos:definition "What external household, neighborhood, institutional, economic, policy, technological, historical and environmental contexts surround the person?" .
+
+ho:domain_resources_constraints_opportunities a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "resources_constraints_opportunities" ;
+  skos:prefLabel "resources_constraints_opportunities" ;
+  skos:definition "What resources, constraints and actionable opportunities are actually available to the person at a given time?" .
+
+ho:domain_lifestyle_routines a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "lifestyle_routines" ;
+  skos:prefLabel "lifestyle_routines" ;
+  skos:definition "What recurring activities, routines and habitual practices characterize daily life?" .
+
+ho:domain_current_state a skos:Concept ;
+  skos:inScheme ho:SemanticNamespaceScheme ;
+  skos:notation "current_state" ;
+  skos:prefLabel "current_state" ;
+  skos:definition "What is true of the person now that should not be mistaken for a stable trait, enduring relation or historical event?" .
+
+ho:has_role a owl:ObjectProperty ;
+  rdfs:label "has_role" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Role .
+
+ho:related_to_person a owl:ObjectProperty ;
+  rdfs:label "related_to_person" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Person .
+
+ho:located_in a owl:ObjectProperty ;
+  rdfs:label "located_in" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Place .
+
+ho:born_in a owl:ObjectProperty ;
+  rdfs:label "born_in" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Place .
+
+ho:grew_up_in a owl:ObjectProperty ;
+  rdfs:label "grew_up_in" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Place .
+
+ho:lived_in a owl:ObjectProperty ;
+  rdfs:label "lived_in" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Place .
+
+ho:participates_in_culture a owl:ObjectProperty ;
+  rdfs:label "participates_in_culture" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:CultureContext .
+
+ho:uses_language a owl:ObjectProperty ;
+  rdfs:label "uses_language" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Language .
+
+ho:member_of a owl:ObjectProperty ;
+  rdfs:label "member_of" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Organization .
+
+ho:works_for a owl:ObjectProperty ;
+  rdfs:label "works_for" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Organization .
+
+ho:studies_at a owl:ObjectProperty ;
+  rdfs:label "studies_at" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Organization .
+
+ho:holds_credential a owl:ObjectProperty ;
+  rdfs:label "holds_credential" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Credential .
+
+ho:has_resource a owl:ObjectProperty ;
+  rdfs:label "has_resource" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Resource .
+
+ho:faces_constraint a owl:ObjectProperty ;
+  rdfs:label "faces_constraint" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Constraint .
+
+ho:has_opportunity a owl:ObjectProperty ;
+  rdfs:label "has_opportunity" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Opportunity .
+
+ho:experienced_event a owl:ObjectProperty ;
+  rdfs:label "experienced_event" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Event .
+
+ho:has_health_condition a owl:ObjectProperty ;
+  rdfs:label "has_health_condition" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:HealthCondition .
+
+ho:has_symptom_or_experience a owl:ObjectProperty ;
+  rdfs:label "has_symptom_or_experience" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Generic .
+
+ho:receives_support a owl:ObjectProperty ;
+  rdfs:label "receives_support" ;
+  rdfs:domain ho:Person ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( ho:Person ho:Organization ho:Resource ) ] .
+
+ho:has_trigger a owl:ObjectProperty ;
+  rdfs:label "has_trigger" ;
+  rdfs:domain ho:Person ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( ho:Generic ho:Event ) ] .
+
+ho:resides_in a owl:ObjectProperty ;
+  rdfs:label "resides_in" ;
+  rdfs:domain ho:Person ;
+  rdfs:range ho:Place .
+
+ho:situated_in_context a owl:ObjectProperty ;
+  rdfs:label "situated_in_context" ;
+  rdfs:domain ho:Person ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( ho:Place ho:Organization ho:Generic ) ] .
+
+ho:concept_chronological_age a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "chronological_age" ;
+  skos:notation "development.chronological_age" ;
+  skos:definition "Elapsed chronological age at a stated reference time." ;
+  ho:canonicalPath "development.chronological_age" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_developmental_stage a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "developmental_stage" ;
+  skos:notation "development.developmental_stage" ;
+  skos:definition "A reviewed life-course/developmental stage classification at a stated time." ;
+  ho:canonicalPath "development.developmental_stage" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_gender_identity a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "gender_identity" ;
+  skos:notation "identity_self_concept.gender_identity" ;
+  skos:definition "Self-described gender identity; not inferred from sex characteristics, name, appearance or role." ;
+  ho:canonicalPath "identity_self_concept.gender_identity" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_physical_appearance a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "physical_appearance" ;
+  skos:notation "body_functioning_health.physical_appearance" ;
+  skos:definition "Descriptive physical-appearance observations or self-descriptions without inferring identity or health." ;
+  ho:canonicalPath "body_functioning_health.physical_appearance" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_diagnosis a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "diagnosis" ;
+  skos:notation "mental_neurodevelopmental_health.diagnoses" ;
+  skos:definition "A diagnostic assertion/classification about a health condition, distinct from the condition itself and from symptoms/functioning." ;
+  ho:canonicalPath "mental_neurodevelopmental_health.diagnoses" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_mental_health_trigger a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "mental_health_trigger" ;
+  skos:notation "mental_neurodevelopmental_health.triggers" ;
+  skos:definition "A typed relation to a situation, event or cue associated with a mental-health response." ;
+  ho:canonicalPath "mental_neurodevelopmental_health.triggers" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:has_trigger .
+
+ho:concept_safety_behavior a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "safety_behavior" ;
+  skos:notation "mental_neurodevelopmental_health.safety_behaviors" ;
+  skos:definition "A recurring or situational behavior used to reduce perceived threat or distress." ;
+  ho:canonicalPath "mental_neurodevelopmental_health.safety_behaviors" ;
+  ho:ontologicalKind "process_event" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_big_five_traits a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "big_five_traits" ;
+  skos:notation "personality_psychology.temperament_traits.ocean" ;
+  skos:definition "Big Five/OCEAN trait estimates with explicit scoring scale/instrument metadata." ;
+  ho:canonicalPath "personality_psychology.temperament_traits.ocean" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_personality_tags a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "personality_tags" ;
+  skos:notation "personality_psychology.temperament_traits.legacy_tags" ;
+  skos:definition "Legacy descriptive personality labels retained for compatibility; not canonical psychometric categories." ;
+  ho:canonicalPath "personality_psychology.temperament_traits.legacy_tags" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_motives_values_goals a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "motives_values_goals" ;
+  skos:notation "personality_psychology.motives_values_goals" ;
+  skos:definition "Structured motives, personally endorsed values and goals." ;
+  ho:canonicalPath "personality_psychology.motives_values_goals" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_cognition_beliefs a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "cognition_beliefs" ;
+  skos:notation "personality_psychology.cognition_beliefs" ;
+  skos:definition "Beliefs, appraisals and cognitive styles attributed to the person with provenance." ;
+  ho:canonicalPath "personality_psychology.cognition_beliefs" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_self_efficacy a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "self_efficacy" ;
+  skos:notation "personality_psychology.cognition_beliefs.self_efficacy" ;
+  skos:definition "Domain-specific belief about one's capability, distinct from underlying ability or skill." ;
+  ho:canonicalPath "personality_psychology.cognition_beliefs.self_efficacy" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_emotion_regulation_coping a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "emotion_regulation_coping" ;
+  skos:notation "personality_psychology.emotion_regulation_coping" ;
+  skos:definition "Emotion-regulation dispositions and coping strategies, preserving trait/state context." ;
+  ho:canonicalPath "personality_psychology.emotion_regulation_coping" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_relational_disposition a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "relational_disposition" ;
+  skos:notation "personality_psychology.relational_dispositions" ;
+  skos:definition "Person-level relational tendencies, distinct from observations about a specific relationship." ;
+  ho:canonicalPath "personality_psychology.relational_dispositions" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_narrative_identity a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "narrative_identity" ;
+  skos:notation "personality_psychology.narrative_identity" ;
+  skos:definition "Narrative self-organization, meanings and generative story constructs; not psychometric or diagnostic truth." ;
+  ho:canonicalPath "personality_psychology.narrative_identity" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_surface_expression a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "surface_expression" ;
+  skos:notation "personality_psychology.surface_expression" ;
+  skos:definition "Current or habitual communication and expressive presentation, distinct from stable traits." ;
+  ho:canonicalPath "personality_psychology.surface_expression" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_skill_ability_interest_profile a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "skill_ability_interest_profile" ;
+  skos:notation "abilities_skills_interests.profile" ;
+  skos:definition "Structured profile of abilities, learned skills, expertise and interests." ;
+  ho:canonicalPath "abilities_skills_interests.profile" ;
+  ho:ontologicalKind "quality_disposition" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_routine_profile a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "routine_profile" ;
+  skos:notation "lifestyle_routines.profile" ;
+  skos:definition "A time-indexed summary/projection of recurring lifestyle routines; underlying activities may be represented as processes/events." ;
+  ho:canonicalPath "lifestyle_routines.profile" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_education_attainment a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "education_attainment" ;
+  skos:notation "education_learning.education_attainment" ;
+  skos:definition "Current highest/attained education level or attainment summary; individual credentials may be represented as relations." ;
+  ho:canonicalPath "education_learning.education_attainment" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "slow_changing" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_occupation a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "occupation" ;
+  skos:notation "work_economic_participation.occupation" ;
+  skos:definition "A typed relation from the person to an occupational/role entity." ;
+  ho:canonicalPath "work_economic_participation.occupation" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "role_dependent" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:has_role .
+
+ho:concept_marital_relationship_status a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "marital_relationship_status" ;
+  skos:notation "relationships.marital_status" ;
+  skos:definition "Current marital/partnership status summary. Specific partner/dyad facts belong in typed relationship relations when known." ;
+  ho:canonicalPath "relationships.marital_status" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "relationship_specific" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_relationship_observation a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "relationship_observation" ;
+  skos:notation "relationships.observations" ;
+  skos:definition "Observation about a specific relationship/dyad, not a global personality disposition." ;
+  ho:canonicalPath "relationships.observations" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "relationship_specific" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:related_to_person .
+
+ho:concept_residence a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "residence" ;
+  skos:notation "place_mobility.residence" ;
+  skos:definition "A typed relation to a current or historical place of residence." ;
+  ho:canonicalPath "place_mobility.residence" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:resides_in .
+
+ho:concept_role a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "role" ;
+  skos:notation "roles.items" ;
+  skos:definition "A context-dependent role borne by the person." ;
+  ho:canonicalPath "roles.items" ;
+  ho:ontologicalKind "role" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "role_dependent" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:has_role .
+
+ho:concept_cultural_participation a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "cultural_participation" ;
+  skos:notation "culture_language.cultural_participation" ;
+  skos:definition "Participation in or exposure to a cultural/religious/socialization context; not inferred from geography or citizenship." ;
+  ho:canonicalPath "culture_language.cultural_participation" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "event_history" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:participates_in_culture .
+
+ho:concept_language_use a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "language_use" ;
+  skos:notation "culture_language.languages" ;
+  skos:definition "Use, learning or proficiency relation to a language." ;
+  ho:canonicalPath "culture_language.languages" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:uses_language .
+
+ho:concept_life_event a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "life_event" ;
+  skos:notation "life_events.items" ;
+  skos:definition "A time-indexed event/process involving or affecting the person." ;
+  ho:canonicalPath "life_events.items" ;
+  ho:ontologicalKind "process_event" ;
+  ho:storageMode "event_graph" ;
+  ho:temporalClass "event_history" ;
+  ho:reviewStatus "reviewed" .
+
+ho:concept_resource a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "resource" ;
+  skos:notation "resources_constraints_opportunities.resources" ;
+  skos:definition "A currently accessible resource relation, possibly derived from economic, social or institutional source facts." ;
+  ho:canonicalPath "resources_constraints_opportunities.resources" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:has_resource .
+
+ho:concept_constraint a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "constraint" ;
+  skos:notation "resources_constraints_opportunities.constraints" ;
+  skos:definition "A barrier/constraint relation affecting the person's feasible actions." ;
+  ho:canonicalPath "resources_constraints_opportunities.constraints" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:faces_constraint .
+
+ho:concept_ecological_context a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "ecological_context" ;
+  skos:notation "context_ecology.contexts" ;
+  skos:definition "A relation to an external ecological/contextual entity; external conditions are distinct from the person's traits." ;
+  ho:canonicalPath "context_ecology.contexts" ;
+  ho:ontologicalKind "relation" ;
+  ho:storageMode "relation_graph" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" ;
+  ho:relationPredicate ho:situated_in_context .
+
+ho:concept_current_state a skos:Concept ;
+  skos:inScheme ho:CanonicalConceptScheme ;
+  skos:prefLabel "current_state" ;
+  skos:notation "current_state.summary" ;
+  skos:definition "Time-indexed current person state that must not be mistaken for an enduring trait or historical event." ;
+  ho:canonicalPath "current_state.summary" ;
+  ho:ontologicalKind "state" ;
+  ho:storageMode "domain_field" ;
+  ho:temporalClass "dynamic_state" ;
+  ho:reviewStatus "reviewed" .
+
