@@ -1,0 +1,185 @@
+{
+  "asset_id": "human-ontology-external-alignment-evaluation",
+  "version": "2.0.0-rc2",
+  "methodology": "Each external source receives an explicit decision: mapped, design_reference, candidate, no_suitable_match, or intentional_divergence. Exact term mappings require source IDs, source version/date, mapping relation and review status; absence of a mapping must never be silently treated as equivalence.",
+  "evidence_sources": [
+    {
+      "id": "OBO_REVIEW",
+      "name": "OBO Foundry ontology review workflow",
+      "url": "https://obofoundry.org/docs/SOP.html",
+      "use": "manual scientific/semantic review after automated checks"
+    },
+    {
+      "id": "OBO_STANDARDIZATION",
+      "name": "OBO Foundry Standardization Guidelines",
+      "url": "https://obofoundry.org/docs/StandardizationGuidelines.html",
+      "use": "logical consistency, unsatisfiable class and circular-definition expectations"
+    },
+    {
+      "id": "SHACL_2017",
+      "name": "W3C Shapes Constraint Language (SHACL) Recommendation",
+      "url": "https://www.w3.org/TR/shacl/",
+      "use": "future RDF graph constraint validation"
+    },
+    {
+      "id": "SHACL_1_2",
+      "name": "W3C SHACL 1.2 Core Working Draft",
+      "url": "https://www.w3.org/TR/shacl12-core/",
+      "use": "track current SHACL evolution; do not treat draft features as stable requirements"
+    },
+    {
+      "id": "OQUARE",
+      "name": "OQuaRE evaluation study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4141745/",
+      "use": "multi-method ontology quality evaluation including competency questions"
+    },
+    {
+      "id": "FAIR_IMPACT",
+      "name": "FAIR-IMPACT semantic artefact assessment tools",
+      "url": "https://fair-impact.eu/fair-assessment-tools",
+      "use": "FAIRness assessment planning via tools such as FOOPS! and O'FAIRe"
+    }
+  ],
+  "sources": [
+    {
+      "id": "BFO",
+      "name": "Basic Formal Ontology",
+      "purpose": "upper-level ontological distinctions",
+      "current_adoption": "inspiration_and_alignment",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "RO",
+      "name": "Relation Ontology",
+      "purpose": "typed relation vocabulary and interoperability practice",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "MF",
+      "name": "Mental Functioning Ontology",
+      "purpose": "mental functioning concepts",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "MFOEM",
+      "name": "Emotion Ontology",
+      "purpose": "affective phenomena",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "HPO",
+      "name": "Human Phenotype Ontology",
+      "purpose": "phenotypic abnormalities in health contexts",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "ICF",
+      "name": "International Classification of Functioning, Disability and Health",
+      "purpose": "functioning and disability framing",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "ICD",
+      "name": "International Classification of Diseases",
+      "purpose": "diagnostic coding",
+      "current_adoption": "existing_or_planned_mapping",
+      "current_review_status": "active",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "DSM",
+      "name": "Diagnostic and Statistical Manual of Mental Disorders",
+      "purpose": "psychiatric diagnostic mapping where licensing permits representation",
+      "current_adoption": "existing_or_planned_mapping",
+      "current_review_status": "active",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "FHIR_PERSON",
+      "name": "HL7 FHIR Person",
+      "purpose": "engineering interoperability and person-versus-role separation",
+      "current_adoption": "design_reference",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    },
+    {
+      "id": "SCHEMA_PERSON",
+      "name": "Schema.org Person",
+      "purpose": "pragmatic common-person metadata interoperability",
+      "current_adoption": "mapping_candidate",
+      "current_review_status": "candidate",
+      "term_level_mapping_status": "not_systematically_completed",
+      "required_next_evidence": [
+        "source_version_or_date",
+        "explicit_mapping_decisions",
+        "reviewer",
+        "review_date"
+      ]
+    }
+  ]
+}
