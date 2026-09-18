@@ -120,6 +120,29 @@ class KernelGenerator:
                         temporal_class=meta.temporal_class,
                     )
 
+        # Health-domain relations (for example typed trigger relations) follow the
+        # same health-only overlay rule. Rebind the relation subject to the base
+        # PersonaKernel identity and replace any healthy-base health relations.
+        base.relations = [
+            relation
+            for relation in base.relations
+            if not str(relation.get("canonical_path", "")).startswith(prefix)
+        ]
+        health_relations = [
+            deepcopy(relation)
+            for relation in health.relations
+            if str(relation.get("canonical_path", "")).startswith(prefix)
+        ]
+        for index, relation in enumerate(health_relations, start=1):
+            relation["relation_id"] = (
+                f"{base.persona_id}:health-overlay:{index}:{relation.get('predicate', 'relation')}"
+            )
+            if isinstance(relation.get("subject"), dict):
+                relation["subject"]["entity_id"] = base.persona_id
+                relation["subject"]["entity_type"] = "person"
+            relation["provenance"] = "psychiatric domain module: health-only relation overlay"
+        base.relations.extend(health_relations)
+
         # Current state may legitimately reflect an explicitly supplied diagnosis,
         # but it remains a dynamic generated state, never a personality trait.
         if "current_state" in health.domains:
