@@ -7,6 +7,7 @@ It does not convert missing independent human evidence into a pass.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 from typing import Any
@@ -122,6 +123,10 @@ def evaluate_assets() -> dict[str, Any]:
     diversity = load(EVAL_DIR / "diversity_cases.json")
     external = load(EVAL_DIR / "external_alignment_matrix.json")
 
+    pilot_path = EVAL_DIR / "pilot_annotation_pack.csv"
+    with pilot_path.open(encoding="utf-8-sig", newline="") as f:
+        pilot_rows = list(csv.DictReader(f))
+
     results = []
     for question in cqs["questions"]:
         passed, detail = evaluate_question(
@@ -173,6 +178,35 @@ def evaluate_assets() -> dict[str, Any]:
     external_ids = [item["id"] for item in external["sources"]]
     assert len(external_ids) == len(set(external_ids)), "duplicate external source IDs"
 
+    pilot_annotators = sorted({
+        row.get("annotator_id", "").strip()
+        for row in pilot_rows
+        if row.get("annotator_id", "").strip()
+    })
+    expected_pilot_rows = (
+        sum(len(case["expected"]) for case in adversarial_cases)
+        * len(pilot_annotators)
+    )
+    assert len(pilot_annotators) == 3, (
+        f"pilot pack must contain 3 annotators, got {pilot_annotators}"
+    )
+    assert len(pilot_rows) == expected_pilot_rows, (
+        f"pilot pack is stale: rows={len(pilot_rows)}, expected={expected_pilot_rows}"
+    )
+    answer_columns = (
+        "canonical_home",
+        "kind",
+        "temporal_class",
+        "relation_predicate",
+        "source_type",
+        "confidence",
+    )
+    assert all(
+        not str(row.get(column, "")).strip()
+        for row in pilot_rows
+        for column in answer_columns
+    ), "pilot annotation pack must remain blinded/blank"
+
     reviewed = [item for item in catalog["concepts"] if item["review_status"] == "reviewed"]
     provisional = [item for item in catalog["concepts"] if item["review_status"] == "provisional_migrated"]
     provisional_relations = [
@@ -202,6 +236,8 @@ def evaluate_assets() -> dict[str, Any]:
             "adversarial_cases": len(adversarial_cases),
             "diversity_cases": len(diversity_cases),
             "external_sources": len(external_ids),
+            "pilot_annotation_rows": len(pilot_rows),
+            "pilot_annotators": len(pilot_annotators),
             "reviewed_concepts": len(reviewed),
             "provisional_concepts": len(provisional),
             "provisional_relation_leaves_pending_predicate_review": len(provisional_relations),
