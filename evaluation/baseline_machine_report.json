@@ -1,0 +1,71 @@
+{
+  "ontology_version": "2.0.0-rc2",
+  "evaluated_at": "2026-09-18",
+  "evaluator": "ChatGPT GitHub connector structural evaluator",
+  "evidence_scope": "machine_regression_only",
+  "machine_competency_questions": {
+    "total": 172,
+    "passed": 172,
+    "failed": 0,
+    "pass_rate": 1,
+    "critical_total": 172,
+    "critical_passed": 172,
+    "critical_failed": 0,
+    "categories": {
+      "domain_coverage": {
+        "total": 18,
+        "passed": 18
+      },
+      "domain_semantics": {
+        "total": 18,
+        "passed": 18
+      },
+      "first_class_concept": {
+        "total": 31,
+        "passed": 31
+      },
+      "ontological_kind": {
+        "total": 31,
+        "passed": 31
+      },
+      "storage_contract": {
+        "total": 31,
+        "passed": 31
+      },
+      "typed_relation": {
+        "total": 20,
+        "passed": 20
+      },
+      "epistemic_provenance": {
+        "total": 8,
+        "passed": 8
+      },
+      "semantic_boundary": {
+        "total": 15,
+        "passed": 15
+      }
+    },
+    "failures": []
+  },
+  "evaluation_assets": {
+    "adversarial_cases": 24,
+    "diversity_cases": 30,
+    "external_sources": 10,
+    "reviewed_concepts": 31,
+    "provisional_concepts": 174
+  },
+  "scientific_evidence_state": {
+    "formal_structural": "partial",
+    "machine_cq": "passed_machine",
+    "independent_cq": "not_tested",
+    "semantic_interrater_reliability": "not_tested",
+    "external_term_alignment": "partial",
+    "diversity_independent_adjudication": "not_tested",
+    "pragmatic_p003": "not_tested",
+    "pragmatic_ai_ques": "not_tested",
+    "rdf_owl_reasoner": "not_tested",
+    "shacl": "not_tested",
+    "fair_external_assessment": "not_tested"
+  },
+  "interpretation": "This proves regression consistency against the current declared contracts only. It is not independent scientific validation."
+}
