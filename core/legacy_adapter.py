@@ -6,6 +6,7 @@ field placement.
 """
 from __future__ import annotations
 
+import hashlib
 from typing import Any
 
 from .persona_kernel import FieldMetadata, PersonaKernel
@@ -111,7 +112,30 @@ def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
             "no_disorder_generated",
             temporal="dynamic_state",
         )
-    put("mental_neurodevelopmental_health", "triggers", persona.triggers, temporal="dynamic_state")
+    trigger_values = persona.triggers if isinstance(persona.triggers, (list, tuple)) else [persona.triggers]
+    for index, trigger in enumerate((x for x in trigger_values if x not in (None, "")), start=1):
+        label = str(trigger)
+        digest = hashlib.sha1(label.encode("utf-8")).hexdigest()[:16]
+        kernel.relations.append({
+            "relation_id": f"{persona.id}:relation:trigger:{index}",
+            "canonical_path": "mental_neurodevelopmental_health.triggers",
+            "predicate": "has_trigger",
+            "subject": {
+                "entity_id": str(persona.id),
+                "entity_type": "person",
+            },
+            "object": {
+                "entity_id": f"legacy:trigger:{digest}",
+                "entity_type": "generic",
+                "label": label,
+                "source_system": "legacy PersonaGenerator",
+                "source_id": label,
+            },
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "dynamic_state",
+        })
     put("mental_neurodevelopmental_health", "safety_behaviors", persona.safety_behaviors, temporal="dynamic_state")
 
     put("personality_psychology", "temperament_traits", {
