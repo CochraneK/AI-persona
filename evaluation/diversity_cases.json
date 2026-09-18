@@ -1,0 +1,396 @@
+{
+  "asset_id": "human-ontology-diversity-cases",
+  "version": "2.0.0-rc2",
+  "cases": [
+    {
+      "id": "DIV-001",
+      "theme": "cross_border_childhood",
+      "vignette": "Born in one country, raised in two others, multiple residences and no simple nationality-culture mapping.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-002",
+      "theme": "stateless_person",
+      "vignette": "A stateless person with strong cultural affiliation and long-term residence rights.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-003",
+      "theme": "dual_citizenship",
+      "vignette": "A dual citizen whose cultural identity does not match either citizenship exactly.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-004",
+      "theme": "multilingual",
+      "vignette": "A multilingual person using different languages in family, work and community contexts.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-005",
+      "theme": "transgender",
+      "vignette": "A transgender adult with distinct sex-characteristic, gender-identity and gender-expression facts.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-006",
+      "theme": "nonbinary",
+      "vignette": "A nonbinary person using multiple pronouns and context-dependent presentation.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-007",
+      "theme": "intersex",
+      "vignette": "An intersex person whose sex characteristics should not be collapsed into gender identity.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-008",
+      "theme": "same_sex_family",
+      "vignette": "A same-sex couple raising an adopted child with legal and social family relations.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-009",
+      "theme": "blended_family",
+      "vignette": "A blended family with biological, step, former-partner and co-parenting relations.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-010",
+      "theme": "chosen_family",
+      "vignette": "A person whose primary support network is chosen family rather than legal kin.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-011",
+      "theme": "wheelchair_user",
+      "vignette": "A wheelchair user whose main participation constraints are environmental accessibility barriers.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-012",
+      "theme": "deaf_signer",
+      "vignette": "A Deaf sign-language user with linguistic, cultural and sensory-functioning dimensions.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-013",
+      "theme": "chronic_illness",
+      "vignette": "A person with fluctuating chronic illness and stable professional competence.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-014",
+      "theme": "neurodivergent",
+      "vignette": "A neurodivergent person with strengths, support needs and optional diagnoses represented separately.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-015",
+      "theme": "multi_diagnosis",
+      "vignette": "A person with multiple diagnoses, symptoms, treatment history and recovery trajectory.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-016",
+      "theme": "no_diagnosis_symptoms",
+      "vignette": "A person with distressing symptoms but no formal diagnosis.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-017",
+      "theme": "religious_conversion",
+      "vignette": "A person raised in one religion who later converts and keeps some cultural practices.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-018",
+      "theme": "mixed_religious_household",
+      "vignette": "A household with members of different religions and different personal identities.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-019",
+      "theme": "refugee",
+      "vignette": "A refugee with migration events, legal status, trauma exposure and current resources represented independently.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-020",
+      "theme": "temporary_worker",
+      "vignette": "A migrant worker with temporary legal status, employment role and family ties in another country.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-021",
+      "theme": "student_worker_caregiver",
+      "vignette": "A person simultaneously studying, working and caregiving.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-022",
+      "theme": "retired_expert",
+      "vignette": "A retired professional who no longer holds a work role but retains expertise and professional identity.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-023",
+      "theme": "gig_worker",
+      "vignette": "A gig worker with multiple short-term work relations and unstable income.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-024",
+      "theme": "unemployed_high_skill",
+      "vignette": "A highly skilled unemployed person with current financial constraints.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-025",
+      "theme": "wealthy_low_liquidity",
+      "vignette": "A wealthy person with temporary liquidity constraints.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-026",
+      "theme": "digital_nomad",
+      "vignette": "A person with frequent mobility, remote work and weak long-term residence attachment.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-027",
+      "theme": "institutionalized",
+      "vignette": "A person living in an institution whose residence, legal status and social relations must remain distinct.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-028",
+      "theme": "rural_low_access",
+      "vignette": "A rural resident with high social support but low healthcare and transport access.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-029",
+      "theme": "urban_isolation",
+      "vignette": "An urban resident with high service availability but low usable social support.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    },
+    {
+      "id": "DIV-030",
+      "theme": "life_transition_cluster",
+      "vignette": "A person experiencing divorce, relocation and job change in the same year without collapsing these events into stable traits.",
+      "required_review": [
+        "representability",
+        "distortion",
+        "false_inference",
+        "cultural_assumption",
+        "sensitive_attribute_handling"
+      ],
+      "status": "not_yet_independently_adjudicated"
+    }
+  ]
+}
