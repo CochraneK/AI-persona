@@ -38,6 +38,7 @@ def main() -> None:
     run("PersonaKernel typed-graph contract", "scripts/test_persona_kernel_contract.py")
     run("Event sampling regression", "scripts/test_events_sampling.py")
     run("Scientific evaluation machine gate", "scripts/evaluate_human_ontology.py")
+    run("Semantic-web projection drift", "scripts/export_semantic_projection.py", "--check")
     run("Repository release gate", "scripts/check_ontology_release_gate.py")
 
     print("\nHuman Ontology full local quality gate: OK", flush=True)
