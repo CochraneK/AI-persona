@@ -224,7 +224,9 @@
             "has_health_condition",
             "has_symptom_or_experience",
             "receives_support",
-            "has_trigger"
+            "has_trigger",
+            "resides_in",
+            "situated_in_context"
           ]
         },
         "source_type": {
@@ -907,6 +909,66 @@
                     "enum": [
                       "generic",
                       "event"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "resides_in"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "situated_in_context"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "place",
+                      "organization",
+                      "generic"
                     ]
                   }
                 }
