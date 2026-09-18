@@ -1911,7 +1911,7 @@
       "evidence_class": "boundary_regression",
       "assertion": {
         "type": "catalog_path_domain",
-        "path": "social_institutional_position.citizenship",
+        "path": "social_institutional_position.citizenship_nationality",
         "domain": "social_institutional_position"
       }
     },
