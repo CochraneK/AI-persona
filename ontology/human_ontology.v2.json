@@ -278,7 +278,8 @@
     "experienced_event",
     "has_health_condition",
     "has_symptom_or_experience",
-    "receives_support"
+    "receives_support",
+    "has_trigger"
   ],
   "domain_modules": {
     "psychiatric_diagnosis": {
@@ -492,6 +493,12 @@
         "person",
         "organization",
         "resource"
+      ]
+    },
+    "has_trigger": {
+      "object_entity_types": [
+        "generic",
+        "event"
       ]
     }
   }
