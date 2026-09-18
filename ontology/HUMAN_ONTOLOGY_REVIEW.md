@@ -46,7 +46,28 @@ Therefore:
 - citizenship must not infer identity;
 - any cross-domain inference needs explicit evidence/provenance.
 
+## Provisional migrated concepts
+
+`CANONICAL_CONCEPT_CATALOG.json` distinguishes two review states:
+
+- `reviewed` — first-class concepts with reviewed definition, kind, cardinality, temporality, sensitivity, storage mode and value contract;
+- `provisional_migrated` — legacy leaf concepts whose **canonical semantic home is accepted**, but whose leaf-level kind/cardinality/value contract may still be refined.
+
+A provisional concept may be used for migration, archival compatibility and bounded internal representation. It should not be treated as a stable cross-project API contract until promoted to `reviewed`.
+
+Promotion to `reviewed` requires:
+1. definition and counterexample review;
+2. ontological kind review;
+3. cardinality and temporal semantics;
+4. sensitivity/inference review;
+5. storage mode and value contract;
+6. consumer compatibility check;
+7. validator/schema updates where applicable.
+
+Promotion may refine leaf semantics without moving its canonical semantic home. Moving the home remains a MAJOR ontology change.
+
 ## Change classes
+
 
 ### PATCH
 - wording/description;
