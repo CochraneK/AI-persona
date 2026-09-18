@@ -38,6 +38,12 @@ def main() -> None:
     assert all(r["predicate"] for r in kernel.relations)
     assert all(r["relation_id"] and r["canonical_path"] for r in kernel.relations)
     assert all(e["event_id"] and e["canonical_path"] for e in kernel.events)
+    assert "triggers" not in kernel.domains.get("mental_neurodevelopmental_health", {})
+    trigger_relations = [
+        r for r in kernel.relations
+        if r["canonical_path"] == "mental_neurodevelopmental_health.triggers"
+    ]
+    assert all(r["predicate"] == "has_trigger" for r in trigger_relations)
 
     safe_dep = generate_persona_kernel("重度抑郁障碍", rng_seed=19, event_count=3)
     safe_gad = generate_persona_kernel("广泛性焦虑障碍", rng_seed=19, event_count=3)
@@ -62,7 +68,15 @@ def main() -> None:
     )
     for domain in invariant_domains:
         assert safe_dep.domains.get(domain) == safe_gad.domains.get(domain), domain
-    assert safe_dep.relations == safe_gad.relations
+    dep_non_health_relations = [
+        r for r in safe_dep.relations
+        if not r["canonical_path"].startswith("mental_neurodevelopmental_health.")
+    ]
+    gad_non_health_relations = [
+        r for r in safe_gad.relations
+        if not r["canonical_path"].startswith("mental_neurodevelopmental_health.")
+    ]
+    assert dep_non_health_relations == gad_non_health_relations
     assert safe_dep.events == safe_gad.events
 
     direct = safe_dep.to_dict()
