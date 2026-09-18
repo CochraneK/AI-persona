@@ -1,5 +1,8 @@
 name: Human Ontology CI
 
+permissions:
+  contents: read
+
 on:
   push:
     paths:
@@ -31,8 +34,8 @@ jobs:
     name: JSON assets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/test_ontology_json_assets.py
@@ -41,8 +44,8 @@ jobs:
     name: Validate v1 compatibility
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/validate_human_ontology.py
@@ -51,8 +54,8 @@ jobs:
     name: Validate v2 ontology
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/validate_human_ontology_v2.py
@@ -61,8 +64,8 @@ jobs:
     name: Compile + Kernel smoke
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python -m py_compile core/*.py
@@ -86,8 +89,8 @@ jobs:
     name: Legacy compatibility + semantic firewall
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/test_persona_kernel_compat.py
@@ -96,8 +99,8 @@ jobs:
     name: PersonaKernel contract
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/test_persona_kernel_contract.py
@@ -106,8 +109,8 @@ jobs:
     name: Event sampling regression
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/test_events_sampling.py
@@ -124,8 +127,8 @@ jobs:
       - kernel-contract
       - event-regression
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: python scripts/check_ontology_release_gate.py
