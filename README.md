@@ -39,7 +39,8 @@ v2 does **not** force all human facts into one globally MECE tree. Domains are s
 
 Key files:
 - `ontology/human_ontology.v2.json` — v2 semantic namespaces and relation families
-- `ontology/CANONICAL_FIELD_REGISTRY.json` — first-class canonical runtime/interoperability concepts
+- `ontology/CANONICAL_FIELD_REGISTRY.json` — 31 reviewed first-class runtime/interoperability concepts
+- `ontology/CANONICAL_CONCEPT_CATALOG.json` — exhaustive 205-concept catalog (31 reviewed + 174 provisional migrated leaves)
 - `ontology/V1_TO_V2_MIGRATION.json` — v1 axis migration
 - `ontology/V1_FIELD_MIGRATION.json` — complete migration of all 186 v1 subaxes/personality layers
 - `ontology/persona_kernel.schema.json` — exchange schema
@@ -59,7 +60,10 @@ Important consequences:
 - relationship-specific facts live on relationships; person-level relational tendencies live under personality;
 - events are time-indexed processes; roles are not events; role transitions are events;
 - current resources/opportunities may be derived projections from work, relationships, institutions and context;
-- generated/inferred/observed/measured/input-constraint values are epistemically distinct and carry provenance.
+- generated/inferred/observed/measured/input-constraint values are epistemically distinct and carry provenance;
+- every domain value must have matching field metadata; orphan/missing metadata is rejected;
+- relations use typed `EntityRef` endpoints and predicate-specific target constraints;
+- reviewed first-class concepts declare storage mode and value contracts.
 
 The existing 6-domain × 4-stage event matrix, Archetype Grid and legacy six-field generation modules remain useful compatibility/content assets, but they are **not** the canonical ontology.
 
@@ -142,7 +146,7 @@ AI-persona/
 | **Phase 3** | ✅ 完成 | v1 数据集 (740条人设, 37诊断×20种子) |
 | **Phase 3.5** | ✅ 完成 | **Archetype Grid v1.2** (10诊断/45型/720深层身份，深层字段多样性 3.5~10×) |
 | **Phase 3.6** | ⏸️ legacy | 网格扩展不再是 v2 canonical ontology 的前置条件 |
-| **Phase 3.7** | ✅ rc2 | Human Ontology v2 + PersonaKernel + 186-field migration + semantic firewall |
+| **Phase 3.7** | ✅ rc2 | Human Ontology v2 + PersonaKernel + 186-field migration + 205-concept catalog + typed EntityRef graph + semantic firewall |
 | **Phase 4** | 📋 规划 | 临床多样性验证 / 外部专家审查 |
 | **Phase 5** | 📋 规划 | LLM 心理评估应用集成 |
 
@@ -300,7 +304,7 @@ personas = gen.batch(5)
 
 ## 版本
 
-`v2.0.0-rc2` — Human Ontology v2 release candidate：18 个 semantic namespaces、PersonaKernel、186 个 v1 字段级迁移、psychiatric health-only semantic firewall、provenance contract 与自动 release gate。
+`v2.0.0-rc2` — Human Ontology v2 release candidate：18 个 semantic namespaces、205-concept catalog（31 reviewed + 174 provisional migrated）、typed EntityRef graph、PersonaKernel metadata completeness、186 个 v1 字段级迁移、psychiatric health-only semantic firewall 与自动 release gate。
 
 `v1.2` — 2026-09-09 **Archetype Grid**：新增 `core/archetypes.py`，用「人设元类型硬网格」替代作废的三层空间模型，深层字段多样性提升 3.5~10×，修正 README 中 10²⁹ 的错误表述
 
