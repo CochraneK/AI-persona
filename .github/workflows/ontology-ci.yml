@@ -15,6 +15,7 @@ on:
       - "scripts/test_events_sampling.py"
       - "scripts/test_ontology_json_assets.py"
       - "scripts/check_ontology_release_gate.py"
+      - "scripts/run_ontology_ci.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
@@ -27,6 +28,7 @@ on:
       - "scripts/test_events_sampling.py"
       - "scripts/test_ontology_json_assets.py"
       - "scripts/check_ontology_release_gate.py"
+      - "scripts/run_ontology_ci.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
