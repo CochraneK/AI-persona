@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - "ontology/**"
+      - "evaluation/**"
       - "core/**"
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
@@ -16,10 +17,13 @@ on:
       - "scripts/test_ontology_json_assets.py"
       - "scripts/check_ontology_release_gate.py"
       - "scripts/run_ontology_ci.py"
+      - "scripts/evaluate_human_ontology.py"
+      - "scripts/analyze_annotation_reliability.py"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
       - "ontology/**"
+      - "evaluation/**"
       - "core/**"
       - "scripts/validate_human_ontology.py"
       - "scripts/validate_human_ontology_v2.py"
@@ -29,6 +33,8 @@ on:
       - "scripts/test_ontology_json_assets.py"
       - "scripts/check_ontology_release_gate.py"
       - "scripts/run_ontology_ci.py"
+      - "scripts/evaluate_human_ontology.py"
+      - "scripts/analyze_annotation_reliability.py"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
@@ -117,6 +123,16 @@ jobs:
           python-version: "3.11"
       - run: python scripts/test_events_sampling.py
 
+  scientific-evaluation:
+    name: Scientific evaluation machine gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/evaluate_human_ontology.py
+
   release-gate:
     name: Repository release gate
     runs-on: ubuntu-latest
@@ -128,6 +144,7 @@ jobs:
       - compatibility
       - kernel-contract
       - event-regression
+      - scientific-evaluation
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
