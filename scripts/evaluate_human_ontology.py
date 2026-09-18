@@ -82,6 +82,16 @@ def evaluate_question(
             else f"expected {assertion['storage']!r}, got {None if field is None else field.get('storage')!r}"
         )
 
+    if kind == "concept_relation_predicate":
+        field = fields.get(assertion["concept"])
+        actual = None if field is None else field.get("relation_predicate")
+        ok = actual == assertion["predicate"]
+        return ok, (
+            "relation predicate matches"
+            if ok
+            else f"expected {assertion['predicate']!r}, got {actual!r}"
+        )
+
     if kind == "relation_targets":
         rule = ontology.get("relation_constraints", {}).get(assertion["predicate"])
         actual = sorted(rule.get("object_entity_types", [])) if rule else []
@@ -165,6 +175,10 @@ def evaluate_assets() -> dict[str, Any]:
 
     reviewed = [item for item in catalog["concepts"] if item["review_status"] == "reviewed"]
     provisional = [item for item in catalog["concepts"] if item["review_status"] == "provisional_migrated"]
+    provisional_relations = [
+        item for item in provisional
+        if item.get("kind") == "relation"
+    ]
 
     machine_pass_rate = passed / total if total else 0.0
     critical_pass_rate = critical_passed / len(critical) if critical else 0.0
@@ -190,6 +204,7 @@ def evaluate_assets() -> dict[str, Any]:
             "external_sources": len(external_ids),
             "reviewed_concepts": len(reviewed),
             "provisional_concepts": len(provisional),
+            "provisional_relation_leaves_pending_predicate_review": len(provisional_relations),
         },
         "scientific_evidence_state": {
             "formal_structural": "partial",
