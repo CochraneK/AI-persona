@@ -49,6 +49,7 @@ def main() -> None:
     migration = load(ONTOLOGY / "V1_TO_V2_MIGRATION.json")
     field_migration = load(ONTOLOGY / "V1_FIELD_MIGRATION.json")
     registry = load(ONTOLOGY / "CANONICAL_FIELD_REGISTRY.json")
+    catalog = load(ONTOLOGY / "CANONICAL_CONCEPT_CATALOG.json")
     schema = load(ONTOLOGY / "persona_kernel.schema.json")
 
     if v2["status"] != "release_candidate":
@@ -58,6 +59,7 @@ def main() -> None:
         ("axis migration", migration["to_version"]),
         ("field migration", field_migration["to_version"]),
         ("field registry", registry["version"]),
+        ("concept catalog", catalog["version"]),
         ("kernel schema", schema["properties"]["ontology_version"]["const"]),
     ):
         if other != version:
@@ -78,6 +80,26 @@ def main() -> None:
             f"missing={sorted(expected-actual)}, extra={sorted(actual-expected)}"
         )
 
+    migration_targets = {
+        target
+        for item in field_migration["entries"]
+        for target in item["canonical_targets"]
+    }
+    registry_paths = {item["canonical_path"] for item in registry["fields"]}
+    catalog_paths = {item["canonical_path"] for item in catalog["concepts"]}
+    expected_catalog = migration_targets | registry_paths
+    if catalog_paths != expected_catalog:
+        fail(
+            f"concept catalog coverage mismatch: "
+            f"missing={sorted(expected_catalog-catalog_paths)}, "
+            f"extra={sorted(catalog_paths-expected_catalog)}"
+        )
+    if any(
+        item["review_status"] == "reviewed" and not item.get("value_contract")
+        for item in catalog["concepts"]
+    ):
+        fail("reviewed catalog concepts must declare value_contract")
+
     overlap = (ONTOLOGY / "V1_V2_OVERLAP_AUDIT.md").read_text(encoding="utf-8")
     if "| open |" in overlap.lower():
         fail("overlap audit still contains open rows")
@@ -90,6 +112,7 @@ def main() -> None:
 
     required = (
         ONTOLOGY / "CONSUMER_CONTRACT.md",
+        ONTOLOGY / "CANONICAL_CONCEPT_CATALOG.json",
         ONTOLOGY / "domains" / "psychiatric_diagnosis.module.json",
         ROOT / "core" / "persona_kernel.py",
         ROOT / "core" / "kernel_generator.py",
