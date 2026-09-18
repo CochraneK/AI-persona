@@ -133,6 +133,15 @@ def main() -> None:
     assert set(o["relation_constraints"]) == set(o["relation_families"]), (
         "every relation family must have a relation constraint"
     )
+    schema_relation_conditions = {
+        item["if"]["properties"]["predicate"]["const"]:
+        set(item["then"]["properties"]["object"]["properties"]["entity_type"]["enum"])
+        for item in kernel_schema["$defs"]["relationRecord"].get("allOf", [])
+        if item.get("if", {}).get("properties", {}).get("predicate", {}).get("const")
+    }
+    assert set(schema_relation_conditions) == set(o["relation_families"]), (
+        "every relation family must have an exact JSON Schema predicate condition"
+    )
     for predicate, rule in o["relation_constraints"].items():
         object_types = set(rule.get("object_entity_types", []))
         assert object_types, f"relation constraint has no object types: {predicate}"
@@ -140,6 +149,18 @@ def main() -> None:
             f"relation constraint {predicate} references unknown entity types: "
             f"{sorted(object_types - ontology_entity_types)}"
         )
+        assert schema_relation_conditions[predicate] == object_types, (
+            f"schema target-type drift for {predicate}: "
+            f"schema={sorted(schema_relation_conditions[predicate])}, "
+            f"ontology={sorted(object_types)}"
+        )
+
+    metadata_schema = kernel_schema["$defs"]["fieldMetadata"]
+    assert set(metadata_schema["required"]) == {
+        "source_type", "confidence", "provenance", "temporal_class"
+    }
+    assert metadata_schema["properties"]["provenance"].get("type") == "string"
+    assert metadata_schema["properties"]["temporal_class"].get("type") == "string"
 
     assert r["version"] == o["version"], "field registry version must match ontology version"
     domain_by_id = {d["id"]: d for d in domains}
@@ -157,6 +178,13 @@ def main() -> None:
         assert root in domain_ids, f"registry path uses unknown domain: {field['canonical_path']}"
         assert field.get("temporal_class"), f"missing temporal class: {field['concept']}"
         assert field.get("cardinality"), f"missing cardinality: {field['concept']}"
+        assert field.get("definition"), f"missing definition: {field['concept']}"
+        assert field.get("sensitivity"), f"missing sensitivity: {field['concept']}"
+        assert field.get("storage") in {"domain_field", "relation_graph", "event_graph"}, (
+            f"invalid storage mode: {field['concept']}"
+        )
+        assert field.get("value_contract"), f"missing value contract: {field['concept']}"
+        assert field.get("review_status") == "reviewed"
         assert field["kind"] in set(domain_by_id[root]["allowed_kinds"]), (
             f"field kind {field['kind']} not allowed by domain {root}: {field['concept']}"
         )
