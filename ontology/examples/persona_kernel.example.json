@@ -57,11 +57,22 @@
       "relation_id": "example-001:relation:language:en",
       "canonical_path": "culture_language.languages",
       "predicate": "uses_language",
-      "language": "en",
       "source_type": "user_provided",
       "confidence": null,
       "provenance": "example fixture",
-      "temporal_class": "dynamic_state"
+      "temporal_class": "dynamic_state",
+      "subject": {
+        "entity_id": "example-001",
+        "entity_type": "person",
+        "label": "Example person"
+      },
+      "object": {
+        "entity_id": "iso639-1:en",
+        "entity_type": "language",
+        "label": "English",
+        "source_system": "ISO 639-1",
+        "source_id": "en"
+      }
     }
   ],
   "events": [
@@ -73,7 +84,14 @@
       "source_type": "user_provided",
       "confidence": null,
       "provenance": "example fixture",
-      "temporal_class": "event_history"
+      "temporal_class": "event_history",
+      "participants": [
+        {
+          "entity_id": "example-001",
+          "entity_type": "person",
+          "label": "Example person"
+        }
+      ]
     }
   ]
 }
