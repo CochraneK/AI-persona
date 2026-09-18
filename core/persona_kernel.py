@@ -16,6 +16,7 @@ from .human_ontology import (
     canonical_entity_types,
     canonical_relation_families,
     canonical_v2_domain_ids,
+    load_canonical_field_registry,
     load_human_ontology_v2,
     ontology_v2_version,
 )
@@ -23,6 +24,10 @@ from .human_ontology import (
 _ONTOLOGY = load_human_ontology_v2()
 SOURCE_TYPES = frozenset(_ONTOLOGY["field_metadata_contract"]["source_type_values"])
 RELATION_CONSTRAINTS = _ONTOLOGY["relation_constraints"]
+FIRST_CLASS_STORAGE = {
+    item["canonical_path"]: item["storage"]
+    for item in load_canonical_field_registry()["fields"]
+}
 
 
 def _validate_provenance_record(record: Mapping[str, Any], *, context: str) -> None:
@@ -107,6 +112,13 @@ class PersonaKernel:
         }
         actual_paths = set(self.field_metadata)
 
+        for path in expected_paths:
+            storage = FIRST_CLASS_STORAGE.get(path)
+            if storage in {"relation_graph", "event_graph"}:
+                raise ValueError(
+                    f"{path} must be stored in {storage}, not domain payload"
+                )
+
         missing = sorted(expected_paths - actual_paths)
         if missing:
             raise ValueError(f"Domain values missing field_metadata: {missing}")
@@ -174,6 +186,12 @@ class PersonaKernel:
                 raise ValueError(
                     f"relation[{index}] duplicates domain payload at {canonical_path}"
                 )
+            storage = FIRST_CLASS_STORAGE.get(canonical_path)
+            if storage is not None and storage != "relation_graph":
+                raise ValueError(
+                    f"relation[{index}] canonical_path {canonical_path} "
+                    f"declares storage={storage}, not relation_graph"
+                )
 
             predicate = relation.get("predicate")
             if predicate not in allowed_relations:
@@ -228,6 +246,12 @@ class PersonaKernel:
             if key in self.domains.get(domain, {}):
                 raise ValueError(
                     f"event[{index}] duplicates domain payload at {canonical_path}"
+                )
+            storage = FIRST_CLASS_STORAGE.get(canonical_path)
+            if storage is not None and storage != "event_graph":
+                raise ValueError(
+                    f"event[{index}] canonical_path {canonical_path} "
+                    f"declares storage={storage}, not event_graph"
                 )
             if not event.get("type"):
                 raise ValueError(f"event[{index}] requires type")
