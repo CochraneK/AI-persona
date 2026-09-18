@@ -2,10 +2,12 @@
   "asset_id": "human-ontology-competency-questions",
   "version": "2.0.0-rc2",
   "status": "evaluation_v1",
-  "methodology_note": "These machine-checkable CQs are a regression suite, not independent scientific validation. Independent human-authored and expert-adjudicated CQs must be collected separately.",
+  "methodology_note": "Machine-checkable CQs are regression evidence, not independent scientific validation. Reviewed graph concepts must be predicate-explicit. Provisional relation leaves are reported separately as non-runtime-ready until reviewed.",
   "counts": {
-    "total": 172,
-    "critical": 172
+    "total": 184,
+    "critical": 184,
+    "reviewed_graph_concepts": 10,
+    "provisional_relation_leaves_pending_review": 56
   },
   "questions": [
     {
@@ -1139,25 +1141,25 @@
     {
       "id": "CQ-098",
       "category": "ontological_kind",
-      "question": "Is marital_relationship_status explicitly typed as relation?",
+      "question": "Is marital_relationship_status explicitly typed as state?",
       "critical": true,
       "evidence_class": "structural_regression",
       "assertion": {
         "type": "concept_kind",
         "concept": "marital_relationship_status",
-        "kind": "relation"
+        "kind": "state"
       }
     },
     {
       "id": "CQ-099",
       "category": "storage_contract",
-      "question": "Is marital_relationship_status stored as relation_graph?",
+      "question": "Is marital_relationship_status stored as domain_field?",
       "critical": true,
       "evidence_class": "structural_regression",
       "assertion": {
         "type": "concept_storage",
         "concept": "marital_relationship_status",
-        "storage": "relation_graph"
+        "storage": "domain_field"
       }
     },
     {
@@ -1522,6 +1524,126 @@
     },
     {
       "id": "CQ-130",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept mental_health_trigger declare the predicate has_trigger?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "mental_health_trigger",
+        "predicate": "has_trigger"
+      }
+    },
+    {
+      "id": "CQ-131",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept occupation declare the predicate has_role?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "occupation",
+        "predicate": "has_role"
+      }
+    },
+    {
+      "id": "CQ-132",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept relationship_observation declare the predicate related_to_person?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "relationship_observation",
+        "predicate": "related_to_person"
+      }
+    },
+    {
+      "id": "CQ-133",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept residence declare the predicate resides_in?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "residence",
+        "predicate": "resides_in"
+      }
+    },
+    {
+      "id": "CQ-134",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept role declare the predicate has_role?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "role",
+        "predicate": "has_role"
+      }
+    },
+    {
+      "id": "CQ-135",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept cultural_participation declare the predicate participates_in_culture?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "cultural_participation",
+        "predicate": "participates_in_culture"
+      }
+    },
+    {
+      "id": "CQ-136",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept language_use declare the predicate uses_language?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "language_use",
+        "predicate": "uses_language"
+      }
+    },
+    {
+      "id": "CQ-137",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept resource declare the predicate has_resource?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "resource",
+        "predicate": "has_resource"
+      }
+    },
+    {
+      "id": "CQ-138",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept constraint declare the predicate faces_constraint?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "constraint",
+        "predicate": "faces_constraint"
+      }
+    },
+    {
+      "id": "CQ-139",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept ecological_context declare the predicate situated_in_context?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "ecological_context",
+        "predicate": "situated_in_context"
+      }
+    },
+    {
+      "id": "CQ-140",
       "category": "typed_relation",
       "question": "Does has_role restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1535,7 +1657,7 @@
       }
     },
     {
-      "id": "CQ-131",
+      "id": "CQ-141",
       "category": "typed_relation",
       "question": "Does related_to_person restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1549,7 +1671,7 @@
       }
     },
     {
-      "id": "CQ-132",
+      "id": "CQ-142",
       "category": "typed_relation",
       "question": "Does located_in restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1563,7 +1685,7 @@
       }
     },
     {
-      "id": "CQ-133",
+      "id": "CQ-143",
       "category": "typed_relation",
       "question": "Does born_in restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1577,7 +1699,7 @@
       }
     },
     {
-      "id": "CQ-134",
+      "id": "CQ-144",
       "category": "typed_relation",
       "question": "Does grew_up_in restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1591,7 +1713,7 @@
       }
     },
     {
-      "id": "CQ-135",
+      "id": "CQ-145",
       "category": "typed_relation",
       "question": "Does lived_in restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1605,7 +1727,7 @@
       }
     },
     {
-      "id": "CQ-136",
+      "id": "CQ-146",
       "category": "typed_relation",
       "question": "Does participates_in_culture restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1619,7 +1741,7 @@
       }
     },
     {
-      "id": "CQ-137",
+      "id": "CQ-147",
       "category": "typed_relation",
       "question": "Does uses_language restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1633,7 +1755,7 @@
       }
     },
     {
-      "id": "CQ-138",
+      "id": "CQ-148",
       "category": "typed_relation",
       "question": "Does member_of restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1647,7 +1769,7 @@
       }
     },
     {
-      "id": "CQ-139",
+      "id": "CQ-149",
       "category": "typed_relation",
       "question": "Does works_for restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1661,7 +1783,7 @@
       }
     },
     {
-      "id": "CQ-140",
+      "id": "CQ-150",
       "category": "typed_relation",
       "question": "Does studies_at restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1675,7 +1797,7 @@
       }
     },
     {
-      "id": "CQ-141",
+      "id": "CQ-151",
       "category": "typed_relation",
       "question": "Does holds_credential restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1689,7 +1811,7 @@
       }
     },
     {
-      "id": "CQ-142",
+      "id": "CQ-152",
       "category": "typed_relation",
       "question": "Does has_resource restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1703,7 +1825,7 @@
       }
     },
     {
-      "id": "CQ-143",
+      "id": "CQ-153",
       "category": "typed_relation",
       "question": "Does faces_constraint restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1717,7 +1839,7 @@
       }
     },
     {
-      "id": "CQ-144",
+      "id": "CQ-154",
       "category": "typed_relation",
       "question": "Does has_opportunity restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1731,7 +1853,7 @@
       }
     },
     {
-      "id": "CQ-145",
+      "id": "CQ-155",
       "category": "typed_relation",
       "question": "Does experienced_event restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1745,7 +1867,7 @@
       }
     },
     {
-      "id": "CQ-146",
+      "id": "CQ-156",
       "category": "typed_relation",
       "question": "Does has_health_condition restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1759,7 +1881,7 @@
       }
     },
     {
-      "id": "CQ-147",
+      "id": "CQ-157",
       "category": "typed_relation",
       "question": "Does has_symptom_or_experience restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1773,7 +1895,7 @@
       }
     },
     {
-      "id": "CQ-148",
+      "id": "CQ-158",
       "category": "typed_relation",
       "question": "Does receives_support restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1789,7 +1911,7 @@
       }
     },
     {
-      "id": "CQ-149",
+      "id": "CQ-159",
       "category": "typed_relation",
       "question": "Does has_trigger restrict its target to the reviewed entity types?",
       "critical": true,
@@ -1804,7 +1926,37 @@
       }
     },
     {
-      "id": "CQ-150",
+      "id": "CQ-160",
+      "category": "typed_relation",
+      "question": "Does resides_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "resides_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-161",
+      "category": "typed_relation",
+      "question": "Does situated_in_context restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "situated_in_context",
+        "object_entity_types": [
+          "place",
+          "organization",
+          "generic"
+        ]
+      }
+    },
+    {
+      "id": "CQ-162",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source user_provided be represented distinctly?",
       "critical": true,
@@ -1815,7 +1967,7 @@
       }
     },
     {
-      "id": "CQ-151",
+      "id": "CQ-163",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source observed be represented distinctly?",
       "critical": true,
@@ -1826,7 +1978,7 @@
       }
     },
     {
-      "id": "CQ-152",
+      "id": "CQ-164",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source measured be represented distinctly?",
       "critical": true,
@@ -1837,7 +1989,7 @@
       }
     },
     {
-      "id": "CQ-153",
+      "id": "CQ-165",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source inferred be represented distinctly?",
       "critical": true,
@@ -1848,7 +2000,7 @@
       }
     },
     {
-      "id": "CQ-154",
+      "id": "CQ-166",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source generated be represented distinctly?",
       "critical": true,
@@ -1859,7 +2011,7 @@
       }
     },
     {
-      "id": "CQ-155",
+      "id": "CQ-167",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source derived be represented distinctly?",
       "critical": true,
@@ -1870,7 +2022,7 @@
       }
     },
     {
-      "id": "CQ-156",
+      "id": "CQ-168",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source external_reference be represented distinctly?",
       "critical": true,
@@ -1881,7 +2033,7 @@
       }
     },
     {
-      "id": "CQ-157",
+      "id": "CQ-169",
       "category": "epistemic_provenance",
       "question": "Can the epistemic source input_constraint be represented distinctly?",
       "critical": true,
@@ -1892,7 +2044,7 @@
       }
     },
     {
-      "id": "CQ-158",
+      "id": "CQ-170",
       "category": "semantic_boundary",
       "question": "Birthplace must remain a place/mobility fact.",
       "critical": true,
@@ -1904,7 +2056,7 @@
       }
     },
     {
-      "id": "CQ-159",
+      "id": "CQ-171",
       "category": "semantic_boundary",
       "question": "Citizenship must remain a legal/institutional fact.",
       "critical": true,
@@ -1916,7 +2068,7 @@
       }
     },
     {
-      "id": "CQ-160",
+      "id": "CQ-172",
       "category": "semantic_boundary",
       "question": "Ethnocultural self-identification must remain self-concept.",
       "critical": true,
@@ -1928,7 +2080,7 @@
       }
     },
     {
-      "id": "CQ-161",
+      "id": "CQ-173",
       "category": "semantic_boundary",
       "question": "Cultural background/exposure must remain culture/language context.",
       "critical": true,
@@ -1940,7 +2092,7 @@
       }
     },
     {
-      "id": "CQ-162",
+      "id": "CQ-174",
       "category": "semantic_boundary",
       "question": "Sex characteristics must remain body/health information.",
       "critical": true,
@@ -1952,7 +2104,7 @@
       }
     },
     {
-      "id": "CQ-163",
+      "id": "CQ-175",
       "category": "semantic_boundary",
       "question": "Gender expression must not collapse into sex characteristics.",
       "critical": true,
@@ -1964,7 +2116,7 @@
       }
     },
     {
-      "id": "CQ-164",
+      "id": "CQ-176",
       "category": "semantic_boundary",
       "question": "Self-efficacy must remain a cognition/belief, not ability.",
       "critical": true,
@@ -1976,7 +2128,7 @@
       }
     },
     {
-      "id": "CQ-165",
+      "id": "CQ-177",
       "category": "semantic_boundary",
       "question": "Knowledge/ability content must remain distinct from efficacy beliefs.",
       "critical": true,
@@ -1988,7 +2140,7 @@
       }
     },
     {
-      "id": "CQ-166",
+      "id": "CQ-178",
       "category": "semantic_boundary",
       "question": "Taking/leaving a role must be represented as an event.",
       "critical": true,
@@ -2000,7 +2152,7 @@
       }
     },
     {
-      "id": "CQ-167",
+      "id": "CQ-179",
       "category": "semantic_boundary",
       "question": "The resulting work role must remain a role.",
       "critical": true,
@@ -2012,7 +2164,7 @@
       }
     },
     {
-      "id": "CQ-168",
+      "id": "CQ-180",
       "category": "semantic_boundary",
       "question": "Current mood must remain a dynamic state.",
       "critical": true,
@@ -2024,7 +2176,7 @@
       }
     },
     {
-      "id": "CQ-169",
+      "id": "CQ-181",
       "category": "semantic_boundary",
       "question": "Big Five must remain a trait model, not current state.",
       "critical": true,
@@ -2036,7 +2188,7 @@
       }
     },
     {
-      "id": "CQ-170",
+      "id": "CQ-182",
       "category": "semantic_boundary",
       "question": "Relationship-specific quality must remain on the relationship.",
       "critical": true,
@@ -2048,7 +2200,7 @@
       }
     },
     {
-      "id": "CQ-171",
+      "id": "CQ-183",
       "category": "semantic_boundary",
       "question": "General relational tendencies must remain person-level dispositions.",
       "critical": true,
@@ -2060,7 +2212,7 @@
       }
     },
     {
-      "id": "CQ-172",
+      "id": "CQ-184",
       "category": "semantic_boundary",
       "question": "Usable social resources must remain a projection/resource concept.",
       "critical": true,
