@@ -132,7 +132,8 @@
           "event"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "has_trigger"
     },
     {
       "concept": "safety_behavior",
@@ -412,25 +413,24 @@
           "role"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "has_role"
     },
     {
       "concept": "marital_relationship_status",
       "canonical_path": "relationships.marital_status",
-      "kind": "relation",
+      "kind": "state",
       "temporal_class": "relationship_specific",
       "cardinality": "0..*",
       "legacy_aliases": [
         "Persona.marital_status"
       ],
-      "definition": "Relationship-specific marital/partnership status; canonical relationship facts should reference the other person when known.",
+      "definition": "Current marital/partnership status summary. Specific partner/dyad facts belong in typed relationship relations when known.",
       "sensitivity": "sensitive",
-      "storage": "relation_graph",
+      "storage": "domain_field",
       "value_contract": {
-        "type": "entity_ref",
-        "allowed_entity_types": [
-          "person"
-        ]
+        "type": "controlled_term_or_object",
+        "open_vocabulary": true
       },
       "review_status": "reviewed"
     },
@@ -452,7 +452,8 @@
           "person"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "related_to_person"
     },
     {
       "concept": "residence",
@@ -472,7 +473,8 @@
           "place"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "resides_in"
     },
     {
       "concept": "role",
@@ -489,7 +491,8 @@
           "role"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "has_role"
     },
     {
       "concept": "cultural_participation",
@@ -506,7 +509,8 @@
           "culture_context"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "participates_in_culture"
     },
     {
       "concept": "language_use",
@@ -523,7 +527,8 @@
           "language"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "uses_language"
     },
     {
       "concept": "life_event",
@@ -557,7 +562,8 @@
           "resource"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "has_resource"
     },
     {
       "concept": "constraint",
@@ -574,7 +580,8 @@
           "constraint"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "faces_constraint"
     },
     {
       "concept": "ecological_context",
@@ -593,7 +600,8 @@
           "generic"
         ]
       },
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "relation_predicate": "situated_in_context"
     },
     {
       "concept": "current_state",
