@@ -51,6 +51,8 @@ def main() -> None:
     registry = load(ONTOLOGY / "CANONICAL_FIELD_REGISTRY.json")
     catalog = load(ONTOLOGY / "CANONICAL_CONCEPT_CATALOG.json")
     schema = load(ONTOLOGY / "persona_kernel.schema.json")
+    evaluation_cqs = load(ROOT / "evaluation" / "competency_questions.json")
+    evaluation_baseline = load(ROOT / "evaluation" / "baseline_machine_report.json")
 
     if v2["status"] != "release_candidate":
         fail("rc2 must remain release_candidate until the PR gate is explicitly promoted")
@@ -99,6 +101,31 @@ def main() -> None:
         for item in catalog["concepts"]
     ):
         fail("reviewed catalog concepts must declare value_contract")
+
+    cq_total = len(evaluation_cqs["questions"])
+    baseline_cq = evaluation_baseline["machine_competency_questions"]
+    if evaluation_baseline["ontology_version"] != version:
+        fail("evaluation baseline ontology version is stale")
+    if baseline_cq["total"] != cq_total:
+        fail(
+            f"machine CQ baseline is stale: baseline={baseline_cq['total']}, current={cq_total}"
+        )
+    if baseline_cq["failed"] != 0 or baseline_cq["critical_failed"] != 0:
+        fail("machine competency baseline contains failures")
+    current_provisional_relation_count = sum(
+        1
+        for item in catalog["concepts"]
+        if item.get("review_status") == "provisional_migrated"
+        and item.get("kind") == "relation"
+    )
+    baseline_gap = evaluation_baseline["evaluation_assets"].get(
+        "provisional_relation_leaves_pending_predicate_review"
+    )
+    if baseline_gap != current_provisional_relation_count:
+        fail(
+            "evaluation baseline provisional-relation count is stale: "
+            f"baseline={baseline_gap}, current={current_provisional_relation_count}"
+        )
 
     overlap = (ONTOLOGY / "V1_V2_OVERLAP_AUDIT.md").read_text(encoding="utf-8")
     if "| open |" in overlap.lower():
