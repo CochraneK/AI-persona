@@ -18,8 +18,9 @@ Every consumer-facing record must identify:
 - `ontology_version`;
 - a stable `persona_id` / subject identifier;
 - canonical domain payloads;
-- field-level provenance for inferred/generated/derived values;
-- typed relations and events when applicable. Relation/event records carry stable IDs and a `canonical_path` back to their semantic namespace.
+- field-level provenance/temporality metadata for **every stored domain value**;
+- typed relations and events when applicable. Relation/event records carry stable IDs and a `canonical_path` back to their semantic namespace;
+- relations with typed `subject` / `object` `EntityRef` endpoints; predicate-specific target types must be respected.
 
 ## Epistemic contract
 
@@ -27,7 +28,7 @@ Every consumer-facing record must identify:
 
 Unknown is not false. Missing is not absent. Generated is not measured. An `input_constraint` is a condition requested by a generator/simulation caller; it is **not evidence that the represented person was observed to have that property**.
 
-For inferred/generated values, store confidence, provenance and temporal class. Input constraints require provenance and temporal class; do not assign an epistemic confidence score merely because the caller requested the condition. Collections with mixed origins should carry item-level provenance. Sensitive inferences require a purpose-specific policy in the consuming application.
+Every stored domain value requires provenance and temporal class. Inferred/generated values additionally require confidence. Input constraints require provenance and temporal class; do not assign an epistemic confidence score merely because the caller requested the condition. Collections with mixed origins should carry item-level provenance. Sensitive inferences require a purpose-specific policy in the consuming application.
 
 ## Update contract
 
@@ -36,7 +37,7 @@ Consumers may update values in their canonical homes. They may not create a seco
 ## Cross-repository interoperability
 
 P003 and AI-Ques should depend on Human Ontology versioned contracts rather than copy the JSON and edit it independently. If a consumer needs a new concept:
-1. search the canonical registry;
+1. search the first-class registry and exhaustive concept catalog;
 2. prefer a relation/reference to an existing concept;
 3. propose a canonical change only if no existing home is semantically correct;
 4. run ontology review before promotion.
