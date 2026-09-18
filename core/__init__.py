@@ -7,7 +7,7 @@ apply the Human Ontology v2 semantic firewall by default.
 from .generator import Persona, PersonaGenerator, batch_generate, generate_persona
 from .kernel_generator import KernelGenerationPolicy, KernelGenerator, generate_kernel
 from .legacy_adapter import kernel_compatibility_report, legacy_persona_to_kernel
-from .persona_kernel import FieldMetadata, PersonaKernel
+from .persona_kernel import EntityRef, FieldMetadata, PersonaKernel
 from .personality import DIAGNOSIS_OCEAN_RANGES
 
 
@@ -25,6 +25,7 @@ __all__ = [
     "Persona",
     "PersonaGenerator",
     "PersonaKernel",
+    "EntityRef",
     "FieldMetadata",
     "KernelGenerator",
     "KernelGenerationPolicy",
