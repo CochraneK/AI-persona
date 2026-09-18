@@ -10,7 +10,7 @@ Allowed claim:
 
 Requirements:
 - [x] canonical-home, kind, storage and relation constraints are machine checked;
-- [x] 172/172 current machine competency questions pass;
+- [x] 184/184 current machine competency questions pass;
 - [x] provenance/source distinctions are represented;
 - [x] adversarial and diversity evaluation assets exist;
 - [x] portable machine gate exists.
@@ -49,7 +49,9 @@ Requirements:
 
 ## Current status
 
-**Tier A: achieved at the machine-regression level.**  
+**Tier A: achieved for the reviewed runtime contract at the machine-regression level.**
+
+Important scope limit: 56 `provisional_migrated` relation leaves have accepted canonical homes but do not yet have reviewed predicate/runtime contracts. Tier A does not claim those provisional leaves are stable APIs.  
 **Tier B: not yet achieved.**  
 **Tier C: not yet achieved.**
 
