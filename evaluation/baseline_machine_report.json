@@ -57,7 +57,10 @@
     "external_sources": 10,
     "reviewed_concepts": 31,
     "provisional_concepts": 174,
-    "provisional_relation_leaves_pending_predicate_review": 56
+    "provisional_relation_leaves_pending_predicate_review": 56,
+    "pilot_annotation_rows": 168,
+    "pilot_annotators": 3,
+    "semantic_projection_files": 4
   },
   "scientific_evidence_state": {
     "formal_structural": "partial",
@@ -70,7 +73,12 @@
     "pragmatic_ai_ques": "not_tested",
     "rdf_owl_reasoner": "not_tested",
     "shacl": "not_tested",
-    "fair_external_assessment": "not_tested"
+    "fair_external_assessment": "not_tested",
+    "semantic_projection_drift": "passed_machine"
   },
-  "interpretation": "Machine regression evidence is green for the reviewed runtime contract. Fifty-six provisional relation leaves remain explicitly non-runtime-ready until predicate review."
+  "interpretation": "Machine regression evidence is green for the reviewed runtime contract (184/184 CQs) and the 4-file RDF/OWL/SHACL projection is drift-free. Fifty-six provisional relation leaves remain explicitly non-runtime-ready until predicate review. Independent human evidence and actual pySHACL execution remain not tested.",
+  "machine_evidence": {
+    "semantic_projection_drift": "passed_machine",
+    "semantic_projection_files_matching": "4/4"
+  }
 }
