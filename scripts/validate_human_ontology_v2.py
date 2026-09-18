@@ -185,6 +185,21 @@ def main() -> None:
         )
         assert field.get("value_contract"), f"missing value contract: {field['concept']}"
         assert field.get("review_status") == "reviewed"
+        if field.get("storage") == "relation_graph":
+            predicate = field.get("relation_predicate")
+            assert predicate, (
+                f"relation_graph concept requires relation_predicate: {field['concept']}"
+            )
+            assert predicate in set(o["relation_families"]), (
+                f"unknown relation_predicate for {field['concept']}: {predicate}"
+            )
+            contract_types = set(field.get("value_contract", {}).get("allowed_entity_types", []))
+            predicate_types = set(o["relation_constraints"][predicate]["object_entity_types"])
+            if contract_types:
+                assert contract_types <= predicate_types, (
+                    f"relation predicate target mismatch for {field['concept']}: "
+                    f"contract={sorted(contract_types)}, predicate={sorted(predicate_types)}"
+                )
         assert field["kind"] in set(domain_by_id[root]["allowed_kinds"]), (
             f"field kind {field['kind']} not allowed by domain {root}: {field['concept']}"
         )
