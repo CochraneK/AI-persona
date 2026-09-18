@@ -35,6 +35,16 @@ Human Ontology v2 may move from `release_candidate` to `canonical` only when eve
 - [x] Default v2 KernelGenerator applies a health-only psychiatric semantic firewall.
 - [x] Same-seed cross-diagnosis test verifies non-health personality/abilities/education/work/identity/life-events remain unchanged.
 
+## Scientific-evaluation machine gates
+
+- [x] Evaluation protocol separates machine evidence from independent scientific evidence.
+- [x] **184/184 current machine competency questions pass** for the reviewed runtime contract.
+- [x] Reviewed graph concepts are predicate-explicit and machine checked.
+- [x] Adversarial and diversity stress-test assets exist.
+- [x] Baseline report/version/CQ-count consistency is release-gated.
+- [x] **56 provisional relation leaves are explicitly reported as pending predicate/runtime review rather than counted as stable APIs.**
+- [ ] Independent CQ / inter-rater / diversity adjudication is complete. This is required for a stronger scientific-validity claim, but is intentionally separate from the engineering canonical-release decision.
+
 ## Engineering gates
 
 - [x] v1 validator retained.
