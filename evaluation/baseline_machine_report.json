@@ -4,12 +4,12 @@
   "evaluator": "ChatGPT GitHub connector structural evaluator",
   "evidence_scope": "machine_regression_only",
   "machine_competency_questions": {
-    "total": 172,
-    "passed": 172,
+    "total": 184,
+    "passed": 184,
     "failed": 0,
     "pass_rate": 1,
-    "critical_total": 172,
-    "critical_passed": 172,
+    "critical_total": 184,
+    "critical_passed": 184,
     "critical_failed": 0,
     "categories": {
       "domain_coverage": {
@@ -32,9 +32,13 @@
         "total": 31,
         "passed": 31
       },
+      "graph_representability": {
+        "total": 10,
+        "passed": 10
+      },
       "typed_relation": {
-        "total": 20,
-        "passed": 20
+        "total": 22,
+        "passed": 22
       },
       "epistemic_provenance": {
         "total": 8,
@@ -52,7 +56,8 @@
     "diversity_cases": 30,
     "external_sources": 10,
     "reviewed_concepts": 31,
-    "provisional_concepts": 174
+    "provisional_concepts": 174,
+    "provisional_relation_leaves_pending_predicate_review": 56
   },
   "scientific_evidence_state": {
     "formal_structural": "partial",
@@ -67,5 +72,5 @@
     "shacl": "not_tested",
     "fair_external_assessment": "not_tested"
   },
-  "interpretation": "This proves regression consistency against the current declared contracts only. It is not independent scientific validation."
+  "interpretation": "Machine regression evidence is green for the reviewed runtime contract. Fifty-six provisional relation leaves remain explicitly non-runtime-ready until predicate review."
 }
