@@ -126,13 +126,12 @@ def build_shapes_ttl(ontology: dict) -> str:
         "@prefix sh: <http://www.w3.org/ns/shacl#> .",
         "",
         "ho:PersonShape a sh:NodeShape ;",
-        "  sh:targetClass ho:Person",
+        "  sh:targetClass ho:Person ;",
     ]
     relations = ontology["relation_families"]
     for index, predicate in enumerate(relations):
         object_types = ontology["relation_constraints"][predicate]["object_entity_types"]
         out.extend([
-            "  ;" if index > 0 else "  ;",
             "  sh:property [",
             f"    sh:path ho:{predicate} ;",
         ])
@@ -141,8 +140,8 @@ def build_shapes_ttl(ontology: dict) -> str:
         else:
             options = " ".join(f"[ sh:class {cls(item)} ]" for item in object_types)
             out.append(f"    sh:or ( {options} )")
-        out.append("  ]")
-    out[-1] = out[-1] + " ."
+        suffix = " ." if index == len(relations) - 1 else " ;"
+        out.append("  ]" + suffix)
     return "\n".join(out) + "\n"
 
 
