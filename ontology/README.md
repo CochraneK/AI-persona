@@ -6,7 +6,8 @@ AI-Persona hosts the canonical Human Ontology intended for AI-Persona, P003, AI-
 
 - `human_ontology.v1.json` remains the canonical compatibility schema while migration proceeds.
 - `human_ontology.v2.json` is the executable **v2 release candidate**.
-- `CANONICAL_FIELD_REGISTRY.json` enforces one canonical semantic home per concept and a unique mapping for legacy aliases.
+- `CANONICAL_FIELD_REGISTRY.json` defines 31 reviewed first-class concepts with kind, cardinality, sensitivity, storage and value contracts.
+- `CANONICAL_CONCEPT_CATALOG.json` exhaustively covers 205 canonical paths: 31 reviewed first-class concepts plus 174 provisional migrated leaves.
 - `V1_TO_V2_MIGRATION.json` records semantic migration from the 19 v1 coverage views.
 - `persona_kernel.schema.json` defines the exchange envelope for v2 consumers.
 - `core/persona_kernel.py` loads domain IDs/version from ontology JSON rather than maintaining a competing hardcoded schema.
@@ -30,7 +31,7 @@ A concept is defined once. Other modules reference it rather than creating compe
 Closed single-valued classifications should be mutually exclusive and collectively exhaustive at their declared abstraction level. Multi-valued, continuous, fuzzy and culturally local constructs must explicitly declare those semantics instead of pretending to be MECE.
 
 ### Typed relations
-A person, partner, organization, place or event can participate in multiple domains without being duplicated. Cross-domain facts should increasingly be represented through typed relations and projections.
+A person, partner, organization, place or event can participate in multiple domains without being duplicated. Relations use typed `EntityRef` endpoints. Each predicate constrains allowed target entity types (for example, `works_for → organization`, `born_in → place`, `uses_language → language`). Cross-domain facts are represented through typed relations and projections rather than copied literals.
 
 ## Ontological kinds introduced for v2
 
@@ -129,11 +130,15 @@ v1 defines canonical IDs for 10 life domains, 9 lifespan stages and 13 event pre
 
 Ontology changes must follow `HUMAN_ONTOLOGY_REVIEW.md` and the v2 quality gates. New personas/events may expand easily; new canonical concepts should be comparatively difficult to add.
 
+The runtime also enforces **metadata completeness**: every stored domain value has matching provenance/temporality metadata, and orphan metadata is rejected.
+
 Before v2 is marked canonical, the project must have:
 
 - resolved or explicitly accepted the overlap register;
 - unique canonical concept IDs and homes;
-- explicit ontological kind/cardinality/temporality where applicable;
+- reviewed first-class concepts with explicit kind/cardinality/temporality/storage/value contracts;
+- exhaustive catalog coverage for all canonical migration targets and first-class concepts;
+- typed relation endpoints and predicate/target-type constraints;
 - provenance for external mappings and empirical priors;
 - complete v1 migration mappings;
 - automated checks against diagnosis-as-identity and deterministic sensitive inference.
