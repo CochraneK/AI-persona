@@ -223,7 +223,8 @@
             "experienced_event",
             "has_health_condition",
             "has_symptom_or_experience",
-            "receives_support"
+            "receives_support",
+            "has_trigger"
           ]
         },
         "source_type": {
@@ -876,6 +877,36 @@
                       "person",
                       "organization",
                       "resource"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "predicate": {
+                "const": "has_trigger"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "properties": {
+                  "entity_type": {
+                    "const": "person"
+                  }
+                }
+              },
+              "object": {
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "generic",
+                      "event"
                     ]
                   }
                 }
