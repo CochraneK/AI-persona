@@ -642,4 +642,3 @@ ho:concept_current_state a skos:Concept ;
   ho:storageMode "domain_field" ;
   ho:temporalClass "dynamic_state" ;
   ho:reviewStatus "reviewed" .
-
