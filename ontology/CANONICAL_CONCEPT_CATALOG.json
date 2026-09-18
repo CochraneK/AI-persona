@@ -328,7 +328,9 @@
           "legacy_path": "body_health.health_history",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "physical_appearance",
@@ -534,7 +536,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "situated_in_context"
     },
     {
       "concept_id": "context_ecology__digital_platform_environment",
@@ -557,7 +560,9 @@
           "legacy_path": "ecology_macro_context.digital_platform_environment",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__economic_conditions",
@@ -603,7 +608,9 @@
           "legacy_path": "ecology_macro_context.education_system",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__environment_climate",
@@ -672,7 +679,9 @@
           "legacy_path": "ecology_macro_context.healthcare_system",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__historical_events",
@@ -695,7 +704,9 @@
           "legacy_path": "ecology_macro_context.historical_events",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__household_context",
@@ -718,7 +729,9 @@
           "legacy_path": "ecology_macro_context.household_context",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__labor_market",
@@ -741,7 +754,9 @@
           "legacy_path": "ecology_macro_context.labor_market",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__neighborhood",
@@ -764,7 +779,9 @@
           "legacy_path": "ecology_macro_context.neighborhood",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__physical_environment",
@@ -833,7 +850,9 @@
           "legacy_path": "ecology_macro_context.regional_context",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__school_work_institutions",
@@ -856,7 +875,9 @@
           "legacy_path": "ecology_macro_context.school_work_institutions",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "context_ecology__social_norms",
@@ -948,7 +969,9 @@
           "legacy_path": "culture_language.cross_cultural_experience",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "culture_language__cultural_backgrounds",
@@ -971,7 +994,9 @@
           "legacy_path": "culture_language.cultural_backgrounds",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "cultural_participation",
@@ -991,7 +1016,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "participates_in_culture"
     },
     {
       "concept_id": "culture_language__customs_norms_exposure",
@@ -1014,7 +1040,9 @@
           "legacy_path": "culture_language.customs_norms_exposure",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "culture_language__enculturation_contexts",
@@ -1037,7 +1065,9 @@
           "legacy_path": "culture_language.enculturation_contexts",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "language_use",
@@ -1062,7 +1092,8 @@
           "legacy_path": "culture_language.languages",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "relation_predicate": "uses_language"
     },
     {
       "concept_id": "culture_language__media_culture_exposure",
@@ -1085,7 +1116,9 @@
           "legacy_path": "culture_language.media_culture_exposure",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "culture_language__religion_spirituality",
@@ -1108,7 +1141,9 @@
           "legacy_path": "culture_language.religion_spirituality",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "current_state__autonomy",
@@ -1657,7 +1692,9 @@
           "legacy_path": "education_learning.learning_history",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "education_learning__training_credentials",
@@ -1680,7 +1717,9 @@
           "legacy_path": "education_learning.training_credentials",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "identity_self_concept__acculturation_bicultural_orientation",
@@ -1936,7 +1975,9 @@
           "legacy_path": "life_events_history.actors",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "life_events__delayed_consequence",
@@ -2717,7 +2758,9 @@
           "legacy_path": "mental_neurodevelopmental_health.treatment_support",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "mental_health_trigger",
@@ -2738,7 +2781,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "has_trigger"
     },
     {
       "concept_id": "cognition_beliefs",
@@ -2999,7 +3043,9 @@
           "legacy_path": "place_mobility.birth_place",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "place_mobility__current_residence",
@@ -3022,7 +3068,9 @@
           "legacy_path": "place_mobility.current_residence",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "place_mobility__housing_context",
@@ -3045,7 +3093,9 @@
           "legacy_path": "place_mobility.housing_context",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "place_mobility__living_arrangement",
@@ -3114,7 +3164,9 @@
           "legacy_path": "place_mobility.migration_history",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "place_mobility__mobility_pattern",
@@ -3180,7 +3232,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "resides_in"
     },
     {
       "concept_id": "place_mobility__upbringing_places",
@@ -3203,7 +3256,9 @@
           "legacy_path": "place_mobility.upbringing_places",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__birth_order_family_position",
@@ -3295,7 +3350,9 @@
           "legacy_path": "relationships_networks.community_ties",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__conflict_repair_observations",
@@ -3318,7 +3375,9 @@
           "legacy_path": "relationships_networks.conflict_repair_patterns",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__family_climate",
@@ -3341,7 +3400,9 @@
           "legacy_path": "family_household.family_climate",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__family_of_origin",
@@ -3364,7 +3425,9 @@
           "legacy_path": "family_household.family_of_origin",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__fictive_kin_chosen_family",
@@ -3387,7 +3450,9 @@
           "legacy_path": "family_household.fictive_kin_chosen_family",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__friendships",
@@ -3410,7 +3475,9 @@
           "legacy_path": "relationships_networks.friendships",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__household_membership",
@@ -3437,7 +3504,9 @@
           "legacy_path": "family_household.living_arrangement",
           "migration_action": "split"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__intergenerational_patterns",
@@ -3483,23 +3552,23 @@
           "legacy_path": "family_household.kinship_network",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "marital_relationship_status",
       "canonical_path": "relationships.marital_status",
       "domain": "relationships",
-      "kind": "relation",
-      "definition": "Relationship-specific marital/partnership status; canonical relationship facts should reference the other person when known.",
+      "kind": "state",
+      "definition": "Current marital/partnership status summary. Specific partner/dyad facts belong in typed relationship relations when known.",
       "cardinality": "0..*",
       "temporal_class": "relationship_specific",
       "sensitivity": "sensitive",
-      "storage": "relation_graph",
+      "storage": "domain_field",
       "value_contract": {
-        "type": "entity_ref",
-        "allowed_entity_types": [
-          "person"
-        ]
+        "type": "controlled_term_or_object",
+        "open_vocabulary": true
       },
       "review_status": "reviewed",
       "first_class_registry": true,
@@ -3526,7 +3595,9 @@
           "legacy_path": "relationships_networks.mentors",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__network_size_structure",
@@ -3569,7 +3640,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "related_to_person"
     },
     {
       "concept_id": "relationships__online_relationships_communities",
@@ -3592,7 +3664,9 @@
           "legacy_path": "relationships_networks.online_relationships_communities",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__partner_spouse",
@@ -3615,7 +3689,9 @@
           "legacy_path": "family_household.partner_spouse",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__peer_relations",
@@ -3638,7 +3714,9 @@
           "legacy_path": "relationships_networks.peer_relations",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__relationship_quality",
@@ -3661,7 +3739,9 @@
           "legacy_path": "relationships_networks.relationship_quality",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__romantic_relationships",
@@ -3684,7 +3764,9 @@
           "legacy_path": "relationships_networks.romantic_relationships",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__siblings",
@@ -3707,7 +3789,9 @@
           "legacy_path": "family_household.siblings",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__support_network",
@@ -3730,7 +3814,9 @@
           "legacy_path": "relationships_networks.support_network",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "relationships__work_relations",
@@ -3753,7 +3839,9 @@
           "legacy_path": "relationships_networks.work_relations",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "resources_constraints_opportunities__barriers_constraints",
@@ -3842,7 +3930,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "faces_constraint"
     },
     {
       "concept_id": "resources_constraints_opportunities__healthcare_access",
@@ -3985,7 +4074,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "has_resource"
     },
     {
       "concept_id": "resources_constraints_opportunities__social_resources",
@@ -4058,7 +4148,9 @@
           "legacy_path": "roles_responsibilities.caregiving_roles",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "roles__community_roles",
@@ -4081,7 +4173,9 @@
           "legacy_path": "roles_responsibilities.community_roles",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "roles__dependent_care_roles",
@@ -4127,7 +4221,9 @@
           "legacy_path": "roles_responsibilities.education_roles",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "roles__family_roles",
@@ -4150,7 +4246,9 @@
           "legacy_path": "roles_responsibilities.family_roles",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "role",
@@ -4170,7 +4268,8 @@
       },
       "review_status": "reviewed",
       "first_class_registry": true,
-      "legacy_sources": []
+      "legacy_sources": [],
+      "relation_predicate": "has_role"
     },
     {
       "concept_id": "roles__role_conflict",
@@ -4262,7 +4361,9 @@
           "legacy_path": "roles_responsibilities.work_roles",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__citizenship_nationality",
@@ -4285,7 +4386,9 @@
           "legacy_path": "social_structural_position.citizenship_nationality",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__civic_institutional_participation",
@@ -4308,7 +4411,9 @@
           "legacy_path": "social_structural_position.civic_institutional_participation",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__discrimination_stigma_exposure",
@@ -4377,7 +4482,9 @@
           "legacy_path": "social_structural_position.institutional_memberships",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__justice_system_exposure",
@@ -4400,7 +4507,9 @@
           "legacy_path": "social_structural_position.justice_system_exposure",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__legal_residency_status",
@@ -4423,7 +4532,9 @@
           "legacy_path": "social_structural_position.legal_residency_status",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__rights_access",
@@ -4446,7 +4557,9 @@
           "legacy_path": "social_structural_position.rights_access",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__service_access",
@@ -4469,7 +4582,9 @@
           "legacy_path": "social_structural_position.service_access",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "social_institutional_position__social_status_prestige",
@@ -4607,7 +4722,9 @@
           "legacy_path": "work_economic_position.industry",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "work_economic_participation__material_security_facts",
@@ -4655,7 +4772,8 @@
           "legacy_path": "work_economic_position.occupation",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "relation_predicate": "has_role"
     },
     {
       "concept_id": "work_economic_participation__occupation_detail",
@@ -4678,7 +4796,9 @@
           "legacy_path": "work_economic_position.occupation_detail",
           "migration_action": "relationize"
         }
-      ]
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
     },
     {
       "concept_id": "work_economic_participation__wealth_assets",
