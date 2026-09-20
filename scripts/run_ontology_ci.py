@@ -39,6 +39,8 @@ def main() -> None:
     run("Event sampling regression", "scripts/test_events_sampling.py")
     run("Scientific evaluation machine gate", "scripts/evaluate_human_ontology.py")
     run("Semantic-web projection drift", "scripts/export_semantic_projection.py", "--check")
+    run("Multi-AI benchmark case drift", "scripts/build_multi_ai_benchmark.py", "--check")
+    run("Multi-AI benchmark analyzer regression", "scripts/test_multi_ai_benchmark.py")
     run("Repository release gate", "scripts/check_ontology_release_gate.py")
 
     print("\nHuman Ontology full local quality gate: OK", flush=True)
