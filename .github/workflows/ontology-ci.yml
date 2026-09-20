@@ -19,6 +19,11 @@ on:
       - "scripts/run_ontology_ci.py"
       - "scripts/evaluate_human_ontology.py"
       - "scripts/analyze_annotation_reliability.py"
+      - "scripts/test_multi_ai_benchmark.py"
+      - "scripts/analyze_multi_ai_benchmark.py"
+      - "scripts/run_multi_ai_benchmark.py"
+      - "scripts/multi_ai_client.py"
+      - "scripts/build_multi_ai_benchmark.py"
       - "scripts/export_semantic_projection.py"
       - "scripts/validate_semantic_web.py"
       - "evaluation/requirements-semantic-web.txt"
@@ -38,6 +43,11 @@ on:
       - "scripts/run_ontology_ci.py"
       - "scripts/evaluate_human_ontology.py"
       - "scripts/analyze_annotation_reliability.py"
+      - "scripts/test_multi_ai_benchmark.py"
+      - "scripts/analyze_multi_ai_benchmark.py"
+      - "scripts/run_multi_ai_benchmark.py"
+      - "scripts/multi_ai_client.py"
+      - "scripts/build_multi_ai_benchmark.py"
       - "scripts/export_semantic_projection.py"
       - "scripts/validate_semantic_web.py"
       - "evaluation/requirements-semantic-web.txt"
@@ -149,6 +159,17 @@ jobs:
           python-version: "3.11"
       - run: python scripts/export_semantic_projection.py --check
 
+  multi-ai-regression:
+    name: Multi-AI benchmark regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/build_multi_ai_benchmark.py --check
+      - run: python scripts/test_multi_ai_benchmark.py
+
   semantic-web-validation:
     name: SHACL standards validation
     runs-on: ubuntu-latest
@@ -174,6 +195,7 @@ jobs:
       - event-regression
       - scientific-evaluation
       - semantic-projection
+      - multi-ai-regression
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
