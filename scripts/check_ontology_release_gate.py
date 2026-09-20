@@ -55,6 +55,9 @@ def main() -> None:
     evaluation_baseline = load(ROOT / "evaluation" / "baseline_machine_report.json")
     multi_ai_cases = load(ROOT / "evaluation" / "multi_ai_benchmark" / "cases.json")
     adversarial_cases = load(ROOT / "evaluation" / "adversarial_cases.json")
+    multi_ai_models = load(
+        ROOT / "evaluation" / "multi_ai_benchmark" / "models.example.json"
+    )
 
     if v2["status"] != "release_candidate":
         fail("rc2 must remain release_candidate until the PR gate is explicitly promoted")
@@ -144,6 +147,24 @@ def main() -> None:
         fail("multi-ai benchmark forbidden-inference count drift")
     if not multi_ai_cases.get("protocol", {}).get("gold_hidden_from_models"):
         fail("multi-ai benchmark must keep gold hidden from model prompts")
+    model_entries = multi_ai_models.get("models", [])
+    families = {
+        item.get("family")
+        for item in model_entries
+        if item.get("enabled", True) and item.get("family")
+    }
+    if len(families) < 3:
+        fail("multi-ai example config needs >=3 distinct families")
+    ids = [item.get("id") for item in model_entries]
+    if len(ids) != len(set(ids)):
+        fail("multi-ai example config contains duplicate model ids")
+    for item in model_entries:
+        if "api_key" in item or "token" in item:
+            fail("multi-ai example config must never contain literal secrets")
+        if not item.get("api_key_env") or not item.get("model_env"):
+            fail(f"multi-ai model entry lacks env-based secret/model config: {item.get('id')}")
+        if not item.get("provider") or not item.get("family"):
+            fail(f"multi-ai model entry lacks provider/family: {item.get('id')}")
 
     overlap = (ONTOLOGY / "V1_V2_OVERLAP_AUDIT.md").read_text(encoding="utf-8")
     if "| open |" in overlap.lower():
@@ -176,6 +197,8 @@ def main() -> None:
         ROOT / "evaluation" / "multi_ai_benchmark" / "output_schema.json",
         ROOT / "evaluation" / "multi_ai_benchmark" / "API_REFERENCES.md",
         ROOT / "evaluation" / "multi_ai_benchmark" / "REPORT.md",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "prompts" / "annotator_system.txt",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "prompts" / "critic_system.txt",
         ROOT / "scripts" / "evaluate_human_ontology.py",
         ROOT / "scripts" / "analyze_annotation_reliability.py",
         ROOT / "scripts" / "build_annotation_pack.py",
