@@ -2,61 +2,89 @@
 
 ## Objective
 
-Evaluate whether Human Ontology v2 is a reliable, scientifically defensible and practically useful computational representation of human/person information.
+Evaluate whether Human Ontology v2 is internally coherent, semantically robust across heterogeneous AI systems, interoperable with external standards, and useful in downstream person-centered AI systems.
 
 ## Non-equivalence rule
 
-The following claims are explicitly different:
+The following are different claims and must remain separate:
 
-- **internally consistent**;
-- **covers the current test set**;
-- **independent annotators agree**;
-- **aligns with external standards**;
-- **represents diverse people without distortion**;
-- **improves downstream systems**.
+- internally consistent;
+- passes machine regression tests;
+- multiple AI models agree;
+- multiple AI models are accurate against adversarial boundary gold;
+- humans/experts independently agree;
+- aligns with external standards;
+- represents diverse people without distortion;
+- improves downstream systems.
 
-No single result may be reported as proof of all six.
+No single result proves all of them.
 
 ## E1 — Formal / structural validity
 
-**Machine gate:** all ontology JSON parses; no duplicate canonical homes; catalog coverage is complete; reviewed concepts have complete contracts; relation families and target entity types agree across ontology/schema/runtime; PersonaKernel rejects duplicate physical homes and incomplete provenance.
+Machine gates check JSON/schema/runtime consistency, canonical-home uniqueness, complete reviewed concept contracts, graph target constraints, provenance completeness and single-home storage.
 
-**Pass criterion:** 100% of critical machine invariants pass.
+Pass criterion: 100% critical machine invariants.
 
-**Planned semantic-web extension:** export a semantic projection to RDF/OWL and validate instance graphs with SHACL. Reasoner-based checks should include logical consistency, unsatisfiable classes and circular definitions. These are separate from the existing JSON application contract.
+A reproducible RDF/OWL + SHACL projection is maintained separately. Actual reasoner/SHACL execution is additional formal evidence, not a substitute for semantic validation.
 
-## E2 — Competency-question validity
+## E2 — Machine competency-question validity
 
-The repository contains a machine regression CQ suite plus an independent CQ study.
+The current regression suite contains 184 critical competency questions covering domain presence, domain competency questions, first-class concept homes/kinds/storage, reviewed graph representability, typed relations, epistemic source distinctions and semantic boundaries.
 
-**Machine CQ pass criterion:** 100% critical CQs; >= 95% all CQs.
+Pass criterion:
+- 100% critical CQs;
+- >= 95% all CQs.
 
-**Independent CQ protocol:** at least two ontology-naive domain reviewers author or adjudicate questions before seeing the expected mapping. Report pass rate by domain and failure type.
+Automatically generated or ontology-author-maintained CQs are regression evidence, not independent validation.
 
-Do not count automatically generated CQs as independent scientific evidence.
+## E3 — Multi-AI semantic robustness (Tier B1)
 
-## E3 — Semantic reliability
+Different AI model/provider families receive the same blinded adversarial mapping task.
 
-Give independent annotators the same synthetic vignettes and ask for:
+Each case asks the model to:
+- map named atomic facts to one of the 18 semantic namespaces;
+- assign ontological kind;
+- choose a relation predicate where appropriate;
+- identify epistemic source type when inferable;
+- distinguish known / unknown / absent / insufficient information;
+- judge whether candidate forbidden inferences are actually entailed.
 
-- canonical semantic home;
-- ontological kind;
-- temporal class;
-- relation predicate where applicable;
-- source type.
+Primary metrics:
+- response completeness;
+- domain accuracy against hidden adversarial gold;
+- pairwise agreement by semantic dimension;
+- Fleiss' kappa when balanced;
+- forbidden-inference false-positive rate;
+- consensus domain accuracy;
+- agreement-but-wrong cases.
 
-Primary statistics:
-- exact agreement;
-- Fleiss' kappa when the design is balanced.
+Predeclared Tier-B1 project targets:
+- >= 3 distinct providers/families;
+- >= 95% mean response completeness;
+- domain pairwise agreement >= .80;
+- domain Fleiss' kappa >= .80;
+- every model domain accuracy >= .90;
+- every model forbidden-inference FP rate <= .05;
+- 0 agreement-but-wrong critical items.
 
-Project decision thresholds (predeclared engineering targets, not universal psychometric laws):
-- >= .80: strong enough for first-class promotion;
-- .67–.79: review wording/boundary;
-- < .67: semantic boundary requires redesign or stronger instructions.
+High agreement is never sufficient by itself: correlated model error is explicitly tested through gold accuracy and agreement-but-wrong detection.
 
-Report per field, not only a global value.
+Exact model IDs, provider, date, prompt hash and case hash must be archived for every evidence-producing run.
 
-## E4 — External alignment
+## E4 — Human / expert corroboration (Tier B2, optional stronger evidence)
+
+Human annotation is retained as an optional stronger corroboration path rather than a current prerequisite.
+
+If used, report:
+- annotator backgrounds;
+- independent mapping before adjudication;
+- exact agreement and Fleiss' kappa;
+- disagreement classification;
+- ontology changes caused by human review.
+
+Human and AI evidence must remain separate.
+
+## E5 — External alignment
 
 For each reviewed concept, record one of:
 - exact/close/broad/narrow/related mapping;
@@ -64,29 +92,28 @@ For each reviewed concept, record one of:
 - no suitable external concept found;
 - intentional divergence.
 
-Every positive mapping requires source/version/date/reviewer. External alignment is evidence of interoperability, not proof that the external ontology is scientifically correct.
+Every positive mapping requires source/version/date/reviewer or reviewer-agent provenance. External alignment supports interoperability, not truth by authority.
 
-## E5 — Diversity / coverage validity
+## E6 — Diversity / coverage validity
 
 Use synthetic cases spanning migration, multilingualism, legal status, gender/sex distinctions, family structures, disability/functioning, chronic illness, neurodivergence, work/education combinations, religion, socioeconomic resources and life transitions.
 
-For each case rate:
+Review:
 - representability;
 - distortion;
 - false inference;
 - cultural assumption;
 - sensitive-attribute handling.
 
-Critical pass criterion: zero known **false deterministic inference** from sensitive or proxy facts.
+Critical criterion: zero unresolved false deterministic inference from sensitive/proxy facts.
 
-## E6 — Epistemic validity
+## E7 — Epistemic validity
 
-The same surface proposition must remain distinguishable when it is:
-`user_provided`, `observed`, `measured`, `inferred`, `generated`, `derived`, `external_reference`, or `input_constraint`.
+The same proposition must remain distinguishable when it is user_provided, observed, measured, inferred, generated, derived, external_reference or input_constraint.
 
-Critical pass criterion: no test may collapse input constraints or generated values into observed/measured evidence.
+Critical criterion: no input constraint or generated value may collapse into observed/measured evidence.
 
-## E7 — Pragmatic / downstream validity
+## E8 — Pragmatic / downstream validity
 
 Evaluate at least P003 and AI-Ques.
 
@@ -100,17 +127,17 @@ Recommended before/after metrics:
 - time/changes required to add a new person concept;
 - provenance loss.
 
-Predefine tasks and metrics before comparison where feasible.
+## E9 — FAIR / governance
 
-## E8 — FAIR / governance
-
-Assess identifiers, metadata, versioning, provenance, licensing, accessibility, reuse and deprecation policy. When an RDF/OWL publication exists, run an external FAIR semantic-artefact assessment (for example FOOPS!/O'FAIRe) and archive the dated report.
+Assess identifiers, metadata, versioning, provenance, licensing, accessibility, reuse and deprecation policy. After a public semantic artefact exists, archive a dated external FAIR assessment.
 
 ## Evidence states
 
-Each evaluation dimension is one of:
+Use:
 - `passed_machine`
-- `passed_independent`
+- `passed_multi_ai`
+- `passed_human`
+- `passed_application`
 - `partial`
 - `not_tested`
 - `failed`
