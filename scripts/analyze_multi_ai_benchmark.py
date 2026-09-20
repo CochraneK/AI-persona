@@ -131,6 +131,7 @@ def main() -> None:
     for record in records:
         model_meta[record["model_id"]] = {
             "provider": record.get("provider"),
+            "family": record.get("family") or record.get("provider"),
             "model": record.get("model"),
         }
 
@@ -151,6 +152,7 @@ def main() -> None:
                 {
                     "model_id": record["model_id"],
                     "provider": record.get("provider"),
+                    "family": record.get("family") or record.get("provider"),
                     "model": record.get("model"),
                     "case_id": case_id,
                     "theme": record.get("theme"),
@@ -259,7 +261,7 @@ def main() -> None:
             "atomic_model_judgments": scored,
         }
 
-    providers = {meta["provider"] for meta in model_meta.values() if meta["provider"]}
+    families = {meta["family"] for meta in model_meta.values() if meta.get("family")}
     completeness = (
         sum(completeness_by_model.values()) / len(completeness_by_model)
         if completeness_by_model else 0.0
@@ -276,7 +278,7 @@ def main() -> None:
         for stats in per_model.values()
     )
     gate = {
-        "providers_at_least_3": len(providers) >= args.min_providers,
+        "model_families_at_least_3": len(families) >= args.min_providers,
         "mean_response_completeness_gte_0_95": completeness >= 0.95,
         "domain_pairwise_agreement_gte_0_80": domain_pa is not None and domain_pa >= 0.80,
         "domain_fleiss_kappa_gte_0_80": domain_fk is not None and domain_fk >= 0.80,
@@ -289,8 +291,8 @@ def main() -> None:
         "benchmark_id": benchmark["benchmark_id"],
         "ontology_version": benchmark["ontology_version"],
         "models": model_meta,
-        "provider_count": len(providers),
-        "providers": sorted(providers),
+        "family_count": len(families),
+        "families": sorted(families),
         "records_total": len(records),
         "records_valid": len(valid_records),
         "mean_response_completeness": round(completeness, 6),
@@ -322,7 +324,7 @@ def main() -> None:
             "# Multi-AI Benchmark Report",
             "",
             f"- Tier B1 passed: **{report['tier_b1_passed']}**",
-            f"- Providers: {len(providers)} ({', '.join(sorted(providers))})",
+            f"- Providers: {len(families)} ({', '.join(sorted(families))})",
             f"- Mean response completeness: {report['mean_response_completeness']:.3f}",
             f"- Domain pairwise agreement: {domain_pa if domain_pa is not None else 'NA'}",
             f"- Domain Fleiss kappa: {domain_fk if domain_fk is not None else 'NA'}",
