@@ -69,21 +69,26 @@ The existing 6-domain × 4-stage event matrix, Archetype Grid and legacy six-fie
 
 ## Scientific validation
 
-Human Ontology distinguishes engineering conformance from scientific validation.
+Human Ontology distinguishes engineering conformance, cross-model robustness and downstream validation.
 
-- **Current: Tier A — machine validated**: 184/184 declared machine competency questions pass.
-- **Tier B — not yet achieved**: requires independent semantic mapping / inter-rater evidence, adversarial and diversity adjudication, and reviewed external mapping decisions.
-- **Tier C — not yet achieved**: additionally requires downstream P003 / AI-Ques evidence, external reproduction, RDF/OWL reasoning + SHACL validation, and FAIR assessment.
+- **Tier A — achieved at machine level**: 184/184 declared machine competency questions pass; the RDF/OWL/SHACL projection is drift-checked.
+- **Tier B1 — Multi-AI robustness, ready to run**: the same 24 adversarial cases / 56 atomic facts can be evaluated across GPT, Claude, Gemini, Qwen, DeepSeek or other configured providers. The analyzer reports agreement, adversarial gold accuracy, forbidden-inference false positives and **agreement-but-wrong**.
+- **Tier B2 — optional stronger corroboration**: human/domain-expert annotation remains available but is no longer the current prerequisite.
+- **Tier C — not yet achieved**: requires downstream P003 / AI-Ques evidence plus remaining semantic-web/external validation.
 
-Evaluation assets live under `evaluation/`. Run:
+The benchmark does **not** treat AI consensus as truth. Tier B1 requires both high cross-model agreement and high accuracy against hidden adversarial gold, with zero critical agreement-but-wrong cases.
 
 ```bash
 python scripts/evaluate_human_ontology.py
-python scripts/build_annotation_pack.py --annotators 3
-python scripts/analyze_annotation_reliability.py evaluation/generated_annotation_pack.csv
+python scripts/build_multi_ai_benchmark.py --check
+python scripts/test_multi_ai_benchmark.py
+
+# Real multi-provider run: configure API keys/model IDs first.
+python scripts/run_multi_ai_benchmark.py \
+  --config evaluation/multi_ai_benchmark/models.local.json
 ```
 
-A green machine gate must not be described as full scientific validation. The reviewed runtime contract is green, while **56 provisional relation leaves** remain intentionally non-API-ready pending predicate review.
+See `evaluation/multi_ai_benchmark/README.md`. A green machine gate or a future green Multi-AI benchmark must not be described as human/expert validation or universal scientific validity. The reviewed runtime contract is green, while **56 provisional relation leaves** remain intentionally non-API-ready pending predicate review.
 
 ## 项目结构
 
@@ -165,7 +170,7 @@ AI-persona/
 | **Phase 3.5** | ✅ 完成 | **Archetype Grid v1.2** (10诊断/45型/720深层身份，深层字段多样性 3.5~10×) |
 | **Phase 3.6** | ⏸️ legacy | 网格扩展不再是 v2 canonical ontology 的前置条件 |
 | **Phase 3.7** | ✅ rc2 | Human Ontology v2 + PersonaKernel + 186-field migration + 205-concept catalog + typed EntityRef graph + semantic firewall |
-| **Phase 4** | 📋 规划 | 临床多样性验证 / 外部专家审查 |
+| **Phase 4** | 🚧 验证框架已就绪 | Multi-AI semantic robustness（Tier B1）+ 可选专家复核（Tier B2） |
 | **Phase 5** | 📋 规划 | LLM 心理评估应用集成 |
 
 ---
