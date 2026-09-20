@@ -1,0 +1,48 @@
+{
+  "benchmark_id": "human-ontology-multi-ai-tier-b1",
+  "note": "Example only. Model IDs and secrets are resolved from environment variables. Do not commit models.local.json.",
+  "models": [
+    {
+      "id": "openai",
+      "provider": "openai_responses",
+      "api_key_env": "OPENAI_API_KEY",
+      "model_env": "HO_OPENAI_MODEL",
+      "base_url": "https://api.openai.com/v1",
+      "enabled": true
+    },
+    {
+      "id": "anthropic",
+      "provider": "anthropic_messages",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model_env": "HO_ANTHROPIC_MODEL",
+      "base_url": "https://api.anthropic.com",
+      "enabled": true
+    },
+    {
+      "id": "gemini",
+      "provider": "gemini_generate_content",
+      "api_key_env": "GEMINI_API_KEY",
+      "model_env": "HO_GEMINI_MODEL",
+      "base_url": "https://generativelanguage.googleapis.com",
+      "enabled": true
+    },
+    {
+      "id": "qwen",
+      "provider": "openai_compatible",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "model_env": "HO_QWEN_MODEL",
+      "base_url_env": "HO_QWEN_BASE_URL",
+      "enabled": true,
+      "json_mode": true
+    },
+    {
+      "id": "deepseek",
+      "provider": "openai_compatible",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "model_env": "HO_DEEPSEEK_MODEL",
+      "base_url": "https://api.deepseek.com",
+      "enabled": true,
+      "json_mode": true
+    }
+  ]
+}
