@@ -53,6 +53,8 @@ def main() -> None:
     schema = load(ONTOLOGY / "persona_kernel.schema.json")
     evaluation_cqs = load(ROOT / "evaluation" / "competency_questions.json")
     evaluation_baseline = load(ROOT / "evaluation" / "baseline_machine_report.json")
+    multi_ai_cases = load(ROOT / "evaluation" / "multi_ai_benchmark" / "cases.json")
+    adversarial_cases = load(ROOT / "evaluation" / "adversarial_cases.json")
 
     if v2["status"] != "release_candidate":
         fail("rc2 must remain release_candidate until the PR gate is explicitly promoted")
@@ -127,6 +129,22 @@ def main() -> None:
             f"baseline={baseline_gap}, current={current_provisional_relation_count}"
         )
 
+    if multi_ai_cases["ontology_version"] != version:
+        fail("multi-ai benchmark ontology version is stale")
+    if multi_ai_cases["counts"]["cases"] != len(adversarial_cases["cases"]):
+        fail("multi-ai benchmark case count drift")
+    current_atomic = sum(len(case["expected"]) for case in adversarial_cases["cases"])
+    if multi_ai_cases["counts"]["atomic_facts"] != current_atomic:
+        fail("multi-ai benchmark atomic-fact count drift")
+    current_forbidden = sum(
+        len(case["forbidden_inferences"])
+        for case in adversarial_cases["cases"]
+    )
+    if multi_ai_cases["counts"]["forbidden_inferences"] != current_forbidden:
+        fail("multi-ai benchmark forbidden-inference count drift")
+    if not multi_ai_cases.get("protocol", {}).get("gold_hidden_from_models"):
+        fail("multi-ai benchmark must keep gold hidden from model prompts")
+
     overlap = (ONTOLOGY / "V1_V2_OVERLAP_AUDIT.md").read_text(encoding="utf-8")
     if "| open |" in overlap.lower():
         fail("overlap audit still contains open rows")
@@ -152,9 +170,20 @@ def main() -> None:
         ROOT / "evaluation" / "diversity_cases.json",
         ROOT / "evaluation" / "external_alignment_matrix.json",
         ROOT / "evaluation" / "baseline_machine_report.json",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "README.md",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "cases.json",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "models.example.json",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "output_schema.json",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "API_REFERENCES.md",
+        ROOT / "evaluation" / "multi_ai_benchmark" / "REPORT.md",
         ROOT / "scripts" / "evaluate_human_ontology.py",
         ROOT / "scripts" / "analyze_annotation_reliability.py",
         ROOT / "scripts" / "build_annotation_pack.py",
+        ROOT / "scripts" / "build_multi_ai_benchmark.py",
+        ROOT / "scripts" / "multi_ai_client.py",
+        ROOT / "scripts" / "run_multi_ai_benchmark.py",
+        ROOT / "scripts" / "analyze_multi_ai_benchmark.py",
+        ROOT / "scripts" / "test_multi_ai_benchmark.py",
     )
     missing = [str(p.relative_to(ROOT)) for p in required if not p.exists()]
     if missing:
@@ -163,7 +192,8 @@ def main() -> None:
     print(
         "Human Ontology v2 release gate: READY FOR CI "
         f"({version}; {len(v2['canonical_domains'])} domains; "
-        f"{len(field_migration['entries'])} migrated v1 fields)"
+        f"{len(field_migration['entries'])} migrated v1 fields; "
+        f"{multi_ai_cases['counts']['cases']} Multi-AI adversarial cases)"
     )
 
 
