@@ -216,6 +216,9 @@ def main() -> None:
         "case_hash": sha256_text(
             (EVAL / "cases.json").read_text(encoding="utf-8")
         ),
+        "ontology_hash": sha256_text(
+            (ROOT / "ontology" / "human_ontology.v2.json").read_text(encoding="utf-8")
+        ),
         "system_prompt_hash": sha256_text(system),
         "models": manifest_models,
     }
