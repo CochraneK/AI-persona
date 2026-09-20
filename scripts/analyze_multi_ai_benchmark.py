@@ -105,7 +105,7 @@ def main() -> None:
     parser.add_argument("outputs_dir", type=Path)
     parser.add_argument("--json-out", type=Path)
     parser.add_argument("--md-out", type=Path)
-    parser.add_argument("--min-providers", type=int, default=3)
+    parser.add_argument("--min-families", "--min-providers", dest="min_families", type=int, default=3)
     args = parser.parse_args()
 
     benchmark = load_json(CASES)
@@ -278,7 +278,7 @@ def main() -> None:
         for stats in per_model.values()
     )
     gate = {
-        "model_families_at_least_3": len(families) >= args.min_providers,
+        "model_families_at_least_3": len(families) >= args.min_families,
         "mean_response_completeness_gte_0_95": completeness >= 0.95,
         "domain_pairwise_agreement_gte_0_80": domain_pa is not None and domain_pa >= 0.80,
         "domain_fleiss_kappa_gte_0_80": domain_fk is not None and domain_fk >= 0.80,
@@ -324,7 +324,7 @@ def main() -> None:
             "# Multi-AI Benchmark Report",
             "",
             f"- Tier B1 passed: **{report['tier_b1_passed']}**",
-            f"- Providers: {len(families)} ({', '.join(sorted(families))})",
+            f"- Model families: {len(families)} ({', '.join(sorted(families))})",
             f"- Mean response completeness: {report['mean_response_completeness']:.3f}",
             f"- Domain pairwise agreement: {domain_pa if domain_pa is not None else 'NA'}",
             f"- Domain Fleiss kappa: {domain_fk if domain_fk is not None else 'NA'}",
