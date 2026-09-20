@@ -85,7 +85,6 @@ def call_openai_responses(
         "model": model,
         "instructions": system,
         "input": prompt,
-        "temperature": 0,
     }
     data = _post_json(
         base_url.rstrip("/") + "/responses",
@@ -155,7 +154,8 @@ def call_gemini_generate_content(
     prompt: str,
     timeout: int,
 ) -> tuple[str, dict[str, Any]]:
-    encoded_model = urllib.parse.quote(model, safe="-_.")
+    normalized_model = model[7:] if model.startswith("models/") else model
+    encoded_model = urllib.parse.quote(normalized_model, safe="-_.")
     url = (
         base_url.rstrip("/")
         + f"/v1beta/models/{encoded_model}:generateContent?key="
@@ -208,8 +208,11 @@ def call_openai_compatible(
             {"Authorization": f"Bearer {api_key}"},
             timeout=timeout,
         )
-    except ProviderError:
-        if not json_mode:
+    except ProviderError as exc:
+        if (
+            not json_mode
+            or ("HTTP 400:" not in str(exc) and "HTTP 422:" not in str(exc))
+        ):
             raise
         payload.pop("response_format", None)
         data = _post_json(
