@@ -8,7 +8,8 @@
       "api_key_env": "OPENAI_API_KEY",
       "model_env": "HO_OPENAI_MODEL",
       "base_url": "https://api.openai.com/v1",
-      "enabled": true
+      "enabled": true,
+      "family": "openai"
     },
     {
       "id": "anthropic",
@@ -16,7 +17,8 @@
       "api_key_env": "ANTHROPIC_API_KEY",
       "model_env": "HO_ANTHROPIC_MODEL",
       "base_url": "https://api.anthropic.com",
-      "enabled": true
+      "enabled": true,
+      "family": "anthropic"
     },
     {
       "id": "gemini",
@@ -24,7 +26,8 @@
       "api_key_env": "GEMINI_API_KEY",
       "model_env": "HO_GEMINI_MODEL",
       "base_url": "https://generativelanguage.googleapis.com",
-      "enabled": true
+      "enabled": true,
+      "family": "google_gemini"
     },
     {
       "id": "qwen",
@@ -33,7 +36,8 @@
       "model_env": "HO_QWEN_MODEL",
       "base_url_env": "HO_QWEN_BASE_URL",
       "enabled": true,
-      "json_mode": true
+      "json_mode": true,
+      "family": "alibaba_qwen"
     },
     {
       "id": "deepseek",
@@ -42,7 +46,8 @@
       "model_env": "HO_DEEPSEEK_MODEL",
       "base_url": "https://api.deepseek.com",
       "enabled": true,
-      "json_mode": true
+      "json_mode": true,
+      "family": "deepseek"
     }
   ]
 }
