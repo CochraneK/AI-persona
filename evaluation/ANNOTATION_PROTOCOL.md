@@ -1,5 +1,7 @@
 # Independent Semantic Annotation Protocol
 
+> **Tier B2 optional corroboration.** The primary current semantic-robustness path is the Multi-AI Tier B1 benchmark under `evaluation/multi_ai_benchmark/`. This human protocol is retained as stronger optional external evidence, not as a release prerequisite.
+
 ## Goal
 
 Measure whether different people independently map the same human facts to the same ontology semantics.
