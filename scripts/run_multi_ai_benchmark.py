@@ -201,6 +201,7 @@ def main() -> None:
             {
                 "id": model["id"],
                 "provider": model["provider"],
+                "family": model.get("family") or model["id"],
                 "model": model["model"] or None,
                 "base_url": model["base_url"] or None,
                 "api_key_env": model.get("api_key_env"),
@@ -234,6 +235,7 @@ def main() -> None:
                     "run_id": run_id,
                     "model_id": model["id"],
                     "provider": model["provider"],
+                    "family": model.get("family") or model["id"],
                     "model": model["model"] or None,
                     "case_id": case["case_id"],
                     "theme": case["theme"],
