@@ -60,7 +60,11 @@
     "provisional_relation_leaves_pending_predicate_review": 56,
     "pilot_annotation_rows": 168,
     "pilot_annotators": 3,
-    "semantic_projection_files": 4
+    "semantic_projection_files": 4,
+    "multi_ai_cases": 24,
+    "multi_ai_atomic_facts": 56,
+    "multi_ai_forbidden_inferences": 38,
+    "multi_ai_example_families": 5
   },
   "scientific_evidence_state": {
     "formal_structural": "partial",
