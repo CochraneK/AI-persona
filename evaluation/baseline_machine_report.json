@@ -1,6 +1,6 @@
 {
   "ontology_version": "2.0.0-rc2",
-  "evaluated_at": "2026-09-18",
+  "evaluated_at": "2026-09-21",
   "evaluator": "ChatGPT GitHub connector structural evaluator",
   "evidence_scope": "machine_regression_only",
   "machine_competency_questions": {
@@ -65,18 +65,17 @@
   "scientific_evidence_state": {
     "formal_structural": "partial",
     "machine_cq": "passed_machine",
-    "independent_cq": "not_tested",
-    "semantic_interrater_reliability": "not_tested",
     "external_term_alignment": "partial",
-    "diversity_independent_adjudication": "not_tested",
     "pragmatic_p003": "not_tested",
     "pragmatic_ai_ques": "not_tested",
     "rdf_owl_reasoner": "not_tested",
     "shacl": "not_tested",
     "fair_external_assessment": "not_tested",
-    "semantic_projection_drift": "passed_machine"
+    "semantic_projection_drift": "passed_machine",
+    "multi_ai_tier_b1": "not_tested",
+    "human_expert_tier_b2": "not_tested"
   },
-  "interpretation": "Machine regression evidence is green for the reviewed runtime contract (184/184 CQs) and the 4-file RDF/OWL/SHACL projection is drift-free. Fifty-six provisional relation leaves remain explicitly non-runtime-ready until predicate review. Independent human evidence and actual pySHACL execution remain not tested.",
+  "interpretation": "Machine regression evidence is green for the reviewed runtime contract (184/184 CQs) and the 4-file RDF/OWL/SHACL projection is drift-free. Multi-AI Tier B1 infrastructure is implemented but no real multi-provider run has been executed yet. Fifty-six provisional relation leaves remain explicitly non-runtime-ready until predicate review. Human/expert corroboration is optional Tier B2; actual pySHACL execution and downstream P003/AI-Ques validation remain not tested.",
   "machine_evidence": {
     "semantic_projection_drift": "passed_machine",
     "semantic_projection_files_matching": "4/4"
