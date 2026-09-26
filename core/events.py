@@ -71,6 +71,8 @@ from dataclasses import dataclass, field
 from typing import Optional
 import random
 
+from .human_ontology import map_legacy_event_domain, map_legacy_event_stage
+
 # =====================================================================
 # 数据类型
 # =====================================================================
@@ -87,6 +89,20 @@ class LifeEvent:
     # 诊断关联：{"diagnosis_key": "trigger"/"maintain"/"unrelated"}
     # trigger = 触发因素，maintain = 维持因素，unrelated = 无关
     lcu: int = 50             # Life Change Unit (SRRS 权重)，默认 50 = 中等压力
+
+    # --- canonical Human Ontology 映射（v1.3，只读属性，不影响序列化） ---
+    # legacy 6 域 × 4 阶段矩阵保留为 legacy source，canonical id 经
+    # core/human_ontology.py 引用，不在本模块本地重定义。
+
+    @property
+    def canonical_domain(self) -> str | None:
+        """canonical life domain id（如 family → family_kinship）"""
+        return map_legacy_event_domain(self.domain)
+
+    @property
+    def canonical_stages(self) -> tuple[str, ...]:
+        """canonical developmental stage ids（如 childhood → (early_childhood, middle_childhood)）"""
+        return map_legacy_event_stage(self.stage)
 
 
 # =====================================================================
@@ -309,6 +325,7 @@ def count_events() -> dict:
     result = {
         "total": len(LIFE_EVENTS),
         "by_domain": {},
+        "by_canonical_domain": {},
         "by_stage": {},
         "by_valence": {},
         "lcu_stats": {
@@ -321,6 +338,9 @@ def count_events() -> dict:
     }
     for e in LIFE_EVENTS:
         result["by_domain"][e.domain] = result["by_domain"].get(e.domain, 0) + 1
+        cd = e.canonical_domain
+        if cd is not None:
+            result["by_canonical_domain"][cd] = result["by_canonical_domain"].get(cd, 0) + 1
         result["by_stage"][e.stage] = result["by_stage"].get(e.stage, 0) + 1
         result["by_valence"][e.valence] = result["by_valence"].get(e.valence, 0) + 1
     return result

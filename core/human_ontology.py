@@ -100,6 +100,15 @@ def map_legacy_event_stage(stage: str) -> tuple[str, ...]:
     return tuple(values)
 
 
+def map_legacy_locale(locale: str) -> dict[str, str] | None:
+    return (
+        load_human_ontology()
+        .get("legacy_mappings", {})
+        .get("ai_persona_locale_v1", {})
+        .get(locale)
+    )
+
+
 def ontology_summary() -> dict[str, Any]:
     ontology = load_human_ontology()
     return {

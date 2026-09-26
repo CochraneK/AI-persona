@@ -6,8 +6,9 @@
 
 ```
 AI-persona/
-├── core/                     # ⚡ 核心引擎（9 个模块）
+├── core/                     # ⚡ 核心引擎（10 个模块）
 │   ├── __init__.py           #   导入封装，from core import generate_persona
+│   ├── human_ontology.py     #   ⭐ canonical Human Ontology 加载器（v1.3）
 │   ├── archetypes.py         #   ⭐ 人设元类型网格（v1.2，45 型 / 10 诊断）
 │   ├── generator.py          #   PersonaGenerator 主类 + Persona dataclass
 │   ├── personality.py        #   OCEAN 大五人格 + MECE 六维标签库（v2）
@@ -28,6 +29,9 @@ AI-persona/
 ├── reports/                  # 报告生成
 ├── dataset/                  # 生成的数据集
 ├── diagnosis_ontology.json   # 诊断本体（156KB，278 诊断）
+├── ontology/                 # ⭐ Canonical Human Ontology v1（v1.3 起接入生成器）
+│   ├── human_ontology.v1.json  # 唯一权威源（19轴/10域/9阶段/13压力形态 + legacy_mappings）
+│   └── README.md               # 本体设计文档
 └── README.md                 # 项目文档
 ```
 
@@ -37,6 +41,12 @@ AI-persona/
 - **纯 Python 标准库**：零外部依赖，无需 pip install
 - **诊断本体**：根目录 `diagnosis_ontology.json`，fallback 到 generator 内置硬编码
 - **2025 普查基线**：`data/demographic_baseline.json` 是年龄/教育/城乡采样权重基准
+- **Canonical Human Ontology（v1.3 起）**：`ontology/human_ontology.v1.json` 是唯一权威源，
+  canonical id（life domains / developmental stages / event pressure shapes / locale 值）
+  **一律经 `core/human_ontology.py` 的函数引用**（`canonical_*()` / `map_legacy_*()`），
+  禁止在业务模块本地重定义或硬编码。legacy 6×4 事件矩阵与地区标签（城市/农村/城镇）
+  经 `legacy_mappings` 映射；`LifeEvent.canonical_domain/canonical_stages` 与
+  `Persona.locale_canonical` 为只读派生字段，不改变 RNG 流与既有输出。
 - **人设元类型（v1.2 起）**：`core/archetypes.py` 定义每诊断的有限人设型网格，**型决定心理内核**。
   已覆盖 10 个诊断（depressive/anxiety/social_anxiety/ptsd/ocd/adhd/schizophrenia/
   bipolar_manic/borderline_pd/anorexia），其余诊断自动回退旧逻辑。

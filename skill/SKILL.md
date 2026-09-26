@@ -3,7 +3,7 @@ title: "Persona Generator — 全量 Persona 生成引擎"
 summary: "为精神病学 AI 评估生成结构化模拟人物（健康/患者），含人口学、职业、OCEAN 性格、生活事件时间线、System Prompt"
 created: "2026-08-29"
 category: "persona-generator"
-version: "1.2.0"
+version: "1.3.0"
 ---
 
 # Persona Generator
@@ -125,6 +125,7 @@ personas = batch_generate(20, seed_pool=[
 | age/gender | 根据诊断发病年龄采样 |
 | occupation/code | 79 中类+编码 |
 | education/locale/marital | 人口学 |
+| locale_canonical | 地区 canonical 值 urban/town/rural（Human Ontology v1.3，经 legacy_mappings 映射） |
 | primary_diagnosis/comorbidities | 诊断+共病 |
 | **archetype_key/name/one_liner** | **人设元类型（v1.2，未覆盖诊断为空串）** |
 | ocean 5-dim | 1-10 分 |

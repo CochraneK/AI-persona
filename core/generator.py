@@ -16,7 +16,8 @@ Persona 完整字段
   occupation          — 职业中类名
   occupation_code     — 职业中类编码
   education           — 教育程度
-  locale              — 地区（城市/农村）
+  locale              — 地区（城市/农村/城镇，legacy 标签）
+  locale_canonical    — 地区 canonical 值（urban/town/rural，Human Ontology v1.3）
   marital_status      — 婚姻状况
   primary_diagnosis   — 主诊断（中文）
   primary_diagnosis_en— 主诊断（英文）
@@ -120,6 +121,7 @@ from .cross_constraints import (
     adjust_social_relations_by_ocean,
     filter_occupations_by_education,
 )
+from .human_ontology import map_legacy_locale
 
 
 # =====================================================================
@@ -224,11 +226,12 @@ class Persona:
     occupation: str                                      # 职业中类名
     occupation_code: str                                 # 职业中类编码
     education: str                                       # 教育程度
-    locale: str                                          # 地区：城市/农村
+    locale: str                                          # 地区（legacy 标签）：城市/农村/城镇
     marital_status: str                                  # 婚姻状况
 
     primary_diagnosis: str                               # 主诊断（中文）
     primary_diagnosis_en: str                            # 主诊断（英文）
+    locale_canonical: str = ""                           # 地区 canonical 值（Human Ontology）：urban/town/rural
     comorbidities: list[str] = field(default_factory=list)  # 共病列表
 
     # --- 人设元类型（Archetype Grid，v1.2 新增） ---
@@ -799,6 +802,7 @@ class PersonaGenerator:
         education = education if education is not None else self._sample_education(diag_key, age)
         marital = marital_status if marital_status is not None else self._sample_marital_status(age)
         locale = locale if locale is not None else self._sample_locale()
+        locale_canonical = (map_legacy_locale(locale) or {}).get("value", "")
 
         # ---- 3. 共病（先做，OCEAN 需要共病信息）----
         comorb_infos = self._sample_comorbidities(diag_info, diag_key)
@@ -961,6 +965,7 @@ class PersonaGenerator:
             occupation_code=occ.code,
             education=education,
             locale=locale,
+            locale_canonical=locale_canonical,
             marital_status=marital,
             primary_diagnosis=diag_info["name_cn"],
             primary_diagnosis_en=diag_info.get("name_en", diag_info["name_cn"]),

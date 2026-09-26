@@ -7,7 +7,7 @@
 <p>
   <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v1-6C63FF">
   <img alt="Engine" src="https://img.shields.io/badge/engine-Persona%20Generator-2F80ED">
-  <img alt="Version" src="https://img.shields.io/badge/version-v1.2-27AE60">
+  <img alt="Version" src="https://img.shields.io/badge/version-v1.3-27AE60">
   <img alt="Research use" src="https://img.shields.io/badge/use-research%20%2F%20simulation-F2994A">
 </p>
 
@@ -55,9 +55,14 @@ AI-persona/
 │                                      # ICD-11 Chapter 06 + DSM-5-TR
 │                                      # 278 诊断 → 37 个生成范围
 │
-├── core/                              # Phase 2: 核心引擎 (9 个模块)
+├── ontology/                          # ⭐ Canonical Human Ontology v1 (v1.3 起接入生成器)
+│   ├── human_ontology.v1.json         # 唯一权威源 (19轴/10域/9阶段/13压力形态)
+│   └── README.md                      # 本体设计文档
+│
+├── core/                              # Phase 2: 核心引擎 (10 个模块)
 │   ├── __init__.py                    # 完整公开 API
 │   ├── generator.py                   # PersonaGenerator 主类
+│   ├── human_ontology.py              # ⭐ canonical 本体加载器 (v1.3)
 │   ├── archetypes.py                  # ⭐ 人设元类型网格 (v1.2, 45型/10诊断)
 │   ├── personality.py                 # OCEAN 人格映射 + MECE v2 六维
 │   ├── events.py                      # 生活事件矩阵 (6域×4阶段,143模板)
@@ -116,6 +121,7 @@ AI-persona/
 | **Phase 2** | ✅ 完成 | 核心引擎 (9模块, 37诊断OCEAN映射, 79职业, 143事件, MECE v2六维) |
 | **Phase 3** | ✅ 完成 | v1 数据集 (740条人设, 37诊断×20种子) |
 | **Phase 3.5** | ✅ 完成 | **Archetype Grid v1.2** (10诊断/45型/720深层身份，深层字段多样性 3.5~10×) |
+| **Phase 3.5b** | ✅ 完成 | **Canonical Ontology 接入 v1.3** (legacy 6×4 矩阵/地区标签 → canonical id 映射，Persona 新增 `locale_canonical`) |
 | **Phase 3.6** | 📋 规划 | 网格扩展到全部 37 诊断（当前 10，剩 27） |
 | **Phase 4** | 📋 规划 | 临床多样性验证 / 外部专家审查 |
 | **Phase 5** | 📋 规划 | LLM 心理评估应用集成 |
@@ -182,9 +188,9 @@ python core/archetypes.py   # 查看完整空间报告
 
 6 领域 × 4 人生阶段 = 24 格，共 143 个事件模板，支持诊断关联触发与 LCU 应激评分。
 
-### 5️⃣ Persona 完整字段（43 个，与 `Persona` dataclass 一致）
+### 5️⃣ Persona 完整字段（44 个，与 `Persona` dataclass 一致）
 
-- 基本档案（9）：id / label / age / gender / occupation / occupation_code / education / locale / marital_status
+- 基本档案（10）：id / label / age / gender / occupation / occupation_code / education / locale / locale_canonical / marital_status
 - 诊断（3）：primary_diagnosis / primary_diagnosis_en / comorbidities
 - **人设元类型（3，v1.2）**：archetype_key / archetype_name / archetype_one_liner
 - 心理剖面（5）：ocean / ocean_description / personality_tags / cognitive_styles / coping_styles
@@ -271,6 +277,8 @@ personas = gen.batch(5)
 ---
 
 ## 版本
+
+`v1.3` — 2026-09-26 **Canonical Human Ontology 接入**：`core/human_ontology.py` 成为 canonical id 唯一引用入口，legacy 6×4 事件矩阵与地区标签经 `legacy_mappings` 映射到 canonical 体系（`LifeEvent.canonical_domain/canonical_stages`、`Persona.locale_canonical`），同种子输出与 v1.2 逐字段一致（仅新增字段）
 
 `v1.2` — 2026-09-09 **Archetype Grid**：新增 `core/archetypes.py`，用「人设元类型硬网格」替代作废的三层空间模型，深层字段多样性提升 3.5~10×，修正 README 中 10²⁹ 的错误表述
 
