@@ -5,9 +5,9 @@
 **Canonical Human Ontology + ontology-native Persona Engine**
 
 <p>
-  <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v2%20RC-6C63FF">
+  <img alt="Human Ontology" src="https://img.shields.io/badge/ontology-Human%20Ontology%20v2.0.0-6C63FF">
   <img alt="Engine" src="https://img.shields.io/badge/engine-Persona%20Generator-2F80ED">
-  <img alt="Version" src="https://img.shields.io/badge/version-v2%20refactor-27AE60">
+  <img alt="Version" src="https://img.shields.io/badge/version-v2.0.0-27AE60">
   <img alt="Research use" src="https://img.shields.io/badge/use-research%20%2F%20simulation-F2994A">
 </p>
 
@@ -28,8 +28,8 @@ AI-Persona hosts the shared Human Ontology for AI-Persona, P003, AI-Ques and fut
 
 **Current status**
 - `human_ontology.v1.json` — compatibility canonical for legacy consumers.
-- `human_ontology.v2.json` — **v2.0.0-rc2 release candidate** and semantic authority for new integrations.
-- v2 is promoted to canonical only after the release gate is green and the PR is merged.
+- `human_ontology.v2.json` — **v2.0.0 (stable, canonical)** and semantic authority for all integrations.
+- v2 was promoted to canonical on 2026-09-30 (release gate green + PR #1 merged).
 
 **System-wide rule**
 
@@ -131,7 +131,7 @@ AI-persona/
 │   ├── persona_dataset_v1.json        # 740条人设 (3.9MB)
 │   └── persona_dataset_v1_summary.csv # 统计摘要 (220KB)
 │
-├── ontology/                          # Human Ontology v1 compatibility + v2 rc2 contracts
+├── ontology/                          # Human Ontology v1 compatibility + v2.0.0 canonical contracts
 │   ├── human_ontology.v2.json
 │   ├── CANONICAL_FIELD_REGISTRY.json
 │   ├── V1_FIELD_MIGRATION.json
@@ -174,7 +174,7 @@ AI-persona/
 | **Phase 3** | ✅ 完成 | v1 数据集 (740条人设, 37诊断×20种子) |
 | **Phase 3.5** | ✅ 完成 | **Archetype Grid v1.2** (10诊断/45型/720深层身份，深层字段多样性 3.5~10×) |
 | **Phase 3.6** | ⏸️ legacy | 网格扩展不再是 v2 canonical ontology 的前置条件 |
-| **Phase 3.7** | ✅ rc2 | Human Ontology v2 + PersonaKernel + 186-field migration + 205-concept catalog + typed EntityRef graph + semantic firewall |
+| **Phase 3.7** | ✅ 完成 | Human Ontology v2.0.0 (canonical) + PersonaKernel + 186-field migration + 205-concept catalog + typed EntityRef graph + semantic firewall |
 | **Phase 4** | 🚧 验证框架已就绪 | Multi-AI semantic robustness（Tier B1）+ 可选专家复核（Tier B2） |
 | **Phase 5** | 📋 规划 | LLM 心理评估应用集成 |
 
@@ -332,7 +332,7 @@ personas = gen.batch(5)
 
 ## 版本
 
-`v2.0.0-rc2` — Human Ontology v2 release candidate：18 个 semantic namespaces、205-concept catalog（31 reviewed + 174 provisional migrated）、typed EntityRef graph、PersonaKernel metadata completeness、186 个 v1 字段级迁移、psychiatric health-only semantic firewall 与自动 release gate。
+`v2.0.0` — 2026-09-30 **Human Ontology v2 正式转正（canonical）**：18 个 semantic namespaces、205-concept catalog（31 reviewed + 174 provisional migrated）、typed EntityRef graph、PersonaKernel metadata completeness、186 个 v1 字段级迁移、psychiatric health-only semantic firewall 与自动 release gate。
 
 `v1.2` — 2026-09-09 **Archetype Grid**：新增 `core/archetypes.py`，用「人设元类型硬网格」替代作废的三层空间模型，深层字段多样性提升 3.5~10×，修正 README 中 10²⁹ 的错误表述
 

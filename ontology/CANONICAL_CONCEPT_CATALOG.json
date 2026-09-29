@@ -1,7 +1,7 @@
 {
   "catalog_id": "human-ontology-canonical-concept-catalog",
-  "version": "2.0.0-rc2",
-  "status": "release_candidate",
+  "version": "2.0.0",
+  "status": "canonical",
   "purpose": "Exhaustive catalog of canonical v2 migration targets. Reviewed first-class concepts carry strict contracts; migrated-only leaves remain explicitly provisional until leaf-level concept review.",
   "review_policy": {
     "reviewed": "Definition, kind, cardinality, temporality, sensitivity, storage and value contract reviewed.",

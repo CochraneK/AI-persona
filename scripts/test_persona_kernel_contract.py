@@ -36,8 +36,9 @@ def main() -> None:
     assert roundtrip["relations"] == payload["relations"]
     assert roundtrip["events"] == payload["events"]
 
-    duplicate = PersonaKernel.from_dict(payload)
-    duplicate.set_value(
+    # First-class relation_graph fields must not sit in a domain payload.
+    misplaced_storage = PersonaKernel.from_dict(payload)
+    misplaced_storage.set_value(
         "culture_language",
         "languages",
         ["en"],
@@ -48,8 +49,20 @@ def main() -> None:
         ),
     )
     expect_value_error(
-        duplicate.validate,
-        "duplicates domain payload at culture_language.languages",
+        misplaced_storage.validate,
+        "culture_language.languages must be stored in relation_graph, not domain payload",
+    )
+
+    # Duplicate physical home: a relation whose canonical_path is already a
+    # domain payload key is rejected.
+    duplicate_home = deepcopy(payload)
+    duplicate_relation = deepcopy(duplicate_home["relations"][0])
+    duplicate_relation["relation_id"] = "example-001:relation:mood:neutral"
+    duplicate_relation["canonical_path"] = "current_state.mood"
+    duplicate_home["relations"].append(duplicate_relation)
+    expect_value_error(
+        lambda: PersonaKernel.from_dict(duplicate_home),
+        "duplicates domain payload at current_state.mood",
     )
 
     missing_metadata = deepcopy(payload)

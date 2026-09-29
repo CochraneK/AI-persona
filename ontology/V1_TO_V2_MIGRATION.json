@@ -1,7 +1,7 @@
 {
   "migration_id": "human-ontology-v1-to-v2",
   "from_version": "1.0.0",
-  "to_version": "2.0.0-rc2",
+  "to_version": "2.0.0",
   "strategy": "semantic-home migration; preserve data, replace duplicated ownership with typed references",
   "axis_map": {
     "time_development": [

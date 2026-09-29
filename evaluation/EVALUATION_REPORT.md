@@ -1,6 +1,6 @@
 # Human Ontology v2 Evaluation Report
 
-**Ontology:** 2.0.0-rc2  
+**Ontology:** 2.0.0  
 **Report status:** baseline / incomplete scientific validation  
 **Date:** 2026-09-21
 

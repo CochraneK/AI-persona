@@ -74,3 +74,14 @@ Promotion is a separate commit after:
 4. no unresolved review thread remains.
 
 Until then, v1 is the compatibility canonical and v2 is the release candidate.
+
+## Promotion record
+
+**2026-09-30: v2.0.0 promoted to `canonical`** (separate commit, owner decision).
+
+1. Latest-head CI: hosted GitHub Actions remained blocked by the 0-step runner failure (platform issue, no logs), so the engineering gate was satisfied by the portable local full gate (`python scripts/run_ontology_ci.py`) — all checks green.
+2. Final PR diff review passed (PR #1 merged).
+3. Compatibility/safety regressions green (dual-API smoke test + v1/v2 validators + release gate).
+4. No unresolved review thread remains. The independent CQ / inter-rater / diversity adjudication above is intentionally separate and stays open as a future scientific-validity extension.
+
+v2.0.0 is now the canonical semantic authority for new integrations; v1 remains the compatibility schema for legacy consumers.

@@ -1,5 +1,5 @@
 {
-  "ontology_version": "2.0.0-rc2",
+  "ontology_version": "2.0.0",
   "evaluated_at": "2026-09-21",
   "evaluator": "ChatGPT GitHub connector structural evaluator",
   "evidence_scope": "machine_regression_only",

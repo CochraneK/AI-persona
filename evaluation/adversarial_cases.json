@@ -1,6 +1,6 @@
 {
   "asset_id": "human-ontology-adversarial-cases",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "cases": [
     {
       "id": "ADV-001",

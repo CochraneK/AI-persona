@@ -1,6 +1,6 @@
 # Human Ontology Review Policy
 
-Human Ontology is the shared semantic authority for AI-Persona, P003, AI-Ques and future person-centered systems. v1 remains the compatibility canonical while v2.0.0-rc2 completes its release gate.
+Human Ontology is the shared semantic authority for AI-Persona, P003, AI-Ques and future person-centered systems. v2.0.0 is the canonical semantic authority (promoted 2026-09-30); v1 remains the compatibility schema for legacy consumers.
 
 ## Core rule
 

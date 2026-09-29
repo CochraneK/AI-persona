@@ -1,6 +1,6 @@
 {
   "persona_id": "example-001",
-  "ontology_version": "2.0.0-rc2",
+  "ontology_version": "2.0.0",
   "domains": {
     "development": {
       "chronological_age": 29

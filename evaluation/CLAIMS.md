@@ -4,7 +4,7 @@
 
 You may accurately say:
 
-- Human Ontology v2.0.0-rc2 has a reviewed runtime contract with 18 semantic namespaces, 31 reviewed first-class concepts, 22 typed relation families and a 205-concept exhaustive catalog.
+- Human Ontology v2.0.0 has a reviewed runtime contract with 18 semantic namespaces, 31 reviewed first-class concepts, 22 typed relation families and a 205-concept exhaustive catalog.
 - The reviewed runtime contract currently passes **184/184 declared machine competency questions**.
 - The semantic-web projection is reproducible from canonical JSON and matches **4/4 committed RDF/OWL/SHACL projection files**.
 - The evaluation layer includes 24 adversarial semantic-boundary cases, 30 diversity stress cases, a deterministic Multi-AI Tier-B1 benchmark, provider adapters and an agreement/accuracy analyzer.

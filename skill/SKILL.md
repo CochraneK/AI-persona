@@ -3,7 +3,7 @@ title: "AI-Persona — Human Ontology + Persona Kernel"
 summary: "用 canonical Human Ontology 生成/迁移结构化 Persona；精神疾病知识作为可选健康域模块"
 created: "2026-08-29"
 category: "persona-generator"
-version: "2.0.0-rc2"
+version: "2.0.0"
 ---
 
 # AI-Persona Skill

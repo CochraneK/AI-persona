@@ -1,6 +1,6 @@
 {
   "benchmark_id": "human-ontology-multi-ai-tier-b1",
-  "ontology_version": "2.0.0-rc2",
+  "ontology_version": "2.0.0",
   "source_asset": "evaluation/adversarial_cases.json",
   "protocol": {
     "gold_hidden_from_models": true,

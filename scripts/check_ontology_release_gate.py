@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ONTOLOGY = ROOT / "ontology"
 
 FORBIDDEN_STALE_TOKENS = (
+    "2.0.0-rc2",
     "2.0.0-rc1",
     "identity_affiliations",
     "education_work_economy",
@@ -59,8 +60,8 @@ def main() -> None:
         ROOT / "evaluation" / "multi_ai_benchmark" / "models.example.json"
     )
 
-    if v2["status"] != "release_candidate":
-        fail("rc2 must remain release_candidate until the PR gate is explicitly promoted")
+    if v2["status"] != "canonical":
+        fail("v2.0.0 is promoted: status must be 'canonical'")
     version = v2["version"]
     for name, other in (
         ("axis migration", migration["to_version"]),
@@ -213,7 +214,7 @@ def main() -> None:
         fail(f"required v2 artifacts missing: {missing}")
 
     print(
-        "Human Ontology v2 release gate: READY FOR CI "
+        "Human Ontology v2.0.0 canonical gate: PROMOTED "
         f"({version}; {len(v2['canonical_domains'])} domains; "
         f"{len(field_migration['entries'])} migrated v1 fields; "
         f"{multi_ai_cases['counts']['cases']} Multi-AI adversarial cases)"

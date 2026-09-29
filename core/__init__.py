@@ -5,7 +5,7 @@ New integrations should prefer generate_persona_kernel / KernelGenerator, which
 apply the Human Ontology v2 semantic firewall by default.
 """
 
-__version__ = "2.0.0-rc2"
+__version__ = "2.0.0"
 
 from .generator import Persona, PersonaGenerator, batch_generate, generate_persona
 from .kernel_generator import KernelGenerationPolicy, KernelGenerator, generate_kernel

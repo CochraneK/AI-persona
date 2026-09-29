@@ -1,7 +1,7 @@
 {
   "ontology_id": "human-ontology",
-  "version": "2.0.0-rc2",
-  "status": "release_candidate",
+  "version": "2.0.0",
+  "status": "canonical",
   "semantic_model": {
     "principle": "one canonical semantic home; cross-domain reuse by typed reference, never duplicate definition",
     "domain_model": "Canonical domains are semantic namespaces, not ontological kinds. Ontological kind is assigned at concept/field level.",

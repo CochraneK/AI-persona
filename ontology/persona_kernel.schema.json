@@ -18,7 +18,7 @@
       "minLength": 1
     },
     "ontology_version": {
-      "const": "2.0.0-rc2"
+      "const": "2.0.0"
     },
     "domains": {
       "type": "object",

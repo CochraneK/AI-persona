@@ -1,6 +1,6 @@
 {
   "asset_id": "human-ontology-competency-questions",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "status": "evaluation_v1",
   "methodology_note": "Machine-checkable CQs are regression evidence, not independent scientific validation. Reviewed graph concepts must be predicate-explicit. Provisional relation leaves are reported separately as non-runtime-ready until reviewed.",
   "counts": {

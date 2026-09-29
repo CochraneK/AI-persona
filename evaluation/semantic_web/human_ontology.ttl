@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ho:HumanOntology a owl:Ontology ;
-  owl:versionInfo "2.0.0-rc2" ;
+  owl:versionInfo "2.0.0" ;
   rdfs:comment "Semantic-web projection of the Human Ontology application contract. The JSON ontology/PersonaKernel remain the executable source of truth during v2 RC." .
 
 ho:canonicalPath a owl:AnnotationProperty .

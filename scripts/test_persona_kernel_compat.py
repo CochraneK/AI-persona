@@ -80,7 +80,7 @@ def main() -> None:
     assert safe_dep.events == safe_gad.events
 
     direct = safe_dep.to_dict()
-    assert direct["ontology_version"] == "2.0.0-rc2"
+    assert direct["ontology_version"] == "2.0.0"
 
     legacy_full = KernelGenerator(
         rng_seed=19,

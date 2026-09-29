@@ -1,6 +1,6 @@
 {
   "asset_id": "human-ontology-external-alignment-evaluation",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "methodology": "Each external source receives an explicit decision: mapped, design_reference, candidate, no_suitable_match, or intentional_divergence. Exact term mappings require source IDs, source version/date, mapping relation and review status; absence of a mapping must never be silently treated as equivalence.",
   "evidence_sources": [
     {

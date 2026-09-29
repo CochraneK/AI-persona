@@ -1,7 +1,7 @@
 {
   "migration_id": "human-ontology-v1-field-migration",
   "from_version": "1.0.0",
-  "to_version": "2.0.0-rc2",
+  "to_version": "2.0.0",
   "coverage_policy": "Every v1 subaxis/personality layer must appear exactly once. Split fields may have multiple targets; derived targets are projections, not second sources of truth.",
   "allowed_actions": [
     "retain",
