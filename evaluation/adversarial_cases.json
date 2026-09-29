@@ -1,0 +1,484 @@
+{
+  "asset_id": "human-ontology-adversarial-cases",
+  "version": "2.0.0-rc2",
+  "cases": [
+    {
+      "id": "ADV-001",
+      "theme": "place_culture_citizenship_identity",
+      "vignette": "A person was born in China, grew up in Canada, lives in the UK, holds Canadian citizenship, and self-identifies as Chinese Canadian.",
+      "expected": [
+        [
+          "birthplace",
+          "place_mobility"
+        ],
+        [
+          "upbringing",
+          "place_mobility"
+        ],
+        [
+          "current_residence",
+          "place_mobility"
+        ],
+        [
+          "citizenship",
+          "social_institutional_position"
+        ],
+        [
+          "self_identification",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "birthplace implies citizenship",
+        "birthplace implies cultural identity",
+        "residence implies citizenship",
+        "citizenship implies self-identity"
+      ]
+    },
+    {
+      "id": "ADV-002",
+      "theme": "language_identity",
+      "vignette": "A person speaks Mandarin and English fluently but does not self-identify with either national identity.",
+      "expected": [
+        [
+          "language_use",
+          "culture_language"
+        ],
+        [
+          "self_identity",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "language implies nationality",
+        "language implies ethnicity"
+      ]
+    },
+    {
+      "id": "ADV-003",
+      "theme": "trait_state",
+      "vignette": "A person has low measured neuroticism but reports high anxiety today before an exam.",
+      "expected": [
+        [
+          "neuroticism",
+          "personality_psychology"
+        ],
+        [
+          "current_anxiety",
+          "current_state"
+        ]
+      ],
+      "forbidden_inferences": [
+        "current anxiety implies high stable neuroticism"
+      ]
+    },
+    {
+      "id": "ADV-004",
+      "theme": "ability_belief",
+      "vignette": "A skilled programmer reports very low confidence in programming ability.",
+      "expected": [
+        [
+          "programming_skill",
+          "abilities_skills_interests"
+        ],
+        [
+          "self_efficacy",
+          "personality_psychology"
+        ]
+      ],
+      "forbidden_inferences": [
+        "skill level determines self-efficacy",
+        "self-efficacy determines actual skill"
+      ]
+    },
+    {
+      "id": "ADV-005",
+      "theme": "role_event",
+      "vignette": "A student graduates and becomes an employee.",
+      "expected": [
+        [
+          "student_role",
+          "roles"
+        ],
+        [
+          "graduation",
+          "life_events"
+        ],
+        [
+          "employee_role",
+          "roles"
+        ]
+      ],
+      "forbidden_inferences": [
+        "role transition is an enduring role"
+      ]
+    },
+    {
+      "id": "ADV-006",
+      "theme": "relationship_disposition",
+      "vignette": "A person is generally trusting but has a conflictual relationship with one sibling.",
+      "expected": [
+        [
+          "general_trust",
+          "personality_psychology"
+        ],
+        [
+          "sibling_relationship_quality",
+          "relationships"
+        ]
+      ],
+      "forbidden_inferences": [
+        "one bad relationship implies global distrust"
+      ]
+    },
+    {
+      "id": "ADV-007",
+      "theme": "diagnosis_identity",
+      "vignette": "A person has an ADHD diagnosis and values precision, quiet work, and family life.",
+      "expected": [
+        [
+          "diagnosis",
+          "mental_neurodevelopmental_health"
+        ],
+        [
+          "values",
+          "personality_psychology"
+        ]
+      ],
+      "forbidden_inferences": [
+        "ADHD determines values",
+        "ADHD defines root identity",
+        "ADHD determines competence"
+      ]
+    },
+    {
+      "id": "ADV-008",
+      "theme": "diagnosis_evidence",
+      "vignette": "A generator is asked to create a persona with depression; no clinical observation occurred.",
+      "expected": [
+        [
+          "diagnosis_constraint",
+          "mental_neurodevelopmental_health"
+        ]
+      ],
+      "forbidden_inferences": [
+        "input constraint is observed diagnosis",
+        "generated diagnosis is measured evidence"
+      ]
+    },
+    {
+      "id": "ADV-009",
+      "theme": "symptom_diagnosis",
+      "vignette": "A person reports insomnia and sadness without any formal diagnosis.",
+      "expected": [
+        [
+          "symptoms",
+          "mental_neurodevelopmental_health"
+        ]
+      ],
+      "forbidden_inferences": [
+        "symptoms automatically imply a diagnosis"
+      ]
+    },
+    {
+      "id": "ADV-010",
+      "theme": "current_resource_source_fact",
+      "vignette": "A person has many friends but none can provide childcare this week.",
+      "expected": [
+        [
+          "friendships",
+          "relationships"
+        ],
+        [
+          "available_childcare_support",
+          "resources_constraints_opportunities"
+        ]
+      ],
+      "forbidden_inferences": [
+        "number of friends equals currently usable support"
+      ]
+    },
+    {
+      "id": "ADV-011",
+      "theme": "work_role_organization",
+      "vignette": "A person is a professor employed by a university and also serves as a department chair.",
+      "expected": [
+        [
+          "occupation",
+          "work_economic_participation"
+        ],
+        [
+          "employment_role",
+          "roles"
+        ],
+        [
+          "employer",
+          "work_economic_participation"
+        ],
+        [
+          "chair_role",
+          "roles"
+        ]
+      ],
+      "forbidden_inferences": [
+        "organization is a role",
+        "role is an organization"
+      ]
+    },
+    {
+      "id": "ADV-012",
+      "theme": "education_skill",
+      "vignette": "A person has no university degree but has expert-level carpentry skills.",
+      "expected": [
+        [
+          "education_attainment",
+          "education_learning"
+        ],
+        [
+          "carpentry_skill",
+          "abilities_skills_interests"
+        ]
+      ],
+      "forbidden_inferences": [
+        "education attainment determines skill"
+      ]
+    },
+    {
+      "id": "ADV-013",
+      "theme": "religion_identity",
+      "vignette": "A person was raised Catholic, now participates in Buddhist meditation, and identifies as non-religious.",
+      "expected": [
+        [
+          "religious_socialization",
+          "culture_language"
+        ],
+        [
+          "current_practice",
+          "culture_language"
+        ],
+        [
+          "self_identity",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "past religious exposure determines current religious identity"
+      ]
+    },
+    {
+      "id": "ADV-014",
+      "theme": "sex_gender",
+      "vignette": "A person's sex characteristics, gender identity, and gender expression do not align with a binary assumption.",
+      "expected": [
+        [
+          "sex_characteristics",
+          "body_functioning_health"
+        ],
+        [
+          "gender_identity",
+          "identity_self_concept"
+        ],
+        [
+          "gender_expression",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "sex characteristics determine gender identity",
+        "gender expression determines sex characteristics"
+      ]
+    },
+    {
+      "id": "ADV-015",
+      "theme": "marital_relationship",
+      "vignette": "A legally married person is separated and reports a supportive co-parenting relationship.",
+      "expected": [
+        [
+          "legal_or_marital_status",
+          "relationships"
+        ],
+        [
+          "relationship_quality",
+          "relationships"
+        ]
+      ],
+      "forbidden_inferences": [
+        "marital status determines relationship quality"
+      ]
+    },
+    {
+      "id": "ADV-016",
+      "theme": "disability_functioning",
+      "vignette": "A wheelchair user has high occupational performance and reports barriers caused mainly by inaccessible buildings.",
+      "expected": [
+        [
+          "physical_functioning",
+          "body_functioning_health"
+        ],
+        [
+          "occupational_performance",
+          "work_economic_participation"
+        ],
+        [
+          "accessibility_barrier",
+          "context_ecology"
+        ]
+      ],
+      "forbidden_inferences": [
+        "disability implies low competence",
+        "functional status implies poor work performance"
+      ]
+    },
+    {
+      "id": "ADV-017",
+      "theme": "economic_resource",
+      "vignette": "A person has high net worth but temporarily lacks liquid cash.",
+      "expected": [
+        [
+          "wealth",
+          "work_economic_participation"
+        ],
+        [
+          "current_liquid_resource",
+          "resources_constraints_opportunities"
+        ]
+      ],
+      "forbidden_inferences": [
+        "wealth automatically equals current usable resources"
+      ]
+    },
+    {
+      "id": "ADV-018",
+      "theme": "migration_event_identity",
+      "vignette": "A person migrated twice and later changed how they describe their cultural identity.",
+      "expected": [
+        [
+          "migration_history",
+          "place_mobility"
+        ],
+        [
+          "migration_events",
+          "life_events"
+        ],
+        [
+          "identity_change",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "migration mechanically determines identity"
+      ]
+    },
+    {
+      "id": "ADV-019",
+      "theme": "occupation_role_transition",
+      "vignette": "A physician retires but retains medical expertise and professional identity.",
+      "expected": [
+        [
+          "retirement",
+          "life_events"
+        ],
+        [
+          "current_work_role",
+          "roles"
+        ],
+        [
+          "medical_expertise",
+          "abilities_skills_interests"
+        ],
+        [
+          "professional_self_concept",
+          "identity_self_concept"
+        ]
+      ],
+      "forbidden_inferences": [
+        "loss of role erases skill",
+        "retirement erases identity"
+      ]
+    },
+    {
+      "id": "ADV-020",
+      "theme": "state_temporality",
+      "vignette": "A person's stress is high this month and low next month while stable values remain unchanged.",
+      "expected": [
+        [
+          "stress",
+          "current_state"
+        ],
+        [
+          "values",
+          "personality_psychology"
+        ]
+      ],
+      "forbidden_inferences": [
+        "dynamic state changes rewrite enduring values"
+      ]
+    },
+    {
+      "id": "ADV-021",
+      "theme": "multi_role",
+      "vignette": "A person is simultaneously a parent, doctoral student, employee, and caregiver.",
+      "expected": [
+        [
+          "roles",
+          "roles"
+        ]
+      ],
+      "forbidden_inferences": [
+        "roles must be mutually exclusive"
+      ]
+    },
+    {
+      "id": "ADV-022",
+      "theme": "household_relationship",
+      "vignette": "Two unrelated friends share a household but are not family members.",
+      "expected": [
+        [
+          "household_context",
+          "context_ecology"
+        ],
+        [
+          "friendship",
+          "relationships"
+        ]
+      ],
+      "forbidden_inferences": [
+        "co-residence implies kinship"
+      ]
+    },
+    {
+      "id": "ADV-023",
+      "theme": "support_source",
+      "vignette": "A person receives practical support from both a sibling and a local charity.",
+      "expected": [
+        [
+          "person_support",
+          "relationships"
+        ],
+        [
+          "organization_support",
+          "resources_constraints_opportunities"
+        ]
+      ],
+      "forbidden_inferences": [
+        "all support must come from a person",
+        "all support must come from an organization"
+      ]
+    },
+    {
+      "id": "ADV-024",
+      "theme": "unknown_absent",
+      "vignette": "No information is available about a person's religion.",
+      "expected": [
+        [
+          "religion",
+          "unknown"
+        ]
+      ],
+      "forbidden_inferences": [
+        "missing religion means non-religious",
+        "unknown means absent"
+      ]
+    }
+  ]
+}

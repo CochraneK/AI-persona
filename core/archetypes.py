@@ -1,44 +1,31 @@
-"""
-人设元类型网格（Persona Archetype Grid）
+"""Narrative archetype generation assets (legacy v1.2 compatibility).
+
+Human Ontology v2 classification
 =========================================================================
+Archetypes live under personality_psychology.narrative_identity.
 
-本模块解决 README 中「三层理论空间」的根本缺陷：
+They are explicit story/persona-generation templates. They are NOT:
+- clinical personality types;
+- psychometric truth;
+- diagnostic criteria;
+- evidence that a diagnosis causes a particular wound, value, motive or life arc.
 
-  旧模型（虚假）：全组合 10²⁹ → 有效身份 10⁷~10⁸ → 变体 ~75
-    问题1：10²⁹ 是软概率分布的名义组合数，不可枚举、不可覆盖验证
-    问题2：真正决定「人设内核」的字段模板池极小
-             实测（同诊断同人口学 300 次）：
-               values_beliefs    仅 11 种
-               social_relations  仅 17 种
-               formative_wound   每诊断仅 5 条
-               compensatory_desire / storr_need  每诊断仅 1 条（单值！）
-    结果：心理内核高度同质，差异全靠 OCEAN 分数/标签/事件的排列组合「表面堆」
+The original v1.2 library is preserved because it contains substantial authored
+variation (wounds, desires, needs, values/social tone and OCEAN biases). Legacy
+Persona generation may still select templates by diagnosis for backwards
+compatibility. The v2 KernelGenerator places a semantic firewall around that
+behavior: diagnosis-conditioned generation is isolated to the health domain by
+default, while non-health identity is generated independently.
 
-  新模型（Archetype Grid）：
-    每个诊断定义有限个「人设元类型（archetype）」——
-    型是临床上有意义的人格组织方式（如抑郁的「隐忍型/求助型/隔绝型」）。
-
-    每个 archetype 自带一套**专属**深层模板：
-      - formative_wound 池（3-5 条，型专属）
-      - compensatory_desire（2-3 条，型专属，取代全局单值）
-      - storr_need（2-3 条，型专属，取代全局单值）
-      - core_desire / core_fear（型专属基调）
-      - values_beliefs 基调、social_relations 基调（型专属）
-      - OCEAN 倾向偏置（可选）
-
-    于是有效 persona 空间变为**可枚举的网格**：
-      有效核心身份 = Σ(每诊断 archetype 数 × 型内变体数)
-      每诊断 ~10²~10³ 量级，全量 ~10⁴~10⁵ 级  ← 可枚举、可覆盖验证
-
-设计原则
--------------------------------------------------------------------------
-1. **型优先于诊断**：型决定心理内核，诊断只决定症状学外壳。
-   同一诊断的不同型，其 wound→desire→need 因果链是不同的。
-2. **型是硬网格**：archetype 集合是有限、显式声明的，不是概率软约束。
-   这让「生成了多少种不同的人」成为可回答的问题。
-3. **OCEAN 只微调不覆盖**：型专属模板优先，OCEAN 仅做措辞/语气层面的修饰，
-   避免 cross_constraints 的 adjust_* 把型抹平（旧逻辑会整体替换 wound）。
-4. **向后兼容**：未定义 archetype 的诊断回退到旧采样逻辑，不破坏现有行为。
+Design rules
+------------------------------------------------------------------------
+1. Archetype is narrative_identity, never the Person root.
+2. Diagnosis-keyed sampling is legacy behavior, not an ontological relation.
+3. OCEAN is a trait model and must not overwrite narrative identity.
+4. Existing archetype content is retained during migration; future native-v2
+   libraries should be diagnosis-neutral unless an explicit research design
+   justifies a conditional prior with provenance.
+5. Absence of an archetype must not make a person less richly represented.
 """
 
 import random

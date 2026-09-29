@@ -1,0 +1,83 @@
+{
+  "registry_version": "1.0.0",
+  "policy": "reference_or_map_before_reinventing; never silently copy external semantics",
+  "required_mapping_metadata": [
+    "source_system",
+    "source_id",
+    "mapping_relation",
+    "source_version_or_date",
+    "review_status"
+  ],
+  "sources": [
+    {
+      "id": "BFO",
+      "name": "Basic Formal Ontology",
+      "purpose": "upper-level ontological distinctions",
+      "adoption": "inspiration_and_alignment",
+      "review_status": "candidate"
+    },
+    {
+      "id": "RO",
+      "name": "Relation Ontology",
+      "purpose": "typed relation vocabulary and interoperability practice",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    },
+    {
+      "id": "MF",
+      "name": "Mental Functioning Ontology",
+      "purpose": "mental functioning concepts",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    },
+    {
+      "id": "MFOEM",
+      "name": "Emotion Ontology",
+      "purpose": "affective phenomena",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    },
+    {
+      "id": "HPO",
+      "name": "Human Phenotype Ontology",
+      "purpose": "phenotypic abnormalities in health contexts",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    },
+    {
+      "id": "ICF",
+      "name": "International Classification of Functioning, Disability and Health",
+      "purpose": "functioning and disability framing",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    },
+    {
+      "id": "ICD",
+      "name": "International Classification of Diseases",
+      "purpose": "diagnostic coding",
+      "adoption": "existing_or_planned_mapping",
+      "review_status": "active"
+    },
+    {
+      "id": "DSM",
+      "name": "Diagnostic and Statistical Manual of Mental Disorders",
+      "purpose": "psychiatric diagnostic mapping where licensing permits representation",
+      "adoption": "existing_or_planned_mapping",
+      "review_status": "active"
+    },
+    {
+      "id": "FHIR_PERSON",
+      "name": "HL7 FHIR Person",
+      "purpose": "engineering interoperability and person-versus-role separation",
+      "adoption": "design_reference",
+      "review_status": "candidate"
+    },
+    {
+      "id": "SCHEMA_PERSON",
+      "name": "Schema.org Person",
+      "purpose": "pragmatic common-person metadata interoperability",
+      "adoption": "mapping_candidate",
+      "review_status": "candidate"
+    }
+  ]
+}

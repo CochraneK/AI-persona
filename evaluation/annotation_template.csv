@@ -1,0 +1,4 @@
+case_id,atomic_fact_id,annotator_id,canonical_home,kind,temporal_class,relation_predicate,source_type,confidence,ambiguity_note
+ADV-001,fact-01,annotator-A,,,,,,, 
+ADV-001,fact-01,annotator-B,,,,,,, 
+ADV-001,fact-01,annotator-C,,,,,,, 

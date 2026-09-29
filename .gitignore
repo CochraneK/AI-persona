@@ -31,3 +31,10 @@ scripts/_scratch/
 # 操作系统
 Thumbs.db
 .DS_Store
+
+# Multi-AI benchmark local secrets/config and run outputs
+evaluation/multi_ai_benchmark/models.local.json
+evaluation/multi_ai_benchmark/*.local.json
+evaluation/multi_ai_benchmark/*.local.md
+evaluation/multi_ai_benchmark/outputs/*
+!evaluation/multi_ai_benchmark/outputs/.gitkeep

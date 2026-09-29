@@ -1,0 +1,2227 @@
+{
+  "asset_id": "human-ontology-competency-questions",
+  "version": "2.0.0-rc2",
+  "status": "evaluation_v1",
+  "methodology_note": "Machine-checkable CQs are regression evidence, not independent scientific validation. Reviewed graph concepts must be predicate-explicit. Provisional relation leaves are reported separately as non-runtime-ready until reviewed.",
+  "counts": {
+    "total": 184,
+    "critical": 184,
+    "reviewed_graph_concepts": 10,
+    "provisional_relation_leaves_pending_review": 56
+  },
+  "questions": [
+    {
+      "id": "CQ-001",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the development semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "development"
+      }
+    },
+    {
+      "id": "CQ-002",
+      "category": "domain_semantics",
+      "question": "Does development state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "development"
+      }
+    },
+    {
+      "id": "CQ-003",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the body_functioning_health semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "body_functioning_health"
+      }
+    },
+    {
+      "id": "CQ-004",
+      "category": "domain_semantics",
+      "question": "Does body_functioning_health state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "body_functioning_health"
+      }
+    },
+    {
+      "id": "CQ-005",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the mental_neurodevelopmental_health semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "mental_neurodevelopmental_health"
+      }
+    },
+    {
+      "id": "CQ-006",
+      "category": "domain_semantics",
+      "question": "Does mental_neurodevelopmental_health state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "mental_neurodevelopmental_health"
+      }
+    },
+    {
+      "id": "CQ-007",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the personality_psychology semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "personality_psychology"
+      }
+    },
+    {
+      "id": "CQ-008",
+      "category": "domain_semantics",
+      "question": "Does personality_psychology state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "personality_psychology"
+      }
+    },
+    {
+      "id": "CQ-009",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the abilities_skills_interests semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "abilities_skills_interests"
+      }
+    },
+    {
+      "id": "CQ-010",
+      "category": "domain_semantics",
+      "question": "Does abilities_skills_interests state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "abilities_skills_interests"
+      }
+    },
+    {
+      "id": "CQ-011",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the identity_self_concept semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "identity_self_concept"
+      }
+    },
+    {
+      "id": "CQ-012",
+      "category": "domain_semantics",
+      "question": "Does identity_self_concept state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "identity_self_concept"
+      }
+    },
+    {
+      "id": "CQ-013",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the roles semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "roles"
+      }
+    },
+    {
+      "id": "CQ-014",
+      "category": "domain_semantics",
+      "question": "Does roles state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "roles"
+      }
+    },
+    {
+      "id": "CQ-015",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the relationships semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "relationships"
+      }
+    },
+    {
+      "id": "CQ-016",
+      "category": "domain_semantics",
+      "question": "Does relationships state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "relationships"
+      }
+    },
+    {
+      "id": "CQ-017",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the place_mobility semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "place_mobility"
+      }
+    },
+    {
+      "id": "CQ-018",
+      "category": "domain_semantics",
+      "question": "Does place_mobility state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "place_mobility"
+      }
+    },
+    {
+      "id": "CQ-019",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the education_learning semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "education_learning"
+      }
+    },
+    {
+      "id": "CQ-020",
+      "category": "domain_semantics",
+      "question": "Does education_learning state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "education_learning"
+      }
+    },
+    {
+      "id": "CQ-021",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the work_economic_participation semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "work_economic_participation"
+      }
+    },
+    {
+      "id": "CQ-022",
+      "category": "domain_semantics",
+      "question": "Does work_economic_participation state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "work_economic_participation"
+      }
+    },
+    {
+      "id": "CQ-023",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the social_institutional_position semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "social_institutional_position"
+      }
+    },
+    {
+      "id": "CQ-024",
+      "category": "domain_semantics",
+      "question": "Does social_institutional_position state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "social_institutional_position"
+      }
+    },
+    {
+      "id": "CQ-025",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the culture_language semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "culture_language"
+      }
+    },
+    {
+      "id": "CQ-026",
+      "category": "domain_semantics",
+      "question": "Does culture_language state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "culture_language"
+      }
+    },
+    {
+      "id": "CQ-027",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the life_events semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "life_events"
+      }
+    },
+    {
+      "id": "CQ-028",
+      "category": "domain_semantics",
+      "question": "Does life_events state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "life_events"
+      }
+    },
+    {
+      "id": "CQ-029",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the context_ecology semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "context_ecology"
+      }
+    },
+    {
+      "id": "CQ-030",
+      "category": "domain_semantics",
+      "question": "Does context_ecology state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "context_ecology"
+      }
+    },
+    {
+      "id": "CQ-031",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the resources_constraints_opportunities semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "resources_constraints_opportunities"
+      }
+    },
+    {
+      "id": "CQ-032",
+      "category": "domain_semantics",
+      "question": "Does resources_constraints_opportunities state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "resources_constraints_opportunities"
+      }
+    },
+    {
+      "id": "CQ-033",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the lifestyle_routines semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "lifestyle_routines"
+      }
+    },
+    {
+      "id": "CQ-034",
+      "category": "domain_semantics",
+      "question": "Does lifestyle_routines state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "lifestyle_routines"
+      }
+    },
+    {
+      "id": "CQ-035",
+      "category": "domain_coverage",
+      "question": "Does the ontology define the current_state semantic namespace?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_exists",
+        "domain": "current_state"
+      }
+    },
+    {
+      "id": "CQ-036",
+      "category": "domain_semantics",
+      "question": "Does current_state state an explicit competency question?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "domain_question_nonempty",
+        "domain": "current_state"
+      }
+    },
+    {
+      "id": "CQ-037",
+      "category": "first_class_concept",
+      "question": "Is chronological_age assigned to canonical path development.chronological_age?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "chronological_age",
+        "path": "development.chronological_age"
+      }
+    },
+    {
+      "id": "CQ-038",
+      "category": "ontological_kind",
+      "question": "Is chronological_age explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "chronological_age",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-039",
+      "category": "storage_contract",
+      "question": "Is chronological_age stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "chronological_age",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-040",
+      "category": "first_class_concept",
+      "question": "Is developmental_stage assigned to canonical path development.developmental_stage?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "developmental_stage",
+        "path": "development.developmental_stage"
+      }
+    },
+    {
+      "id": "CQ-041",
+      "category": "ontological_kind",
+      "question": "Is developmental_stage explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "developmental_stage",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-042",
+      "category": "storage_contract",
+      "question": "Is developmental_stage stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "developmental_stage",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-043",
+      "category": "first_class_concept",
+      "question": "Is gender_identity assigned to canonical path identity_self_concept.gender_identity?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "gender_identity",
+        "path": "identity_self_concept.gender_identity"
+      }
+    },
+    {
+      "id": "CQ-044",
+      "category": "ontological_kind",
+      "question": "Is gender_identity explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "gender_identity",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-045",
+      "category": "storage_contract",
+      "question": "Is gender_identity stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "gender_identity",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-046",
+      "category": "first_class_concept",
+      "question": "Is physical_appearance assigned to canonical path body_functioning_health.physical_appearance?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "physical_appearance",
+        "path": "body_functioning_health.physical_appearance"
+      }
+    },
+    {
+      "id": "CQ-047",
+      "category": "ontological_kind",
+      "question": "Is physical_appearance explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "physical_appearance",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-048",
+      "category": "storage_contract",
+      "question": "Is physical_appearance stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "physical_appearance",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-049",
+      "category": "first_class_concept",
+      "question": "Is diagnosis assigned to canonical path mental_neurodevelopmental_health.diagnoses?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "diagnosis",
+        "path": "mental_neurodevelopmental_health.diagnoses"
+      }
+    },
+    {
+      "id": "CQ-050",
+      "category": "ontological_kind",
+      "question": "Is diagnosis explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "diagnosis",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-051",
+      "category": "storage_contract",
+      "question": "Is diagnosis stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "diagnosis",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-052",
+      "category": "first_class_concept",
+      "question": "Is mental_health_trigger assigned to canonical path mental_neurodevelopmental_health.triggers?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "mental_health_trigger",
+        "path": "mental_neurodevelopmental_health.triggers"
+      }
+    },
+    {
+      "id": "CQ-053",
+      "category": "ontological_kind",
+      "question": "Is mental_health_trigger explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "mental_health_trigger",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-054",
+      "category": "storage_contract",
+      "question": "Is mental_health_trigger stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "mental_health_trigger",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-055",
+      "category": "first_class_concept",
+      "question": "Is safety_behavior assigned to canonical path mental_neurodevelopmental_health.safety_behaviors?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "safety_behavior",
+        "path": "mental_neurodevelopmental_health.safety_behaviors"
+      }
+    },
+    {
+      "id": "CQ-056",
+      "category": "ontological_kind",
+      "question": "Is safety_behavior explicitly typed as process_event?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "safety_behavior",
+        "kind": "process_event"
+      }
+    },
+    {
+      "id": "CQ-057",
+      "category": "storage_contract",
+      "question": "Is safety_behavior stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "safety_behavior",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-058",
+      "category": "first_class_concept",
+      "question": "Is big_five_traits assigned to canonical path personality_psychology.temperament_traits.ocean?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "big_five_traits",
+        "path": "personality_psychology.temperament_traits.ocean"
+      }
+    },
+    {
+      "id": "CQ-059",
+      "category": "ontological_kind",
+      "question": "Is big_five_traits explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "big_five_traits",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-060",
+      "category": "storage_contract",
+      "question": "Is big_five_traits stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "big_five_traits",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-061",
+      "category": "first_class_concept",
+      "question": "Is personality_tags assigned to canonical path personality_psychology.temperament_traits.legacy_tags?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "personality_tags",
+        "path": "personality_psychology.temperament_traits.legacy_tags"
+      }
+    },
+    {
+      "id": "CQ-062",
+      "category": "ontological_kind",
+      "question": "Is personality_tags explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "personality_tags",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-063",
+      "category": "storage_contract",
+      "question": "Is personality_tags stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "personality_tags",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-064",
+      "category": "first_class_concept",
+      "question": "Is motives_values_goals assigned to canonical path personality_psychology.motives_values_goals?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "motives_values_goals",
+        "path": "personality_psychology.motives_values_goals"
+      }
+    },
+    {
+      "id": "CQ-065",
+      "category": "ontological_kind",
+      "question": "Is motives_values_goals explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "motives_values_goals",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-066",
+      "category": "storage_contract",
+      "question": "Is motives_values_goals stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "motives_values_goals",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-067",
+      "category": "first_class_concept",
+      "question": "Is cognition_beliefs assigned to canonical path personality_psychology.cognition_beliefs?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "cognition_beliefs",
+        "path": "personality_psychology.cognition_beliefs"
+      }
+    },
+    {
+      "id": "CQ-068",
+      "category": "ontological_kind",
+      "question": "Is cognition_beliefs explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "cognition_beliefs",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-069",
+      "category": "storage_contract",
+      "question": "Is cognition_beliefs stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "cognition_beliefs",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-070",
+      "category": "first_class_concept",
+      "question": "Is self_efficacy assigned to canonical path personality_psychology.cognition_beliefs.self_efficacy?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "self_efficacy",
+        "path": "personality_psychology.cognition_beliefs.self_efficacy"
+      }
+    },
+    {
+      "id": "CQ-071",
+      "category": "ontological_kind",
+      "question": "Is self_efficacy explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "self_efficacy",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-072",
+      "category": "storage_contract",
+      "question": "Is self_efficacy stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "self_efficacy",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-073",
+      "category": "first_class_concept",
+      "question": "Is emotion_regulation_coping assigned to canonical path personality_psychology.emotion_regulation_coping?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "emotion_regulation_coping",
+        "path": "personality_psychology.emotion_regulation_coping"
+      }
+    },
+    {
+      "id": "CQ-074",
+      "category": "ontological_kind",
+      "question": "Is emotion_regulation_coping explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "emotion_regulation_coping",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-075",
+      "category": "storage_contract",
+      "question": "Is emotion_regulation_coping stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "emotion_regulation_coping",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-076",
+      "category": "first_class_concept",
+      "question": "Is relational_disposition assigned to canonical path personality_psychology.relational_dispositions?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "relational_disposition",
+        "path": "personality_psychology.relational_dispositions"
+      }
+    },
+    {
+      "id": "CQ-077",
+      "category": "ontological_kind",
+      "question": "Is relational_disposition explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "relational_disposition",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-078",
+      "category": "storage_contract",
+      "question": "Is relational_disposition stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "relational_disposition",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-079",
+      "category": "first_class_concept",
+      "question": "Is narrative_identity assigned to canonical path personality_psychology.narrative_identity?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "narrative_identity",
+        "path": "personality_psychology.narrative_identity"
+      }
+    },
+    {
+      "id": "CQ-080",
+      "category": "ontological_kind",
+      "question": "Is narrative_identity explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "narrative_identity",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-081",
+      "category": "storage_contract",
+      "question": "Is narrative_identity stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "narrative_identity",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-082",
+      "category": "first_class_concept",
+      "question": "Is surface_expression assigned to canonical path personality_psychology.surface_expression?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "surface_expression",
+        "path": "personality_psychology.surface_expression"
+      }
+    },
+    {
+      "id": "CQ-083",
+      "category": "ontological_kind",
+      "question": "Is surface_expression explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "surface_expression",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-084",
+      "category": "storage_contract",
+      "question": "Is surface_expression stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "surface_expression",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-085",
+      "category": "first_class_concept",
+      "question": "Is skill_ability_interest_profile assigned to canonical path abilities_skills_interests.profile?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "skill_ability_interest_profile",
+        "path": "abilities_skills_interests.profile"
+      }
+    },
+    {
+      "id": "CQ-086",
+      "category": "ontological_kind",
+      "question": "Is skill_ability_interest_profile explicitly typed as quality_disposition?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "skill_ability_interest_profile",
+        "kind": "quality_disposition"
+      }
+    },
+    {
+      "id": "CQ-087",
+      "category": "storage_contract",
+      "question": "Is skill_ability_interest_profile stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "skill_ability_interest_profile",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-088",
+      "category": "first_class_concept",
+      "question": "Is routine_profile assigned to canonical path lifestyle_routines.profile?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "routine_profile",
+        "path": "lifestyle_routines.profile"
+      }
+    },
+    {
+      "id": "CQ-089",
+      "category": "ontological_kind",
+      "question": "Is routine_profile explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "routine_profile",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-090",
+      "category": "storage_contract",
+      "question": "Is routine_profile stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "routine_profile",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-091",
+      "category": "first_class_concept",
+      "question": "Is education_attainment assigned to canonical path education_learning.education_attainment?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "education_attainment",
+        "path": "education_learning.education_attainment"
+      }
+    },
+    {
+      "id": "CQ-092",
+      "category": "ontological_kind",
+      "question": "Is education_attainment explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "education_attainment",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-093",
+      "category": "storage_contract",
+      "question": "Is education_attainment stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "education_attainment",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-094",
+      "category": "first_class_concept",
+      "question": "Is occupation assigned to canonical path work_economic_participation.occupation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "occupation",
+        "path": "work_economic_participation.occupation"
+      }
+    },
+    {
+      "id": "CQ-095",
+      "category": "ontological_kind",
+      "question": "Is occupation explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "occupation",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-096",
+      "category": "storage_contract",
+      "question": "Is occupation stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "occupation",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-097",
+      "category": "first_class_concept",
+      "question": "Is marital_relationship_status assigned to canonical path relationships.marital_status?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "marital_relationship_status",
+        "path": "relationships.marital_status"
+      }
+    },
+    {
+      "id": "CQ-098",
+      "category": "ontological_kind",
+      "question": "Is marital_relationship_status explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "marital_relationship_status",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-099",
+      "category": "storage_contract",
+      "question": "Is marital_relationship_status stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "marital_relationship_status",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-100",
+      "category": "first_class_concept",
+      "question": "Is relationship_observation assigned to canonical path relationships.observations?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "relationship_observation",
+        "path": "relationships.observations"
+      }
+    },
+    {
+      "id": "CQ-101",
+      "category": "ontological_kind",
+      "question": "Is relationship_observation explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "relationship_observation",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-102",
+      "category": "storage_contract",
+      "question": "Is relationship_observation stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "relationship_observation",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-103",
+      "category": "first_class_concept",
+      "question": "Is residence assigned to canonical path place_mobility.residence?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "residence",
+        "path": "place_mobility.residence"
+      }
+    },
+    {
+      "id": "CQ-104",
+      "category": "ontological_kind",
+      "question": "Is residence explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "residence",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-105",
+      "category": "storage_contract",
+      "question": "Is residence stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "residence",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-106",
+      "category": "first_class_concept",
+      "question": "Is role assigned to canonical path roles.items?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "role",
+        "path": "roles.items"
+      }
+    },
+    {
+      "id": "CQ-107",
+      "category": "ontological_kind",
+      "question": "Is role explicitly typed as role?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "role",
+        "kind": "role"
+      }
+    },
+    {
+      "id": "CQ-108",
+      "category": "storage_contract",
+      "question": "Is role stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "role",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-109",
+      "category": "first_class_concept",
+      "question": "Is cultural_participation assigned to canonical path culture_language.cultural_participation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "cultural_participation",
+        "path": "culture_language.cultural_participation"
+      }
+    },
+    {
+      "id": "CQ-110",
+      "category": "ontological_kind",
+      "question": "Is cultural_participation explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "cultural_participation",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-111",
+      "category": "storage_contract",
+      "question": "Is cultural_participation stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "cultural_participation",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-112",
+      "category": "first_class_concept",
+      "question": "Is language_use assigned to canonical path culture_language.languages?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "language_use",
+        "path": "culture_language.languages"
+      }
+    },
+    {
+      "id": "CQ-113",
+      "category": "ontological_kind",
+      "question": "Is language_use explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "language_use",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-114",
+      "category": "storage_contract",
+      "question": "Is language_use stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "language_use",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-115",
+      "category": "first_class_concept",
+      "question": "Is life_event assigned to canonical path life_events.items?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "life_event",
+        "path": "life_events.items"
+      }
+    },
+    {
+      "id": "CQ-116",
+      "category": "ontological_kind",
+      "question": "Is life_event explicitly typed as process_event?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "life_event",
+        "kind": "process_event"
+      }
+    },
+    {
+      "id": "CQ-117",
+      "category": "storage_contract",
+      "question": "Is life_event stored as event_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "life_event",
+        "storage": "event_graph"
+      }
+    },
+    {
+      "id": "CQ-118",
+      "category": "first_class_concept",
+      "question": "Is resource assigned to canonical path resources_constraints_opportunities.resources?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "resource",
+        "path": "resources_constraints_opportunities.resources"
+      }
+    },
+    {
+      "id": "CQ-119",
+      "category": "ontological_kind",
+      "question": "Is resource explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "resource",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-120",
+      "category": "storage_contract",
+      "question": "Is resource stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "resource",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-121",
+      "category": "first_class_concept",
+      "question": "Is constraint assigned to canonical path resources_constraints_opportunities.constraints?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "constraint",
+        "path": "resources_constraints_opportunities.constraints"
+      }
+    },
+    {
+      "id": "CQ-122",
+      "category": "ontological_kind",
+      "question": "Is constraint explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "constraint",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-123",
+      "category": "storage_contract",
+      "question": "Is constraint stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "constraint",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-124",
+      "category": "first_class_concept",
+      "question": "Is ecological_context assigned to canonical path context_ecology.contexts?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "ecological_context",
+        "path": "context_ecology.contexts"
+      }
+    },
+    {
+      "id": "CQ-125",
+      "category": "ontological_kind",
+      "question": "Is ecological_context explicitly typed as relation?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "ecological_context",
+        "kind": "relation"
+      }
+    },
+    {
+      "id": "CQ-126",
+      "category": "storage_contract",
+      "question": "Is ecological_context stored as relation_graph?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "ecological_context",
+        "storage": "relation_graph"
+      }
+    },
+    {
+      "id": "CQ-127",
+      "category": "first_class_concept",
+      "question": "Is current_state assigned to canonical path current_state.summary?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_path",
+        "concept": "current_state",
+        "path": "current_state.summary"
+      }
+    },
+    {
+      "id": "CQ-128",
+      "category": "ontological_kind",
+      "question": "Is current_state explicitly typed as state?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_kind",
+        "concept": "current_state",
+        "kind": "state"
+      }
+    },
+    {
+      "id": "CQ-129",
+      "category": "storage_contract",
+      "question": "Is current_state stored as domain_field?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_storage",
+        "concept": "current_state",
+        "storage": "domain_field"
+      }
+    },
+    {
+      "id": "CQ-130",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept mental_health_trigger declare the predicate has_trigger?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "mental_health_trigger",
+        "predicate": "has_trigger"
+      }
+    },
+    {
+      "id": "CQ-131",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept occupation declare the predicate has_role?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "occupation",
+        "predicate": "has_role"
+      }
+    },
+    {
+      "id": "CQ-132",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept relationship_observation declare the predicate related_to_person?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "relationship_observation",
+        "predicate": "related_to_person"
+      }
+    },
+    {
+      "id": "CQ-133",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept residence declare the predicate resides_in?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "residence",
+        "predicate": "resides_in"
+      }
+    },
+    {
+      "id": "CQ-134",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept role declare the predicate has_role?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "role",
+        "predicate": "has_role"
+      }
+    },
+    {
+      "id": "CQ-135",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept cultural_participation declare the predicate participates_in_culture?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "cultural_participation",
+        "predicate": "participates_in_culture"
+      }
+    },
+    {
+      "id": "CQ-136",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept language_use declare the predicate uses_language?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "language_use",
+        "predicate": "uses_language"
+      }
+    },
+    {
+      "id": "CQ-137",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept resource declare the predicate has_resource?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "resource",
+        "predicate": "has_resource"
+      }
+    },
+    {
+      "id": "CQ-138",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept constraint declare the predicate faces_constraint?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "constraint",
+        "predicate": "faces_constraint"
+      }
+    },
+    {
+      "id": "CQ-139",
+      "category": "graph_representability",
+      "question": "Does reviewed graph concept ecological_context declare the predicate situated_in_context?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "concept_relation_predicate",
+        "concept": "ecological_context",
+        "predicate": "situated_in_context"
+      }
+    },
+    {
+      "id": "CQ-140",
+      "category": "typed_relation",
+      "question": "Does has_role restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_role",
+        "object_entity_types": [
+          "role"
+        ]
+      }
+    },
+    {
+      "id": "CQ-141",
+      "category": "typed_relation",
+      "question": "Does related_to_person restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "related_to_person",
+        "object_entity_types": [
+          "person"
+        ]
+      }
+    },
+    {
+      "id": "CQ-142",
+      "category": "typed_relation",
+      "question": "Does located_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "located_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-143",
+      "category": "typed_relation",
+      "question": "Does born_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "born_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-144",
+      "category": "typed_relation",
+      "question": "Does grew_up_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "grew_up_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-145",
+      "category": "typed_relation",
+      "question": "Does lived_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "lived_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-146",
+      "category": "typed_relation",
+      "question": "Does participates_in_culture restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "participates_in_culture",
+        "object_entity_types": [
+          "culture_context"
+        ]
+      }
+    },
+    {
+      "id": "CQ-147",
+      "category": "typed_relation",
+      "question": "Does uses_language restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "uses_language",
+        "object_entity_types": [
+          "language"
+        ]
+      }
+    },
+    {
+      "id": "CQ-148",
+      "category": "typed_relation",
+      "question": "Does member_of restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "member_of",
+        "object_entity_types": [
+          "organization"
+        ]
+      }
+    },
+    {
+      "id": "CQ-149",
+      "category": "typed_relation",
+      "question": "Does works_for restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "works_for",
+        "object_entity_types": [
+          "organization"
+        ]
+      }
+    },
+    {
+      "id": "CQ-150",
+      "category": "typed_relation",
+      "question": "Does studies_at restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "studies_at",
+        "object_entity_types": [
+          "organization"
+        ]
+      }
+    },
+    {
+      "id": "CQ-151",
+      "category": "typed_relation",
+      "question": "Does holds_credential restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "holds_credential",
+        "object_entity_types": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "CQ-152",
+      "category": "typed_relation",
+      "question": "Does has_resource restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_resource",
+        "object_entity_types": [
+          "resource"
+        ]
+      }
+    },
+    {
+      "id": "CQ-153",
+      "category": "typed_relation",
+      "question": "Does faces_constraint restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "faces_constraint",
+        "object_entity_types": [
+          "constraint"
+        ]
+      }
+    },
+    {
+      "id": "CQ-154",
+      "category": "typed_relation",
+      "question": "Does has_opportunity restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_opportunity",
+        "object_entity_types": [
+          "opportunity"
+        ]
+      }
+    },
+    {
+      "id": "CQ-155",
+      "category": "typed_relation",
+      "question": "Does experienced_event restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "experienced_event",
+        "object_entity_types": [
+          "event"
+        ]
+      }
+    },
+    {
+      "id": "CQ-156",
+      "category": "typed_relation",
+      "question": "Does has_health_condition restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_health_condition",
+        "object_entity_types": [
+          "health_condition"
+        ]
+      }
+    },
+    {
+      "id": "CQ-157",
+      "category": "typed_relation",
+      "question": "Does has_symptom_or_experience restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_symptom_or_experience",
+        "object_entity_types": [
+          "generic"
+        ]
+      }
+    },
+    {
+      "id": "CQ-158",
+      "category": "typed_relation",
+      "question": "Does receives_support restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "receives_support",
+        "object_entity_types": [
+          "person",
+          "organization",
+          "resource"
+        ]
+      }
+    },
+    {
+      "id": "CQ-159",
+      "category": "typed_relation",
+      "question": "Does has_trigger restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "has_trigger",
+        "object_entity_types": [
+          "generic",
+          "event"
+        ]
+      }
+    },
+    {
+      "id": "CQ-160",
+      "category": "typed_relation",
+      "question": "Does resides_in restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "resides_in",
+        "object_entity_types": [
+          "place"
+        ]
+      }
+    },
+    {
+      "id": "CQ-161",
+      "category": "typed_relation",
+      "question": "Does situated_in_context restrict its target to the reviewed entity types?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "relation_targets",
+        "predicate": "situated_in_context",
+        "object_entity_types": [
+          "place",
+          "organization",
+          "generic"
+        ]
+      }
+    },
+    {
+      "id": "CQ-162",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source user_provided be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "user_provided"
+      }
+    },
+    {
+      "id": "CQ-163",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source observed be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "observed"
+      }
+    },
+    {
+      "id": "CQ-164",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source measured be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "measured"
+      }
+    },
+    {
+      "id": "CQ-165",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source inferred be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "inferred"
+      }
+    },
+    {
+      "id": "CQ-166",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source generated be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "generated"
+      }
+    },
+    {
+      "id": "CQ-167",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source derived be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "derived"
+      }
+    },
+    {
+      "id": "CQ-168",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source external_reference be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "external_reference"
+      }
+    },
+    {
+      "id": "CQ-169",
+      "category": "epistemic_provenance",
+      "question": "Can the epistemic source input_constraint be represented distinctly?",
+      "critical": true,
+      "evidence_class": "structural_regression",
+      "assertion": {
+        "type": "source_type_exists",
+        "source_type": "input_constraint"
+      }
+    },
+    {
+      "id": "CQ-170",
+      "category": "semantic_boundary",
+      "question": "Birthplace must remain a place/mobility fact.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "place_mobility.birth_place",
+        "domain": "place_mobility"
+      }
+    },
+    {
+      "id": "CQ-171",
+      "category": "semantic_boundary",
+      "question": "Citizenship must remain a legal/institutional fact.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "social_institutional_position.citizenship_nationality",
+        "domain": "social_institutional_position"
+      }
+    },
+    {
+      "id": "CQ-172",
+      "category": "semantic_boundary",
+      "question": "Ethnocultural self-identification must remain self-concept.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "identity_self_concept.ethnocultural_identity",
+        "domain": "identity_self_concept"
+      }
+    },
+    {
+      "id": "CQ-173",
+      "category": "semantic_boundary",
+      "question": "Cultural background/exposure must remain culture/language context.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "culture_language.cultural_backgrounds",
+        "domain": "culture_language"
+      }
+    },
+    {
+      "id": "CQ-174",
+      "category": "semantic_boundary",
+      "question": "Sex characteristics must remain body/health information.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "body_functioning_health.sex_characteristics",
+        "domain": "body_functioning_health"
+      }
+    },
+    {
+      "id": "CQ-175",
+      "category": "semantic_boundary",
+      "question": "Gender expression must not collapse into sex characteristics.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "identity_self_concept.gender_expression",
+        "domain": "identity_self_concept"
+      }
+    },
+    {
+      "id": "CQ-176",
+      "category": "semantic_boundary",
+      "question": "Self-efficacy must remain a cognition/belief, not ability.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "personality_psychology.cognition_beliefs.self_efficacy",
+        "domain": "personality_psychology"
+      }
+    },
+    {
+      "id": "CQ-177",
+      "category": "semantic_boundary",
+      "question": "Knowledge/ability content must remain distinct from efficacy beliefs.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "abilities_skills_interests.knowledge_domains",
+        "domain": "abilities_skills_interests"
+      }
+    },
+    {
+      "id": "CQ-178",
+      "category": "semantic_boundary",
+      "question": "Taking/leaving a role must be represented as an event.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "life_events.role_transition",
+        "domain": "life_events"
+      }
+    },
+    {
+      "id": "CQ-179",
+      "category": "semantic_boundary",
+      "question": "The resulting work role must remain a role.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "roles.work_roles",
+        "domain": "roles"
+      }
+    },
+    {
+      "id": "CQ-180",
+      "category": "semantic_boundary",
+      "question": "Current mood must remain a dynamic state.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "current_state.mood",
+        "domain": "current_state"
+      }
+    },
+    {
+      "id": "CQ-181",
+      "category": "semantic_boundary",
+      "question": "Big Five must remain a trait model, not current state.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "personality_psychology.temperament_traits.ocean",
+        "domain": "personality_psychology"
+      }
+    },
+    {
+      "id": "CQ-182",
+      "category": "semantic_boundary",
+      "question": "Relationship-specific quality must remain on the relationship.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "relationships.relationship_quality",
+        "domain": "relationships"
+      }
+    },
+    {
+      "id": "CQ-183",
+      "category": "semantic_boundary",
+      "question": "General relational tendencies must remain person-level dispositions.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "personality_psychology.relational_dispositions",
+        "domain": "personality_psychology"
+      }
+    },
+    {
+      "id": "CQ-184",
+      "category": "semantic_boundary",
+      "question": "Usable social resources must remain a projection/resource concept.",
+      "critical": true,
+      "evidence_class": "boundary_regression",
+      "assertion": {
+        "type": "catalog_path_domain",
+        "path": "resources_constraints_opportunities.social_resources",
+        "domain": "resources_constraints_opportunities"
+      }
+    }
+  ]
+}

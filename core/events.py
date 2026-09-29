@@ -450,39 +450,61 @@ def sample_events_for_persona(
             seen_ids.add(e.name_cn)
             unique_diag_events.append(e)
 
-    # 选 1-2 个诊断关联事件（优先高 LCU）
-    if unique_diag_events and lcu_bias > 0:
-        weights = [1.0 + lcu_bias * (e.lcu - 50) / 50 for e in unique_diag_events]
-        weights = [max(0.1, w) for w in weights]
-        n_diag = min(rng.randint(1, 2), len(unique_diag_events))
-        selected = list(rng.choices(unique_diag_events, weights=weights, k=n_diag))
+    # 选 1-2 个诊断关联事件（优先高 LCU；无放回，避免重复事件）
+    n_diag = min(rng.randint(1, 2), len(unique_diag_events), max(0, n_events))
+    if n_diag > 0 and lcu_bias > 0:
+        diag_pool = list(unique_diag_events)
+        selected = []
+        for _ in range(n_diag):
+            weights = [max(0.1, 1.0 + lcu_bias * (e.lcu - 50) / 50) for e in diag_pool]
+            idx = rng.choices(range(len(diag_pool)), weights=weights, k=1)[0]
+            selected.append(diag_pool.pop(idx))
     else:
-        n_diag = min(rng.randint(1, 2), len(unique_diag_events))
         selected = rng.sample(unique_diag_events, n_diag) if n_diag > 0 else []
 
     # 从通用事件中补足
     general_events = [e for e in candidates if e not in selected]
-    remaining = n_events - len(selected)
+    remaining = max(0, n_events - len(selected))
 
     if remaining > 0:
-        # 按效价比例分层采样
-        n_pos = max(1, round(remaining * positive_ratio))
-        n_neg = max(1, round(remaining * negative_ratio))
-        n_neu = remaining - n_pos - n_neg
+        # 按效价比例分层采样。配额必须非负且总和精确等于 remaining。
+        ratios = [
+            max(0.0, float(positive_ratio)),
+            max(0.0, float(negative_ratio)),
+            max(0.0, float(neutral_ratio)),
+        ]
+        ratio_sum = sum(ratios)
+        if ratio_sum <= 0:
+            ratios = [1.0, 1.0, 1.0]
+            ratio_sum = 3.0
+
+        raw = [remaining * r / ratio_sum for r in ratios]
+        counts = [int(x) for x in raw]
+        for idx in sorted(
+            range(3),
+            key=lambda i: (raw[i] - counts[i], ratios[i]),
+            reverse=True,
+        )[: remaining - sum(counts)]:
+            counts[idx] += 1
+        n_pos, n_neg, n_neu = counts
 
         pos_pool = [e for e in general_events if e.valence == "positive" and e.name_cn not in seen_ids]
         neg_pool = [e for e in general_events if e.valence == "negative" and e.name_cn not in seen_ids]
         neu_pool = [e for e in general_events if e.valence == "neutral" and e.name_cn not in seen_ids]
 
         def weighted_sample(pool, n, bias=lcu_bias):
-            if not pool or n == 0:
+            n = max(0, min(int(n), len(pool)))
+            if not pool or n <= 0:
                 return []
             if bias > 0 and any(e.valence == "negative" for e in pool):
-                weights = [1.0 + bias * (e.lcu - 50) / 50 for e in pool]
-                weights = [max(0.1, w) for w in weights]
-                k = min(n, len(pool))
-                return list(rng.choices(pool, weights=weights, k=k))
-            return rng.sample(pool, min(n, len(pool)))
+                available = list(pool)
+                result = []
+                for _ in range(n):
+                    weights = [max(0.1, 1.0 + bias * (e.lcu - 50) / 50) for e in available]
+                    idx = rng.choices(range(len(available)), weights=weights, k=1)[0]
+                    result.append(available.pop(idx))
+                return result
+            return rng.sample(pool, n)
 
         selected.extend(weighted_sample(pos_pool, n_pos))
         selected.extend(weighted_sample(neg_pool, n_neg, lcu_bias))

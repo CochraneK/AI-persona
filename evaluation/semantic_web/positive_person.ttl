@@ -1,0 +1,13 @@
+@prefix ho: <https://w3id.org/human-ontology/> .
+@prefix ex: <https://example.org/human-ontology-test/> .
+
+ex:person-1 a ho:Person ;
+  ho:has_role ex:role-professor ;
+  ho:uses_language ex:language-en ;
+  ho:resides_in ex:place-manchester ;
+  ho:situated_in_context ex:org-university .
+
+ex:role-professor a ho:Role .
+ex:language-en a ho:Language .
+ex:place-manchester a ho:Place .
+ex:org-university a ho:Organization .

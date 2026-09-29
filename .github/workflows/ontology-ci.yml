@@ -1,28 +1,204 @@
 name: Human Ontology CI
 
+permissions:
+  contents: read
+
 on:
   push:
     paths:
       - "ontology/**"
-      - "core/human_ontology.py"
+      - "evaluation/**"
+      - "core/**"
       - "scripts/validate_human_ontology.py"
+      - "scripts/validate_human_ontology_v2.py"
+      - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_persona_kernel_contract.py"
+      - "scripts/test_events_sampling.py"
+      - "scripts/test_ontology_json_assets.py"
+      - "scripts/check_ontology_release_gate.py"
+      - "scripts/run_ontology_ci.py"
+      - "scripts/evaluate_human_ontology.py"
+      - "scripts/analyze_annotation_reliability.py"
+      - "scripts/test_multi_ai_benchmark.py"
+      - "scripts/analyze_multi_ai_benchmark.py"
+      - "scripts/run_multi_ai_benchmark.py"
+      - "scripts/multi_ai_client.py"
+      - "scripts/build_multi_ai_benchmark.py"
+      - "scripts/export_semantic_projection.py"
+      - "scripts/validate_semantic_web.py"
+      - "evaluation/requirements-semantic-web.txt"
       - ".github/workflows/ontology-ci.yml"
   pull_request:
     paths:
       - "ontology/**"
-      - "core/human_ontology.py"
+      - "evaluation/**"
+      - "core/**"
       - "scripts/validate_human_ontology.py"
+      - "scripts/validate_human_ontology_v2.py"
+      - "scripts/test_persona_kernel_compat.py"
+      - "scripts/test_persona_kernel_contract.py"
+      - "scripts/test_events_sampling.py"
+      - "scripts/test_ontology_json_assets.py"
+      - "scripts/check_ontology_release_gate.py"
+      - "scripts/run_ontology_ci.py"
+      - "scripts/evaluate_human_ontology.py"
+      - "scripts/analyze_annotation_reliability.py"
+      - "scripts/test_multi_ai_benchmark.py"
+      - "scripts/analyze_multi_ai_benchmark.py"
+      - "scripts/run_multi_ai_benchmark.py"
+      - "scripts/multi_ai_client.py"
+      - "scripts/build_multi_ai_benchmark.py"
+      - "scripts/export_semantic_projection.py"
+      - "scripts/validate_semantic_web.py"
+      - "evaluation/requirements-semantic-web.txt"
       - ".github/workflows/ontology-ci.yml"
 
 jobs:
-  validate:
+  json-assets:
+    name: JSON assets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
-      - name: Validate canonical Human Ontology
-        run: python scripts/validate_human_ontology.py
-      - name: Compile ontology loader
-        run: python -m py_compile core/human_ontology.py
+      - run: python scripts/test_ontology_json_assets.py
+
+  validate-v1:
+    name: Validate v1 compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/validate_human_ontology.py
+
+  validate-v2:
+    name: Validate v2 ontology
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/validate_human_ontology_v2.py
+
+  runtime:
+    name: Compile + Kernel smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python -m py_compile core/*.py
+      - name: Persona Kernel metadata smoke
+        run: |
+          python - <<'PY'
+          from core.persona_kernel import PersonaKernel, FieldMetadata
+          p = PersonaKernel("ci-person")
+          p.set_value(
+              "current_state",
+              "mood",
+              "neutral",
+              FieldMetadata("generated", 0.5, "ci-smoke", "dynamic_state"),
+          )
+          assert p.get_value("current_state", "mood") == "neutral"
+          assert p.to_dict()["ontology_version"] == "2.0.0-rc2"
+          print("Persona Kernel smoke test: OK")
+          PY
+
+  compatibility:
+    name: Legacy compatibility + semantic firewall
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/test_persona_kernel_compat.py
+
+  kernel-contract:
+    name: PersonaKernel contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/test_persona_kernel_contract.py
+
+  event-regression:
+    name: Event sampling regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/test_events_sampling.py
+
+  scientific-evaluation:
+    name: Scientific evaluation machine gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/evaluate_human_ontology.py
+
+  semantic-projection:
+    name: Semantic projection drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/export_semantic_projection.py --check
+
+  multi-ai-regression:
+    name: Multi-AI benchmark regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/build_multi_ai_benchmark.py --check
+      - run: python scripts/test_multi_ai_benchmark.py
+
+  semantic-web-validation:
+    name: SHACL standards validation
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r evaluation/requirements-semantic-web.txt
+      - run: python scripts/validate_semantic_web.py
+
+  release-gate:
+    name: Repository release gate
+    runs-on: ubuntu-latest
+    needs:
+      - json-assets
+      - validate-v1
+      - validate-v2
+      - runtime
+      - compatibility
+      - kernel-contract
+      - event-regression
+      - scientific-evaluation
+      - semantic-projection
+      - multi-ai-regression
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: python scripts/check_ontology_release_gate.py

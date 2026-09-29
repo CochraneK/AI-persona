@@ -1,0 +1,97 @@
+{
+  "migration_id": "human-ontology-v1-to-v2",
+  "from_version": "1.0.0",
+  "to_version": "2.0.0-rc2",
+  "strategy": "semantic-home migration; preserve data, replace duplicated ownership with typed references",
+  "axis_map": {
+    "time_development": [
+      "development"
+    ],
+    "place_mobility": [
+      "place_mobility"
+    ],
+    "culture_language": [
+      "culture_language",
+      "identity_self_concept"
+    ],
+    "sex_gender_orientation": [
+      "body_functioning_health",
+      "identity_self_concept",
+      "relationships"
+    ],
+    "body_health": [
+      "body_functioning_health"
+    ],
+    "mental_neurodevelopmental_health": [
+      "mental_neurodevelopmental_health"
+    ],
+    "education_learning": [
+      "education_learning",
+      "abilities_skills_interests",
+      "roles"
+    ],
+    "work_economic_position": [
+      "work_economic_participation",
+      "roles",
+      "resources_constraints_opportunities"
+    ],
+    "social_structural_position": [
+      "social_institutional_position",
+      "identity_self_concept"
+    ],
+    "family_household": [
+      "relationships",
+      "roles",
+      "context_ecology"
+    ],
+    "relationships_networks": [
+      "relationships"
+    ],
+    "personality_psychology": [
+      "personality_psychology"
+    ],
+    "abilities_skills_interests": [
+      "abilities_skills_interests"
+    ],
+    "lifestyle_routines": [
+      "lifestyle_routines"
+    ],
+    "life_events_history": [
+      "life_events"
+    ],
+    "ecology_macro_context": [
+      "context_ecology"
+    ],
+    "resources_constraints_opportunities": [
+      "resources_constraints_opportunities"
+    ],
+    "roles_responsibilities": [
+      "roles"
+    ],
+    "current_state": [
+      "current_state"
+    ]
+  },
+  "overlap_resolutions": {
+    "partner_spouse_vs_romantic_relationships": "Represent the other person once; encode partner/spouse as relationship type and spouse/partner obligations as roles where applicable.",
+    "income_wealth_vs_material_resources": "Economic amounts and ownership live in work_economic_participation; current usability/availability is referenced by resources_constraints_opportunities.",
+    "housing_context_vs_household_context": "Residence/place relation stores where and what dwelling; context_ecology stores environmental conditions; household membership is a relationship graph.",
+    "relational_patterns_vs_relationship_quality": "Personality stores person-level dispositions; relationships stores observed or relationship-specific quality.",
+    "sleep_vs_sleep_routine": "Health stores sleep functioning/impairment; lifestyle stores recurring sleep behavior.",
+    "social_resources_vs_support_network": "Relationships defines people/ties; resources references the subset currently available as support.",
+    "work_roles_vs_employment_status": "Work participation belongs to work_economic_participation; role obligations and role identity belong to roles.",
+    "education_vs_learning_ability": "Education participation/credentials belong to education_learning; general ability/skill belongs to abilities_skills_interests.",
+    "cultural_affiliation_vs_identity": "Participation/exposure belongs to culture_language; self-ascribed identity may reference that participation from identity_self_concept.",
+    "citizenship_vs_culture": "Citizenship/legal status belongs to social_institutional_position and must not be used as a proxy for culture.",
+    "historical_period_vs_historical_events": "Development stores cohort/life-course placement; life_events/context references historical processes affecting the person."
+  },
+  "legacy_policy": {
+    "diagnosis_ontology.json": "retain; mount as psychiatric_diagnosis domain module",
+    "archetype_grid": "retain; classify as narrative_identity generative model, not psychometric or diagnostic truth",
+    "ocean": "retain; map to personality_psychology.temperament_traits",
+    "events": "retain; migrate to typed process_event records",
+    "flat_persona_fields": "retain through adapter until Persona Kernel v2 is production default"
+  },
+  "field_level_mapping_file": "V1_FIELD_MIGRATION.json",
+  "field_level_coverage": "all v1 subaxes and personality layers"
+}

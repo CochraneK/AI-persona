@@ -1,5 +1,5 @@
 """
-主生成逻辑 — 整合四大模块 + 诊断本体，生成完整 Persona
+Legacy-compatible Persona 生成器 — 保留 v1.x 行为并向 Human Ontology v2 迁移
 
 用法：
   from core import generate_persona
@@ -246,7 +246,7 @@ class Persona:
     cognitive_styles: list[str] = field(default_factory=list)  # 认知风格
     coping_styles: list[str] = field(default_factory=list)    # 应对方式
 
-    # --- MECE 六维度扩展（v2 增强） ---
+    # --- legacy 六维生成字段（非 canonical ontology） ---
     social_relations: dict = field(default_factory=dict)       # 社会关系特征
     values_beliefs: dict = field(default_factory=dict)         # 价值观与信念
     communication_style: dict = field(default_factory=dict)    # 沟通风格
@@ -591,7 +591,7 @@ class PersonaGenerator:
         if p.coping_styles:
             lines.append(f"- 常用应对方式：{'、'.join(p.coping_styles)}")
 
-        # MECE 六维度
+        # legacy 六维生成字段
         if p.social_relations:
             sr = p.social_relations
             lines.append(f"\n## 社会关系")
@@ -810,7 +810,9 @@ class PersonaGenerator:
         comorb_names = [ci["name_cn"] for ci in comorb_infos]
 
         # ---- 3b. 人设元类型（Archetype Grid，v1.2）----
-        # 型决定心理内核（wound→desire→need 因果链），诊断只决定症状学外壳。
+        # LEGACY v1.2: diagnosis-keyed archetype sampling is retained only for reproducibility.
+        # Human Ontology v2 treats archetype as narrative_identity content, not evidence
+        # that diagnosis determines personality, wounds, motives, needs or life trajectory.
         # 未定义网格的诊断返回 None，回退旧采样逻辑（向后兼容）。
         archetype = sample_archetype(diag_key, rng=self.rng)
 
@@ -864,7 +866,7 @@ class PersonaGenerator:
             n_coping=self.coping_count,
         )
 
-        # ---- 5b. MECE 六维度（v2 增强）----
+        # ---- 5b. legacy 六维生成字段（非 canonical ontology）----
         # v1.2: 先用 archetype 基调覆盖诊断默认（型专属优先，列表字段合并去重）
         _raw_social = sample_social_relations(diag_key, rng=self.rng)
         _raw_social = apply_archetype_tone(_raw_social, archetype, "social_tone")
@@ -981,7 +983,7 @@ class PersonaGenerator:
             cognitive_styles=cognitive,
             coping_styles=coping,
 
-            # MECE 六维度
+            # legacy 六维生成字段
             social_relations=social_relations,
             values_beliefs=values_beliefs,
             communication_style=communication_style,

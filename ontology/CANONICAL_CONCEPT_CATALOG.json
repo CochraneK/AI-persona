@@ -1,0 +1,4851 @@
+{
+  "catalog_id": "human-ontology-canonical-concept-catalog",
+  "version": "2.0.0-rc2",
+  "status": "release_candidate",
+  "purpose": "Exhaustive catalog of canonical v2 migration targets. Reviewed first-class concepts carry strict contracts; migrated-only leaves remain explicitly provisional until leaf-level concept review.",
+  "review_policy": {
+    "reviewed": "Definition, kind, cardinality, temporality, sensitivity, storage and value contract reviewed.",
+    "provisional_migrated": "Canonical semantic home accepted through migration review; leaf-level kind/value details may be refined without moving the semantic home unless a major ontology review approves it."
+  },
+  "counts": {
+    "concepts": 205,
+    "reviewed": 31,
+    "provisional_migrated": 174
+  },
+  "concepts": [
+    {
+      "concept_id": "abilities_skills_interests__artistic_preferences",
+      "canonical_path": "abilities_skills_interests.artistic_preferences",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.artistic_preferences. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.artistic_preferences",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__cognitive_abilities",
+      "canonical_path": "abilities_skills_interests.cognitive_abilities",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.cognitive_abilities. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.cognitive_abilities",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__creative_skills",
+      "canonical_path": "abilities_skills_interests.creative_skills",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.creative_skills. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.creative_skills",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__expertise",
+      "canonical_path": "abilities_skills_interests.expertise",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.expertise. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.expertise",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__interests_hobbies",
+      "canonical_path": "abilities_skills_interests.interests_hobbies",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.interests_hobbies. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.interests_hobbies",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__knowledge_domains",
+      "canonical_path": "abilities_skills_interests.knowledge_domains",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.knowledge_domains. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.knowledge_domains",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__language_proficiency",
+      "canonical_path": "abilities_skills_interests.language_proficiency",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for culture_language.language_proficiency. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.language_proficiency",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__physical_skills",
+      "canonical_path": "abilities_skills_interests.physical_skills",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.physical_skills. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.physical_skills",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "skill_ability_interest_profile",
+      "canonical_path": "abilities_skills_interests.profile",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Structured profile of abilities, learned skills, expertise and interests.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "abilities_skills_interests__social_skills",
+      "canonical_path": "abilities_skills_interests.social_skills",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.social_skills. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.social_skills",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "abilities_skills_interests__technical_skills",
+      "canonical_path": "abilities_skills_interests.technical_skills",
+      "domain": "abilities_skills_interests",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for abilities_skills_interests.technical_skills. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.technical_skills",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__body_morphology",
+      "canonical_path": "body_functioning_health.body_morphology",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.body_morphology. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.body_morphology",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__disability_functioning",
+      "canonical_path": "body_functioning_health.disability_functioning",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.disability_functioning. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.disability_functioning",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__health_history",
+      "canonical_path": "body_functioning_health.health_history",
+      "domain": "body_functioning_health",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for body_health.health_history. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.health_history",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "physical_appearance",
+      "canonical_path": "body_functioning_health.physical_appearance",
+      "domain": "body_functioning_health",
+      "kind": "quality_disposition",
+      "definition": "Descriptive physical-appearance observations or self-descriptions without inferring identity or health.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.physical_appearance",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__physical_health",
+      "canonical_path": "body_functioning_health.physical_health",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.physical_health. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.physical_health",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__reproductive_health",
+      "canonical_path": "body_functioning_health.reproductive_health",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.reproductive_health. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.reproductive_health",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__sensory_motor_function",
+      "canonical_path": "body_functioning_health.sensory_motor_function",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.sensory_motor_function. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.sensory_motor_function",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__sex_assigned_at_birth",
+      "canonical_path": "body_functioning_health.sex_assigned_at_birth",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for sex_gender_orientation.sex_assigned_at_birth. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.sex_assigned_at_birth",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__sex_characteristics",
+      "canonical_path": "body_functioning_health.sex_characteristics",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for sex_gender_orientation.sex_characteristics. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.sex_characteristics",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__sleep_functioning",
+      "canonical_path": "body_functioning_health.sleep_functioning",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.sleep. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.sleep",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "body_functioning_health__substance_related_health",
+      "canonical_path": "body_functioning_health.substance_related_health",
+      "domain": "body_functioning_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.substance_use. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.substance_use",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "ecological_context",
+      "canonical_path": "context_ecology.contexts",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "A relation to an external ecological/contextual entity; external conditions are distinct from the person's traits.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place",
+          "organization",
+          "generic"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "situated_in_context"
+    },
+    {
+      "concept_id": "context_ecology__digital_platform_environment",
+      "canonical_path": "context_ecology.digital_platform_environment",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.digital_platform_environment. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.digital_platform_environment",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__economic_conditions",
+      "canonical_path": "context_ecology.economic_conditions",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for ecology_macro_context.economic_conditions. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.economic_conditions",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__education_system",
+      "canonical_path": "context_ecology.education_system",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.education_system. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.education_system",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__environment_climate",
+      "canonical_path": "context_ecology.environment_climate",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for ecology_macro_context.environment_climate. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.environment_climate",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__gender_role_context",
+      "canonical_path": "context_ecology.gender_role_context",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for sex_gender_orientation.gender_role_context. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.gender_role_context",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__healthcare_system",
+      "canonical_path": "context_ecology.healthcare_system",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.healthcare_system. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.healthcare_system",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__historical_events",
+      "canonical_path": "context_ecology.historical_events",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.historical_events. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.historical_events",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__household_context",
+      "canonical_path": "context_ecology.household_context",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.household_context. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.household_context",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__labor_market",
+      "canonical_path": "context_ecology.labor_market",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.labor_market. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.labor_market",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__neighborhood",
+      "canonical_path": "context_ecology.neighborhood",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.neighborhood. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.neighborhood",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__physical_environment",
+      "canonical_path": "context_ecology.physical_environment",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for place_mobility.physical_environment. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.physical_environment",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__policy_legal_context",
+      "canonical_path": "context_ecology.policy_legal_context",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for ecology_macro_context.policy_legal_context. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.policy_legal_context",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__regional_context",
+      "canonical_path": "context_ecology.regional_context",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.regional_context. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.regional_context",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__school_work_institutions",
+      "canonical_path": "context_ecology.school_work_institutions",
+      "domain": "context_ecology",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for ecology_macro_context.school_work_institutions. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.school_work_institutions",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "context_ecology__social_norms",
+      "canonical_path": "context_ecology.social_norms",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for ecology_macro_context.social_norms. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.social_norms",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__technology_media_environment",
+      "canonical_path": "context_ecology.technology_media_environment",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for ecology_macro_context.technology_media_environment. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "ecology_macro_context.technology_media_environment",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "context_ecology__urbanicity",
+      "canonical_path": "context_ecology.urbanicity",
+      "domain": "context_ecology",
+      "kind": "state",
+      "definition": "Migrated canonical concept for place_mobility.urbanicity. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.urbanicity",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "culture_language__cross_cultural_experience",
+      "canonical_path": "culture_language.cross_cultural_experience",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.cross_cultural_experience. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.cross_cultural_experience",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "culture_language__cultural_backgrounds",
+      "canonical_path": "culture_language.cultural_backgrounds",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.cultural_backgrounds. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.cultural_backgrounds",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "cultural_participation",
+      "canonical_path": "culture_language.cultural_participation",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Participation in or exposure to a cultural/religious/socialization context; not inferred from geography or citizenship.",
+      "cardinality": "0..*",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "culture_context"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "participates_in_culture"
+    },
+    {
+      "concept_id": "culture_language__customs_norms_exposure",
+      "canonical_path": "culture_language.customs_norms_exposure",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.customs_norms_exposure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.customs_norms_exposure",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "culture_language__enculturation_contexts",
+      "canonical_path": "culture_language.enculturation_contexts",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.enculturation_contexts. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.enculturation_contexts",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "language_use",
+      "canonical_path": "culture_language.languages",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Use, learning or proficiency relation to a language.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "language"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.languages",
+          "migration_action": "relationize"
+        }
+      ],
+      "relation_predicate": "uses_language"
+    },
+    {
+      "concept_id": "culture_language__media_culture_exposure",
+      "canonical_path": "culture_language.media_culture_exposure",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.media_culture_exposure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.media_culture_exposure",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "culture_language__religion_spirituality",
+      "canonical_path": "culture_language.religion_spirituality",
+      "domain": "culture_language",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for culture_language.religion_spirituality. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.religion_spirituality",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "current_state__autonomy",
+      "canonical_path": "current_state.autonomy",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.autonomy. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.autonomy",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__competence",
+      "canonical_path": "current_state.competence",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.competence. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.competence",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__current_conflicts",
+      "canonical_path": "current_state.current_conflicts",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.current_conflicts. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.current_conflicts",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__current_goals",
+      "canonical_path": "current_state.current_goals",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.current_goals. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.current_goals",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__energy",
+      "canonical_path": "current_state.energy",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.energy. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.energy",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__financial_strain",
+      "canonical_path": "current_state.financial_strain",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.financial_strain. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.financial_strain",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__health_burden",
+      "canonical_path": "current_state.health_burden",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.health_burden. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.health_burden",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__mood",
+      "canonical_path": "current_state.mood",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.mood. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.mood",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__relatedness",
+      "canonical_path": "current_state.relatedness",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.relatedness. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.relatedness",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state__stress",
+      "canonical_path": "current_state.stress",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.stress. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.stress",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "current_state",
+      "canonical_path": "current_state.summary",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Time-indexed current person state that must not be mistaken for an enduring trait or historical event.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "current_state__support",
+      "canonical_path": "current_state.support",
+      "domain": "current_state",
+      "kind": "state",
+      "definition": "Migrated canonical concept for current_state.support. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "current_state.support",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "development__birth_cohort",
+      "canonical_path": "development.birth_cohort",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Migrated canonical concept for time_development.birth_cohort. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.birth_cohort",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "development__birth_date_year",
+      "canonical_path": "development.birth_date_year",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Migrated canonical concept for time_development.birth_date_year. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.birth_date_year",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "chronological_age",
+      "canonical_path": "development.chronological_age",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Elapsed chronological age at a stated reference time.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "non_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "integer",
+        "minimum": 0,
+        "unit": "year",
+        "reference_time_required": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.chronological_age",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "developmental_stage",
+      "canonical_path": "development.developmental_stage",
+      "domain": "development",
+      "kind": "state",
+      "definition": "A reviewed life-course/developmental stage classification at a stated time.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "non_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term",
+        "vocabulary": "canonical_developmental_stages"
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.developmental_stage",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "development__historical_period",
+      "canonical_path": "development.historical_period",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Migrated canonical concept for time_development.historical_period. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.historical_period",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "development__life_role_stage",
+      "canonical_path": "development.life_role_stage",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Migrated canonical concept for time_development.life_role_stage. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.life_role_stage",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "development__major_transition_status",
+      "canonical_path": "development.major_transition_status",
+      "domain": "development",
+      "kind": "state",
+      "definition": "Migrated canonical concept for time_development.major_transition_status. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "time_development.major_transition_status",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "education_learning__current_education_status",
+      "canonical_path": "education_learning.current_education_status",
+      "domain": "education_learning",
+      "kind": "state",
+      "definition": "Migrated canonical concept for education_learning.current_education_status. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.current_education_status",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "education_attainment",
+      "canonical_path": "education_learning.education_attainment",
+      "domain": "education_learning",
+      "kind": "state",
+      "definition": "Current highest/attained education level or attainment summary; individual credentials may be represented as relations.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term_or_object",
+        "vocabulary": "consumer_or_locale_specific"
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.education_attainment",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "education_learning__education_field",
+      "canonical_path": "education_learning.education_field",
+      "domain": "education_learning",
+      "kind": "state",
+      "definition": "Migrated canonical concept for education_learning.education_field. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.education_field",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "education_learning__learning_access_history",
+      "canonical_path": "education_learning.learning_access_history",
+      "domain": "education_learning",
+      "kind": "state",
+      "definition": "Migrated canonical concept for education_learning.learning_access. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.learning_access",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "education_learning__learning_history",
+      "canonical_path": "education_learning.learning_history",
+      "domain": "education_learning",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for education_learning.learning_history. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.learning_history",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "education_learning__training_credentials",
+      "canonical_path": "education_learning.training_credentials",
+      "domain": "education_learning",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for education_learning.training_credentials. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.training_credentials",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "identity_self_concept__acculturation_bicultural_orientation",
+      "canonical_path": "identity_self_concept.acculturation_bicultural_orientation",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for culture_language.acculturation_bicultural_orientation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.acculturation_bicultural_orientation",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__caste_tribe_clan_identity",
+      "canonical_path": "identity_self_concept.caste_tribe_clan_identity",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for culture_language.caste_tribe_clan_identity. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.caste_tribe_clan_identity",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__ethnocultural_identity",
+      "canonical_path": "identity_self_concept.ethnocultural_identity",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for culture_language.ethnocultural_identity. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.ethnocultural_identity",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__gender_expression",
+      "canonical_path": "identity_self_concept.gender_expression",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for sex_gender_orientation.gender_expression. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.gender_expression",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "gender_identity",
+      "canonical_path": "identity_self_concept.gender_identity",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Self-described gender identity; not inferred from sex characteristics, name, appearance or role.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "open_vocabulary": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.gender_identity",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__pronouns",
+      "canonical_path": "identity_self_concept.pronouns",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for sex_gender_orientation.pronouns. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.pronouns",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__racialized_identity",
+      "canonical_path": "identity_self_concept.racialized_identity",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for culture_language.racialized_identity. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "culture_language.racialized_identity",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__romantic_orientation",
+      "canonical_path": "identity_self_concept.romantic_orientation",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for sex_gender_orientation.romantic_orientation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.romantic_orientation",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__self_presentation",
+      "canonical_path": "identity_self_concept.self_presentation",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for body_health.self_presentation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.self_presentation",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "identity_self_concept__sexual_orientation",
+      "canonical_path": "identity_self_concept.sexual_orientation",
+      "domain": "identity_self_concept",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for sex_gender_orientation.sexual_orientation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "sex_gender_orientation.sexual_orientation",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__actors",
+      "canonical_path": "life_events.actors",
+      "domain": "life_events",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for life_events_history.actors. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.actors",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "life_events__delayed_consequence",
+      "canonical_path": "life_events.delayed_consequence",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.delayed_consequence. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.delayed_consequence",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__event_source_provenance",
+      "canonical_path": "life_events.event_source_provenance",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.event_source_provenance. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.event_source_provenance",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__event_subjective_meaning",
+      "canonical_path": "life_events.event_subjective_meaning",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.event_subjective_meaning. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.event_subjective_meaning",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__event_time",
+      "canonical_path": "life_events.event_time",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.event_time. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.event_time",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__event_type",
+      "canonical_path": "life_events.event_type",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.event_type. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.event_type",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__immediate_consequence",
+      "canonical_path": "life_events.immediate_consequence",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.immediate_consequence. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.immediate_consequence",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__impact_profile",
+      "canonical_path": "life_events.impact_profile",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.impact_profile. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.impact_profile",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_event",
+      "canonical_path": "life_events.items",
+      "domain": "life_events",
+      "kind": "process_event",
+      "definition": "A time-indexed event/process involving or affecting the person.",
+      "cardinality": "0..*",
+      "temporal_class": "event_history",
+      "sensitivity": "context_dependent",
+      "storage": "event_graph",
+      "value_contract": {
+        "type": "event_record"
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "life_events__life_domain",
+      "canonical_path": "life_events.life_domain",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.life_domain. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.life_domain",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__memory_callback",
+      "canonical_path": "life_events.memory_callback",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.memory_callback. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.memory_callback",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__pressure_shape",
+      "canonical_path": "life_events.pressure_shape",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.pressure_shape. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.pressure_shape",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__role_transition",
+      "canonical_path": "life_events.role_transition",
+      "domain": "life_events",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for roles_responsibilities.role_transition. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.role_transition",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "life_events__turning_point",
+      "canonical_path": "life_events.turning_point",
+      "domain": "life_events",
+      "kind": "state",
+      "definition": "Migrated canonical concept for life_events_history.turning_point. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "life_events_history.turning_point",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__appearance_grooming_routine",
+      "canonical_path": "lifestyle_routines.appearance_grooming_routine",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.appearance_grooming_routine. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.appearance_grooming_routine",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__caregiving_routine",
+      "canonical_path": "lifestyle_routines.caregiving_routine",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.caregiving_routine. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.caregiving_routine",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__consumption_habits",
+      "canonical_path": "lifestyle_routines.consumption_habits",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.consumption_habits. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.consumption_habits",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__daily_routine",
+      "canonical_path": "lifestyle_routines.daily_routine",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.daily_routine. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.daily_routine",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__diet",
+      "canonical_path": "lifestyle_routines.diet",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.diet. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.diet",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__digital_use",
+      "canonical_path": "lifestyle_routines.digital_use",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.digital_use. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.digital_use",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__exercise",
+      "canonical_path": "lifestyle_routines.exercise",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.exercise. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.exercise",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__leisure",
+      "canonical_path": "lifestyle_routines.leisure",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.leisure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.leisure",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__media_consumption",
+      "canonical_path": "lifestyle_routines.media_consumption",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.media_consumption. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.media_consumption",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "routine_profile",
+      "canonical_path": "lifestyle_routines.profile",
+      "domain": "lifestyle_routines",
+      "kind": "state",
+      "definition": "A time-indexed summary/projection of recurring lifestyle routines; underlying activities may be represented as processes/events.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "lifestyle_routines__sleep_routine",
+      "canonical_path": "lifestyle_routines.sleep_routine",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for lifestyle_routines.sleep_routine. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "lifestyle_routines.sleep_routine",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "lifestyle_routines__substance_use",
+      "canonical_path": "lifestyle_routines.substance_use",
+      "domain": "lifestyle_routines",
+      "kind": "process_event",
+      "definition": "Migrated canonical concept for body_health.substance_use. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "event_or_domain_process",
+      "value_contract": {
+        "type": "process_or_event_record",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.substance_use",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "diagnosis",
+      "canonical_path": "mental_neurodevelopmental_health.diagnoses",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "A diagnostic assertion/classification about a health condition, distinct from the condition itself and from symptoms/functioning.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "highly_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label",
+            "source_type",
+            "provenance",
+            "temporal_class"
+          ],
+          "recommended": [
+            "code_system",
+            "code",
+            "role"
+          ]
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.diagnoses",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__functional_impact",
+      "canonical_path": "mental_neurodevelopmental_health.functional_impact",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.functional_impact. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.functional_impact",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__mental_health_status",
+      "canonical_path": "mental_neurodevelopmental_health.mental_health_status",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.mental_health_status. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.mental_health_status",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__neurodevelopmental_conditions",
+      "canonical_path": "mental_neurodevelopmental_health.neurodevelopmental_conditions",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.neurodevelopmental_conditions. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.neurodevelopmental_conditions",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__recovery_course",
+      "canonical_path": "mental_neurodevelopmental_health.recovery_course",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.recovery_course. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.recovery_course",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__risk_protective_factors",
+      "canonical_path": "mental_neurodevelopmental_health.risk_protective_factors",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.risk_protective_factors. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.risk_protective_factors",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "safety_behavior",
+      "canonical_path": "mental_neurodevelopmental_health.safety_behaviors",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "process_event",
+      "definition": "A recurring or situational behavior used to reduce perceived threat or distress.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "highly_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string_or_object"
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__symptoms_experiences",
+      "canonical_path": "mental_neurodevelopmental_health.symptoms_experiences",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "state",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.symptoms_experiences. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.symptoms_experiences",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "mental_neurodevelopmental_health__treatment_support",
+      "canonical_path": "mental_neurodevelopmental_health.treatment_support",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for mental_neurodevelopmental_health.treatment_support. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "mental_neurodevelopmental_health.treatment_support",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "mental_health_trigger",
+      "canonical_path": "mental_neurodevelopmental_health.triggers",
+      "domain": "mental_neurodevelopmental_health",
+      "kind": "relation",
+      "definition": "A typed relation to a situation, event or cue associated with a mental-health response.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "highly_sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "generic",
+          "event"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "has_trigger"
+    },
+    {
+      "concept_id": "cognition_beliefs",
+      "canonical_path": "personality_psychology.cognition_beliefs",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Beliefs, appraisals and cognitive styles attributed to the person with provenance.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.cognition_beliefs",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "self_efficacy",
+      "canonical_path": "personality_psychology.cognition_beliefs.self_efficacy",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Domain-specific belief about one's capability, distinct from underlying ability or skill.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "domain",
+            "value"
+          ]
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "abilities_skills_interests.self_efficacy",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "emotion_regulation_coping",
+      "canonical_path": "personality_psychology.emotion_regulation_coping",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Emotion-regulation dispositions and coping strategies, preserving trait/state context.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.emotion_regulation_coping",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "motives_values_goals",
+      "canonical_path": "personality_psychology.motives_values_goals",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Structured motives, personally endorsed values and goals.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.motives_values_goals",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "narrative_identity",
+      "canonical_path": "personality_psychology.narrative_identity",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Narrative self-organization, meanings and generative story constructs; not psychometric or diagnostic truth.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.narrative_identity",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "relational_disposition",
+      "canonical_path": "personality_psychology.relational_dispositions",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Person-level relational tendencies, distinct from observations about a specific relationship.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "open_schema": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.relational_patterns",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "surface_expression",
+      "canonical_path": "personality_psychology.surface_expression",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Current or habitual communication and expressive presentation, distinct from stable traits.",
+      "cardinality": "0..1",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object_or_string"
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.surface_expression",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "personality_psychology__temperament_traits",
+      "canonical_path": "personality_psychology.temperament_traits",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Migrated canonical concept for personality_psychology.temperament_traits. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "slow_changing",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "quality_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "personality_psychology.temperament_traits",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "personality_tags",
+      "canonical_path": "personality_psychology.temperament_traits.legacy_tags",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Legacy descriptive personality labels retained for compatibility; not canonical psychometric categories.",
+      "cardinality": "0..*",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "big_five_traits",
+      "canonical_path": "personality_psychology.temperament_traits.ocean",
+      "domain": "personality_psychology",
+      "kind": "quality_disposition",
+      "definition": "Big Five/OCEAN trait estimates with explicit scoring scale/instrument metadata.",
+      "cardinality": "0..1",
+      "temporal_class": "slow_changing",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "trait_vector",
+        "dimensions": [
+          "O",
+          "C",
+          "E",
+          "A",
+          "N"
+        ],
+        "score_type": "number",
+        "scale_metadata_required": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "place_mobility__birth_place",
+      "canonical_path": "place_mobility.birth_place",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for place_mobility.birth_place. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.birth_place",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "place_mobility__current_residence",
+      "canonical_path": "place_mobility.current_residence",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for place_mobility.current_residence. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.current_residence",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "place_mobility__housing_context",
+      "canonical_path": "place_mobility.housing_context",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for place_mobility.housing_context. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.housing_context",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "place_mobility__living_arrangement",
+      "canonical_path": "place_mobility.living_arrangement",
+      "domain": "place_mobility",
+      "kind": "state",
+      "definition": "Migrated canonical concept for family_household.living_arrangement. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.living_arrangement",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "place_mobility__migration_generation",
+      "canonical_path": "place_mobility.migration_generation",
+      "domain": "place_mobility",
+      "kind": "state",
+      "definition": "Migrated canonical concept for place_mobility.migration_generation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.migration_generation",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "place_mobility__migration_history",
+      "canonical_path": "place_mobility.migration_history",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for place_mobility.migration_history. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.migration_history",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "place_mobility__mobility_pattern",
+      "canonical_path": "place_mobility.mobility_pattern",
+      "domain": "place_mobility",
+      "kind": "state",
+      "definition": "Migrated canonical concept for place_mobility.mobility_pattern. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.mobility_pattern",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "place_mobility__place_attachment",
+      "canonical_path": "place_mobility.place_attachment",
+      "domain": "place_mobility",
+      "kind": "state",
+      "definition": "Migrated canonical concept for place_mobility.place_attachment. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.place_attachment",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "residence",
+      "canonical_path": "place_mobility.residence",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "A typed relation to a current or historical place of residence.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "resides_in"
+    },
+    {
+      "concept_id": "place_mobility__upbringing_places",
+      "canonical_path": "place_mobility.upbringing_places",
+      "domain": "place_mobility",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for place_mobility.upbringing_places. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "event_history",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "place_mobility.upbringing_places",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__birth_order_family_position",
+      "canonical_path": "relationships.birth_order_family_position",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Migrated canonical concept for family_household.birth_order_family_position. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.birth_order_family_position",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "relationships__caregiver_relations",
+      "canonical_path": "relationships.caregiver_relations",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Migrated canonical concept for family_household.caregiver_structure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.caregiver_structure",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "relationships__children_dependents",
+      "canonical_path": "relationships.children_dependents",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Migrated canonical concept for family_household.children_dependents. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.children_dependents",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "relationships__community_ties",
+      "canonical_path": "relationships.community_ties",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.community_ties. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.community_ties",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__conflict_repair_observations",
+      "canonical_path": "relationships.conflict_repair_observations",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.conflict_repair_patterns. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.conflict_repair_patterns",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__family_climate",
+      "canonical_path": "relationships.family_climate",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.family_climate. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.family_climate",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__family_of_origin",
+      "canonical_path": "relationships.family_of_origin",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.family_of_origin. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.family_of_origin",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__fictive_kin_chosen_family",
+      "canonical_path": "relationships.fictive_kin_chosen_family",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.fictive_kin_chosen_family. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.fictive_kin_chosen_family",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__friendships",
+      "canonical_path": "relationships.friendships",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.friendships. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.friendships",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__household_membership",
+      "canonical_path": "relationships.household_membership",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.household_membership, family_household.living_arrangement. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.household_membership",
+          "migration_action": "relationize"
+        },
+        {
+          "legacy_path": "family_household.living_arrangement",
+          "migration_action": "split"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__intergenerational_patterns",
+      "canonical_path": "relationships.intergenerational_patterns",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Migrated canonical concept for family_household.intergenerational_patterns. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.intergenerational_patterns",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "relationships__kinship_network",
+      "canonical_path": "relationships.kinship_network",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.kinship_network. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.kinship_network",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "marital_relationship_status",
+      "canonical_path": "relationships.marital_status",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Current marital/partnership status summary. Specific partner/dyad facts belong in typed relationship relations when known.",
+      "cardinality": "0..*",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term_or_object",
+        "open_vocabulary": true
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": []
+    },
+    {
+      "concept_id": "relationships__mentors",
+      "canonical_path": "relationships.mentors",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.mentors. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.mentors",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__network_size_structure",
+      "canonical_path": "relationships.network_size_structure",
+      "domain": "relationships",
+      "kind": "state",
+      "definition": "Migrated canonical concept for relationships_networks.network_size_structure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.network_size_structure",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "relationship_observation",
+      "canonical_path": "relationships.observations",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Observation about a specific relationship/dyad, not a global personality disposition.",
+      "cardinality": "0..*",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref_with_relation_properties",
+        "allowed_entity_types": [
+          "person"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "related_to_person"
+    },
+    {
+      "concept_id": "relationships__online_relationships_communities",
+      "canonical_path": "relationships.online_relationships_communities",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.online_relationships_communities. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.online_relationships_communities",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__partner_spouse",
+      "canonical_path": "relationships.partner_spouse",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.partner_spouse. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.partner_spouse",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__peer_relations",
+      "canonical_path": "relationships.peer_relations",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.peer_relations. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.peer_relations",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__relationship_quality",
+      "canonical_path": "relationships.relationship_quality",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.relationship_quality. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.relationship_quality",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__romantic_relationships",
+      "canonical_path": "relationships.romantic_relationships",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.romantic_relationships. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.romantic_relationships",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__siblings",
+      "canonical_path": "relationships.siblings",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.siblings. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.siblings",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__support_network",
+      "canonical_path": "relationships.support_network",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.support_network. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.support_network",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "relationships__work_relations",
+      "canonical_path": "relationships.work_relations",
+      "domain": "relationships",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for relationships_networks.work_relations. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "relationship_specific",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "relationships_networks.work_relations",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__barriers_constraints",
+      "canonical_path": "resources_constraints_opportunities.barriers_constraints",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.barriers_constraints. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.barriers_constraints",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__care_resources",
+      "canonical_path": "resources_constraints_opportunities.care_resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.care_resources. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.care_resources",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__career_opportunities",
+      "canonical_path": "resources_constraints_opportunities.career_opportunities",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.career_opportunities. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.career_opportunities",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "constraint",
+      "canonical_path": "resources_constraints_opportunities.constraints",
+      "domain": "resources_constraints_opportunities",
+      "kind": "relation",
+      "definition": "A barrier/constraint relation affecting the person's feasible actions.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "constraint"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "faces_constraint"
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__healthcare_access",
+      "canonical_path": "resources_constraints_opportunities.healthcare_access",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.healthcare_access. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.healthcare_access",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__institutional_resources",
+      "canonical_path": "resources_constraints_opportunities.institutional_resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.institutional_resources. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.institutional_resources",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__learning_opportunities",
+      "canonical_path": "resources_constraints_opportunities.learning_opportunities",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for education_learning.learning_access, resources_constraints_opportunities.learning_opportunities. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "education_learning.learning_access",
+          "migration_action": "split"
+        },
+        {
+          "legacy_path": "resources_constraints_opportunities.learning_opportunities",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__material_resources",
+      "canonical_path": "resources_constraints_opportunities.material_resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.material_security, resources_constraints_opportunities.material_resources. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.material_security",
+          "migration_action": "split"
+        },
+        {
+          "legacy_path": "resources_constraints_opportunities.material_resources",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__mobility_options",
+      "canonical_path": "resources_constraints_opportunities.mobility_options",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.mobility_options. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.mobility_options",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "resource",
+      "canonical_path": "resources_constraints_opportunities.resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "relation",
+      "definition": "A currently accessible resource relation, possibly derived from economic, social or institutional source facts.",
+      "cardinality": "0..*",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "resource"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "has_resource"
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__social_resources",
+      "canonical_path": "resources_constraints_opportunities.social_resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.social_resources. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.social_resources",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "resources_constraints_opportunities__time_resources",
+      "canonical_path": "resources_constraints_opportunities.time_resources",
+      "domain": "resources_constraints_opportunities",
+      "kind": "state",
+      "definition": "Migrated canonical concept for resources_constraints_opportunities.time_resources. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "dynamic_state",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "resources_constraints_opportunities.time_resources",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "roles__caregiving_roles",
+      "canonical_path": "roles.caregiving_roles",
+      "domain": "roles",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for family_household.caregiver_structure, roles_responsibilities.caregiving_roles. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.caregiver_structure",
+          "migration_action": "split"
+        },
+        {
+          "legacy_path": "roles_responsibilities.caregiving_roles",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "roles__community_roles",
+      "canonical_path": "roles.community_roles",
+      "domain": "roles",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for roles_responsibilities.community_roles. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.community_roles",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "roles__dependent_care_roles",
+      "canonical_path": "roles.dependent_care_roles",
+      "domain": "roles",
+      "kind": "role",
+      "definition": "Migrated canonical concept for family_household.children_dependents. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "family_household.children_dependents",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "roles__education_roles",
+      "canonical_path": "roles.education_roles",
+      "domain": "roles",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for roles_responsibilities.education_roles. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.education_roles",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "roles__family_roles",
+      "canonical_path": "roles.family_roles",
+      "domain": "roles",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for roles_responsibilities.family_roles. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.family_roles",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "role",
+      "canonical_path": "roles.items",
+      "domain": "roles",
+      "kind": "role",
+      "definition": "A context-dependent role borne by the person.",
+      "cardinality": "0..*",
+      "temporal_class": "role_dependent",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "role"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [],
+      "relation_predicate": "has_role"
+    },
+    {
+      "concept_id": "roles__role_conflict",
+      "canonical_path": "roles.role_conflict",
+      "domain": "roles",
+      "kind": "state",
+      "definition": "Migrated canonical concept for roles_responsibilities.role_conflict. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.role_conflict",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "roles__role_load",
+      "canonical_path": "roles.role_load",
+      "domain": "roles",
+      "kind": "state",
+      "definition": "Migrated canonical concept for roles_responsibilities.role_load. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.role_load",
+          "migration_action": "derived"
+        }
+      ]
+    },
+    {
+      "concept_id": "roles__work_authority_responsibility",
+      "canonical_path": "roles.work_authority_responsibility",
+      "domain": "roles",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.authority_responsibility. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.authority_responsibility",
+          "migration_action": "move"
+        }
+      ]
+    },
+    {
+      "concept_id": "roles__work_roles",
+      "canonical_path": "roles.work_roles",
+      "domain": "roles",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for roles_responsibilities.work_roles. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "roles_responsibilities.work_roles",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__citizenship_nationality",
+      "canonical_path": "social_institutional_position.citizenship_nationality",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.citizenship_nationality. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.citizenship_nationality",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__civic_institutional_participation",
+      "canonical_path": "social_institutional_position.civic_institutional_participation",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.civic_institutional_participation. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.civic_institutional_participation",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__discrimination_stigma_exposure",
+      "canonical_path": "social_institutional_position.discrimination_stigma_exposure",
+      "domain": "social_institutional_position",
+      "kind": "state",
+      "definition": "Migrated canonical concept for social_structural_position.discrimination_stigma_exposure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.discrimination_stigma_exposure",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "social_institutional_position__healthcare_entitlement_access",
+      "canonical_path": "social_institutional_position.healthcare_entitlement_access",
+      "domain": "social_institutional_position",
+      "kind": "state",
+      "definition": "Migrated canonical concept for body_health.healthcare_access. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "body_health.healthcare_access",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "social_institutional_position__institutional_memberships",
+      "canonical_path": "social_institutional_position.institutional_memberships",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.institutional_memberships. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.institutional_memberships",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__justice_system_exposure",
+      "canonical_path": "social_institutional_position.justice_system_exposure",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.justice_system_exposure. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.justice_system_exposure",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__legal_residency_status",
+      "canonical_path": "social_institutional_position.legal_residency_status",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.legal_residency_status. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.legal_residency_status",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__rights_access",
+      "canonical_path": "social_institutional_position.rights_access",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.rights_access. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.rights_access",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__service_access",
+      "canonical_path": "social_institutional_position.service_access",
+      "domain": "social_institutional_position",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for social_structural_position.service_access. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.service_access",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "social_institutional_position__social_status_prestige",
+      "canonical_path": "social_institutional_position.social_status_prestige",
+      "domain": "social_institutional_position",
+      "kind": "state",
+      "definition": "Migrated canonical concept for social_structural_position.social_status_prestige. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.social_status_prestige",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "social_institutional_position__socioeconomic_class",
+      "canonical_path": "social_institutional_position.socioeconomic_class",
+      "domain": "social_institutional_position",
+      "kind": "state",
+      "definition": "Migrated canonical concept for social_structural_position.socioeconomic_class. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "social_structural_position.socioeconomic_class",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "work_economic_participation__debt",
+      "canonical_path": "work_economic_participation.debt",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.debt. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.debt",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "work_economic_participation__employment_status",
+      "canonical_path": "work_economic_participation.employment_status",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.employment_status. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.employment_status",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "work_economic_participation__income",
+      "canonical_path": "work_economic_participation.income",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.income. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.income",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "work_economic_participation__industry",
+      "canonical_path": "work_economic_participation.industry",
+      "domain": "work_economic_participation",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for work_economic_position.industry. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.industry",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "work_economic_participation__material_security_facts",
+      "canonical_path": "work_economic_participation.material_security_facts",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.material_security. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.material_security",
+          "migration_action": "split"
+        }
+      ]
+    },
+    {
+      "concept_id": "occupation",
+      "canonical_path": "work_economic_participation.occupation",
+      "domain": "work_economic_participation",
+      "kind": "relation",
+      "definition": "A typed relation from the person to an occupational/role entity.",
+      "cardinality": "0..*",
+      "temporal_class": "role_dependent",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "role"
+        ]
+      },
+      "review_status": "reviewed",
+      "first_class_registry": true,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.occupation",
+          "migration_action": "relationize"
+        }
+      ],
+      "relation_predicate": "has_role"
+    },
+    {
+      "concept_id": "work_economic_participation__occupation_detail",
+      "canonical_path": "work_economic_participation.occupation_detail",
+      "domain": "work_economic_participation",
+      "kind": "relation",
+      "definition": "Migrated canonical concept for work_economic_position.occupation_detail. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "relation_or_entity_ref",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.occupation_detail",
+          "migration_action": "relationize"
+        }
+      ],
+      "runtime_readiness": "semantic_home_only",
+      "relation_predicate": "review_required"
+    },
+    {
+      "concept_id": "work_economic_participation__wealth_assets",
+      "canonical_path": "work_economic_participation.wealth_assets",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.wealth_assets. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.wealth_assets",
+          "migration_action": "retain"
+        }
+      ]
+    },
+    {
+      "concept_id": "work_economic_participation__work_conditions",
+      "canonical_path": "work_economic_participation.work_conditions",
+      "domain": "work_economic_participation",
+      "kind": "state",
+      "definition": "Migrated canonical concept for work_economic_position.work_conditions. Semantic placement is accepted; leaf-level type/value details remain pending concept review.",
+      "cardinality": "review_required",
+      "temporal_class": "role_dependent",
+      "sensitivity": "review_required",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "state_value",
+        "status": "provisional"
+      },
+      "review_status": "provisional_migrated",
+      "first_class_registry": false,
+      "legacy_sources": [
+        {
+          "legacy_path": "work_economic_position.work_conditions",
+          "migration_action": "retain"
+        }
+      ]
+    }
+  ],
+  "coverage_rule": "Catalog paths equal the union of all V1_FIELD_MIGRATION canonical_targets and all first-class CANONICAL_FIELD_REGISTRY paths."
+}

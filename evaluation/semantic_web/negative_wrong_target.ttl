@@ -1,0 +1,9 @@
+@prefix ho: <https://w3id.org/human-ontology/> .
+@prefix ex: <https://example.org/human-ontology-test/> .
+
+ex:person-bad a ho:Person ;
+  ho:uses_language ex:not-a-language ;
+  ho:has_role ex:not-a-role .
+
+ex:not-a-language a ho:Place .
+ex:not-a-role a ho:Organization .

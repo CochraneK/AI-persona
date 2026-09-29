@@ -1,0 +1,631 @@
+{
+  "registry_id": "human-ontology-canonical-field-registry",
+  "version": "2.0.0-rc2",
+  "rule": "Each semantic concept has exactly one canonical_path. Other placements are aliases/references only.",
+  "fields": [
+    {
+      "concept": "chronological_age",
+      "canonical_path": "development.chronological_age",
+      "kind": "state",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.age"
+      ],
+      "definition": "Elapsed chronological age at a stated reference time.",
+      "sensitivity": "non_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "integer",
+        "minimum": 0,
+        "unit": "year",
+        "reference_time_required": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "developmental_stage",
+      "canonical_path": "development.developmental_stage",
+      "kind": "state",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.erikson_stage"
+      ],
+      "definition": "A reviewed life-course/developmental stage classification at a stated time.",
+      "sensitivity": "non_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term",
+        "vocabulary": "canonical_developmental_stages"
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "gender_identity",
+      "canonical_path": "identity_self_concept.gender_identity",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..*",
+      "sensitivity": "sensitive",
+      "legacy_aliases": [
+        "Persona.gender"
+      ],
+      "migration_note": "Legacy gender label is ambiguous and must not be silently reinterpreted as sex characteristics.",
+      "definition": "Self-described gender identity; not inferred from sex characteristics, name, appearance or role.",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "open_vocabulary": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "physical_appearance",
+      "canonical_path": "body_functioning_health.physical_appearance",
+      "kind": "quality_disposition",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.physical_appearance"
+      ],
+      "definition": "Descriptive physical-appearance observations or self-descriptions without inferring identity or health.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "diagnosis",
+      "canonical_path": "mental_neurodevelopmental_health.diagnoses",
+      "kind": "state",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..*",
+      "sensitivity": "highly_sensitive",
+      "legacy_aliases": [
+        "Persona.primary_diagnosis",
+        "Persona.comorbidities"
+      ],
+      "definition": "A diagnostic assertion/classification about a health condition, distinct from the condition itself and from symptoms/functioning.",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label",
+            "source_type",
+            "provenance",
+            "temporal_class"
+          ],
+          "recommended": [
+            "code_system",
+            "code",
+            "role"
+          ]
+        }
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "mental_health_trigger",
+      "canonical_path": "mental_neurodevelopmental_health.triggers",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.triggers"
+      ],
+      "definition": "A typed relation to a situation, event or cue associated with a mental-health response.",
+      "sensitivity": "highly_sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "generic",
+          "event"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "has_trigger"
+    },
+    {
+      "concept": "safety_behavior",
+      "canonical_path": "mental_neurodevelopmental_health.safety_behaviors",
+      "kind": "process_event",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.safety_behaviors"
+      ],
+      "definition": "A recurring or situational behavior used to reduce perceived threat or distress.",
+      "sensitivity": "highly_sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string_or_object"
+        }
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "big_five_traits",
+      "canonical_path": "personality_psychology.temperament_traits.ocean",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.ocean"
+      ],
+      "definition": "Big Five/OCEAN trait estimates with explicit scoring scale/instrument metadata.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "trait_vector",
+        "dimensions": [
+          "O",
+          "C",
+          "E",
+          "A",
+          "N"
+        ],
+        "score_type": "number",
+        "scale_metadata_required": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "personality_tags",
+      "canonical_path": "personality_psychology.temperament_traits.legacy_tags",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.personality_tags"
+      ],
+      "definition": "Legacy descriptive personality labels retained for compatibility; not canonical psychometric categories.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "motives_values_goals",
+      "canonical_path": "personality_psychology.motives_values_goals",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.core_desire",
+        "Persona.core_fear",
+        "Persona.values_beliefs"
+      ],
+      "definition": "Structured motives, personally endorsed values and goals.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "cognition_beliefs",
+      "canonical_path": "personality_psychology.cognition_beliefs",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.cognitive_styles",
+        "Persona.dysfunctional_beliefs"
+      ],
+      "definition": "Beliefs, appraisals and cognitive styles attributed to the person with provenance.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "self_efficacy",
+      "canonical_path": "personality_psychology.cognition_beliefs.self_efficacy",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..*",
+      "migration_note": "Self-efficacy is a domain-specific belief about capability, distinct from the underlying ability or skill.",
+      "definition": "Domain-specific belief about one's capability, distinct from underlying ability or skill.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "domain",
+            "value"
+          ]
+        }
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "emotion_regulation_coping",
+      "canonical_path": "personality_psychology.emotion_regulation_coping",
+      "kind": "quality_disposition",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.coping_styles",
+        "Persona.stress_pattern"
+      ],
+      "definition": "Emotion-regulation dispositions and coping strategies, preserving trait/state context.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "relational_disposition",
+      "canonical_path": "personality_psychology.relational_dispositions",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..*",
+      "migration_note": "Store person-level tendencies only; relationship-specific observations belong under relationships.",
+      "definition": "Person-level relational tendencies, distinct from observations about a specific relationship.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "narrative_identity",
+      "canonical_path": "personality_psychology.narrative_identity",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.archetype_key",
+        "Persona.archetype_name",
+        "Persona.formative_wound",
+        "Persona.compensatory_desire",
+        "Persona.storr_need",
+        "Persona.arc_type"
+      ],
+      "definition": "Narrative self-organization, meanings and generative story constructs; not psychometric or diagnostic truth.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "surface_expression",
+      "canonical_path": "personality_psychology.surface_expression",
+      "kind": "quality_disposition",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.communication_style"
+      ],
+      "definition": "Current or habitual communication and expressive presentation, distinct from stable traits.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object_or_string"
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "skill_ability_interest_profile",
+      "canonical_path": "abilities_skills_interests.profile",
+      "kind": "quality_disposition",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.skills_abilities"
+      ],
+      "definition": "Structured profile of abilities, learned skills, expertise and interests.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "routine_profile",
+      "canonical_path": "lifestyle_routines.profile",
+      "kind": "state",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.lifestyle_habits"
+      ],
+      "definition": "A time-indexed summary/projection of recurring lifestyle routines; underlying activities may be represented as processes/events.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "education_attainment",
+      "canonical_path": "education_learning.education_attainment",
+      "kind": "state",
+      "temporal_class": "slow_changing",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.education"
+      ],
+      "definition": "Current highest/attained education level or attainment summary; individual credentials may be represented as relations.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term_or_object",
+        "vocabulary": "consumer_or_locale_specific"
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "occupation",
+      "canonical_path": "work_economic_participation.occupation",
+      "kind": "relation",
+      "temporal_class": "role_dependent",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.occupation",
+        "Persona.occupation_code"
+      ],
+      "definition": "A typed relation from the person to an occupational/role entity.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "role"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "has_role"
+    },
+    {
+      "concept": "marital_relationship_status",
+      "canonical_path": "relationships.marital_status",
+      "kind": "state",
+      "temporal_class": "relationship_specific",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.marital_status"
+      ],
+      "definition": "Current marital/partnership status summary. Specific partner/dyad facts belong in typed relationship relations when known.",
+      "sensitivity": "sensitive",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "controlled_term_or_object",
+        "open_vocabulary": true
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "relationship_observation",
+      "canonical_path": "relationships.observations",
+      "kind": "relation",
+      "temporal_class": "relationship_specific",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.social_relations"
+      ],
+      "definition": "Observation about a specific relationship/dyad, not a global personality disposition.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref_with_relation_properties",
+        "allowed_entity_types": [
+          "person"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "related_to_person"
+    },
+    {
+      "concept": "residence",
+      "canonical_path": "place_mobility.residence",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.locale"
+      ],
+      "definition": "A typed relation to a current or historical place of residence.",
+      "sensitivity": "sensitive",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "resides_in"
+    },
+    {
+      "concept": "role",
+      "canonical_path": "roles.items",
+      "kind": "role",
+      "temporal_class": "role_dependent",
+      "cardinality": "0..*",
+      "definition": "A context-dependent role borne by the person.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "role"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "has_role"
+    },
+    {
+      "concept": "cultural_participation",
+      "canonical_path": "culture_language.cultural_participation",
+      "kind": "relation",
+      "temporal_class": "event_history",
+      "cardinality": "0..*",
+      "sensitivity": "context_dependent",
+      "definition": "Participation in or exposure to a cultural/religious/socialization context; not inferred from geography or citizenship.",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "culture_context"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "participates_in_culture"
+    },
+    {
+      "concept": "language_use",
+      "canonical_path": "culture_language.languages",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "definition": "Use, learning or proficiency relation to a language.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "language"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "uses_language"
+    },
+    {
+      "concept": "life_event",
+      "canonical_path": "life_events.items",
+      "kind": "process_event",
+      "temporal_class": "event_history",
+      "cardinality": "0..*",
+      "legacy_aliases": [
+        "Persona.life_events"
+      ],
+      "definition": "A time-indexed event/process involving or affecting the person.",
+      "sensitivity": "context_dependent",
+      "storage": "event_graph",
+      "value_contract": {
+        "type": "event_record"
+      },
+      "review_status": "reviewed"
+    },
+    {
+      "concept": "resource",
+      "canonical_path": "resources_constraints_opportunities.resources",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "definition": "A currently accessible resource relation, possibly derived from economic, social or institutional source facts.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "resource"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "has_resource"
+    },
+    {
+      "concept": "constraint",
+      "canonical_path": "resources_constraints_opportunities.constraints",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "definition": "A barrier/constraint relation affecting the person's feasible actions.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "constraint"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "faces_constraint"
+    },
+    {
+      "concept": "ecological_context",
+      "canonical_path": "context_ecology.contexts",
+      "kind": "relation",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..*",
+      "definition": "A relation to an external ecological/contextual entity; external conditions are distinct from the person's traits.",
+      "sensitivity": "context_dependent",
+      "storage": "relation_graph",
+      "value_contract": {
+        "type": "entity_ref",
+        "allowed_entity_types": [
+          "place",
+          "organization",
+          "generic"
+        ]
+      },
+      "review_status": "reviewed",
+      "relation_predicate": "situated_in_context"
+    },
+    {
+      "concept": "current_state",
+      "canonical_path": "current_state.summary",
+      "kind": "state",
+      "temporal_class": "dynamic_state",
+      "cardinality": "0..1",
+      "legacy_aliases": [
+        "Persona.current_status"
+      ],
+      "definition": "Time-indexed current person state that must not be mistaken for an enduring trait or historical event.",
+      "sensitivity": "context_dependent",
+      "storage": "domain_field",
+      "value_contract": {
+        "type": "object",
+        "open_schema": true
+      },
+      "review_status": "reviewed"
+    }
+  ],
+  "scope": "Normative registry for first-class/runtime interoperability concepts. Exhaustive v1 legacy leaf coverage is governed by V1_FIELD_MIGRATION.json; a migration target is a canonical semantic path but need not be promoted to a first-class registry concept.",
+  "promotion_rule": "Add a first-class registry concept when it is exchanged across consumers, independently queried/reasoned over, or requires stable aliases/kind/cardinality metadata.",
+  "storage_contract": "canonical_path is the semantic home. Relation/event instances are physically stored once in PersonaKernel.relations/events with stable IDs + canonical_path; the corresponding domain payload must not copy the same fact.",
+  "contract_version": "2.0.0-rc2",
+  "value_contract_policy": "Every first-class concept declares a storage mode and machine-oriented value contract. Consumer-specific schemas may refine but must not contradict these contracts.",
+  "kind_policy": "Kinds apply to the semantic concept, not the namespace. A summary/profile may be a state even when its underlying observations concern processes or relations."
+}

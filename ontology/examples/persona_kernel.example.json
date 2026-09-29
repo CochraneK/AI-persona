@@ -1,0 +1,97 @@
+{
+  "persona_id": "example-001",
+  "ontology_version": "2.0.0-rc2",
+  "domains": {
+    "development": {
+      "chronological_age": 29
+    },
+    "personality_psychology": {
+      "temperament_traits": {
+        "ocean": {
+          "O": 7,
+          "C": 6,
+          "E": 4,
+          "A": 7,
+          "N": 5
+        }
+      },
+      "motives_values_goals": {
+        "current_values": [
+          "learning",
+          "care"
+        ]
+      }
+    },
+    "current_state": {
+      "mood": "neutral"
+    }
+  },
+  "field_metadata": {
+    "development.chronological_age": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    },
+    "personality_psychology.temperament_traits": {
+      "source_type": "measured",
+      "confidence": 0.8,
+      "provenance": "example Big Five measurement",
+      "temporal_class": "slow_changing"
+    },
+    "personality_psychology.motives_values_goals": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "slow_changing"
+    },
+    "current_state.mood": {
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state"
+    }
+  },
+  "relations": [
+    {
+      "relation_id": "example-001:relation:language:en",
+      "canonical_path": "culture_language.languages",
+      "predicate": "uses_language",
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "dynamic_state",
+      "subject": {
+        "entity_id": "example-001",
+        "entity_type": "person",
+        "label": "Example person"
+      },
+      "object": {
+        "entity_id": "iso639-1:en",
+        "entity_type": "language",
+        "label": "English",
+        "source_system": "ISO 639-1",
+        "source_id": "en"
+      }
+    }
+  ],
+  "events": [
+    {
+      "event_id": "example-001:event:1",
+      "canonical_path": "life_events.items",
+      "type": "life_event",
+      "name": "started university",
+      "source_type": "user_provided",
+      "confidence": null,
+      "provenance": "example fixture",
+      "temporal_class": "event_history",
+      "participants": [
+        {
+          "entity_id": "example-001",
+          "entity_type": "person",
+          "label": "Example person"
+        }
+      ]
+    }
+  ]
+}

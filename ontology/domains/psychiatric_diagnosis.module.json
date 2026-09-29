@@ -1,0 +1,30 @@
+{
+  "module_id": "psychiatric_diagnosis",
+  "module_version": "1.0.0",
+  "status": "legacy_asset_mounted",
+  "canonical_home": "mental_neurodevelopmental_health.diagnoses",
+  "source_asset": "../../diagnosis_ontology.json",
+  "required_for_person": false,
+  "semantics": {
+    "diagnosis_is_identity_root": false,
+    "diagnosis_determines_personality": false,
+    "diagnosis_determines_values": false,
+    "diagnosis_determines_morality": false,
+    "diagnosis_determines_life_outcome": false
+  },
+  "distinctions": [
+    "diagnosis",
+    "symptom_or_experience",
+    "functional_impact",
+    "treatment_or_support",
+    "course_or_recovery",
+    "risk_or_protective_factor"
+  ],
+  "external_alignment_targets": [
+    "ICD-11",
+    "DSM-5-TR",
+    "Mental Functioning Ontology",
+    "ICF"
+  ],
+  "migration_policy": "Preserve the existing diagnosis knowledge asset and generation compatibility while progressively replacing diagnosis-conditioned non-health generation with independent or explicitly evidenced mechanisms."
+}

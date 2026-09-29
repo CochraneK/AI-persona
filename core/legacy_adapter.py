@@ -1,0 +1,198 @@
+"""Compatibility bridge from legacy flat Persona objects to Human Ontology v2.
+
+This module is intentionally one-way: legacy generator output can be consumed as
+an ontology-native PersonaKernel, while v2 consumers must not depend on legacy
+field placement.
+"""
+from __future__ import annotations
+
+import hashlib
+from typing import Any
+
+from .persona_kernel import FieldMetadata, PersonaKernel
+
+
+def _event_to_dict(event: Any, *, persona_id: str, index: int) -> dict[str, Any]:
+    return {
+        "event_id": f"{persona_id}:event:{index}",
+        "canonical_path": "life_events.items",
+        "type": "life_event",
+        "legacy_domain": getattr(event, "domain", None),
+        "legacy_stage": getattr(event, "stage", None),
+        "name": getattr(event, "name_cn", "") or getattr(event, "name_en", ""),
+        "name_en": getattr(event, "name_en", ""),
+        "valence": getattr(event, "valence", None),
+        "lcu": getattr(event, "lcu", None),
+        "diagnosis_relation": getattr(event, "diagnosis_relation", None),
+        "source_type": "generated",
+        "confidence": 1.0,
+        "provenance": "legacy events.py",
+        "temporal_class": "event_history",
+    }
+
+
+def legacy_persona_to_kernel(persona: Any) -> PersonaKernel:
+    """Map a v1.x flat Persona into the v2 canonical semantic homes.
+
+    No information is intentionally discarded. Fields whose old semantics were
+    ambiguous are retained under explicit legacy_* keys instead of being
+    silently reinterpreted.
+    """
+    kernel = PersonaKernel(persona_id=str(persona.id))
+
+    def put(domain: str, key: str, value: Any, *, temporal: str = "derived") -> None:
+        if value in (None, "", [], {}):
+            return
+        kernel.set_value(
+            domain,
+            key,
+            value,
+            FieldMetadata("generated", 1.0, "legacy PersonaGenerator adapter", temporal),
+        )
+
+    put("development", "chronological_age", persona.age, temporal="dynamic_state")
+    put("development", "erikson_stage", persona.erikson_stage, temporal="slow_changing")
+    put("identity_self_concept", "legacy_gender_label", persona.gender, temporal="slow_changing")
+
+    put("place_mobility", "legacy_residence_context", persona.locale, temporal="dynamic_state")
+    put("education_learning", "education_attainment", persona.education, temporal="slow_changing")
+    occupation_entity_id = (
+        f"legacy:occupation:{persona.occupation_code}"
+        if persona.occupation_code
+        else f"legacy:occupation:{persona.occupation}"
+    )
+    kernel.relations.append({
+        "relation_id": f"{persona.id}:relation:occupation",
+        "canonical_path": "work_economic_participation.occupation",
+        "predicate": "has_role",
+        "subject": {
+            "entity_id": str(persona.id),
+            "entity_type": "person",
+        },
+        "object": {
+            "entity_id": occupation_entity_id,
+            "entity_type": "role",
+            "label": persona.occupation,
+            "source_system": "legacy PersonaGenerator",
+            "source_id": persona.occupation_code or persona.occupation,
+        },
+        "relation_type": "occupation",
+        "source_type": "generated",
+        "confidence": 1.0,
+        "provenance": "legacy PersonaGenerator adapter",
+        "temporal_class": "role_dependent",
+    })
+
+    put("relationships", "legacy_marital_status", persona.marital_status, temporal="relationship_specific")
+    put("relationships", "legacy_social_relations_profile", persona.social_relations, temporal="relationship_specific")
+
+    if persona.primary_diagnosis and persona.primary_diagnosis != "无精神障碍（健康）":
+        diagnoses = [{
+            "label": persona.primary_diagnosis,
+            "label_en": persona.primary_diagnosis_en,
+            "role": "primary",
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "slow_changing",
+        }]
+        diagnoses.extend({
+            "label": x,
+            "role": "comorbid",
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "slow_changing",
+        } for x in persona.comorbidities)
+        put("mental_neurodevelopmental_health", "diagnoses", diagnoses, temporal="slow_changing")
+    else:
+        put(
+            "mental_neurodevelopmental_health",
+            "generated_mental_health_status",
+            "no_disorder_generated",
+            temporal="dynamic_state",
+        )
+    trigger_values = persona.triggers if isinstance(persona.triggers, (list, tuple)) else [persona.triggers]
+    for index, trigger in enumerate((x for x in trigger_values if x not in (None, "")), start=1):
+        label = str(trigger)
+        digest = hashlib.sha1(label.encode("utf-8")).hexdigest()[:16]
+        kernel.relations.append({
+            "relation_id": f"{persona.id}:relation:trigger:{index}",
+            "canonical_path": "mental_neurodevelopmental_health.triggers",
+            "predicate": "has_trigger",
+            "subject": {
+                "entity_id": str(persona.id),
+                "entity_type": "person",
+            },
+            "object": {
+                "entity_id": f"legacy:trigger:{digest}",
+                "entity_type": "generic",
+                "label": label,
+                "source_system": "legacy PersonaGenerator",
+                "source_id": label,
+            },
+            "source_type": "generated",
+            "confidence": 1.0,
+            "provenance": "legacy PersonaGenerator adapter",
+            "temporal_class": "dynamic_state",
+        })
+    put("mental_neurodevelopmental_health", "safety_behaviors", persona.safety_behaviors, temporal="dynamic_state")
+
+    put("personality_psychology", "temperament_traits", {
+        "ocean": persona.ocean,
+        "description": persona.ocean_description,
+        "legacy_tags": persona.personality_tags,
+    }, temporal="slow_changing")
+    put("personality_psychology", "motives_values_goals", {
+        "core_desire": persona.core_desire,
+        "core_fear": persona.core_fear,
+        "legacy_values_beliefs": persona.values_beliefs,
+    }, temporal="slow_changing")
+    put("personality_psychology", "cognition_beliefs", {
+        "cognitive_styles": persona.cognitive_styles,
+        "dysfunctional_beliefs": persona.dysfunctional_beliefs,
+    }, temporal="slow_changing")
+    put("personality_psychology", "emotion_regulation_coping", {
+        "coping_styles": persona.coping_styles,
+        "stress_pattern": persona.stress_pattern,
+    }, temporal="dynamic_state")
+    put("personality_psychology", "narrative_identity", {
+        "archetype": {
+            "key": persona.archetype_key,
+            "name": persona.archetype_name,
+            "one_liner": persona.archetype_one_liner,
+        },
+        "formative_wound": persona.formative_wound,
+        "compensatory_desire": persona.compensatory_desire,
+        "developmental_need": persona.storr_need,
+        "character_arc": {
+            "type": persona.arc_type,
+            "description": persona.arc_description,
+        },
+        "hidden_experiences": persona.hidden_experiences,
+    }, temporal="slow_changing")
+    put("personality_psychology", "surface_expression", persona.communication_style, temporal="dynamic_state")
+
+    put("abilities_skills_interests", "legacy_profile", persona.skills_abilities, temporal="slow_changing")
+    put("lifestyle_routines", "legacy_profile", persona.lifestyle_habits, temporal="dynamic_state")
+    put("body_functioning_health", "physical_appearance", persona.physical_appearance, temporal="dynamic_state")
+    put("current_state", "summary", persona.current_status, temporal="dynamic_state")
+
+    kernel.events = [
+        _event_to_dict(e, persona_id=str(persona.id), index=i)
+        for i, e in enumerate(persona.life_events, start=1)
+    ]
+    kernel.validate()
+    return kernel
+
+
+def kernel_compatibility_report(kernel: PersonaKernel) -> dict[str, Any]:
+    """Small machine-readable report for migration/testing."""
+    return {
+        "persona_id": kernel.persona_id,
+        "ontology_version": kernel.ontology_version,
+        "populated_domains": sorted(kernel.domains),
+        "relation_count": len(kernel.relations),
+        "event_count": len(kernel.events),
+        "metadata_paths": len(kernel.field_metadata),
+    }

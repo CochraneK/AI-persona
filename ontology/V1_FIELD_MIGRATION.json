@@ -1,0 +1,1510 @@
+{
+  "migration_id": "human-ontology-v1-field-migration",
+  "from_version": "1.0.0",
+  "to_version": "2.0.0-rc2",
+  "coverage_policy": "Every v1 subaxis/personality layer must appear exactly once. Split fields may have multiple targets; derived targets are projections, not second sources of truth.",
+  "allowed_actions": [
+    "retain",
+    "move",
+    "relationize",
+    "derived",
+    "split"
+  ],
+  "entries": [
+    {
+      "legacy_path": "time_development.birth_date_year",
+      "action": "retain",
+      "canonical_targets": [
+        "development.birth_date_year"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "time_development.chronological_age",
+      "action": "retain",
+      "canonical_targets": [
+        "development.chronological_age"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "time_development.developmental_stage",
+      "action": "retain",
+      "canonical_targets": [
+        "development.developmental_stage"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "time_development.life_role_stage",
+      "action": "derived",
+      "canonical_targets": [
+        "development.life_role_stage"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "time_development.birth_cohort",
+      "action": "retain",
+      "canonical_targets": [
+        "development.birth_cohort"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "time_development.historical_period",
+      "action": "derived",
+      "canonical_targets": [
+        "development.historical_period"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "time_development.major_transition_status",
+      "action": "retain",
+      "canonical_targets": [
+        "development.major_transition_status"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "place_mobility.birth_place",
+      "action": "relationize",
+      "canonical_targets": [
+        "place_mobility.birth_place"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "place_mobility.upbringing_places",
+      "action": "relationize",
+      "canonical_targets": [
+        "place_mobility.upbringing_places"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "place_mobility.current_residence",
+      "action": "relationize",
+      "canonical_targets": [
+        "place_mobility.current_residence"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "place_mobility.urbanicity",
+      "action": "move",
+      "canonical_targets": [
+        "context_ecology.urbanicity"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "place_mobility.housing_context",
+      "action": "relationize",
+      "canonical_targets": [
+        "place_mobility.housing_context"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "place_mobility.migration_history",
+      "action": "relationize",
+      "canonical_targets": [
+        "place_mobility.migration_history"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "place_mobility.mobility_pattern",
+      "action": "retain",
+      "canonical_targets": [
+        "place_mobility.mobility_pattern"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "place_mobility.physical_environment",
+      "action": "move",
+      "canonical_targets": [
+        "context_ecology.physical_environment"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "place_mobility.migration_generation",
+      "action": "derived",
+      "canonical_targets": [
+        "place_mobility.migration_generation"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "place_mobility.place_attachment",
+      "action": "retain",
+      "canonical_targets": [
+        "place_mobility.place_attachment"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "culture_language.cultural_backgrounds",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.cultural_backgrounds"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.enculturation_contexts",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.enculturation_contexts"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.languages",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.languages"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.religion_spirituality",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.religion_spirituality"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.ethnocultural_identity",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.ethnocultural_identity"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "culture_language.customs_norms_exposure",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.customs_norms_exposure"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.media_culture_exposure",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.media_culture_exposure"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.cross_cultural_experience",
+      "action": "relationize",
+      "canonical_targets": [
+        "culture_language.cross_cultural_experience"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "culture_language.language_proficiency",
+      "action": "move",
+      "canonical_targets": [
+        "abilities_skills_interests.language_proficiency"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "culture_language.acculturation_bicultural_orientation",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.acculturation_bicultural_orientation"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "culture_language.racialized_identity",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.racialized_identity"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "culture_language.caste_tribe_clan_identity",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.caste_tribe_clan_identity"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.sex_characteristics",
+      "action": "move",
+      "canonical_targets": [
+        "body_functioning_health.sex_characteristics"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.sex_assigned_at_birth",
+      "action": "move",
+      "canonical_targets": [
+        "body_functioning_health.sex_assigned_at_birth"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.gender_identity",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.gender_identity"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.gender_expression",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.gender_expression"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.sexual_orientation",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.sexual_orientation"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.romantic_orientation",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.romantic_orientation"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.pronouns",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.pronouns"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "sex_gender_orientation.gender_role_context",
+      "action": "move",
+      "canonical_targets": [
+        "context_ecology.gender_role_context"
+      ],
+      "rationale": "Gender-role context is an external social-norm/context property, not a self-identity property."
+    },
+    {
+      "legacy_path": "body_health.body_morphology",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.body_morphology"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.physical_appearance",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.physical_appearance"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.self_presentation",
+      "action": "move",
+      "canonical_targets": [
+        "identity_self_concept.self_presentation"
+      ],
+      "rationale": "Self-presentation is identity/expression content; recurring grooming behavior remains in lifestyle_routines."
+    },
+    {
+      "legacy_path": "body_health.physical_health",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.physical_health"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.disability_functioning",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.disability_functioning"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.sensory_motor_function",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.sensory_motor_function"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.sleep",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.sleep_functioning"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.substance_use",
+      "action": "split",
+      "canonical_targets": [
+        "lifestyle_routines.substance_use",
+        "body_functioning_health.substance_related_health"
+      ],
+      "rationale": "Legacy substance_use conflated behavior/exposure with health consequences; rc2 separates the routine/process from health impact."
+    },
+    {
+      "legacy_path": "body_health.reproductive_health",
+      "action": "retain",
+      "canonical_targets": [
+        "body_functioning_health.reproductive_health"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "body_health.healthcare_access",
+      "action": "split",
+      "canonical_targets": [
+        "social_institutional_position.healthcare_entitlement_access",
+        "resources_constraints_opportunities.healthcare_access"
+      ],
+      "rationale": "Institutional eligibility/access and currently usable healthcare resources are distinct from bodily health."
+    },
+    {
+      "legacy_path": "body_health.health_history",
+      "action": "relationize",
+      "canonical_targets": [
+        "body_functioning_health.health_history"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.mental_health_status",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.mental_health_status"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.diagnoses",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.diagnoses"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.neurodevelopmental_conditions",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.neurodevelopmental_conditions"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.symptoms_experiences",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.symptoms_experiences"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.functional_impact",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.functional_impact"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.treatment_support",
+      "action": "relationize",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.treatment_support"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.recovery_course",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.recovery_course"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "mental_neurodevelopmental_health.risk_protective_factors",
+      "action": "retain",
+      "canonical_targets": [
+        "mental_neurodevelopmental_health.risk_protective_factors"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "education_learning.education_attainment",
+      "action": "retain",
+      "canonical_targets": [
+        "education_learning.education_attainment"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "education_learning.current_education_status",
+      "action": "retain",
+      "canonical_targets": [
+        "education_learning.current_education_status"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "education_learning.education_field",
+      "action": "retain",
+      "canonical_targets": [
+        "education_learning.education_field"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "education_learning.learning_access",
+      "action": "split",
+      "canonical_targets": [
+        "education_learning.learning_access_history",
+        "resources_constraints_opportunities.learning_opportunities"
+      ],
+      "rationale": "Legacy field conflated multiple concepts; migrate components to separate canonical homes."
+    },
+    {
+      "legacy_path": "education_learning.training_credentials",
+      "action": "relationize",
+      "canonical_targets": [
+        "education_learning.training_credentials"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "education_learning.learning_history",
+      "action": "relationize",
+      "canonical_targets": [
+        "education_learning.learning_history"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "work_economic_position.employment_status",
+      "action": "retain",
+      "canonical_targets": [
+        "work_economic_participation.employment_status"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "work_economic_position.occupation",
+      "action": "relationize",
+      "canonical_targets": [
+        "work_economic_participation.occupation"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "work_economic_position.occupation_detail",
+      "action": "relationize",
+      "canonical_targets": [
+        "work_economic_participation.occupation_detail"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "work_economic_position.industry",
+      "action": "relationize",
+      "canonical_targets": [
+        "work_economic_participation.industry"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "work_economic_position.work_conditions",
+      "action": "retain",
+      "canonical_targets": [
+        "work_economic_participation.work_conditions"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "work_economic_position.authority_responsibility",
+      "action": "move",
+      "canonical_targets": [
+        "roles.work_authority_responsibility"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "work_economic_position.income",
+      "action": "retain",
+      "canonical_targets": [
+        "work_economic_participation.income"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "work_economic_position.wealth_assets",
+      "action": "retain",
+      "canonical_targets": [
+        "work_economic_participation.wealth_assets"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "work_economic_position.debt",
+      "action": "retain",
+      "canonical_targets": [
+        "work_economic_participation.debt"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "work_economic_position.material_security",
+      "action": "split",
+      "canonical_targets": [
+        "work_economic_participation.material_security_facts",
+        "resources_constraints_opportunities.material_resources"
+      ],
+      "rationale": "Legacy field conflated multiple concepts; migrate components to separate canonical homes."
+    },
+    {
+      "legacy_path": "social_structural_position.socioeconomic_class",
+      "action": "retain",
+      "canonical_targets": [
+        "social_institutional_position.socioeconomic_class"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "social_structural_position.citizenship_nationality",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.citizenship_nationality"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.legal_residency_status",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.legal_residency_status"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.institutional_memberships",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.institutional_memberships"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.social_status_prestige",
+      "action": "retain",
+      "canonical_targets": [
+        "social_institutional_position.social_status_prestige"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "social_structural_position.discrimination_stigma_exposure",
+      "action": "retain",
+      "canonical_targets": [
+        "social_institutional_position.discrimination_stigma_exposure"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "social_structural_position.rights_access",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.rights_access"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.service_access",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.service_access"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.justice_system_exposure",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.justice_system_exposure"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "social_structural_position.civic_institutional_participation",
+      "action": "relationize",
+      "canonical_targets": [
+        "social_institutional_position.civic_institutional_participation"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.family_of_origin",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.family_of_origin"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.caregiver_structure",
+      "action": "split",
+      "canonical_targets": [
+        "relationships.caregiver_relations",
+        "roles.caregiving_roles"
+      ],
+      "rationale": "Legacy field conflated multiple concepts; migrate components to separate canonical homes."
+    },
+    {
+      "legacy_path": "family_household.siblings",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.siblings"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.kinship_network",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.kinship_network"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.partner_spouse",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.partner_spouse"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.children_dependents",
+      "action": "split",
+      "canonical_targets": [
+        "relationships.children_dependents",
+        "roles.dependent_care_roles"
+      ],
+      "rationale": "Legacy field conflated multiple concepts; migrate components to separate canonical homes."
+    },
+    {
+      "legacy_path": "family_household.household_membership",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.household_membership"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.living_arrangement",
+      "action": "split",
+      "canonical_targets": [
+        "relationships.household_membership",
+        "place_mobility.living_arrangement"
+      ],
+      "rationale": "Legacy field conflated multiple concepts; migrate components to separate canonical homes."
+    },
+    {
+      "legacy_path": "family_household.family_climate",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.family_climate"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "family_household.intergenerational_patterns",
+      "action": "retain",
+      "canonical_targets": [
+        "relationships.intergenerational_patterns"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "family_household.birth_order_family_position",
+      "action": "derived",
+      "canonical_targets": [
+        "relationships.birth_order_family_position"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "family_household.fictive_kin_chosen_family",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.fictive_kin_chosen_family"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.friendships",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.friendships"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.peer_relations",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.peer_relations"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.romantic_relationships",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.romantic_relationships"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.mentors",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.mentors"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.work_relations",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.work_relations"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.community_ties",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.community_ties"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.support_network",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.support_network"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.network_size_structure",
+      "action": "derived",
+      "canonical_targets": [
+        "relationships.network_size_structure"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "relationships_networks.relationship_quality",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.relationship_quality"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.conflict_repair_patterns",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.conflict_repair_observations"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "relationships_networks.online_relationships_communities",
+      "action": "relationize",
+      "canonical_targets": [
+        "relationships.online_relationships_communities"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "personality_psychology.temperament_traits",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.temperament_traits"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "personality_psychology.motives_values_goals",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.motives_values_goals"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "personality_psychology.cognition_beliefs",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.cognition_beliefs"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "personality_psychology.emotion_regulation_coping",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.emotion_regulation_coping"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "personality_psychology.relational_patterns",
+      "action": "move",
+      "canonical_targets": [
+        "personality_psychology.relational_dispositions"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "personality_psychology.narrative_identity",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.narrative_identity"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "personality_psychology.surface_expression",
+      "action": "retain",
+      "canonical_targets": [
+        "personality_psychology.surface_expression"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.cognitive_abilities",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.cognitive_abilities"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.physical_skills",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.physical_skills"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.technical_skills",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.technical_skills"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.social_skills",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.social_skills"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.creative_skills",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.creative_skills"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.interests_hobbies",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.interests_hobbies"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.expertise",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.expertise"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.self_efficacy",
+      "action": "move",
+      "canonical_targets": [
+        "personality_psychology.cognition_beliefs.self_efficacy"
+      ],
+      "rationale": "Same concept moved to a more semantically precise canonical home."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.artistic_preferences",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.artistic_preferences"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "abilities_skills_interests.knowledge_domains",
+      "action": "retain",
+      "canonical_targets": [
+        "abilities_skills_interests.knowledge_domains"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.daily_routine",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.daily_routine"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.sleep_routine",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.sleep_routine"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.diet",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.diet"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.exercise",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.exercise"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.leisure",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.leisure"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.digital_use",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.digital_use"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.consumption_habits",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.consumption_habits"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.caregiving_routine",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.caregiving_routine"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.appearance_grooming_routine",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.appearance_grooming_routine"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "lifestyle_routines.media_consumption",
+      "action": "retain",
+      "canonical_targets": [
+        "lifestyle_routines.media_consumption"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.event_time",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.event_time"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.life_domain",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.life_domain"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.actors",
+      "action": "relationize",
+      "canonical_targets": [
+        "life_events.actors"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "life_events_history.event_type",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.event_type"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.pressure_shape",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.pressure_shape"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.impact_profile",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.impact_profile"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.turning_point",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.turning_point"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.immediate_consequence",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.immediate_consequence"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.delayed_consequence",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.delayed_consequence"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.memory_callback",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.memory_callback"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.event_source_provenance",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.event_source_provenance"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "life_events_history.event_subjective_meaning",
+      "action": "retain",
+      "canonical_targets": [
+        "life_events.event_subjective_meaning"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.household_context",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.household_context"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.school_work_institutions",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.school_work_institutions"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.neighborhood",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.neighborhood"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.regional_context",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.regional_context"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.economic_conditions",
+      "action": "retain",
+      "canonical_targets": [
+        "context_ecology.economic_conditions"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.policy_legal_context",
+      "action": "retain",
+      "canonical_targets": [
+        "context_ecology.policy_legal_context"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.technology_media_environment",
+      "action": "retain",
+      "canonical_targets": [
+        "context_ecology.technology_media_environment"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.historical_events",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.historical_events"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.social_norms",
+      "action": "retain",
+      "canonical_targets": [
+        "context_ecology.social_norms"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.environment_climate",
+      "action": "retain",
+      "canonical_targets": [
+        "context_ecology.environment_climate"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "ecology_macro_context.healthcare_system",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.healthcare_system"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.education_system",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.education_system"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.labor_market",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.labor_market"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "ecology_macro_context.digital_platform_environment",
+      "action": "relationize",
+      "canonical_targets": [
+        "context_ecology.digital_platform_environment"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.material_resources",
+      "action": "retain",
+      "canonical_targets": [
+        "resources_constraints_opportunities.material_resources"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.social_resources",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.social_resources"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.institutional_resources",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.institutional_resources"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.time_resources",
+      "action": "retain",
+      "canonical_targets": [
+        "resources_constraints_opportunities.time_resources"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.care_resources",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.care_resources"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.mobility_options",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.mobility_options"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.learning_opportunities",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.learning_opportunities"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.career_opportunities",
+      "action": "derived",
+      "canonical_targets": [
+        "resources_constraints_opportunities.career_opportunities"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "resources_constraints_opportunities.barriers_constraints",
+      "action": "retain",
+      "canonical_targets": [
+        "resources_constraints_opportunities.barriers_constraints"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "roles_responsibilities.family_roles",
+      "action": "relationize",
+      "canonical_targets": [
+        "roles.family_roles"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "roles_responsibilities.education_roles",
+      "action": "relationize",
+      "canonical_targets": [
+        "roles.education_roles"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "roles_responsibilities.work_roles",
+      "action": "relationize",
+      "canonical_targets": [
+        "roles.work_roles"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "roles_responsibilities.caregiving_roles",
+      "action": "relationize",
+      "canonical_targets": [
+        "roles.caregiving_roles"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "roles_responsibilities.community_roles",
+      "action": "relationize",
+      "canonical_targets": [
+        "roles.community_roles"
+      ],
+      "rationale": "Represent as a typed relation/history rather than a duplicated flat attribute."
+    },
+    {
+      "legacy_path": "roles_responsibilities.role_load",
+      "action": "derived",
+      "canonical_targets": [
+        "roles.role_load"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "roles_responsibilities.role_conflict",
+      "action": "derived",
+      "canonical_targets": [
+        "roles.role_conflict"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "roles_responsibilities.role_transition",
+      "action": "move",
+      "canonical_targets": [
+        "life_events.role_transition"
+      ],
+      "rationale": "Taking on/leaving a role is a time-indexed process/event; the resulting role itself lives under roles."
+    },
+    {
+      "legacy_path": "current_state.energy",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.energy"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.stress",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.stress"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.mood",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.mood"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.support",
+      "action": "derived",
+      "canonical_targets": [
+        "current_state.support"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "current_state.autonomy",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.autonomy"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.competence",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.competence"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.relatedness",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.relatedness"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.financial_strain",
+      "action": "derived",
+      "canonical_targets": [
+        "current_state.financial_strain"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "current_state.health_burden",
+      "action": "derived",
+      "canonical_targets": [
+        "current_state.health_burden"
+      ],
+      "rationale": "Represent as a computed/projection value whose source facts live elsewhere."
+    },
+    {
+      "legacy_path": "current_state.current_goals",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.current_goals"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    },
+    {
+      "legacy_path": "current_state.current_conflicts",
+      "action": "retain",
+      "canonical_targets": [
+        "current_state.current_conflicts"
+      ],
+      "rationale": "Same concept retained under an rc2 canonical semantic namespace."
+    }
+  ]
+}

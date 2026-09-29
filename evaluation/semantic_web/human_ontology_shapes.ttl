@@ -1,0 +1,93 @@
+@prefix ho: <https://w3id.org/human-ontology/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ho:PersonShape a sh:NodeShape ;
+  sh:targetClass ho:Person ;
+  sh:property [
+    sh:path ho:has_role ;
+    sh:class ho:Role
+  ] ;
+  sh:property [
+    sh:path ho:related_to_person ;
+    sh:class ho:Person
+  ] ;
+  sh:property [
+    sh:path ho:located_in ;
+    sh:class ho:Place
+  ] ;
+  sh:property [
+    sh:path ho:born_in ;
+    sh:class ho:Place
+  ] ;
+  sh:property [
+    sh:path ho:grew_up_in ;
+    sh:class ho:Place
+  ] ;
+  sh:property [
+    sh:path ho:lived_in ;
+    sh:class ho:Place
+  ] ;
+  sh:property [
+    sh:path ho:participates_in_culture ;
+    sh:class ho:CultureContext
+  ] ;
+  sh:property [
+    sh:path ho:uses_language ;
+    sh:class ho:Language
+  ] ;
+  sh:property [
+    sh:path ho:member_of ;
+    sh:class ho:Organization
+  ] ;
+  sh:property [
+    sh:path ho:works_for ;
+    sh:class ho:Organization
+  ] ;
+  sh:property [
+    sh:path ho:studies_at ;
+    sh:class ho:Organization
+  ] ;
+  sh:property [
+    sh:path ho:holds_credential ;
+    sh:class ho:Credential
+  ] ;
+  sh:property [
+    sh:path ho:has_resource ;
+    sh:class ho:Resource
+  ] ;
+  sh:property [
+    sh:path ho:faces_constraint ;
+    sh:class ho:Constraint
+  ] ;
+  sh:property [
+    sh:path ho:has_opportunity ;
+    sh:class ho:Opportunity
+  ] ;
+  sh:property [
+    sh:path ho:experienced_event ;
+    sh:class ho:Event
+  ] ;
+  sh:property [
+    sh:path ho:has_health_condition ;
+    sh:class ho:HealthCondition
+  ] ;
+  sh:property [
+    sh:path ho:has_symptom_or_experience ;
+    sh:class ho:Generic
+  ] ;
+  sh:property [
+    sh:path ho:receives_support ;
+    sh:or ( [ sh:class ho:Person ] [ sh:class ho:Organization ] [ sh:class ho:Resource ] )
+  ] ;
+  sh:property [
+    sh:path ho:has_trigger ;
+    sh:or ( [ sh:class ho:Generic ] [ sh:class ho:Event ] )
+  ] ;
+  sh:property [
+    sh:path ho:resides_in ;
+    sh:class ho:Place
+  ] ;
+  sh:property [
+    sh:path ho:situated_in_context ;
+    sh:or ( [ sh:class ho:Place ] [ sh:class ho:Organization ] [ sh:class ho:Generic ] )
+  ] .

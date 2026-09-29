@@ -1,0 +1,720 @@
+{
+  "benchmark_id": "human-ontology-multi-ai-tier-b1",
+  "ontology_version": "2.0.0-rc2",
+  "source_asset": "evaluation/adversarial_cases.json",
+  "protocol": {
+    "gold_hidden_from_models": true,
+    "same_prompt_contract_across_models": true,
+    "forbidden_inferences_are_candidate_entailment_checks": true,
+    "primary_unit": "case"
+  },
+  "counts": {
+    "cases": 24,
+    "atomic_facts": 56,
+    "forbidden_inferences": 38
+  },
+  "cases": [
+    {
+      "case_id": "ADV-001",
+      "theme": "place_culture_citizenship_identity",
+      "vignette": "A person was born in China, grew up in Canada, lives in the UK, holds Canadian citizenship, and self-identifies as Chinese Canadian.",
+      "facts": [
+        {
+          "fact_id": "ADV-001-F01",
+          "fact_key": "birthplace",
+          "gold": {
+            "canonical_domain": "place_mobility",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-001-F02",
+          "fact_key": "upbringing",
+          "gold": {
+            "canonical_domain": "place_mobility",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-001-F03",
+          "fact_key": "current_residence",
+          "gold": {
+            "canonical_domain": "place_mobility",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-001-F04",
+          "fact_key": "citizenship",
+          "gold": {
+            "canonical_domain": "social_institutional_position",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-001-F05",
+          "fact_key": "self_identification",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "birthplace implies citizenship",
+        "birthplace implies cultural identity",
+        "residence implies citizenship",
+        "citizenship implies self-identity"
+      ]
+    },
+    {
+      "case_id": "ADV-002",
+      "theme": "language_identity",
+      "vignette": "A person speaks Mandarin and English fluently but does not self-identify with either national identity.",
+      "facts": [
+        {
+          "fact_id": "ADV-002-F01",
+          "fact_key": "language_use",
+          "gold": {
+            "canonical_domain": "culture_language",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-002-F02",
+          "fact_key": "self_identity",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "language implies nationality",
+        "language implies ethnicity"
+      ]
+    },
+    {
+      "case_id": "ADV-003",
+      "theme": "trait_state",
+      "vignette": "A person has low measured neuroticism but reports high anxiety today before an exam.",
+      "facts": [
+        {
+          "fact_id": "ADV-003-F01",
+          "fact_key": "neuroticism",
+          "gold": {
+            "canonical_domain": "personality_psychology",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-003-F02",
+          "fact_key": "current_anxiety",
+          "gold": {
+            "canonical_domain": "current_state",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "current anxiety implies high stable neuroticism"
+      ]
+    },
+    {
+      "case_id": "ADV-004",
+      "theme": "ability_belief",
+      "vignette": "A skilled programmer reports very low confidence in programming ability.",
+      "facts": [
+        {
+          "fact_id": "ADV-004-F01",
+          "fact_key": "programming_skill",
+          "gold": {
+            "canonical_domain": "abilities_skills_interests",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-004-F02",
+          "fact_key": "self_efficacy",
+          "gold": {
+            "canonical_domain": "personality_psychology",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "skill level determines self-efficacy",
+        "self-efficacy determines actual skill"
+      ]
+    },
+    {
+      "case_id": "ADV-005",
+      "theme": "role_event",
+      "vignette": "A student graduates and becomes an employee.",
+      "facts": [
+        {
+          "fact_id": "ADV-005-F01",
+          "fact_key": "student_role",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-005-F02",
+          "fact_key": "graduation",
+          "gold": {
+            "canonical_domain": "life_events",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-005-F03",
+          "fact_key": "employee_role",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "role transition is an enduring role"
+      ]
+    },
+    {
+      "case_id": "ADV-006",
+      "theme": "relationship_disposition",
+      "vignette": "A person is generally trusting but has a conflictual relationship with one sibling.",
+      "facts": [
+        {
+          "fact_id": "ADV-006-F01",
+          "fact_key": "general_trust",
+          "gold": {
+            "canonical_domain": "personality_psychology",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-006-F02",
+          "fact_key": "sibling_relationship_quality",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "one bad relationship implies global distrust"
+      ]
+    },
+    {
+      "case_id": "ADV-007",
+      "theme": "diagnosis_identity",
+      "vignette": "A person has an ADHD diagnosis and values precision, quiet work, and family life.",
+      "facts": [
+        {
+          "fact_id": "ADV-007-F01",
+          "fact_key": "diagnosis",
+          "gold": {
+            "canonical_domain": "mental_neurodevelopmental_health",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-007-F02",
+          "fact_key": "values",
+          "gold": {
+            "canonical_domain": "personality_psychology",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "ADHD determines values",
+        "ADHD defines root identity",
+        "ADHD determines competence"
+      ]
+    },
+    {
+      "case_id": "ADV-008",
+      "theme": "diagnosis_evidence",
+      "vignette": "A generator is asked to create a persona with depression; no clinical observation occurred.",
+      "facts": [
+        {
+          "fact_id": "ADV-008-F01",
+          "fact_key": "diagnosis_constraint",
+          "gold": {
+            "canonical_domain": "mental_neurodevelopmental_health",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "input constraint is observed diagnosis",
+        "generated diagnosis is measured evidence"
+      ]
+    },
+    {
+      "case_id": "ADV-009",
+      "theme": "symptom_diagnosis",
+      "vignette": "A person reports insomnia and sadness without any formal diagnosis.",
+      "facts": [
+        {
+          "fact_id": "ADV-009-F01",
+          "fact_key": "symptoms",
+          "gold": {
+            "canonical_domain": "mental_neurodevelopmental_health",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "symptoms automatically imply a diagnosis"
+      ]
+    },
+    {
+      "case_id": "ADV-010",
+      "theme": "current_resource_source_fact",
+      "vignette": "A person has many friends but none can provide childcare this week.",
+      "facts": [
+        {
+          "fact_id": "ADV-010-F01",
+          "fact_key": "friendships",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-010-F02",
+          "fact_key": "available_childcare_support",
+          "gold": {
+            "canonical_domain": "resources_constraints_opportunities",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "number of friends equals currently usable support"
+      ]
+    },
+    {
+      "case_id": "ADV-011",
+      "theme": "work_role_organization",
+      "vignette": "A person is a professor employed by a university and also serves as a department chair.",
+      "facts": [
+        {
+          "fact_id": "ADV-011-F01",
+          "fact_key": "occupation",
+          "gold": {
+            "canonical_domain": "work_economic_participation",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-011-F02",
+          "fact_key": "employment_role",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-011-F03",
+          "fact_key": "employer",
+          "gold": {
+            "canonical_domain": "work_economic_participation",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-011-F04",
+          "fact_key": "chair_role",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "organization is a role",
+        "role is an organization"
+      ]
+    },
+    {
+      "case_id": "ADV-012",
+      "theme": "education_skill",
+      "vignette": "A person has no university degree but has expert-level carpentry skills.",
+      "facts": [
+        {
+          "fact_id": "ADV-012-F01",
+          "fact_key": "education_attainment",
+          "gold": {
+            "canonical_domain": "education_learning",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-012-F02",
+          "fact_key": "carpentry_skill",
+          "gold": {
+            "canonical_domain": "abilities_skills_interests",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "education attainment determines skill"
+      ]
+    },
+    {
+      "case_id": "ADV-013",
+      "theme": "religion_identity",
+      "vignette": "A person was raised Catholic, now participates in Buddhist meditation, and identifies as non-religious.",
+      "facts": [
+        {
+          "fact_id": "ADV-013-F01",
+          "fact_key": "religious_socialization",
+          "gold": {
+            "canonical_domain": "culture_language",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-013-F02",
+          "fact_key": "current_practice",
+          "gold": {
+            "canonical_domain": "culture_language",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-013-F03",
+          "fact_key": "self_identity",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "past religious exposure determines current religious identity"
+      ]
+    },
+    {
+      "case_id": "ADV-014",
+      "theme": "sex_gender",
+      "vignette": "A person's sex characteristics, gender identity, and gender expression do not align with a binary assumption.",
+      "facts": [
+        {
+          "fact_id": "ADV-014-F01",
+          "fact_key": "sex_characteristics",
+          "gold": {
+            "canonical_domain": "body_functioning_health",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-014-F02",
+          "fact_key": "gender_identity",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-014-F03",
+          "fact_key": "gender_expression",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "sex characteristics determine gender identity",
+        "gender expression determines sex characteristics"
+      ]
+    },
+    {
+      "case_id": "ADV-015",
+      "theme": "marital_relationship",
+      "vignette": "A legally married person is separated and reports a supportive co-parenting relationship.",
+      "facts": [
+        {
+          "fact_id": "ADV-015-F01",
+          "fact_key": "legal_or_marital_status",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-015-F02",
+          "fact_key": "relationship_quality",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "marital status determines relationship quality"
+      ]
+    },
+    {
+      "case_id": "ADV-016",
+      "theme": "disability_functioning",
+      "vignette": "A wheelchair user has high occupational performance and reports barriers caused mainly by inaccessible buildings.",
+      "facts": [
+        {
+          "fact_id": "ADV-016-F01",
+          "fact_key": "physical_functioning",
+          "gold": {
+            "canonical_domain": "body_functioning_health",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-016-F02",
+          "fact_key": "occupational_performance",
+          "gold": {
+            "canonical_domain": "work_economic_participation",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-016-F03",
+          "fact_key": "accessibility_barrier",
+          "gold": {
+            "canonical_domain": "context_ecology",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "disability implies low competence",
+        "functional status implies poor work performance"
+      ]
+    },
+    {
+      "case_id": "ADV-017",
+      "theme": "economic_resource",
+      "vignette": "A person has high net worth but temporarily lacks liquid cash.",
+      "facts": [
+        {
+          "fact_id": "ADV-017-F01",
+          "fact_key": "wealth",
+          "gold": {
+            "canonical_domain": "work_economic_participation",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-017-F02",
+          "fact_key": "current_liquid_resource",
+          "gold": {
+            "canonical_domain": "resources_constraints_opportunities",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "wealth automatically equals current usable resources"
+      ]
+    },
+    {
+      "case_id": "ADV-018",
+      "theme": "migration_event_identity",
+      "vignette": "A person migrated twice and later changed how they describe their cultural identity.",
+      "facts": [
+        {
+          "fact_id": "ADV-018-F01",
+          "fact_key": "migration_history",
+          "gold": {
+            "canonical_domain": "place_mobility",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-018-F02",
+          "fact_key": "migration_events",
+          "gold": {
+            "canonical_domain": "life_events",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-018-F03",
+          "fact_key": "identity_change",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "migration mechanically determines identity"
+      ]
+    },
+    {
+      "case_id": "ADV-019",
+      "theme": "occupation_role_transition",
+      "vignette": "A physician retires but retains medical expertise and professional identity.",
+      "facts": [
+        {
+          "fact_id": "ADV-019-F01",
+          "fact_key": "retirement",
+          "gold": {
+            "canonical_domain": "life_events",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-019-F02",
+          "fact_key": "current_work_role",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-019-F03",
+          "fact_key": "medical_expertise",
+          "gold": {
+            "canonical_domain": "abilities_skills_interests",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-019-F04",
+          "fact_key": "professional_self_concept",
+          "gold": {
+            "canonical_domain": "identity_self_concept",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "loss of role erases skill",
+        "retirement erases identity"
+      ]
+    },
+    {
+      "case_id": "ADV-020",
+      "theme": "state_temporality",
+      "vignette": "A person's stress is high this month and low next month while stable values remain unchanged.",
+      "facts": [
+        {
+          "fact_id": "ADV-020-F01",
+          "fact_key": "stress",
+          "gold": {
+            "canonical_domain": "current_state",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-020-F02",
+          "fact_key": "values",
+          "gold": {
+            "canonical_domain": "personality_psychology",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "dynamic state changes rewrite enduring values"
+      ]
+    },
+    {
+      "case_id": "ADV-021",
+      "theme": "multi_role",
+      "vignette": "A person is simultaneously a parent, doctoral student, employee, and caregiver.",
+      "facts": [
+        {
+          "fact_id": "ADV-021-F01",
+          "fact_key": "roles",
+          "gold": {
+            "canonical_domain": "roles",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "roles must be mutually exclusive"
+      ]
+    },
+    {
+      "case_id": "ADV-022",
+      "theme": "household_relationship",
+      "vignette": "Two unrelated friends share a household but are not family members.",
+      "facts": [
+        {
+          "fact_id": "ADV-022-F01",
+          "fact_key": "household_context",
+          "gold": {
+            "canonical_domain": "context_ecology",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-022-F02",
+          "fact_key": "friendship",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "co-residence implies kinship"
+      ]
+    },
+    {
+      "case_id": "ADV-023",
+      "theme": "support_source",
+      "vignette": "A person receives practical support from both a sibling and a local charity.",
+      "facts": [
+        {
+          "fact_id": "ADV-023-F01",
+          "fact_key": "person_support",
+          "gold": {
+            "canonical_domain": "relationships",
+            "knowledge_status": "known"
+          }
+        },
+        {
+          "fact_id": "ADV-023-F02",
+          "fact_key": "organization_support",
+          "gold": {
+            "canonical_domain": "resources_constraints_opportunities",
+            "knowledge_status": "known"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "all support must come from a person",
+        "all support must come from an organization"
+      ]
+    },
+    {
+      "case_id": "ADV-024",
+      "theme": "unknown_absent",
+      "vignette": "No information is available about a person's religion.",
+      "facts": [
+        {
+          "fact_id": "ADV-024-F01",
+          "fact_key": "religion",
+          "gold": {
+            "canonical_domain": null,
+            "knowledge_status": "unknown"
+          }
+        }
+      ],
+      "forbidden_inferences": [
+        "missing religion means non-religious",
+        "unknown means absent"
+      ]
+    }
+  ]
+}
