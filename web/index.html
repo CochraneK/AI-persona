@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
 <title>AI-Persona · 人类档案 — Human Ontology v2</title>
 <meta name="description" content="基于 Human Ontology v2 的人类模拟人物生成引擎。18 个语义命名空间描述一个完整的人，精神科只是其中一个模块；可随机抽取结构化档案（健康对照 + 患者）。研究用途，非临床诊断工具。">
 <script id="showcase-data" type="application/json">
@@ -3708,6 +3709,24 @@ section{margin-top:64px}
   background:none;border:1px solid var(--ink-2);color:var(--ink-2);padding:8px 20px;cursor:pointer;border-radius:3px;
 }
 .btn-again:hover{background:var(--ink-2);color:var(--paper)}
+.lg-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin:18px 0 2px}
+.lg-form select,.lg-form input{
+  background:var(--paper);border:1px solid var(--ink-2);border-radius:3px;
+  padding:10px 12px;font-size:13px;color:var(--ink);font-family:var(--mono);letter-spacing:.02em;
+}
+.lg-form input{width:190px}
+.lg-form select{max-width:215px}
+.lg-copy-row{margin:16px 0 0}
+.btn-copy{
+  display:block;margin:0 auto;font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+  background:none;border:1px solid #2f6b64;color:#2f6b64;padding:9px 20px;cursor:pointer;border-radius:3px;
+}
+.btn-copy:hover{background:rgba(47,107,100,.08)}
+.lg-err{
+  background:rgba(178,58,41,.06);border:1px dashed var(--seal);color:var(--seal-2);
+  padding:14px 16px;font-size:12.5px;line-height:1.9;border-radius:3px;text-align:left;
+}
+.lg-err code{font-family:var(--mono);font-size:11.5px;background:rgba(178,58,41,.08);padding:1px 4px;border-radius:2px}
 .typing::after{content:"▍";color:var(--seal);animation:blink 1s steps(1) infinite}
 
 /* ============ FOOTER ============ */
@@ -3854,6 +3873,31 @@ footer .meta a{color:var(--teal);text-decoration:none}
       <div class="hint">点击印章，从 70 份已生成的档案里随机取一位——健康人或患者。<br>纯前端抽取，不联网、不请求任何外部资源。</div>
       <button class="btn-draw" id="btn-draw">抽 取 新 人 物</button>
       <div class="draw-result" id="draw-result"></div>
+    </div>
+  </section>
+
+  <!-- ================= LIVE GEN ================= -->
+  <section id="livegen">
+    <div class="sec-head">
+      <div class="sec-no">伍</div>
+      <div class="sec-title">
+        <h2>实时生成一个人</h2>
+        <div class="en">Generate Live</div>
+        <div class="rule"></div>
+      </div>
+    </div>
+    <div class="draw-box">
+      <div class="hint">选诊断 + 种子，本地服务实时跑引擎生成全新档案——不受现有 70 份限制，同种子可复现。<br>
+      先在仓库根目录运行 <code>python scripts/serve_showcase.py</code>，再用 <code>http://127.0.0.1:8765/</code> 打开本页。</div>
+      <div class="lg-form">
+        <select id="lg-diag" aria-label="诊断"></select>
+        <input id="lg-seed" type="number" min="0" max="2147483647" placeholder="seed（留空 = 随机）">
+        <button class="btn-draw" id="btn-livegen">生 成 新 人 物</button>
+      </div>
+      <div class="lg-copy-row" id="lg-copy-row" hidden>
+        <button class="btn-copy" id="btn-copy-prompt">复制 LLM 设定（System Prompt）</button>
+      </div>
+      <div class="draw-result" id="lg-result"></div>
     </div>
   </section>
 
@@ -4032,6 +4076,70 @@ footer .meta a{color:var(--teal);text-decoration:none}
     }, 320);
   }
   btn.addEventListener("click", draw);
+
+  /* ---- live generation (needs the local server, section 伍) ---- */
+  var LG_DIAGS = [
+    "无精神障碍（健康）",
+    "重度抑郁障碍", "广泛性焦虑障碍", "社交焦虑障碍", "精神分裂症", "双相I型障碍",
+    "强迫症", "注意缺陷/多动障碍", "创伤后应激障碍", "边缘型人格障碍", "神经性厌食症"
+  ];
+  var lgDiag = document.getElementById("lg-diag");
+  var lgSeed = document.getElementById("lg-seed");
+  var lgBtn = document.getElementById("btn-livegen");
+  var lgResult = document.getElementById("lg-result");
+  var lgCopyRow = document.getElementById("lg-copy-row");
+  var lgCopyBtn = document.getElementById("btn-copy-prompt");
+  lgDiag.innerHTML = LG_DIAGS.map(function(d){
+    return '<option value="'+esc(d)+'">'+esc(d)+'</option>';
+  }).join("");
+  var lgBusy = false, lgPrompt = "";
+  function lgCopy(){
+    if(!lgPrompt) return;
+    var done = function(){
+      lgCopyBtn.textContent = "已 复 制 ✓";
+      setTimeout(function(){ lgCopyBtn.textContent = "复制 LLM 设定（System Prompt）"; }, 1600);
+    };
+    var fallback = function(){
+      var ta = document.createElement("textarea");
+      ta.value = lgPrompt;
+      ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var okc = false;
+      try { okc = document.execCommand("copy"); } catch(e) {}
+      document.body.removeChild(ta);
+      if(okc) done();
+      else lgCopyBtn.textContent = "复制失败，请手动选取";
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(lgPrompt).then(done, fallback);
+    } else fallback();
+  }
+  function liveGen(){
+    if(lgBusy) return;
+    lgBusy = true; lgBtn.disabled = true; lgBtn.textContent = "生 成 中 …";
+    lgCopyRow.hidden = true; lgPrompt = "";
+    var url = "/api/persona?diagnosis=" + encodeURIComponent(lgDiag.value) +
+      (lgSeed.value !== "" ? "&seed=" + encodeURIComponent(lgSeed.value) : "");
+    fetch(url).then(function(r){
+      return r.json().then(function(j){ return {ok: r.ok, j: j, st: r.status}; });
+    }).then(function(res){
+      if(!res.ok){
+        lgResult.innerHTML = '<div class="lg-err">生成失败（HTTP ' + esc(res.st) + '）：' +
+          esc(res.j && res.j.error ? res.j.error : "未知错误") + '</div>';
+        return;
+      }
+      lgPrompt = res.j.system_prompt || "";
+      lgResult.innerHTML = chartHtml(res.j);
+      lgCopyRow.hidden = !lgPrompt;
+    }).catch(function(){
+      lgResult.innerHTML = '<div class="lg-err">连不上本地服务。<br>先在仓库根目录运行 ' +
+        '<code>python scripts/serve_showcase.py</code>，再用 <code>http://127.0.0.1:8765/</code> 打开本页。</div>';
+    }).then(function(){
+      lgBusy = false; lgBtn.disabled = false; lgBtn.textContent = "生 成 新 人 物";
+    });
+  }
+  lgBtn.addEventListener("click", liveGen);
+  lgCopyBtn.addEventListener("click", lgCopy);
 
 })();
 </script>

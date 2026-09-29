@@ -121,6 +121,7 @@ AI-persona/
 │   ├── generate_dataset.py            # 批量数据集生成
 │   ├── analyze_dataset.py             # 数据集分析工具
 │   ├── make_showcase_pool.py          # 展示页数据池 (70 人设 + 本体摘要, 幂等内联)
+│   ├── serve_showcase.py              # 展示页本地服务 (纯标准库; /api/persona 实时生成 + 可复现 seed)
 │   └── _scratch/                      # 一次性构建脚本（归档备查）
 │
 ├── data/                              # 参考数据
@@ -147,7 +148,7 @@ AI-persona/
 │   └── _diag_names.json              # 诊断中文名映射
 │
 ├── web/                               # ⭐ 项目展示页（自包含单文件、零外部依赖，双击即开）
-│   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取）
+│   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取 + 实时生成节）
 │   └── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
 │
 └── skill/                             # WorkBuddy 技能
@@ -302,6 +303,20 @@ personas = batch_generate(20, rng_seed=2024, seed_pool=[
     "双相I型障碍", "无精神障碍（健康）",
 ])
 ```
+
+### 展示页实时生成（本地服务）
+
+```bash
+# 在仓库根目录启动本地服务（纯标准库，零外部依赖）
+python scripts/serve_showcase.py
+# 然后浏览器打开
+http://127.0.0.1:8765/
+```
+
+展示页第五节「实时生成一个人」可任选诊断（10 诊断 + 健康对照）与 seed，
+实时调用引擎生成全新人设（不再受 70 份数据池限制）；相同 `(诊断, seed)`
+组合结果可复现，卡片下方可一键复制完整 LLM System Prompt。
+直接用 `file://` 双击打开 index.html 时该节不可用（其余 70 份池照常工作）。
 
 ### 自定义配置
 
