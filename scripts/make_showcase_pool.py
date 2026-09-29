@@ -73,6 +73,42 @@ HEALTHY_SEEDS = 20
 # Offset so healthy seeds never collide with the diagnosis seeds.
 HEALTHY_SEED_OFFSET = 100
 
+# Chinese display labels + guiding questions for the 18 canonical domains.
+# The canonical ontology (human_ontology.v2.json) is an English research
+# artifact with release gates — it stays untouched. The showcase layer maps
+# the English id/question to Chinese for the page; the English originals are
+# kept in the payload as the source of record.
+DOMAIN_ZH: dict[str, tuple[str, str]] = {
+    "development": ("生命历程", "这个人处于生命历程的哪个阶段？哪些发展性转变定义了它？"),
+    "body_functioning_health": ("身体功能与健康", "哪些身体特征、功能、残疾与身体健康属性适用于此人？"),
+    "mental_neurodevelopmental_health": ("精神与神经发育健康", "哪些心理健康、神经发育、症状/体验、功能、照护与康复属性适用？"),
+    "personality_psychology": ("人格与心理", "哪些相对稳定的特质、动机、信念、调节策略、关系倾向与叙事组织适用？"),
+    "abilities_skills_interests": ("能力·技能·兴趣", "哪些能力、习得技能、专长与兴趣适用？"),
+    "identity_self_concept": ("身份与自我概念", "此人如何描述或理解那些不可还原为角色、法律身份、地点或文化参与关系的自我身份？"),
+    "roles": ("角色", "此人承担哪些社会、家庭、教育、工作、照护或社区角色？"),
+    "relationships": ("关系", "此人与哪些人相关、以何种关系类型，且该关系带有哪些属性？"),
+    "place_mobility": ("地点与流动", "此人通过出生、成长、居住、迁徙或流动与哪些地点相关？"),
+    "education_learning": ("教育与学习", "哪些正式/非正式教育、学习参与、学历与学习机会刻画了此人？"),
+    "work_economic_participation": ("工作与经济参与", "此人如何参与工作、职业、组织、劳动力市场、收入/资产/负债与经济地位？"),
+    "social_institutional_position": ("社会制度地位", "此人在法律、公民、制度、阶层与权利/准入体系中的位置如何？"),
+    "culture_language": ("文化与语言", "此人参与、使用或接触过哪些文化、语言、宗教/灵性或社会化环境？"),
+    "life_events": ("生活事件", "发生了什么于此人身上、或此人做了什么——何时、与谁、在何种情境下、带来何种后果？"),
+    "context_ecology": ("情境与生态", "哪些外部的家庭、社区、机构、经济、政策、技术、历史与环境情境环绕着此人？"),
+    "resources_constraints_opportunities": ("资源·约束·机会", "在某一时刻，此人实际可及的资源、约束与可行动的机会有哪些？"),
+    "lifestyle_routines": ("生活方式与日常", "哪些重复性活动、常规与习惯性实践构成了日常？"),
+    "current_state": ("此刻的状态", "此刻关于此人的哪些真实状况，不应被误认为稳定特质、持久关系或历史事件？"),
+}
+
+# Chinese labels for the 5 canonical temporal classes (CSS keeps the English
+# class names for styling; only the displayed text is translated).
+TEMPORAL_ZH: dict[str, str] = {
+    "slow_changing": "慢变",
+    "dynamic_state": "动态状态",
+    "role_dependent": "角色依赖",
+    "relationship_specific": "关系特定",
+    "event_history": "事件史",
+}
+
 
 def _build_ontology_summary() -> dict:
     with open(V2_PATH, encoding="utf-8") as f:
@@ -81,20 +117,32 @@ def _build_ontology_summary() -> dict:
         catalog = json.load(f)
 
     domains = v2.get("canonical_domains", [])
-    # Count canonical concepts per domain from the concept catalog.
+    # Count canonical concepts per domain AND collect their names (the key
+    # part of canonical_path) so the page can show concrete values, not just
+    # a number.
     per_domain: dict[str, int] = {}
+    per_domain_names: dict[str, list[str]] = {}
     for concept in catalog.get("concepts", []):
         d = concept.get("domain", "unknown")
         per_domain[d] = per_domain.get(d, 0) + 1
+        path = concept.get("canonical_path", "")
+        name = path.split(".", 1)[1] if "." in path else path
+        per_domain_names.setdefault(d, []).append(name)
 
     domain_rows = []
     for d in domains:
         did = d.get("id", "")
+        zh_label, zh_question = DOMAIN_ZH.get(did, (did, d.get("question", "")))
+        temporal = d.get("default_temporal_class", "")
         domain_rows.append({
             "id": did,
-            "temporal_class": d.get("default_temporal_class", ""),
+            "zh": zh_label,
+            "temporal_class": temporal,
+            "zh_class": TEMPORAL_ZH.get(temporal, temporal),
             "question": d.get("question", ""),
+            "zh_question": zh_question,
             "concepts": per_domain.get(did, 0),
+            "concept_names": per_domain_names.get(did, []),
         })
 
     return {

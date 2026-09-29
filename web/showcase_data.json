@@ -11,111 +11,406 @@
     "domains": [
       {
         "id": "development",
+        "zh": "生命历程",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "Where is the person in the life course, and what developmental transitions characterize that placement?",
-        "concepts": 7
+        "zh_question": "这个人处于生命历程的哪个阶段？哪些发展性转变定义了它？",
+        "concepts": 7,
+        "concept_names": [
+          "birth_cohort",
+          "birth_date_year",
+          "chronological_age",
+          "developmental_stage",
+          "historical_period",
+          "life_role_stage",
+          "major_transition_status"
+        ]
       },
       {
         "id": "body_functioning_health",
+        "zh": "身体功能与健康",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "What bodily characteristics, functioning, disability and physical-health properties apply?",
-        "concepts": 11
+        "zh_question": "哪些身体特征、功能、残疾与身体健康属性适用于此人？",
+        "concepts": 11,
+        "concept_names": [
+          "body_morphology",
+          "disability_functioning",
+          "health_history",
+          "physical_appearance",
+          "physical_health",
+          "reproductive_health",
+          "sensory_motor_function",
+          "sex_assigned_at_birth",
+          "sex_characteristics",
+          "sleep_functioning",
+          "substance_related_health"
+        ]
       },
       {
         "id": "mental_neurodevelopmental_health",
+        "zh": "精神与神经发育健康",
         "temporal_class": "dynamic_state",
+        "zh_class": "动态状态",
         "question": "What mental-health, neurodevelopmental, symptom/experience, functioning, care and recovery properties apply?",
-        "concepts": 10
+        "zh_question": "哪些心理健康、神经发育、症状/体验、功能、照护与康复属性适用？",
+        "concepts": 10,
+        "concept_names": [
+          "diagnoses",
+          "functional_impact",
+          "mental_health_status",
+          "neurodevelopmental_conditions",
+          "recovery_course",
+          "risk_protective_factors",
+          "safety_behaviors",
+          "symptoms_experiences",
+          "treatment_support",
+          "triggers"
+        ]
       },
       {
         "id": "personality_psychology",
+        "zh": "人格与心理",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "What relatively stable traits, motives, beliefs, regulation strategies, relational dispositions and narrative organization apply?",
-        "concepts": 10
+        "zh_question": "哪些相对稳定的特质、动机、信念、调节策略、关系倾向与叙事组织适用？",
+        "concepts": 10,
+        "concept_names": [
+          "cognition_beliefs",
+          "cognition_beliefs.self_efficacy",
+          "emotion_regulation_coping",
+          "motives_values_goals",
+          "narrative_identity",
+          "relational_dispositions",
+          "surface_expression",
+          "temperament_traits",
+          "temperament_traits.legacy_tags",
+          "temperament_traits.ocean"
+        ]
       },
       {
         "id": "abilities_skills_interests",
+        "zh": "能力·技能·兴趣",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "What abilities, learned skills, expertise and interests apply?",
-        "concepts": 11
+        "zh_question": "哪些能力、习得技能、专长与兴趣适用？",
+        "concepts": 11,
+        "concept_names": [
+          "artistic_preferences",
+          "cognitive_abilities",
+          "creative_skills",
+          "expertise",
+          "interests_hobbies",
+          "knowledge_domains",
+          "language_proficiency",
+          "physical_skills",
+          "profile",
+          "social_skills",
+          "technical_skills"
+        ]
       },
       {
         "id": "identity_self_concept",
+        "zh": "身份与自我概念",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "How does the person describe or understand self-identities that are not reducible to a role, legal status, place or cultural participation relation?",
-        "concepts": 10
+        "zh_question": "此人如何描述或理解那些不可还原为角色、法律身份、地点或文化参与关系的自我身份？",
+        "concepts": 10,
+        "concept_names": [
+          "acculturation_bicultural_orientation",
+          "caste_tribe_clan_identity",
+          "ethnocultural_identity",
+          "gender_expression",
+          "gender_identity",
+          "pronouns",
+          "racialized_identity",
+          "romantic_orientation",
+          "self_presentation",
+          "sexual_orientation"
+        ]
       },
       {
         "id": "roles",
+        "zh": "角色",
         "temporal_class": "role_dependent",
+        "zh_class": "角色依赖",
         "question": "What social, family, education, work, care or community roles does the person bear?",
-        "concepts": 10
+        "zh_question": "此人承担哪些社会、家庭、教育、工作、照护或社区角色？",
+        "concepts": 10,
+        "concept_names": [
+          "caregiving_roles",
+          "community_roles",
+          "dependent_care_roles",
+          "education_roles",
+          "family_roles",
+          "items",
+          "role_conflict",
+          "role_load",
+          "work_authority_responsibility",
+          "work_roles"
+        ]
       },
       {
         "id": "relationships",
+        "zh": "关系",
         "temporal_class": "relationship_specific",
+        "zh_class": "关系特定",
         "question": "To which people is the person related, by what relation type, and what properties belong to that relation?",
-        "concepts": 24
+        "zh_question": "此人与哪些人相关、以何种关系类型，且该关系带有哪些属性？",
+        "concepts": 24,
+        "concept_names": [
+          "birth_order_family_position",
+          "caregiver_relations",
+          "children_dependents",
+          "community_ties",
+          "conflict_repair_observations",
+          "family_climate",
+          "family_of_origin",
+          "fictive_kin_chosen_family",
+          "friendships",
+          "household_membership",
+          "intergenerational_patterns",
+          "kinship_network",
+          "marital_status",
+          "mentors",
+          "network_size_structure",
+          "observations",
+          "online_relationships_communities",
+          "partner_spouse",
+          "peer_relations",
+          "relationship_quality",
+          "romantic_relationships",
+          "siblings",
+          "support_network",
+          "work_relations"
+        ]
       },
       {
         "id": "place_mobility",
+        "zh": "地点与流动",
         "temporal_class": "event_history",
+        "zh_class": "事件史",
         "question": "What places is the person related to through birth, upbringing, residence, migration or mobility?",
-        "concepts": 10
+        "zh_question": "此人通过出生、成长、居住、迁徙或流动与哪些地点相关？",
+        "concepts": 10,
+        "concept_names": [
+          "birth_place",
+          "current_residence",
+          "housing_context",
+          "living_arrangement",
+          "migration_generation",
+          "migration_history",
+          "mobility_pattern",
+          "place_attachment",
+          "residence",
+          "upbringing_places"
+        ]
       },
       {
         "id": "education_learning",
+        "zh": "教育与学习",
         "temporal_class": "slow_changing",
+        "zh_class": "慢变",
         "question": "What formal/non-formal education, learning participation, credentials and learning opportunities characterize the person?",
-        "concepts": 6
+        "zh_question": "哪些正式/非正式教育、学习参与、学历与学习机会刻画了此人？",
+        "concepts": 6,
+        "concept_names": [
+          "current_education_status",
+          "education_attainment",
+          "education_field",
+          "learning_access_history",
+          "learning_history",
+          "training_credentials"
+        ]
       },
       {
         "id": "work_economic_participation",
+        "zh": "工作与经济参与",
         "temporal_class": "role_dependent",
+        "zh_class": "角色依赖",
         "question": "How does the person participate in work, occupations, organizations, labour markets, income/assets/debt and economic position?",
-        "concepts": 9
+        "zh_question": "此人如何参与工作、职业、组织、劳动力市场、收入/资产/负债与经济地位？",
+        "concepts": 9,
+        "concept_names": [
+          "debt",
+          "employment_status",
+          "income",
+          "industry",
+          "material_security_facts",
+          "occupation",
+          "occupation_detail",
+          "wealth_assets",
+          "work_conditions"
+        ]
       },
       {
         "id": "social_institutional_position",
+        "zh": "社会制度地位",
         "temporal_class": "role_dependent",
+        "zh_class": "角色依赖",
         "question": "How is the person positioned relative to legal, civic, institutional, stratification and rights/access systems?",
-        "concepts": 11
+        "zh_question": "此人在法律、公民、制度、阶层与权利/准入体系中的位置如何？",
+        "concepts": 11,
+        "concept_names": [
+          "citizenship_nationality",
+          "civic_institutional_participation",
+          "discrimination_stigma_exposure",
+          "healthcare_entitlement_access",
+          "institutional_memberships",
+          "justice_system_exposure",
+          "legal_residency_status",
+          "rights_access",
+          "service_access",
+          "social_status_prestige",
+          "socioeconomic_class"
+        ]
       },
       {
         "id": "culture_language",
+        "zh": "文化与语言",
         "temporal_class": "event_history",
+        "zh_class": "事件史",
         "question": "What cultural, linguistic, religious/spiritual or socialization environments has the person participated in, used or been exposed to?",
-        "concepts": 8
+        "zh_question": "此人参与、使用或接触过哪些文化、语言、宗教/灵性或社会化环境？",
+        "concepts": 8,
+        "concept_names": [
+          "cross_cultural_experience",
+          "cultural_backgrounds",
+          "cultural_participation",
+          "customs_norms_exposure",
+          "enculturation_contexts",
+          "languages",
+          "media_culture_exposure",
+          "religion_spirituality"
+        ]
       },
       {
         "id": "life_events",
+        "zh": "生活事件",
         "temporal_class": "event_history",
+        "zh_class": "事件史",
         "question": "What happened to or was done by the person, when, with whom, in what context and with what consequences?",
-        "concepts": 14
+        "zh_question": "发生了什么于此人身上、或此人做了什么——何时、与谁、在何种情境下、带来何种后果？",
+        "concepts": 14,
+        "concept_names": [
+          "actors",
+          "delayed_consequence",
+          "event_source_provenance",
+          "event_subjective_meaning",
+          "event_time",
+          "event_type",
+          "immediate_consequence",
+          "impact_profile",
+          "items",
+          "life_domain",
+          "memory_callback",
+          "pressure_shape",
+          "role_transition",
+          "turning_point"
+        ]
       },
       {
         "id": "context_ecology",
+        "zh": "情境与生态",
         "temporal_class": "dynamic_state",
+        "zh_class": "动态状态",
         "question": "What external household, neighborhood, institutional, economic, policy, technological, historical and environmental contexts surround the person?",
-        "concepts": 18
+        "zh_question": "哪些外部的家庭、社区、机构、经济、政策、技术、历史与环境情境环绕着此人？",
+        "concepts": 18,
+        "concept_names": [
+          "contexts",
+          "digital_platform_environment",
+          "economic_conditions",
+          "education_system",
+          "environment_climate",
+          "gender_role_context",
+          "healthcare_system",
+          "historical_events",
+          "household_context",
+          "labor_market",
+          "neighborhood",
+          "physical_environment",
+          "policy_legal_context",
+          "regional_context",
+          "school_work_institutions",
+          "social_norms",
+          "technology_media_environment",
+          "urbanicity"
+        ]
       },
       {
         "id": "resources_constraints_opportunities",
+        "zh": "资源·约束·机会",
         "temporal_class": "dynamic_state",
+        "zh_class": "动态状态",
         "question": "What resources, constraints and actionable opportunities are actually available to the person at a given time?",
-        "concepts": 12
+        "zh_question": "在某一时刻，此人实际可及的资源、约束与可行动的机会有哪些？",
+        "concepts": 12,
+        "concept_names": [
+          "barriers_constraints",
+          "care_resources",
+          "career_opportunities",
+          "constraints",
+          "healthcare_access",
+          "institutional_resources",
+          "learning_opportunities",
+          "material_resources",
+          "mobility_options",
+          "resources",
+          "social_resources",
+          "time_resources"
+        ]
       },
       {
         "id": "lifestyle_routines",
+        "zh": "生活方式与日常",
         "temporal_class": "dynamic_state",
+        "zh_class": "动态状态",
         "question": "What recurring activities, routines and habitual practices characterize daily life?",
-        "concepts": 12
+        "zh_question": "哪些重复性活动、常规与习惯性实践构成了日常？",
+        "concepts": 12,
+        "concept_names": [
+          "appearance_grooming_routine",
+          "caregiving_routine",
+          "consumption_habits",
+          "daily_routine",
+          "diet",
+          "digital_use",
+          "exercise",
+          "leisure",
+          "media_consumption",
+          "profile",
+          "sleep_routine",
+          "substance_use"
+        ]
       },
       {
         "id": "current_state",
+        "zh": "此刻的状态",
         "temporal_class": "dynamic_state",
+        "zh_class": "动态状态",
         "question": "What is true of the person now that should not be mistaken for a stable trait, enduring relation or historical event?",
-        "concepts": 12
+        "zh_question": "此刻关于此人的哪些真实状况，不应被误认为稳定特质、持久关系或历史事件？",
+        "concepts": 12,
+        "concept_names": [
+          "autonomy",
+          "competence",
+          "current_conflicts",
+          "current_goals",
+          "energy",
+          "financial_strain",
+          "health_burden",
+          "mood",
+          "relatedness",
+          "stress",
+          "summary",
+          "support"
+        ]
       }
     ]
   },
@@ -143,10 +438,10 @@
         "C": 6
       },
       "personality_tags": [
-        "热情外向",
-        "信任他人",
-        "条理清晰",
-        "敏感多虑"
+        "乐于助人",
+        "善于交际",
+        "合作性强",
+        "喜欢独处"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -181,10 +476,10 @@
         "C": 4
       },
       "personality_tags": [
-        "严谨自律",
-        "开放包容",
-        "心态平和",
-        "随遇而安"
+        "热情外向",
+        "做事缺乏条理",
+        "善于交际",
+        "不拘小节"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -219,10 +514,10 @@
         "C": 5
       },
       "personality_tags": [
-        "开放包容",
-        "善于交际",
-        "抗压能力强",
-        "好奇求知"
+        "喜欢尝试新事物",
+        "沉着冷静",
+        "内向安静",
+        "遵循惯例"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -257,10 +552,10 @@
         "C": 4
       },
       "personality_tags": [
-        "情绪稳定",
+        "社交后需要独处恢复",
+        "喜欢尝试新事物",
         "开放包容",
-        "合作性强",
-        "敏感多虑"
+        "喜欢独处"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -296,9 +591,9 @@
       },
       "personality_tags": [
         "随性散漫",
-        "信任他人",
-        "好奇求知",
-        "严谨自律"
+        "心态平和",
+        "遵循惯例",
+        "信任他人"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -333,10 +628,10 @@
         "C": 4
       },
       "personality_tags": [
-        "善于交际",
-        "热情外向",
-        "敏感多虑",
-        "信任他人"
+        "好奇求知",
+        "情绪稳定",
+        "喜欢独处",
+        "善于交际"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -371,10 +666,10 @@
         "C": 4
       },
       "personality_tags": [
-        "喜欢独处",
-        "做事缺乏条理",
-        "敏感多虑",
-        "沉默寡言"
+        "内向安静",
+        "怀疑挑剔",
+        "沉静内敛",
+        "做事缺乏条理"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -409,10 +704,10 @@
         "C": 4
       },
       "personality_tags": [
-        "开放包容",
-        "条理清晰",
-        "社交后需要独处恢复",
-        "避免冲突"
+        "喜欢尝试新事物",
+        "为人随和",
+        "少数深交胜于泛泛之交",
+        "沉静内敛"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -447,10 +742,10 @@
         "C": 7
       },
       "personality_tags": [
+        "条理清晰",
         "信任他人",
-        "乐于助人",
-        "热情外向",
-        "心态平和"
+        "沉着冷静",
+        "思想前卫"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -485,10 +780,10 @@
         "C": 7
       },
       "personality_tags": [
-        "追求完美",
-        "信任他人",
-        "友善体贴",
-        "不易焦虑"
+        "热情外向",
+        "心态平和",
+        "随遇而安",
+        "抗压能力强"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -523,10 +818,10 @@
         "C": 4
       },
       "personality_tags": [
-        "乐于助人",
-        "内向安静",
-        "避免冲突",
-        "不拘小节"
+        "热情外向",
+        "乐于接受不同观点",
+        "信任他人",
+        "喜欢尝试新事物"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -561,10 +856,10 @@
         "C": 5
       },
       "personality_tags": [
-        "紧张不安",
-        "乐于接受不同观点",
-        "审美敏感",
-        "热情外向"
+        "沉着冷静",
+        "不拘小节",
+        "竞争心强",
+        "好奇求知"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -599,10 +894,10 @@
         "C": 5
       },
       "personality_tags": [
-        "善于交际",
-        "敏感多虑",
-        "紧张不安",
-        "随性散漫"
+        "好奇求知",
+        "喜欢独处",
+        "怀疑挑剔",
+        "不拘小节"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -637,10 +932,10 @@
         "C": 4
       },
       "personality_tags": [
-        "热情外向",
+        "情绪稳定",
+        "传统务实",
         "内向安静",
-        "沉着冷静",
-        "怀疑挑剔"
+        "友善体贴"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -675,10 +970,10 @@
         "C": 4
       },
       "personality_tags": [
-        "精力充沛",
-        "抗压能力强",
-        "心理韧性好",
-        "严谨自律"
+        "条理清晰",
+        "情绪稳定",
+        "不拘小节",
+        "喜欢尝试新事物"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -713,10 +1008,10 @@
         "C": 5
       },
       "personality_tags": [
-        "情绪稳定",
-        "严谨自律",
-        "沉着冷静",
-        "好奇求知"
+        "敏感多虑",
+        "信任他人",
+        "内向安静",
+        "遵循惯例"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -751,10 +1046,10 @@
         "C": 5
       },
       "personality_tags": [
-        "沉默寡言",
-        "乐于助人",
-        "避免冲突",
-        "不善交际"
+        "友善体贴",
+        "随遇而安",
+        "沉静内敛",
+        "内向安静"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -789,10 +1084,10 @@
         "C": 4
       },
       "personality_tags": [
-        "严谨自律",
-        "开放包容",
-        "不善交际",
-        "传统务实"
+        "敏感多虑",
+        "条理清晰",
+        "内向安静",
+        "信任他人"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -827,10 +1122,10 @@
         "C": 7
       },
       "personality_tags": [
-        "好奇求知",
-        "注重细节",
+        "遵循惯例",
         "合作性强",
-        "严谨自律"
+        "开放包容",
+        "热情外向"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -866,9 +1161,9 @@
       },
       "personality_tags": [
         "信任他人",
-        "避免冲突",
-        "心理韧性好",
-        "善解人意"
+        "时间观念强",
+        "注重细节",
+        "内向安静"
       ],
       "core_desire": "稳定幸福的生活、实现个人价值",
       "core_fear": "失去重要的人、重大疾病或意外",
@@ -906,10 +1201,10 @@
         "C": 8
       },
       "personality_tags": [
+        "容易焦虑",
+        "热情外向",
         "合作性强",
-        "乐于助人",
-        "注重细节",
-        "遵循惯例"
+        "严谨自律"
       ],
       "core_desire": "即使什么都不做，也仍然有价值",
       "core_fear": "一旦停止奔跑，暴露出的空无一物会吓走所有人",
@@ -947,10 +1242,10 @@
         "C": 6
       },
       "personality_tags": [
-        "随性散漫",
-        "紧张不安",
         "情绪波动大",
-        "开放包容"
+        "沉默寡言",
+        "竞争心强",
+        "友善体贴"
       ],
       "core_desire": "有一个不会离开的人或地方",
       "core_fear": "再次投入后又被抛弃，痛得比现在更深",
@@ -988,10 +1283,10 @@
         "C": 9
       },
       "personality_tags": [
-        "遵循惯例",
-        "有规划性",
-        "竞争心强",
-        "对新事物持怀疑态度"
+        "坚持己见",
+        "忧心忡忡",
+        "友善体贴",
+        "内向安静"
       ],
       "core_desire": "有人相信我的难受是真的",
       "core_fear": "被当成装病或无病呻吟，连痛苦都不被承认",
@@ -1026,10 +1321,10 @@
         "C": 2
       },
       "personality_tags": [
-        "自我要求过高",
-        "不拘小节",
-        "容易焦虑",
-        "做事缺乏条理"
+        "喜欢尝试新事物",
+        "友善体贴",
+        "好奇求知",
+        "为人随和"
       ],
       "core_desire": "被明确告知「这不是你的错」",
       "core_fear": "自己本质上就是有缺陷的、会连累所有人",
@@ -1064,10 +1359,10 @@
         "C": 4
       },
       "personality_tags": [
-        "开放包容",
-        "审美敏感",
-        "好奇求知",
-        "内向安静"
+        "自我要求过高",
+        "紧张不安",
+        "忧心忡忡",
+        "乐于接受不同观点"
       ],
       "core_desire": "被看见疲惫，却不必先开口解释",
       "core_fear": "一旦示弱就会失去仅剩的体面与他人的信任",
@@ -1105,10 +1400,10 @@
         "C": 7
       },
       "personality_tags": [
-        "敏感多虑",
-        "友善体贴",
-        "严谨自律",
-        "责任心强"
+        "信任他人",
+        "喜欢独处",
+        "喜欢尝试新事物",
+        "严谨自律"
       ],
       "core_desire": "有人对我说「这次我来」",
       "core_fear": "一旦放手，有人会因为我的缺席而受苦",
@@ -1146,10 +1441,10 @@
         "C": 4
       },
       "personality_tags": [
-        "友善体贴",
-        "传统务实",
-        "不善交际",
-        "严谨自律"
+        "敏感多虑",
+        "做事缺乏条理",
+        "情绪波动大",
+        "友善体贴"
       ],
       "core_desire": "在还没有准备好时也能被允许开始",
       "core_fear": "全力以赴之后依然被证明不够好",
@@ -1187,10 +1482,10 @@
         "C": 9
       },
       "personality_tags": [
-        "喜欢独处",
-        "责任心强",
-        "友善体贴",
-        "传统务实"
+        "严谨自律",
+        "情绪稳定",
+        "竞争心强",
+        "追求完美"
       ],
       "core_desire": "有人对我说「这次我来」",
       "core_fear": "一旦放手，有人会因为我的缺席而受苦",
@@ -1225,10 +1520,10 @@
         "C": 6
       },
       "personality_tags": [
-        "喜欢独处",
-        "传统务实",
-        "忧心忡忡",
-        "严谨自律"
+        "不拘小节",
+        "友善体贴",
+        "沉默寡言",
+        "缺乏安全感"
       ],
       "core_desire": "一切都在掌握之中",
       "core_fear": "失控，以及失控后被证明自己无能",
@@ -1263,10 +1558,10 @@
         "C": 6
       },
       "personality_tags": [
+        "自我要求过高",
         "开放包容",
-        "怀疑挑剔",
-        "热情外向",
-        "内向安静"
+        "随性散漫",
+        "乐于接受不同观点"
       ],
       "core_desire": "确信最坏的事不会发生",
       "core_fear": "因为自己的疏忽而让灾难真的发生",
@@ -1304,10 +1599,10 @@
         "C": 7
       },
       "personality_tags": [
-        "竞争心强",
+        "容易焦虑",
         "信任他人",
-        "缺乏安全感",
-        "少数深交胜于泛泛之交"
+        "竞争心强",
+        "不善交际"
       ],
       "core_desire": "有人能看穿冷淡，仍然留下来",
       "core_fear": "靠近后被看穿，然后被抛弃",
@@ -1345,10 +1640,10 @@
         "C": 6
       },
       "personality_tags": [
-        "随性散漫",
-        "容易焦虑",
-        "紧张不安",
-        "不拘小节"
+        "情绪波动大",
+        "好奇求知",
+        "乐于助人",
+        "喜欢尝试新事物"
       ],
       "core_desire": "被人主动拉进那个圈子里",
       "core_fear": "主动靠近后被婉拒，证实自己不属于任何地方",
@@ -1386,10 +1681,10 @@
         "C": 9
       },
       "personality_tags": [
-        "不轻易信任",
+        "沉静内敛",
+        "不善交际",
         "坚持己见",
-        "沉着冷静",
-        "紧张不安"
+        "怀疑挑剔"
       ],
       "core_desire": "有人能看穿冷淡，仍然留下来",
       "core_fear": "靠近后被看穿，然后被抛弃",
@@ -1424,10 +1719,10 @@
         "C": 5
       },
       "personality_tags": [
-        "少数深交胜于泛泛之交",
-        "传统务实",
-        "紧张不安",
-        "严谨自律"
+        "不拘小节",
+        "友善体贴",
+        "乐于助人",
+        "缺乏安全感"
       ],
       "core_desire": "即使表现平平也依然被认可",
       "core_fear": "在关键时刻掉链子，且被人记住",
@@ -1462,10 +1757,10 @@
         "C": 5
       },
       "personality_tags": [
-        "好奇求知",
         "忧心忡忡",
-        "喜欢独处",
-        "信任他人"
+        "乐于助人",
+        "内向安静",
+        "容易焦虑"
       ],
       "core_desire": "不必表演就能被接纳",
       "core_fear": "再次成为被注视、被评价、被嘲笑的对象",
@@ -1503,10 +1798,10 @@
         "C": 5
       },
       "personality_tags": [
-        "怀疑挑剔",
-        "竞争心强",
-        "缺乏安全感",
-        "思想前卫"
+        "开放包容",
+        "富有想象力",
+        "敏感多虑",
+        "喜欢社交"
       ],
       "core_desire": "自己的特殊身份被承认",
       "core_fear": "承认一切只是症状，人生毫无意义",
@@ -1544,10 +1839,10 @@
         "C": 2
       },
       "personality_tags": [
-        "不善交际",
-        "紧张不安",
-        "缺乏安全感",
-        "沉默寡言"
+        "情绪波动大",
+        "怀疑挑剔",
+        "灵活随性",
+        "自我要求过高"
       ],
       "core_desire": "重新对某件事产生一点兴趣",
       "core_fear": "彻底失去行动的能力与最后的独立",
@@ -1585,10 +1880,10 @@
         "C": 2
       },
       "personality_tags": [
-        "热情外向",
-        "乐于接受不同观点",
-        "怀疑挑剔",
-        "以自我为中心"
+        "随性散漫",
+        "意志坚定",
+        "开放包容",
+        "情绪稳定"
       ],
       "core_desire": "自己的特殊身份被承认",
       "core_fear": "承认一切只是症状，人生毫无意义",
@@ -1623,9 +1918,9 @@
         "C": 2
       },
       "personality_tags": [
-        "自我要求过高",
-        "不拘小节",
-        "容易分心",
+        "喜欢尝试新事物",
+        "友善体贴",
+        "乐于助人",
         "审美敏感"
       ],
       "core_desire": "让声音停下来，或者至少不再听从",
@@ -1661,9 +1956,9 @@
         "C": 3
       },
       "personality_tags": [
-        "好奇求知",
-        "思想前卫",
-        "随性散漫",
+        "以自我为中心",
+        "少数深交胜于泛泛之交",
+        "忧心忡忡",
         "审美敏感"
       ],
       "core_desire": "确认没有人在算计自己",
@@ -1702,10 +1997,10 @@
         "C": 6
       },
       "personality_tags": [
+        "条理清晰",
         "敏感多虑",
-        "情绪波动大",
-        "不拘小节",
-        "热情外向"
+        "友善体贴",
+        "随性散漫"
       ],
       "core_desire": "被当作正常人看待",
       "core_fear": "被贴上终身标签，永远失去正常生活的可能",
@@ -1743,10 +2038,10 @@
         "C": 3
       },
       "personality_tags": [
-        "遵循惯例",
-        "喜欢社交",
         "情绪波动大",
-        "在人群中感到自在"
+        "在人群中感到自在",
+        "紧张不安",
+        "友善体贴"
       ],
       "core_desire": "填满那个永远填不满的空洞",
       "core_fear": "清醒后面对自己造成的后果，以及又一次的自我厌恶",
@@ -1784,10 +2079,10 @@
         "C": 2
       },
       "personality_tags": [
-        "灵活随性",
-        "意志坚定",
+        "容易分心",
         "思想前卫",
-        "怀疑挑剔"
+        "直言不讳",
+        "开放包容"
       ],
       "core_desire": "被当作正常人看待",
       "core_fear": "被贴上终身标签，永远失去正常生活的可能",
@@ -1822,10 +2117,10 @@
         "C": 4
       },
       "personality_tags": [
-        "思想前卫",
-        "在人群中感到自在",
-        "审美敏感",
-        "不拘小节"
+        "喜欢社交",
+        "做事缺乏条理",
+        "乐于分享",
+        "喜欢尝试新事物"
       ],
       "core_desire": "不再伤害自己亲近的人",
       "core_fear": "再一次失控，然后被所有人放弃",
@@ -1860,10 +2155,10 @@
         "C": 4
       },
       "personality_tags": [
-        "乐于接受不同观点",
-        "竞争心强",
-        "开放包容",
-        "紧张不安"
+        "以自我为中心",
+        "富有想象力",
+        "自我要求过高",
+        "竞争心强"
       ],
       "core_desire": "既能持续创作，又不必付出崩溃的代价",
       "core_fear": "失去高涨的状态，回到那个平庸空虚的自己",
@@ -1901,10 +2196,10 @@
         "C": 10
       },
       "personality_tags": [
-        "紧张不安",
-        "友善体贴",
-        "有规划性",
-        "遵循惯例"
+        "避免冲突",
+        "喜欢独处",
+        "情绪波动大",
+        "严谨自律"
       ],
       "core_desire": "一切都处在恰当的位置上",
       "core_fear": "无序会带来无法预料的坏事",
@@ -1942,10 +2237,10 @@
         "C": 10
       },
       "personality_tags": [
-        "不善交际",
-        "注重细节",
         "情绪波动大",
-        "传统务实"
+        "责任心强",
+        "喜欢独处",
+        "友善体贴"
       ],
       "core_desire": "确认自己本质上是个好人",
       "core_fear": "这些念头暴露了自己真实的邪恶",
@@ -1983,10 +2278,10 @@
         "C": 4
       },
       "personality_tags": [
-        "喜欢独处",
-        "热情外向",
+        "坚持己见",
+        "情绪稳定",
         "审美敏感",
-        "不拘小节"
+        "做事缺乏条理"
       ],
       "core_desire": "一切都处在恰当的位置上",
       "core_fear": "无序会带来无法预料的坏事",
@@ -2021,10 +2316,10 @@
         "C": 9
       },
       "personality_tags": [
-        "遵循惯例",
-        "追求完美",
-        "忧心忡忡",
-        "自我要求过高"
+        "不善交际",
+        "友善体贴",
+        "避免冲突",
+        "条理清晰"
       ],
       "core_desire": "确知一切已经妥当",
       "core_fear": "因为自己的一次疏忽造成无法挽回的后果",
@@ -2059,10 +2354,10 @@
         "C": 10
       },
       "personality_tags": [
-        "时间观念强",
-        "好奇求知",
-        "喜欢尝试新事物",
-        "善于交际"
+        "热情外向",
+        "遵循惯例",
+        "善于交际",
+        "喜欢社交"
       ],
       "core_desire": "确信自己和所爱的人是安全的",
       "core_fear": "因为自己的疏忽让所爱的人受到伤害",
@@ -2100,10 +2395,10 @@
         "C": 7
       },
       "personality_tags": [
-        "自我要求过高",
-        "合作性强",
-        "敏感多虑",
-        "情绪波动大"
+        "缺乏安全感",
+        "容易焦虑",
+        "信任他人",
+        "时间观念强"
       ],
       "core_desire": "确信自己没有被讨厌",
       "core_fear": "被人在背后议论、被 quietly 排除在外",
@@ -2141,10 +2436,10 @@
         "C": 4
       },
       "personality_tags": [
-        "富有想象力",
-        "严谨自律",
-        "随性散漫",
-        "不拘小节"
+        "紧张不安",
+        "喜欢尝试新事物",
+        "不善交际",
+        "做事缺乏条理"
       ],
       "core_desire": "即使不再出类拔萃也仍然有价值",
       "core_fear": "被发现自己其实一直在硬撑，根本没那么厉害",
@@ -2182,10 +2477,10 @@
         "C": 1
       },
       "personality_tags": [
-        "热情外向",
-        "乐于接受不同观点",
-        "怀疑挑剔",
-        "思想前卫"
+        "拖延倾向",
+        "不拘小节",
+        "开放包容",
+        "喜欢社交"
       ],
       "core_desire": "有人告诉我，那些年不是我的错",
       "core_fear": "错过了最佳时机，已经来不及修正",
@@ -2220,10 +2515,10 @@
         "C": 1
       },
       "personality_tags": [
-        "喜欢尝试新事物",
-        "在人群中感到自在",
-        "忧心忡忡",
-        "精力充沛"
+        "精力充沛",
+        "自我要求过高",
+        "为人随和",
+        "喜欢尝试新事物"
       ],
       "core_desire": "被当成有活力而非有问题的孩子",
       "core_fear": "再次因为管不住自己而伤害到关系",
@@ -2258,10 +2553,10 @@
         "C": 1
       },
       "personality_tags": [
-        "乐于接受不同观点",
-        "竞争心强",
-        "开放包容",
-        "做事缺乏条理"
+        "忧心忡忡",
+        "富有想象力",
+        "自我要求过高",
+        "审美敏感"
       ],
       "core_desire": "能专注、做事不再半途而废",
       "core_fear": "因为拖延和健忘毁掉重要的事、被别人当懒人",
@@ -2299,10 +2594,10 @@
         "C": 7
       },
       "personality_tags": [
-        "在人群中感到自在",
-        "竞争心强",
-        "精力充沛",
-        "条理清晰"
+        "喜欢尝试新事物",
+        "容易焦虑",
+        "追求完美",
+        "敏感多虑"
       ],
       "core_desire": "不再有人能伤害我和我的人",
       "core_fear": "再次陷入无力、任人宰割的处境",
@@ -2340,10 +2635,10 @@
         "C": 6
       },
       "personality_tags": [
+        "喜欢独处",
         "友善体贴",
-        "传统务实",
-        "随性散漫",
-        "不拘小节"
+        "情绪波动大",
+        "喜欢尝试新事物"
       ],
       "core_desire": "被原谅，或至少被允许活着",
       "core_fear": "自己不配活着，且终将被揭穿",
@@ -2381,10 +2676,10 @@
         "C": 9
       },
       "personality_tags": [
-        "健谈开朗",
-        "善于交际",
-        "热情外向",
-        "竞争心强"
+        "怀疑挑剔",
+        "喜欢社交",
+        "按部就班",
+        "容易焦虑"
       ],
       "core_desire": "不再有人能伤害我和我的人",
       "core_fear": "再次陷入无力、任人宰割的处境",
@@ -2419,10 +2714,10 @@
         "C": 3
       },
       "personality_tags": [
-        "少数深交胜于泛泛之交",
-        "沉默寡言",
-        "合作性强",
-        "忧心忡忡"
+        "内向安静",
+        "开放包容",
+        "容易焦虑",
+        "乐于助人"
       ],
       "core_desire": "不再被记忆突袭",
       "core_fear": "一旦停下来感受，痛苦就会把自己淹没",
@@ -2457,10 +2752,10 @@
         "C": 4
       },
       "personality_tags": [
+        "以自我为中心",
         "好奇求知",
-        "善于交际",
-        "热情外向",
-        "不轻易信任"
+        "不拘小节",
+        "容易焦虑"
       ],
       "core_desire": "能有一刻真正放松警惕",
       "core_fear": "危险会在自己松懈的瞬间再次降临",
@@ -2498,10 +2793,10 @@
         "C": 7
       },
       "personality_tags": [
-        "喜欢社交",
-        "喜欢尝试新事物",
-        "精力充沛",
-        "思想前卫"
+        "责任心强",
+        "热情外向",
+        "思想前卫",
+        "乐于助人"
       ],
       "core_desire": "有一个永远不会让我失望的人",
       "core_fear": "再度信任，然后再次被证明看错了人",
@@ -2539,10 +2834,10 @@
         "C": 4
       },
       "personality_tags": [
-        "随性散漫",
-        "做事缺乏条理",
-        "富有想象力",
-        "严谨自律"
+        "严谨自律",
+        "喜欢独处",
+        "敏感多虑",
+        "做事缺乏条理"
       ],
       "core_desire": "知道自己到底是谁",
       "core_fear": "剥去所有模仿之后，里面什么都没有",
@@ -2580,10 +2875,10 @@
         "C": 2
       },
       "personality_tags": [
-        "情绪波动大",
-        "不拘小节",
-        "容易焦虑",
-        "怀疑挑剔"
+        "不轻易信任",
+        "喜欢尝试新事物",
+        "随性散漫",
+        "开放包容"
       ],
       "core_desire": "不再感到空无一物",
       "core_fear": "永远困在空洞里，且这空洞会吓跑所有人",
@@ -2618,10 +2913,10 @@
         "C": 4
       },
       "personality_tags": [
+        "喜欢独处",
         "缺乏安全感",
-        "自我要求过高",
-        "热情外向",
-        "喜欢尝试新事物"
+        "坚持己见",
+        "信任他人"
       ],
       "core_desire": "有人能在我还没伤害自己之前就听见我",
       "core_fear": "情绪永远无法被理解，只能靠疼痛来证明",
@@ -2656,10 +2951,10 @@
         "C": 3
       },
       "personality_tags": [
-        "乐于接受不同观点",
+        "以自我为中心",
+        "怀疑挑剔",
         "忧心忡忡",
-        "坚持己见",
-        "富有想象力"
+        "紧张不安"
       ],
       "core_desire": "真正被爱、被完整地接纳而不被抛弃",
       "core_fear": "被抛弃、被拒绝、被背叛",
@@ -2697,10 +2992,10 @@
         "C": 9
       },
       "personality_tags": [
+        "容易焦虑",
+        "热情外向",
         "合作性强",
-        "乐于助人",
-        "喜欢社交",
-        "责任心强"
+        "严谨自律"
       ],
       "core_desire": "吃东西而不必感到罪恶",
       "core_fear": "被发现自己失控进食，然后被厌恶",
@@ -2738,10 +3033,10 @@
         "C": 10
       },
       "personality_tags": [
-        "不善交际",
-        "容易焦虑",
-        "紧张不安",
-        "传统务实"
+        "情绪波动大",
+        "沉默寡言",
+        "避免冲突",
+        "友善体贴"
       ],
       "core_desire": "看见真实的自己",
       "core_fear": "镜子里那个肥胖的自己才是真的",
@@ -2779,10 +3074,10 @@
         "C": 9
       },
       "personality_tags": [
-        "情绪波动大",
-        "意志坚定",
-        "责任心强",
-        "怀疑挑剔"
+        "喜欢独处",
+        "条理清晰",
+        "按部就班",
+        "自我要求过高"
       ],
       "core_desire": "吃东西而不必感到罪恶",
       "core_fear": "被发现自己失控进食，然后被厌恶",
@@ -2817,10 +3112,10 @@
         "C": 10
       },
       "personality_tags": [
-        "社交后需要独处恢复",
-        "开放包容",
-        "注重细节",
-        "追求完美"
+        "内向安静",
+        "友善体贴",
+        "怀疑挑剔",
+        "缺乏安全感"
       ],
       "core_desire": "即使不完美也值得被爱",
       "core_fear": "一旦不再优秀，就会被彻底否定",
@@ -2855,10 +3150,10 @@
         "C": 10
       },
       "personality_tags": [
-        "开放包容",
-        "缺乏安全感",
-        "好奇求知",
-        "内向安静"
+        "自我要求过高",
+        "时间观念强",
+        "遵循惯例",
+        "传统务实"
       ],
       "core_desire": "感到自己能掌控些什么",
       "core_fear": "失控，尤其是身体与体重的失控",
