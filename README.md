@@ -147,7 +147,7 @@ AI-persona/
 │   └── _diag_names.json              # 诊断中文名映射
 │
 ├── web/                               # ⭐ 项目展示页（自包含单文件、零外部依赖，双击即开）
-│   ├── index.html                     # 全人档案风展示页（18 域总览 + 70 人设池 + 随机抽取）
+│   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取）
 │   └── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
 │
 └── skill/                             # WorkBuddy 技能
