@@ -115,6 +115,7 @@ AI-persona/
 │   ├── triggers.py                    # 触发器系统 (ACEs/创伤/应激)
 │   ├── cross_constraints.py           # 交叉约束校验 (诊断↔OCEAN↔人口学)
 │   ├── stratification.py              # ⭐ 分层采样 (2025 小普查, 流行病学性别比)
+│   ├── demographics_intl.py           # ⭐ 国际人口学采样器 (52 国/文化区/姓名/宗教/语言, 纯标准库)
 │   └── README.md                      # 核心引擎完整文档
 │
 ├── scripts/                           # 实用工具脚本
@@ -122,6 +123,7 @@ AI-persona/
 │   ├── analyze_dataset.py             # 数据集分析工具
 │   ├── make_showcase_pool.py          # 展示页数据池 (70 人设 + 本体摘要, 幂等内联)
 │   ├── serve_showcase.py              # 展示页本地服务 (纯标准库; /api/persona 实时生成 + 可复现 seed)
+│   ├── make_full_pool.py              # ⭐ 国际全量池 (默认 5000 人设 × 52 国 × 11 诊断, 确定性分层)
 │   └── _scratch/                      # 一次性构建脚本（归档备查）
 │
 ├── data/                              # 参考数据
@@ -147,12 +149,17 @@ AI-persona/
 │   ├── merge_ontology.py              # 合并工具
 │   └── _diag_names.json              # 诊断中文名映射
 │
-├── web/                               # ⭐ 项目展示页（自包含单文件、零外部依赖，双击即开）
+├── web/                               # ⭐ 展示站（自包含、零外部依赖；index 双击即开, table/dashboard 需同源服务）
 │   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取 + 实时生成节）
-│   └── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
+│   ├── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
+│   ├── pool.json                      # ⭐ 国际全量池（scripts/make_full_pool.py 生成, 5000 人设, ~7MB）
+│   ├── table.html                     # ⭐ 全量数据库（检索/筛选/排序/分页 + 34 字段档案卡弹窗）
+│   └── dashboard.html                 # ⭐ 分布仪表盘（诊断/大洲/国家/年龄/性别/职业/教育/收入/宗教/OCEAN）
 │
-└── skill/                             # WorkBuddy 技能
-    └── SKILL.md                      # 一键安装技能
+├── skill/                             # WorkBuddy 技能
+│   └── SKILL.md                      # 一键安装技能
+│
+└── .github/workflows/pages.yml        # ⭐ 推送 main 自动发布 → https://cochranek.github.io/AI-persona/
 ```
 
 ---
@@ -317,6 +324,28 @@ http://127.0.0.1:8765/
 实时调用引擎生成全新人设（不再受 70 份数据池限制）；相同 `(诊断, seed)`
 组合结果可复现，卡片下方可一键复制完整 LLM System Prompt。
 直接用 `file://` 双击打开 index.html 时该节不可用（其余 70 份池照常工作）。
+
+### 国际全量池 + 数据库 / 仪表盘（GitHub Pages 在线）
+
+```bash
+# ① 生成国际全量池（纯标准库, 确定性可复现; 默认 N=5000, 52 国全覆盖, 11 诊断分层）
+python scripts/make_full_pool.py            # → web/pool.json (~7MB)
+python scripts/make_full_pool.py --n 8000    # 自定义规模
+
+# ② 本地预览数据库 / 仪表盘（fetch 需同源, file:// 双击会因 CORS 被拦）
+cd web && python -m http.server 8000
+# 然后浏览器打开
+#   http://localhost:8000/table.html      全量数据库（检索/筛选/排序/分页）
+#   http://localhost:8000/dashboard.html  分布仪表盘（纯前端实时聚合）
+
+# ③ 在线访问（推送 main 后由 GitHub Actions 自动发布）
+#   https://cochranek.github.io/AI-persona/
+```
+
+全量池 = 引擎生成的 23 字段人设卡 + 国际人口学底座（`core/demographics_intl.py`：
+姓名 / 国家 / 大洲 / 文化区 / 语言 / 宗教 / 族群 / 收入 / 城市化），
+使池子真正全球分布（按世界人口加权采样，52 国全覆盖）。
+`table.html` 与 `dashboard.html` 均零依赖、零图表库，仅 `fetch` 同目录 `pool.json`。
 
 ### 自定义配置
 
