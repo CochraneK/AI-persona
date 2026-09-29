@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>AI-Persona · 人类档案仪表盘</title>
+<meta name="description" content="国际全量人设数据库的结构化统计仪表盘：诊断 / 大洲 / 国家 / 年龄 / 性别 / 职业 / 教育 / 收入 / OCEAN 等分布，纯前端零依赖。">
+<style>
+:root{
+  --paper:#f3ecdb;--paper-2:#eae0ca;--paper-3:#e2d6ba;--ink:#211c14;--ink-2:#4b4334;--ink-3:#6f6656;
+  --seal:#b23a29;--seal-2:#8f2c1f;--teal:#2f6b64;--teal-2:#3c8177;--gold:#a9863f;
+  --line:#cabd9f;--line-soft:#d8cdb4;--card:#f8f3e6;--shadow:0 10px 30px rgba(58,46,28,.16);
+  --serif:"Songti SC","STSong","SimSun","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --kai:"Kaiti SC","STKaiti","KaiTi","BiauKai",var(--serif);
+  --mono:"SFMono-Regular","SF Mono",Consolas,"Liberation Mono","Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.7;letter-spacing:.02em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 18px 60px}
+.topnav{display:flex;margin-top:16px;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);border-radius:6px;overflow:hidden}
+.topnav a{flex:1;text-align:center;padding:10px 6px;font-size:13.5px;color:var(--ink-2);text-decoration:none;border-right:1px solid var(--line-soft)}
+.topnav a:last-child{border-right:none}
+.topnav a:hover{background:var(--paper-2);color:var(--ink)}
+.topnav a.active{background:var(--seal);color:#f6efe1;font-weight:700}
+.head{display:flex;align-items:flex-end;gap:14px;margin:22px 0 6px}
+.head .tt{font-family:var(--kai);font-weight:700;font-size:30px;letter-spacing:.06em}
+.head .en{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase}
+.head .seal{margin-left:auto;width:60px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--teal);color:#f6efe1;border-radius:6px;transform:rotate(6deg);font-family:var(--kai);font-weight:700;font-size:12px;line-height:1.2;box-shadow:0 2px 0 var(--teal-2),inset 0 0 0 2px rgba(255,255,255,.18)}
+.sub{font-size:13px;color:var(--ink-2);margin:0 0 18px;max-width:72ch}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line-soft);border-top:3px solid var(--seal);box-shadow:var(--shadow);padding:14px 14px 12px}
+.kpi:nth-child(2){border-top-color:var(--teal)}
+.kpi:nth-child(3){border-top-color:var(--gold)}
+.kpi:nth-child(4){border-top-color:var(--ink-2)}
+.kpi:nth-child(5){border-top-color:var(--seal-2)}
+.kpi .num{font-family:var(--mono);font-size:30px;font-weight:700;line-height:1}
+.kpi:nth-child(1) .num{color:var(--seal)}
+.kpi:nth-child(2) .num{color:var(--teal)}
+.kpi:nth-child(3) .num{color:var(--gold)}
+.kpi:nth-child(4) .num{color:var(--ink)}
+.kpi:nth-child(5) .num{color:var(--seal-2)}
+.kpi .lbl{font-size:12px;color:var(--ink-2);margin-top:7px}
+.kpi .cap{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;margin-top:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow);border-radius:6px;padding:16px 16px 18px}
+.panel.wide{grid-column:1/-1}
+.pt{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.pt .no{font-family:var(--kai);font-size:20px;color:var(--seal);font-weight:700}
+.pt h3{font-size:15.5px;letter-spacing:.03em}
+.pt .en{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin-left:auto}
+.hrow{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.hlab{width:120px;flex:none;font-size:12px;color:var(--ink-2);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.htrack{flex:1;height:16px;background:var(--paper-2);border-radius:3px;overflow:hidden}
+.hfill{height:100%;border-radius:3px;transition:width .5s}
+.hval{width:56px;flex:none;font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right}
+.vchart{display:flex;align-items:flex-end;gap:8px;height:170px;padding-top:8px}
+.vcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.vbar{width:100%;max-width:44px;border-radius:3px 3px 0 0;transition:height .5s}
+.vlab{font-size:10.5px;color:var(--ink-3);margin-top:6px;text-align:center;font-family:var(--mono)}
+.dwrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.dsvg{width:150px;height:150px;flex:none}
+.dtot{font-family:var(--mono);font-size:26px;font-weight:700;fill:var(--ink)}
+.dsub{font-size:10px;fill:var(--ink-3);letter-spacing:.1em}
+.legend{flex:1;min-width:150px}
+.lrow{display:flex;align-items:center;gap:8px;font-size:12.5px;margin-bottom:7px;color:var(--ink-2)}
+.sw{width:11px;height:11px;border-radius:3px;flex:none}
+.lrow b{font-family:var(--mono);color:var(--ink)}
+.lrow .pct{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.note{margin-top:18px;font-size:12px;color:var(--ink-3);line-height:1.8}
+.empty{padding:40px;text-align:center;color:var(--ink-3);font-size:14px}
+.err{background:rgba(178,58,41,.08);border:1px solid var(--seal);color:var(--seal-2);padding:18px;border-radius:6px;font-size:14px;line-height:1.9}
+.err code{font-family:var(--mono);background:var(--paper-3);padding:1px 5px;border-radius:3px;font-size:12px}
+@media(max-width:820px){.kpis{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.hlab{width:84px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topnav">
+    <a href="index.html">总览</a>
+    <a href="table.html">数据库</a>
+    <a href="dashboard.html" class="active">仪表盘</a>
+  </nav>
+  <div class="head">
+    <div>
+      <div class="tt">人类档案 · 仪表盘</div>
+      <div class="en">Distribution Dashboard · Human Ontology v2</div>
+    </div>
+    <div class="seal">分布<br>统计</div>
+  </div>
+  <p class="sub" id="sub">从 pool.json 实时聚合的全量分布——纯前端计算，零外部依赖。</p>
+
+  <div id="load"><div class="empty">正在载入 pool.json …</div></div>
+  <div id="app" style="display:none">
+    <div class="kpis" id="kpis"></div>
+    <div class="grid">
+      <div class="panel wide"><div class="pt"><span class="no">壹</span><h3>诊断分布</h3><span class="en">Diagnosis</span></div><div id="c-diag"></div></div>
+      <div class="panel"><div class="pt"><span class="no">贰</span><h3>大洲分布</h3><span class="en">Continent</span></div><div id="c-cont"></div></div>
+      <div class="panel"><div class="pt"><span class="no">叁</span><h3>性别比例</h3><span class="en">Gender</span></div><div id="c-gender"></div></div>
+      <div class="panel wide"><div class="pt"><span class="no">肆</span><h3>国家 Top 15</h3><span class="en">Country (top 15)</span></div><div id="c-cc"></div></div>
+      <div class="panel"><div class="pt"><span class="no">伍</span><h3>年龄分布</h3><span class="en">Age</span></div><div id="c-age"></div></div>
+      <div class="panel"><div class="pt"><span class="no">陆</span><h3>OCEAN 五因素均值</h3><span class="en">OCEAN mean</span></div><div id="c-ocean"></div></div>
+      <div class="panel wide"><div class="pt"><span class="no">柒</span><h3>职业 Top 15</h3><span class="en">Occupation (top 15)</span></div><div id="c-occ"></div></div>
+      <div class="panel"><div class="pt"><span class="no">捌</span><h3>教育程度</h3><span class="en">Education</span></div><div id="c-edu"></div></div>
+      <div class="panel"><div class="pt"><span class="no">玖</span><h3>收入 / 居住地</h3><span class="en">Income · Settlement</span></div><div id="c-inc"></div><div id="c-loc" style="margin-top:16px"></div></div>
+      <div class="panel"><div class="pt"><span class="no">拾</span><h3>宗教 Top 10</h3><span class="en">Religion (top 10)</span></div><div id="c-rel"></div></div>
+      <div class="panel"><div class="pt"><span class="no">拾壹</span><h3>城市化水平</h3><span class="en">Urbanicity</span></div><div id="c-urb"></div></div>
+    </div>
+    <p class="note" id="note"></p>
+  </div>
+</div>
+
+<script>
+"use strict";
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function fmt(n){return Number(n).toLocaleString("zh-CN")}
+function countBy(a,f){const o={};for(const p of a){const k=f(p);if(k==null||k==="")continue;o[k]=(o[k]||0)+1}return o}
+function topItems(o,n){return Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n||99).map(([label,value])=>({label,value}))}
+const PAL=["#b23a29","#2f6b64","#a9863f","#4b4334","#3c8177","#8f2c1f","#6f6656","#211c14","#7d6a3f","#5b7a72"];
+
+function hbar(el,items,color){
+  const max=Math.max(...items.map(i=>i.value),1);
+  el.innerHTML=items.map(i=>{
+    const w=(i.value/max*100).toFixed(1);
+    return `<div class="hrow"><div class="hlab" title="${esc(i.label)}">${esc(i.label)}</div>`+
+      `<div class="htrack"><div class="hfill" style="width:${w}%;background:${color||"var(--teal)"}"></div></div>`+
+      `<div class="hval">${fmt(i.value)}</div></div>`;
+  }).join("");
+}
+function vbar(el,items,color){
+  const max=Math.max(...items.map(i=>i.value),1);
+  el.innerHTML=`<div class="vchart">`+items.map(i=>{
+    const h=(i.value/max*100).toFixed(1);
+    return `<div class="vcol" title="${esc(i.label)}: ${fmt(i.value)}"><div class="vbar" style="height:${h}%;background:${color||"var(--seal)"}"></div><div class="vlab">${esc(i.label)}</div></div>`;
+  }).join("")+`</div>`;
+}
+function donut(el,items){
+  const total=items.reduce((s,i)=>s+i.value,0)||1;
+  const R=54,C=2*Math.PI*R;let off=0;
+  const segs=items.map((i,idx)=>{
+    const len=(i.value/total)*C;const c=PAL[idx%PAL.length];
+    const s=`<circle r="${R}" cx="75" cy="75" fill="none" stroke="${c}" stroke-width="24" stroke-dasharray="${len.toFixed(2)} ${(C-len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 75 75)"/>`;
+    off+=len;return s;
+  }).join("");
+  el.innerHTML=`<div class="dwrap"><svg viewBox="0 0 150 150" class="dsvg">${segs}`+
+    `<text x="75" y="72" text-anchor="middle" class="dtot">${fmt(total)}</text>`+
+    `<text x="75" y="90" text-anchor="middle" class="dsub">总计</text></svg>`+
+    `<div class="legend">`+items.map((i,idx)=>`<div class="lrow"><span class="sw" style="background:${PAL[idx%PAL.length]}"></span>${esc(i.label)} <b>${fmt(i.value)}</b><span class="pct">${(i.value/total*100).toFixed(1)}%</span></div>`).join("")+`</div></div>`;
+}
+
+function build(d){
+  const a=d.personas||[];
+  const N=a.length;
+  // KPIs
+  const ncc=new Set(a.map(p=>p.country_code)).size;
+  const ndiag=new Set(a.map(p=>p.primary_diagnosis)).size;
+  const ncont=new Set(a.map(p=>p.continent)).size;
+  const healthy=a.filter(p=>(p.primary_diagnosis||"").indexOf("健康")>=0).length;
+  const occ=new Set(a.map(p=>p.occupation)).size;
+  $("kpis").innerHTML=`
+    <div class="kpi"><div class="num">${fmt(N)}</div><div class="lbl">档案总数</div><div class="cap">personas</div></div>
+    <div class="kpi"><div class="num">${ncc}</div><div class="lbl">覆盖国家</div><div class="cap">countries</div></div>
+    <div class="kpi"><div class="num">${ndiag}</div><div class="lbl">诊断类别</div><div class="cap">diagnoses</div></div>
+    <div class="kpi"><div class="num">${ncont}</div><div class="lbl">大洲</div><div class="cap">continents</div></div>
+    <div class="kpi"><div class="num">${fmt(occ)}</div><div class="lbl">职业中类</div><div class="cap">occupations</div></div>`;
+
+  hbar($("c-diag"),topItems(countBy(a,p=>p.primary_diagnosis)), "var(--seal)");
+  hbar($("c-cont"),topItems(countBy(a,p=>p.continent)), "var(--teal)");
+  donut($("c-gender"),topItems(countBy(a,p=>p.gender)));
+  hbar($("c-cc"),topItems(countBy(a,p=>`${p.country_cn} ${p.country_code}`),15), "var(--gold)");
+
+  // age bins
+  const bins=[["13–17",13,17],["18–24",18,24],["25–34",25,34],["35–44",35,44],["45–54",45,54],["55–64",55,64],["65+",65,200]];
+  const ab=bins.map(([lb,lo,hi])=>({label:lb,value:a.filter(p=>p.age>=lo&&p.age<=hi).length}));
+  vbar($("c-age"),ab,"var(--seal)");
+
+  // ocean means (0..10 scale, horizontal bars)
+  const KEYS={N:"神经质 N",E:"外向 E",O:"开放 O",A:"宜人 A",C:"尽责 C"};
+  const om=Object.keys(KEYS).map(k=>({label:KEYS[k],value:+(a.reduce((s,p)=>s+((p.ocean&&p.ocean[k])||0),0)/N).toFixed(2)}));
+  $("c-ocean").innerHTML=om.map(o=>{
+    const w=(o.value/10*100).toFixed(1);
+    return `<div class="hrow"><div class="hlab" style="width:auto;text-align:left;min-width:78px">${esc(o.label)}</div><div class="htrack"><div class="hfill" style="width:${w}%;background:var(--teal)"></div></div><div class="hval">${o.value}</div></div>`;
+  }).join("");
+
+  hbar($("c-occ"),topItems(countBy(a,p=>p.occupation),15), "var(--teal-2)");
+  hbar($("c-edu"),topItems(countBy(a,p=>p.education)), "var(--gold)");
+  hbar($("c-inc"),topItems(countBy(a,p=>({low:"低收入",mid:"中收入",high:"高收入"}[p.income]||p.income))), "var(--seal)");
+  $("c-loc").innerHTML=`<div style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:8px">居住地 SETTLEMENT</div>`;
+  hbar($("c-loc"),topItems(countBy(a,p=>p.locale)), "var(--ink-2)");
+  hbar($("c-rel"),topItems(countBy(a,p=>p.religion),10), "var(--teal)");
+
+  // urbanicity histogram 0..1 in 0.1 steps
+  const ub=[0,0,0,0,0,0,0,0,0,0];
+  for(const p of a){if(p.urbanicity!=null){let i=Math.min(9,Math.floor(p.urbanicity*10));ub[i]++}}
+  vbar($("c-urb"),ub.map((v,i)=>({label:(i*0.1).toFixed(1),value:v})), "var(--gold)");
+
+  const minA=Math.min(...a.map(p=>p.age)),maxA=Math.max(...a.map(p=>p.age));
+  $("note").innerHTML=`引擎 v${d.engine_version} · 主种子 ${d.master_seed} · 生成 ${d.generated_by} · 年龄区间 ${minA}–${maxA} 岁。`+
+    `健康对照 <b>${fmt(healthy)}</b> 份（${(healthy/N*100).toFixed(1)}%），临床诊断 ${fmt(N-healthy)} 份。`+
+    `所有分布均由浏览器对 pool.json 实时聚合，未使用任何图表库。`;
+}
+
+async function boot(){
+  try{
+    const r=await fetch("pool.json",{cache:"no-store"});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const d=await r.json();
+    $("load").style.display="none";$("app").style.display="";
+    $("sub").innerHTML=`国际分层全量池：<b>${d.persona_count}</b> 份档案 · <b>${d.country_count}</b> 国 · <b>${d.diagnosis_count}</b> 诊断。以下为实时聚合分布。`;
+    build(d);
+  }catch(err){
+    $("load").innerHTML=`<div class="err"><b>未能载入 pool.json</b><br><br>`+
+      `本地双击（<code>file://</code>）打开时，浏览器会因 CORS 限制禁止读取同目录的 JSON。请改用以下任一方式：<br>`+
+      `① 已部署的 GitHub Pages 链接（同源，直接可用）；<br>`+
+      `② 在本目录起一个本地服务器后访问 <code>http://localhost:8000/dashboard.html</code>：<br><code>python -m http.server 8000</code><br><br>`+
+      `（原始错误：${esc(err.message)}）</div>`;
+    $("app").style.display="none";
+  }
+}
+boot();
+</script>
+</body>
+</html>

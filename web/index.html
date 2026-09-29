@@ -3464,6 +3464,11 @@ body::after{
   background:radial-gradient(120% 90% at 50% 8%,transparent 55%,rgba(80,60,30,.10) 100%);
 }
 .wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 20px 60px}
+.topnav{display:flex;margin:18px 0 4px;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);border-radius:6px;overflow:hidden}
+.topnav a{flex:1;text-align:center;padding:10px 6px;font-size:13.5px;color:var(--ink-2);text-decoration:none;border-right:1px solid var(--line-soft)}
+.topnav a:last-child{border-right:none}
+.topnav a:hover{background:var(--paper-2);color:var(--ink)}
+.topnav a.active{background:var(--seal);color:#f6efe1;font-weight:700}
 
 /* ============ COVER ============ */
 .cover{position:relative;padding:34px 0 8px;min-height:64vh}
@@ -3776,6 +3781,12 @@ footer .meta a{color:var(--teal);text-decoration:none}
       </span>
       <span>HUMAN ONTOLOGY v2.0.0 · CANONICAL</span>
     </div>
+
+    <nav class="topnav">
+      <a href="index.html" class="active">总览</a>
+      <a href="table.html">数据库</a>
+      <a href="dashboard.html">仪表盘</a>
+    </nav>
 
     <div class="cover-main">
       <div class="cover-copy">
