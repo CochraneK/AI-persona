@@ -120,6 +120,7 @@ AI-persona/
 ├── scripts/                           # 实用工具脚本
 │   ├── generate_dataset.py            # 批量数据集生成
 │   ├── analyze_dataset.py             # 数据集分析工具
+│   ├── make_showcase_pool.py          # 展示页数据池 (70 人设 + 本体摘要, 幂等内联)
 │   └── _scratch/                      # 一次性构建脚本（归档备查）
 │
 ├── data/                              # 参考数据
@@ -144,6 +145,10 @@ AI-persona/
 │   ├── build_ontology_part3.py        # 共病关联
 │   ├── merge_ontology.py              # 合并工具
 │   └── _diag_names.json              # 诊断中文名映射
+│
+├── web/                               # ⭐ 项目展示页（自包含单文件、零外部依赖，双击即开）
+│   ├── index.html                     # 全人档案风展示页（18 域总览 + 70 人设池 + 随机抽取）
+│   └── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
 │
 └── skill/                             # WorkBuddy 技能
     └── SKILL.md                      # 一键安装技能
