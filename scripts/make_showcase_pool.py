@@ -7,10 +7,13 @@ This produces ONE JSON file (web/showcase_data.json) with two sections:
    guiding question, and how many canonical concepts live in each) plus
    the global concept count.
 
-2. `personas` — a pool of pre-generated personas (10 archetype-covered
-   diagnoses x 5 seeds = 50). The showcase page's "generate a random
-   character" button picks from this pool client-side, so the page stays
-   a zero-dependency single file.
+2. `personas` — a pool of pre-generated personas: healthy controls
+   (无精神障碍（健康）x 20 seeds) + 10 archetype-covered diagnoses x 5
+   seeds = 70. The pool is whole-person by design — the Human Ontology
+   v2 covers 18 domains of a complete human, and psychiatry is just one
+   of its domains, so the showcase page's "draw a person" button mixes
+   healthy and clinical personas. The button picks from this pool
+   client-side, so the page stays a zero-dependency single file.
 
 Run:
     python scripts/make_showcase_pool.py
@@ -60,6 +63,15 @@ DIAGNOSES = [
 SEEDS_PER_DIAGNOSIS = 5
 # Base seed offset so the pool is stable across rebuilds.
 SEED_BASE = 20260930
+
+# Healthy controls (the "无精神障碍（健康）" persona the engine supports as
+# a first-class diagnosis key). Healthy personas have NO archetype grid
+# (archetype_name is empty) — the page renders them with a teal
+# "健康对照" stamp instead of the red diagnosis stamp.
+HEALTHY = "无精神障碍（健康）"
+HEALTHY_SEEDS = 20
+# Offset so healthy seeds never collide with the diagnosis seeds.
+HEALTHY_SEED_OFFSET = 100
 
 
 def _build_ontology_summary() -> dict:
@@ -127,6 +139,16 @@ def _persona_to_card(p) -> dict:
 
 def _build_persona_pool() -> list[dict]:
     pool: list[dict] = []
+    # Healthy controls first, then the clinical diagnoses — the page is
+    # whole-person, so the pool leads with healthy people.
+    for i in range(HEALTHY_SEEDS):
+        seed = SEED_BASE + HEALTHY_SEED_OFFSET + i
+        gen = PersonaGenerator(rng_seed=seed)
+        p = gen.generate(primary_diagnosis=HEALTHY)
+        card = _persona_to_card(p)
+        card["seed"] = seed
+        card["diagnosis_key"] = HEALTHY
+        pool.append(card)
     for diag in DIAGNOSES:
         for i in range(SEEDS_PER_DIAGNOSIS):
             seed = SEED_BASE + i
@@ -193,6 +215,8 @@ def main() -> int:
     print(f"  ontology: {ontology['domain_count']} domains, "
           f"{ontology['concept_count']} concepts, status={ontology['status']}")
     print(f"  personas: {len(personas)}")
+    healthy_rows = [c for c in personas if c["diagnosis_key"] == HEALTHY]
+    print(f"    {HEALTHY}: {len(healthy_rows)}")
     for diag in DIAGNOSES:
         rows = [c for c in personas if c["diagnosis_key"] == diag]
         archetypes = sorted({c["archetype_name"] for c in rows})

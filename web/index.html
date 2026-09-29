@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AI-Persona · 人格病历档案 — Human Ontology v2</title>
-<meta name="description" content="基于 Human Ontology v2 的精神科模拟人物生成引擎。18 个语义命名空间，205 个 canonical 概念，可随机抽取结构化病案。研究用途，非临床诊断工具。">
+<title>AI-Persona · 全人档案 — Human Ontology v2</title>
+<meta name="description" content="基于 Human Ontology v2 的全人模拟人物生成引擎。18 个语义命名空间描述一个完整的人，精神科只是其中一个模块；可随机抽取结构化档案（健康对照 + 患者）。研究用途，非临床诊断工具。">
 <script id="showcase-data" type="application/json">
 /*__SHOWCASE_DATA_START__*/
 {
@@ -128,8 +128,768 @@
       }
     ]
   },
-  "persona_count": 50,
+  "persona_count": 70,
   "personas": [
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 49,
+      "gender": "男",
+      "occupation": "金融服务人员",
+      "education": "初中",
+      "locale": "城镇",
+      "marital_status": "再婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 4,
+        "E": 5,
+        "O": 4,
+        "A": 7,
+        "C": 6
+      },
+      "personality_tags": [
+        "热情外向",
+        "信任他人",
+        "条理清晰",
+        "敏感多虑"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "家庭环境温暖稳定，提供了安全型依恋的基础",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「学术造假/论文被撤」事件，当前社会功能基本正常",
+      "seed": 20261030,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 38,
+      "gender": "女",
+      "occupation": "橡胶和塑料制品制造人员",
+      "education": "小学",
+      "locale": "城市",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 3,
+        "E": 6,
+        "O": 5,
+        "A": 6,
+        "C": 4
+      },
+      "personality_tags": [
+        "严谨自律",
+        "开放包容",
+        "心态平和",
+        "随遇而安"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "家庭环境温暖稳定，提供了安全型依恋的基础",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「离婚」事件，当前社会功能基本正常",
+      "seed": 20261031,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 57,
+      "gender": "男",
+      "occupation": "橡胶和塑料制品制造人员",
+      "education": "大专",
+      "locale": "城镇",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 2,
+        "E": 6,
+        "O": 6,
+        "A": 5,
+        "C": 5
+      },
+      "personality_tags": [
+        "开放包容",
+        "善于交际",
+        "抗压能力强",
+        "好奇求知"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "家庭环境温暖稳定，提供了安全型依恋的基础",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「职场性骚扰/歧视」事件，当前社会功能基本正常",
+      "seed": 20261032,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 65,
+      "gender": "女",
+      "occupation": "铁路、船舶、航空设备制造人员",
+      "education": "高中/中专",
+      "locale": "城市",
+      "marital_status": "离异",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 3,
+        "O": 6,
+        "A": 8,
+        "C": 4
+      },
+      "personality_tags": [
+        "情绪稳定",
+        "开放包容",
+        "合作性强",
+        "敏感多虑"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「与老友保持联系」，整体状态尚可，当前社会功能基本正常",
+      "seed": 20261033,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 22,
+      "gender": "女",
+      "occupation": "化学原料和化学制品制造人员",
+      "education": "本科",
+      "locale": "城市",
+      "marital_status": "未婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 3,
+        "E": 5,
+        "O": 4,
+        "A": 8,
+        "C": 5
+      },
+      "personality_tags": [
+        "随性散漫",
+        "信任他人",
+        "好奇求知",
+        "严谨自律"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "虽然经历过挫折，但得到了足够的支持和正确引导",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261034,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 40,
+      "gender": "女",
+      "occupation": "科学研究人员",
+      "education": "大专",
+      "locale": "城镇",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 4,
+        "O": 5,
+        "A": 6,
+        "C": 4
+      },
+      "personality_tags": [
+        "善于交际",
+        "热情外向",
+        "敏感多虑",
+        "信任他人"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "在成长过程中积累了成功的应对经验和自信心",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261035,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 34,
+      "gender": "男",
+      "occupation": "教学人员",
+      "education": "初中",
+      "locale": "城镇",
+      "marital_status": "分居",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 3,
+        "O": 5,
+        "A": 5,
+        "C": 4
+      },
+      "personality_tags": [
+        "喜欢独处",
+        "做事缺乏条理",
+        "敏感多虑",
+        "沉默寡言"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "在成长过程中积累了成功的应对经验和自信心",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「工作与家庭平衡困难」事件，当前社会功能基本正常",
+      "seed": 20261036,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 46,
+      "gender": "男",
+      "occupation": "纺织品、服装和皮革、毛皮制品加工制作人员",
+      "education": "小学",
+      "locale": "城市",
+      "marital_status": "离异",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 3,
+        "O": 6,
+        "A": 7,
+        "C": 4
+      },
+      "personality_tags": [
+        "开放包容",
+        "条理清晰",
+        "社交后需要独处恢复",
+        "避免冲突"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "虽然经历过挫折，但得到了足够的支持和正确引导",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261037,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 71,
+      "gender": "女",
+      "occupation": "通用设备制造人员",
+      "education": "小学",
+      "locale": "农村",
+      "marital_status": "丧偶",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 2,
+        "E": 6,
+        "O": 7,
+        "A": 7,
+        "C": 7
+      },
+      "personality_tags": [
+        "信任他人",
+        "乐于助人",
+        "热情外向",
+        "心态平和"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「老友相聚」，整体状态尚可，当前社会功能基本正常",
+      "seed": 20261038,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 43,
+      "gender": "女",
+      "occupation": "房地产服务人员",
+      "education": "初中",
+      "locale": "农村",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 2,
+        "E": 6,
+        "O": 4,
+        "A": 6,
+        "C": 7
+      },
+      "personality_tags": [
+        "追求完美",
+        "信任他人",
+        "友善体贴",
+        "不易焦虑"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "在成长过程中积累了成功的应对经验和自信心",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「学术造假/论文被撤」事件，当前社会功能基本正常",
+      "seed": 20261039,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 57,
+      "gender": "女",
+      "occupation": "军官(警官)",
+      "education": "大专",
+      "locale": "农村",
+      "marital_status": "分居",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 2,
+        "E": 5,
+        "O": 7,
+        "A": 7,
+        "C": 4
+      },
+      "personality_tags": [
+        "乐于助人",
+        "内向安静",
+        "避免冲突",
+        "不拘小节"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「上大学」，整体状态尚可，当前社会功能基本正常",
+      "seed": 20261040,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 70,
+      "gender": "女",
+      "occupation": "技术辅助服务人员",
+      "education": "初中",
+      "locale": "农村",
+      "marital_status": "离异",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 5,
+        "O": 7,
+        "A": 6,
+        "C": 5
+      },
+      "personality_tags": [
+        "紧张不安",
+        "乐于接受不同观点",
+        "审美敏感",
+        "热情外向"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261041,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 53,
+      "gender": "女",
+      "occupation": "科学研究人员",
+      "education": "初中",
+      "locale": "农村",
+      "marital_status": "再婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 4,
+        "E": 6,
+        "O": 5,
+        "A": 5,
+        "C": 5
+      },
+      "personality_tags": [
+        "善于交际",
+        "敏感多虑",
+        "紧张不安",
+        "随性散漫"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "虽然经历过挫折，但得到了足够的支持和正确引导",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「与老友保持联系」，整体状态尚可，当前社会功能基本正常",
+      "seed": 20261042,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 45,
+      "gender": "女",
+      "occupation": "新闻出版、文化专业人员",
+      "education": "高中/中专",
+      "locale": "城镇",
+      "marital_status": "离异",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 4,
+        "O": 6,
+        "A": 5,
+        "C": 4
+      },
+      "personality_tags": [
+        "热情外向",
+        "内向安静",
+        "沉着冷静",
+        "怀疑挑剔"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「上大学」，整体状态尚可，当前社会功能基本正常",
+      "seed": 20261043,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 41,
+      "gender": "女",
+      "occupation": "纺织品、服装和皮革、毛皮制品加工制作人员",
+      "education": "初中",
+      "locale": "城市",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 3,
+        "E": 7,
+        "O": 7,
+        "A": 5,
+        "C": 4
+      },
+      "personality_tags": [
+        "精力充沛",
+        "抗压能力强",
+        "心理韧性好",
+        "严谨自律"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "在成长过程中积累了成功的应对经验和自信心",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「养老金/退休金不足」事件，当前社会功能基本正常",
+      "seed": 20261044,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 61,
+      "gender": "男",
+      "occupation": "纺织品、服装和皮革、毛皮制品加工制作人员",
+      "education": "小学",
+      "locale": "城市",
+      "marital_status": "已婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 5,
+        "E": 6,
+        "O": 6,
+        "A": 5,
+        "C": 5
+      },
+      "personality_tags": [
+        "情绪稳定",
+        "严谨自律",
+        "沉着冷静",
+        "好奇求知"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "在成长过程中积累了成功的应对经验和自信心",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，近期经历了「夫妻长期异地」事件，当前社会功能基本正常",
+      "seed": 20261045,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 20,
+      "gender": "女",
+      "occupation": "运输设备和通用工程机械操作人员及有关人员",
+      "education": "本科",
+      "locale": "农村",
+      "marital_status": "未婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 2,
+        "E": 3,
+        "O": 6,
+        "A": 7,
+        "C": 5
+      },
+      "personality_tags": [
+        "沉默寡言",
+        "乐于助人",
+        "避免冲突",
+        "不善交际"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "家庭环境温暖稳定，提供了安全型依恋的基础",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261046,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 63,
+      "gender": "女",
+      "occupation": "机械制造基础加工人员",
+      "education": "未接受正式教育",
+      "locale": "城市",
+      "marital_status": "离异",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 4,
+        "E": 3,
+        "O": 4,
+        "A": 5,
+        "C": 4
+      },
+      "personality_tags": [
+        "严谨自律",
+        "开放包容",
+        "不善交际",
+        "传统务实"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261047,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 19,
+      "gender": "女",
+      "occupation": "人民团体和群众团体、社会组织及其他成员组织负责人",
+      "education": "硕士及以上",
+      "locale": "城镇",
+      "marital_status": "未婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 4,
+        "E": 4,
+        "O": 5,
+        "A": 8,
+        "C": 7
+      },
+      "personality_tags": [
+        "好奇求知",
+        "注重细节",
+        "合作性强",
+        "严谨自律"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "家庭环境温暖稳定，提供了安全型依恋的基础",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261048,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
+    {
+      "id": "P-000001",
+      "label": "healthy_0001",
+      "age": 22,
+      "gender": "男",
+      "occupation": "文学艺术、体育专业人员",
+      "education": "大专",
+      "locale": "农村",
+      "marital_status": "未婚",
+      "primary_diagnosis": "无精神障碍（健康）",
+      "primary_diagnosis_en": "无精神障碍（健康）",
+      "comorbidities": [],
+      "archetype_name": "",
+      "archetype_one_liner": "",
+      "ocean": {
+        "N": 4,
+        "E": 5,
+        "O": 4,
+        "A": 7,
+        "C": 7
+      },
+      "personality_tags": [
+        "信任他人",
+        "避免冲突",
+        "心理韧性好",
+        "善解人意"
+      ],
+      "core_desire": "稳定幸福的生活、实现个人价值",
+      "core_fear": "失去重要的人、重大疾病或意外",
+      "formative_wound": "有可靠的社交支持网络，能够健康地表达情绪",
+      "compensatory_desire": "平衡地追求自我实现——努力但不过度、享受但不贪婪",
+      "storr_need": "保持开放和成长——已有的韧性是应对未来变化的宝贵资源",
+      "arc_type": "flat",
+      "arc_description": "平坦弧（Flat Arc）：已有韧性基础，不需剧烈转变——存在本身就是稳定的力量",
+      "current_status": "目前精神状态健康，无明显心理困扰，当前社会功能基本正常",
+      "seed": 20261049,
+      "diagnosis_key": "无精神障碍（健康）"
+    },
     {
       "id": "P-000001",
       "label": "depressive_0001",
@@ -155,10 +915,10 @@
         "C": 8
       },
       "personality_tags": [
-        "敏感多虑",
+        "合作性强",
         "乐于助人",
-        "内向安静",
-        "注重细节"
+        "注重细节",
+        "遵循惯例"
       ],
       "core_desire": "即使什么都不做，也仍然有价值",
       "core_fear": "一旦停止奔跑，暴露出的空无一物会吓走所有人",
@@ -196,10 +956,10 @@
         "C": 6
       },
       "personality_tags": [
-        "社交后需要独处恢复",
-        "内向安静",
-        "少数深交胜于泛泛之交",
-        "喜欢尝试新事物"
+        "随性散漫",
+        "紧张不安",
+        "情绪波动大",
+        "开放包容"
       ],
       "core_desire": "有一个不会离开的人或地方",
       "core_fear": "再次投入后又被抛弃，痛得比现在更深",
@@ -237,10 +997,10 @@
         "C": 9
       },
       "personality_tags": [
+        "遵循惯例",
+        "有规划性",
         "竞争心强",
-        "紧张不安",
-        "敏感多虑",
-        "不喜欢变化"
+        "对新事物持怀疑态度"
       ],
       "core_desire": "有人相信我的难受是真的",
       "core_fear": "被当成装病或无病呻吟，连痛苦都不被承认",
@@ -275,10 +1035,10 @@
         "C": 2
       },
       "personality_tags": [
-        "避免冲突",
-        "喜欢独处",
-        "情绪波动大",
-        "为人随和"
+        "自我要求过高",
+        "不拘小节",
+        "容易焦虑",
+        "做事缺乏条理"
       ],
       "core_desire": "被明确告知「这不是你的错」",
       "core_fear": "自己本质上就是有缺陷的、会连累所有人",
@@ -313,10 +1073,10 @@
         "C": 4
       },
       "personality_tags": [
-        "乐于接受不同观点",
-        "不善交际",
-        "不拘小节",
-        "友善体贴"
+        "开放包容",
+        "审美敏感",
+        "好奇求知",
+        "内向安静"
       ],
       "core_desire": "被看见疲惫，却不必先开口解释",
       "core_fear": "一旦示弱就会失去仅剩的体面与他人的信任",
@@ -354,10 +1114,10 @@
         "C": 7
       },
       "personality_tags": [
-        "忧心忡忡",
-        "为人随和",
-        "条理清晰",
-        "注重细节"
+        "敏感多虑",
+        "友善体贴",
+        "严谨自律",
+        "责任心强"
       ],
       "core_desire": "有人对我说「这次我来」",
       "core_fear": "一旦放手，有人会因为我的缺席而受苦",
@@ -395,10 +1155,10 @@
         "C": 4
       },
       "personality_tags": [
-        "遵循惯例",
-        "喜欢独处",
+        "友善体贴",
         "传统务实",
-        "条理清晰"
+        "不善交际",
+        "严谨自律"
       ],
       "core_desire": "在还没有准备好时也能被允许开始",
       "core_fear": "全力以赴之后依然被证明不够好",
@@ -436,10 +1196,10 @@
         "C": 9
       },
       "personality_tags": [
-        "怀疑挑剔",
-        "热情外向",
-        "遵循惯例",
-        "喜欢独处"
+        "喜欢独处",
+        "责任心强",
+        "友善体贴",
+        "传统务实"
       ],
       "core_desire": "有人对我说「这次我来」",
       "core_fear": "一旦放手，有人会因为我的缺席而受苦",
@@ -474,10 +1234,10 @@
         "C": 6
       },
       "personality_tags": [
-        "有规划性",
-        "喜欢尝试新事物",
-        "为人随和",
-        "条理清晰"
+        "喜欢独处",
+        "传统务实",
+        "忧心忡忡",
+        "严谨自律"
       ],
       "core_desire": "一切都在掌握之中",
       "core_fear": "失控，以及失控后被证明自己无能",
@@ -512,10 +1272,10 @@
         "C": 6
       },
       "personality_tags": [
-        "乐于接受不同观点",
-        "富有想象力",
+        "开放包容",
+        "怀疑挑剔",
         "热情外向",
-        "友善体贴"
+        "内向安静"
       ],
       "core_desire": "确信最坏的事不会发生",
       "core_fear": "因为自己的疏忽而让灾难真的发生",
@@ -553,10 +1313,10 @@
         "C": 7
       },
       "personality_tags": [
-        "敏感多虑",
-        "乐于助人",
-        "内向安静",
-        "怀疑挑剔"
+        "竞争心强",
+        "信任他人",
+        "缺乏安全感",
+        "少数深交胜于泛泛之交"
       ],
       "core_desire": "有人能看穿冷淡，仍然留下来",
       "core_fear": "靠近后被看穿，然后被抛弃",
@@ -594,10 +1354,10 @@
         "C": 6
       },
       "personality_tags": [
+        "随性散漫",
+        "容易焦虑",
         "紧张不安",
-        "遵循惯例",
-        "少数深交胜于泛泛之交",
-        "喜欢独处"
+        "不拘小节"
       ],
       "core_desire": "被人主动拉进那个圈子里",
       "core_fear": "主动靠近后被婉拒，证实自己不属于任何地方",
@@ -635,10 +1395,10 @@
         "C": 9
       },
       "personality_tags": [
+        "不轻易信任",
+        "坚持己见",
         "沉着冷静",
-        "注重细节",
-        "竞争心强",
-        "意志坚定"
+        "紧张不安"
       ],
       "core_desire": "有人能看穿冷淡，仍然留下来",
       "core_fear": "靠近后被看穿，然后被抛弃",
@@ -673,10 +1433,10 @@
         "C": 5
       },
       "personality_tags": [
-        "容易焦虑",
-        "喜欢尝试新事物",
         "少数深交胜于泛泛之交",
-        "条理清晰"
+        "传统务实",
+        "紧张不安",
+        "严谨自律"
       ],
       "core_desire": "即使表现平平也依然被认可",
       "core_fear": "在关键时刻掉链子，且被人记住",
@@ -711,10 +1471,10 @@
         "C": 5
       },
       "personality_tags": [
-        "不拘小节",
-        "少数深交胜于泛泛之交",
-        "竞争心强",
-        "条理清晰"
+        "好奇求知",
+        "忧心忡忡",
+        "喜欢独处",
+        "信任他人"
       ],
       "core_desire": "不必表演就能被接纳",
       "core_fear": "再次成为被注视、被评价、被嘲笑的对象",
@@ -752,10 +1512,10 @@
         "C": 5
       },
       "personality_tags": [
-        "富有想象力",
-        "敏感多虑",
-        "审美敏感",
-        "容易焦虑"
+        "怀疑挑剔",
+        "竞争心强",
+        "缺乏安全感",
+        "思想前卫"
       ],
       "core_desire": "自己的特殊身份被承认",
       "core_fear": "承认一切只是症状，人生毫无意义",
@@ -793,10 +1553,10 @@
         "C": 2
       },
       "personality_tags": [
+        "不善交际",
         "紧张不安",
-        "情绪波动大",
-        "内向安静",
-        "信任他人"
+        "缺乏安全感",
+        "沉默寡言"
       ],
       "core_desire": "重新对某件事产生一点兴趣",
       "core_fear": "彻底失去行动的能力与最后的独立",
@@ -834,10 +1594,10 @@
         "C": 2
       },
       "personality_tags": [
-        "竞争心强",
-        "直言不讳",
-        "富有想象力",
-        "时间观念淡薄"
+        "热情外向",
+        "乐于接受不同观点",
+        "怀疑挑剔",
+        "以自我为中心"
       ],
       "core_desire": "自己的特殊身份被承认",
       "core_fear": "承认一切只是症状，人生毫无意义",
@@ -872,10 +1632,10 @@
         "C": 2
       },
       "personality_tags": [
-        "喜欢尝试新事物",
-        "信任他人",
-        "情绪波动大",
-        "少数深交胜于泛泛之交"
+        "自我要求过高",
+        "不拘小节",
+        "容易分心",
+        "审美敏感"
       ],
       "core_desire": "让声音停下来，或者至少不再听从",
       "core_fear": "再次失控、无法分辨真实与幻觉",
@@ -910,10 +1670,10 @@
         "C": 3
       },
       "personality_tags": [
-        "不拘小节",
-        "坚持己见",
-        "以自我为中心",
-        "意志坚定"
+        "好奇求知",
+        "思想前卫",
+        "随性散漫",
+        "审美敏感"
       ],
       "core_desire": "确认没有人在算计自己",
       "core_fear": "被控制、被伤害，且无处可逃",
@@ -951,9 +1711,9 @@
         "C": 6
       },
       "personality_tags": [
-        "喜欢社交",
-        "忧心忡忡",
-        "信任他人",
+        "敏感多虑",
+        "情绪波动大",
+        "不拘小节",
         "热情外向"
       ],
       "core_desire": "被当作正常人看待",
@@ -992,10 +1752,10 @@
         "C": 3
       },
       "personality_tags": [
-        "紧张不安",
-        "善于交际",
-        "好奇求知",
-        "信任他人"
+        "遵循惯例",
+        "喜欢社交",
+        "情绪波动大",
+        "在人群中感到自在"
       ],
       "core_desire": "填满那个永远填不满的空洞",
       "core_fear": "清醒后面对自己造成的后果，以及又一次的自我厌恶",
@@ -1033,10 +1793,10 @@
         "C": 2
       },
       "personality_tags": [
-        "开放包容",
-        "乐于接受不同观点",
-        "时间观念淡薄",
-        "在人群中感到自在"
+        "灵活随性",
+        "意志坚定",
+        "思想前卫",
+        "怀疑挑剔"
       ],
       "core_desire": "被当作正常人看待",
       "core_fear": "被贴上终身标签，永远失去正常生活的可能",
@@ -1071,10 +1831,10 @@
         "C": 4
       },
       "personality_tags": [
-        "热情外向",
-        "富有想象力",
-        "精力充沛",
-        "喜欢尝试新事物"
+        "思想前卫",
+        "在人群中感到自在",
+        "审美敏感",
+        "不拘小节"
       ],
       "core_desire": "不再伤害自己亲近的人",
       "core_fear": "再一次失控，然后被所有人放弃",
@@ -1109,10 +1869,10 @@
         "C": 4
       },
       "personality_tags": [
-        "直言不讳",
-        "敏感多虑",
-        "乐于分享",
-        "好奇求知"
+        "乐于接受不同观点",
+        "竞争心强",
+        "开放包容",
+        "紧张不安"
       ],
       "core_desire": "既能持续创作，又不必付出崩溃的代价",
       "core_fear": "失去高涨的状态，回到那个平庸空虚的自己",
@@ -1150,10 +1910,10 @@
         "C": 10
       },
       "personality_tags": [
-        "好奇求知",
-        "追求完美",
         "紧张不安",
-        "注重细节"
+        "友善体贴",
+        "有规划性",
+        "遵循惯例"
       ],
       "core_desire": "一切都处在恰当的位置上",
       "core_fear": "无序会带来无法预料的坏事",
@@ -1191,10 +1951,10 @@
         "C": 10
       },
       "personality_tags": [
-        "传统务实",
-        "善于交际",
-        "好奇求知",
-        "喜欢独处"
+        "不善交际",
+        "注重细节",
+        "情绪波动大",
+        "传统务实"
       ],
       "core_desire": "确认自己本质上是个好人",
       "core_fear": "这些念头暴露了自己真实的邪恶",
@@ -1232,10 +1992,10 @@
         "C": 4
       },
       "personality_tags": [
-        "做事缺乏条理",
-        "善于交际",
-        "思想前卫",
-        "喜欢尝试新事物"
+        "喜欢独处",
+        "热情外向",
+        "审美敏感",
+        "不拘小节"
       ],
       "core_desire": "一切都处在恰当的位置上",
       "core_fear": "无序会带来无法预料的坏事",
@@ -1270,10 +2030,10 @@
         "C": 9
       },
       "personality_tags": [
-        "热情外向",
-        "喜欢独处",
-        "好奇求知",
-        "严谨自律"
+        "遵循惯例",
+        "追求完美",
+        "忧心忡忡",
+        "自我要求过高"
       ],
       "core_desire": "确知一切已经妥当",
       "core_fear": "因为自己的一次疏忽造成无法挽回的后果",
@@ -1308,10 +2068,10 @@
         "C": 10
       },
       "personality_tags": [
-        "忧心忡忡",
         "时间观念强",
-        "追求完美",
-        "有规划性"
+        "好奇求知",
+        "喜欢尝试新事物",
+        "善于交际"
       ],
       "core_desire": "确信自己和所爱的人是安全的",
       "core_fear": "因为自己的疏忽让所爱的人受到伤害",
@@ -1349,10 +2109,10 @@
         "C": 7
       },
       "personality_tags": [
-        "严谨自律",
+        "自我要求过高",
+        "合作性强",
         "敏感多虑",
-        "乐于助人",
-        "为人随和"
+        "情绪波动大"
       ],
       "core_desire": "确信自己没有被讨厌",
       "core_fear": "被人在背后议论、被 quietly 排除在外",
@@ -1390,10 +2150,10 @@
         "C": 4
       },
       "personality_tags": [
-        "开放包容",
-        "信任他人",
-        "怀疑挑剔",
-        "喜欢尝试新事物"
+        "富有想象力",
+        "严谨自律",
+        "随性散漫",
+        "不拘小节"
       ],
       "core_desire": "即使不再出类拔萃也仍然有价值",
       "core_fear": "被发现自己其实一直在硬撑，根本没那么厉害",
@@ -1431,10 +2191,10 @@
         "C": 1
       },
       "personality_tags": [
-        "时间观念淡薄",
-        "不拘小节",
-        "富有想象力",
-        "热情外向"
+        "热情外向",
+        "乐于接受不同观点",
+        "怀疑挑剔",
+        "思想前卫"
       ],
       "core_desire": "有人告诉我，那些年不是我的错",
       "core_fear": "错过了最佳时机，已经来不及修正",
@@ -1469,10 +2229,10 @@
         "C": 1
       },
       "personality_tags": [
-        "随性散漫",
-        "乐于分享",
-        "情绪波动大",
-        "喜欢尝试新事物"
+        "喜欢尝试新事物",
+        "在人群中感到自在",
+        "忧心忡忡",
+        "精力充沛"
       ],
       "core_desire": "被当成有活力而非有问题的孩子",
       "core_fear": "再次因为管不住自己而伤害到关系",
@@ -1507,10 +2267,10 @@
         "C": 1
       },
       "personality_tags": [
-        "灵活随性",
-        "敏感多虑",
-        "乐于分享",
-        "情绪波动大"
+        "乐于接受不同观点",
+        "竞争心强",
+        "开放包容",
+        "做事缺乏条理"
       ],
       "core_desire": "能专注、做事不再半途而废",
       "core_fear": "因为拖延和健忘毁掉重要的事、被别人当懒人",
@@ -1548,10 +2308,10 @@
         "C": 7
       },
       "personality_tags": [
-        "信任他人",
-        "敏感多虑",
-        "缺乏安全感",
-        "遵循惯例"
+        "在人群中感到自在",
+        "竞争心强",
+        "精力充沛",
+        "条理清晰"
       ],
       "core_desire": "不再有人能伤害我和我的人",
       "core_fear": "再次陷入无力、任人宰割的处境",
@@ -1589,10 +2349,10 @@
         "C": 6
       },
       "personality_tags": [
-        "遵循惯例",
-        "喜欢独处",
+        "友善体贴",
         "传统务实",
-        "条理清晰"
+        "随性散漫",
+        "不拘小节"
       ],
       "core_desire": "被原谅，或至少被允许活着",
       "core_fear": "自己不配活着，且终将被揭穿",
@@ -1630,10 +2390,10 @@
         "C": 9
       },
       "personality_tags": [
-        "责任心强",
-        "有规划性",
-        "怀疑挑剔",
-        "敏感多虑"
+        "健谈开朗",
+        "善于交际",
+        "热情外向",
+        "竞争心强"
       ],
       "core_desire": "不再有人能伤害我和我的人",
       "core_fear": "再次陷入无力、任人宰割的处境",
@@ -1668,10 +2428,10 @@
         "C": 3
       },
       "personality_tags": [
-        "传统务实",
+        "少数深交胜于泛泛之交",
         "沉默寡言",
-        "敏感多虑",
-        "内向安静"
+        "合作性强",
+        "忧心忡忡"
       ],
       "core_desire": "不再被记忆突袭",
       "core_fear": "一旦停下来感受，痛苦就会把自己淹没",
@@ -1706,9 +2466,9 @@
         "C": 4
       },
       "personality_tags": [
-        "直言不讳",
-        "坚持己见",
-        "做事缺乏条理",
+        "好奇求知",
+        "善于交际",
+        "热情外向",
         "不轻易信任"
       ],
       "core_desire": "能有一刻真正放松警惕",
@@ -1747,10 +2507,10 @@
         "C": 7
       },
       "personality_tags": [
-        "思想前卫",
-        "乐于助人",
-        "信任他人",
-        "责任心强"
+        "喜欢社交",
+        "喜欢尝试新事物",
+        "精力充沛",
+        "思想前卫"
       ],
       "core_desire": "有一个永远不会让我失望的人",
       "core_fear": "再度信任，然后再次被证明看错了人",
@@ -1788,10 +2548,10 @@
         "C": 4
       },
       "personality_tags": [
-        "自我要求过高",
-        "内向安静",
-        "思想前卫",
-        "信任他人"
+        "随性散漫",
+        "做事缺乏条理",
+        "富有想象力",
+        "严谨自律"
       ],
       "core_desire": "知道自己到底是谁",
       "core_fear": "剥去所有模仿之后，里面什么都没有",
@@ -1829,10 +2589,10 @@
         "C": 2
       },
       "personality_tags": [
-        "开放包容",
-        "喜欢独处",
-        "竞争心强",
-        "富有想象力"
+        "情绪波动大",
+        "不拘小节",
+        "容易焦虑",
+        "怀疑挑剔"
       ],
       "core_desire": "不再感到空无一物",
       "core_fear": "永远困在空洞里，且这空洞会吓跑所有人",
@@ -1867,10 +2627,10 @@
         "C": 4
       },
       "personality_tags": [
-        "好奇求知",
-        "喜欢社交",
-        "做事缺乏条理",
-        "忧心忡忡"
+        "缺乏安全感",
+        "自我要求过高",
+        "热情外向",
+        "喜欢尝试新事物"
       ],
       "core_desire": "有人能在我还没伤害自己之前就听见我",
       "core_fear": "情绪永远无法被理解，只能靠疼痛来证明",
@@ -1905,10 +2665,10 @@
         "C": 3
       },
       "personality_tags": [
-        "不拘小节",
-        "善于交际",
-        "以自我为中心",
-        "意志坚定"
+        "乐于接受不同观点",
+        "忧心忡忡",
+        "坚持己见",
+        "富有想象力"
       ],
       "core_desire": "真正被爱、被完整地接纳而不被抛弃",
       "core_fear": "被抛弃、被拒绝、被背叛",
@@ -1946,10 +2706,10 @@
         "C": 9
       },
       "personality_tags": [
-        "敏感多虑",
-        "缺乏安全感",
-        "内向安静",
-        "注重细节"
+        "合作性强",
+        "乐于助人",
+        "喜欢社交",
+        "责任心强"
       ],
       "core_desire": "吃东西而不必感到罪恶",
       "core_fear": "被发现自己失控进食，然后被厌恶",
@@ -1987,10 +2747,10 @@
         "C": 10
       },
       "personality_tags": [
+        "不善交际",
+        "容易焦虑",
         "紧张不安",
-        "好奇求知",
-        "遵循惯例",
-        "喜欢独处"
+        "传统务实"
       ],
       "core_desire": "看见真实的自己",
       "core_fear": "镜子里那个肥胖的自己才是真的",
@@ -2028,10 +2788,10 @@
         "C": 9
       },
       "personality_tags": [
+        "情绪波动大",
         "意志坚定",
-        "条理清晰",
-        "注重细节",
-        "实际保守"
+        "责任心强",
+        "怀疑挑剔"
       ],
       "core_desire": "吃东西而不必感到罪恶",
       "core_fear": "被发现自己失控进食，然后被厌恶",
@@ -2066,10 +2826,10 @@
         "C": 10
       },
       "personality_tags": [
+        "社交后需要独处恢复",
+        "开放包容",
         "注重细节",
-        "喜欢尝试新事物",
-        "好奇求知",
-        "条理清晰"
+        "追求完美"
       ],
       "core_desire": "即使不完美也值得被爱",
       "core_fear": "一旦不再优秀，就会被彻底否定",
@@ -2104,10 +2864,10 @@
         "C": 10
       },
       "personality_tags": [
-        "喜欢尝试新事物",
-        "坚持己见",
-        "时间观念强",
-        "友善体贴"
+        "开放包容",
+        "缺乏安全感",
+        "好奇求知",
+        "内向安静"
       ],
       "core_desire": "感到自己能掌控些什么",
       "core_fear": "失控，尤其是身体与体重的失控",
@@ -2345,6 +3105,10 @@ section{margin-top:64px}
   box-shadow:inset 0 0 8px rgba(178,58,41,.12);letter-spacing:.04em;
 }
 .diag-stamp .en{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em}
+.diag-stamp.healthy .cn{
+  color:var(--teal);border-color:var(--teal);
+  box-shadow:inset 0 0 8px rgba(42,132,128,.14);
+}
 
 .arch{padding:6px 16px 0}
 .arch .name{font-family:var(--kai);font-size:19px;font-weight:700;color:var(--ink);letter-spacing:.04em}
@@ -2465,11 +3229,11 @@ footer .meta a{color:var(--teal);text-decoration:none}
 
     <div class="cover-main">
       <div class="cover-copy">
-        <div class="tag">精神科 · 模拟人物生成引擎</div>
+        <div class="tag">全人本体 · 模拟人物生成引擎</div>
         <h1>把一个人，<br>拆成 <em>18 个语义抽屉</em>，<br>再随机拼回一个「人」。</h1>
-        <p>基于 Human Ontology v2 的结构化病案引擎。每一张档案都是一位可被 LLM 直接扮演、用于精神病学 AI 评估的虚构人物。</p>
+        <p>基于 Human Ontology v2 的全人档案引擎。每一张档案都是一位完整的人——从生命历程到此刻的状态，可被 LLM 直接扮演；精神科评估，只是它的一个应用场景。</p>
       </div>
-      <div class="vtitle">病历档案</div>
+      <div class="vtitle">全人档案</div>
       <div class="seal" aria-hidden="true"><span class="l1">研究用途</span><span class="l2">非临床诊断</span></div>
     </div>
 
@@ -2477,7 +3241,7 @@ footer .meta a{color:var(--teal);text-decoration:none}
       <path class="base" d="M0 23 H640"/>
       <path class="pulse" d="M0 23 H96 l8 0 6-14 8 28 6-14 h40 l6-9 8 18 6-9 h44 l7 0 5-13 7 26 5-13 h52 l6-8 8 16 6-8 h48 l6-12 8 24 6-12 h54 l6 0 5-14 7 28 5-14 h46 l7-9 8 18 7-9 h60"/>
     </svg>
-    <div class="scroll-cue"><span class="dot"></span>向下查阅 · 18 命名空间 / 50 份病案</div>
+    <div class="scroll-cue"><span class="dot"></span>向下查阅 · 18 命名空间 / 70 份档案</div>
   </header>
 
   <!-- ================= WHAT IS THIS ================= -->
@@ -2491,17 +3255,18 @@ footer .meta a{color:var(--teal);text-decoration:none}
       </div>
     </div>
     <p class="lead">
-      这是一个<b>纯 Python 标准库、零外部依赖</b>的生成引擎。它的本体（ontology）把人的一生拆进
-      <span class="teal">18 个语义命名空间</span>——从「生命历程」到「此刻的状态」——每个命名空间只负责回答一个
-      <b>唯一的问题</b>。诊断（抑郁症、强迫症……）只决定症状学的外壳，真正塑造人物心理内核的，是
-      <b>wound → desire → need</b> 这条叙事因果链。
+      这是一个<b>纯 Python 标准库、零外部依赖</b>的生成引擎。它的本体（ontology）描述的<b>不是一个病人，
+      而是一个完整的人</b>——一生被拆进 <span class="teal">18 个语义命名空间</span>，从「生命历程」到「此刻的状态」，
+      每个命名空间只负责回答一个<b>唯一的问题</b>。诊断（抑郁症、强迫症……）只是其中一个命名空间，
+      只决定症状学的外壳；真正塑造人物心理内核的，是 <b>wound → desire → need</b> 这条叙事因果链。
+      所以池子里既有<b>健康对照</b>，也有<b>患者</b>——精神病学 AI 评估是它的应用之一，不是它的全部。
     </p>
 
     <div class="stats">
       <div class="stat"><div class="num" id="st-domains">18</div><div class="lbl">语义命名空间<br>Semantic Namespaces</div><div class="cap">canonical domains</div></div>
       <div class="stat"><div class="num" id="st-concepts">205</div><div class="lbl">Canonical 概念<br>One Home Each</div><div class="cap">concept catalog</div></div>
       <div class="stat"><div class="num">45</div><div class="lbl">叙事元类型<br>Narrative Archetypes</div><div class="cap">10 诊断覆盖</div></div>
-      <div class="stat"><div class="num" id="st-personas">50</div><div class="lbl">本页样例病案<br>Random Pool</div><div class="cap">10 诊断 × 5 seed</div></div>
+      <div class="stat"><div class="num" id="st-personas">70</div><div class="lbl">本页样例档案<br>Random Pool</div><div class="cap">20 健康对照 + 50 患者</div></div>
     </div>
 
     <div class="note">
@@ -2537,12 +3302,12 @@ footer .meta a{color:var(--teal);text-decoration:none}
     <div class="sec-head">
       <div class="sec-no">叁</div>
       <div class="sec-title">
-        <h2>病案样例</h2>
-        <div class="en">Three Charts From The Drawer</div>
+        <h2>人物样例</h2>
+        <div class="en">Three People From The Drawer</div>
         <div class="rule"></div>
       </div>
     </div>
-    <p class="lead" style="margin-bottom:24px">从 50 份病案里，取三份风格迥异的：一个用成就压住低落的抑郁者、一个被声音牵引的分裂症者、一个在身份里漂移的边缘型。点开下面的印章，可再抽一份。</p>
+    <p class="lead" style="margin-bottom:24px">从 70 份档案里，取三位风格迥异的：一位没有诊断的普通健康人、一个用成就压住低落的抑郁者、一个在身份里漂移的边缘型。点开下面的印章，可再抽一位。</p>
     <div id="case-list"></div>
   </section>
 
@@ -2551,14 +3316,14 @@ footer .meta a{color:var(--teal);text-decoration:none}
     <div class="sec-head">
       <div class="sec-no">肆</div>
       <div class="sec-title">
-        <h2>抽取病案</h2>
-        <div class="en">Pull A Chart</div>
+        <h2>抽取一个人</h2>
+        <div class="en">Pull A Person</div>
         <div class="rule"></div>
       </div>
     </div>
     <div class="draw-box">
-      <div class="hint">点击印章，从 50 份已生成的病案里随机取一份。<br>纯前端抽取，不联网、不请求任何外部资源。</div>
-      <button class="btn-draw" id="btn-draw">抽 取 新 病 案</button>
+      <div class="hint">点击印章，从 70 份已生成的档案里随机取一位——健康人或患者。<br>纯前端抽取，不联网、不请求任何外部资源。</div>
+      <button class="btn-draw" id="btn-draw">抽 取 新 人 物</button>
       <div class="draw-result" id="draw-result"></div>
     </div>
   </section>
@@ -2568,7 +3333,7 @@ footer .meta a{color:var(--teal);text-decoration:none}
     <div class="dis">
       <span class="ico">研</span>
       <span>
-        <b>研究用途，非临床诊断工具。</b>本页所有「人物」均为程序生成的<b>虚构合成</b>，用于精神病学 AI 评估与本体研究，
+        <b>研究用途，非临床诊断工具。</b>本页所有「人物」均为程序生成的<b>虚构合成</b>，用于全人本体研究与精神病学 AI 评估，
         不对应任何真实个体，不构成任何医疗建议、诊断或治疗。诊断标签仅用于症状学建模，不代表病因学因果。
       </span>
     </div>
@@ -2647,15 +3412,26 @@ footer .meta a{color:var(--teal);text-decoration:none}
     if(com) tagBlock += '<div class="tags" style="margin-top:12px"><span class="tt comorb" style="background:rgba(178,58,41,.1)">共病</span>'+com+'</div>';
     if(tags) tagBlock += '<div class="tags">人格标签：'+tags+'</div>';
 
+    // Healthy personas have no archetype grid (archetype_name is empty):
+    // render a teal "健康对照" stamp and an identity block in its place.
+    var healthy = p.archetype_name === "";
+    var stampCls = "diag-stamp" + (healthy ? " healthy" : "");
+    var stampCn = healthy ? "健康对照" : p.primary_diagnosis;
+    var stampEn = healthy ? "HEALTHY CONTROL" : p.primary_diagnosis_en;
+    var archBlock = healthy
+      ? '<div class="arch"><div class="name">健康对照 · 无临床人格型</div>'+
+        '<div class="one">「没有诊断，只有普通人的欲望与恐惧」</div></div>'
+      : '<div class="arch"><div class="name">'+esc(p.archetype_name)+'</div>'+
+        '<div class="one">「'+esc(p.archetype_one_liner)+'」</div></div>';
+
     return '<article class="chart">'+
-      '<div class="chart-head"><span class="fno">病案 <b>'+esc(p.id)+'</b> · '+esc(p.label)+'</span>'+
+      '<div class="chart-head"><span class="fno">档案 <b>'+esc(p.id)+'</b> · '+esc(p.label)+'</span>'+
       '<span class="seed">seed '+esc(p.seed)+'</span></div>'+
 
-      '<div class="diag-stamp"><span class="cn">'+esc(p.primary_diagnosis)+'</span>'+
-      '<span class="en">'+esc(p.primary_diagnosis_en)+'</span></div>'+
+      '<div class="'+stampCls+'"><span class="cn">'+esc(stampCn)+'</span>'+
+      '<span class="en">'+esc(stampEn)+'</span></div>'+
 
-      '<div class="arch"><div class="name">'+esc(p.archetype_name)+'</div>'+
-      '<div class="one">「'+esc(p.archetype_one_liner)+'」</div></div>'+
+      archBlock+
 
       '<div class="demog">'+
         '<div><div class="k">年龄</div><div class="v">'+esc(p.age)+' 岁</div></div>'+
@@ -2695,8 +3471,8 @@ footer .meta a{color:var(--teal);text-decoration:none}
     return hit || by[0] || P[0];
   }
   var picks = [
+    pick("无精神障碍（健康）",""),
     pick("重度抑郁障碍","高功能代偿型"),
-    pick("精神分裂症","幻听支配型"),
     pick("边缘型人格障碍","认同漂移型")
   ];
   document.getElementById("case-list").innerHTML = picks.map(chartHtml).join("");
