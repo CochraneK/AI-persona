@@ -307,6 +307,13 @@ LANG_OVERRIDES: dict[str, tuple[str, str]] = {
     "EG": ("阿拉伯语", "Arabic"), "MA": ("阿拉伯语", "Arabic"),
     "DZ": ("阿拉伯语", "Arabic"), "CI": ("法语", "French"),
     "BR": ("葡萄牙语", "Portuguese"),
+    # European country overrides (region default 英语/俄语 does not fit most)
+    "DE": ("德语", "German"), "FR": ("法语", "French"),
+    "ES": ("西班牙语", "Spanish"), "IT": ("意大利语", "Italian"),
+    "PT": ("葡萄牙语", "Portuguese"), "NL": ("荷兰语", "Dutch"),
+    "GR": ("希腊语", "Greek"), "PL": ("波兰语", "Polish"),
+    "RO": ("罗马尼亚语", "Romanian"), "UA": ("乌克兰语", "Ukrainian"),
+    "IR": ("波斯语", "Persian"), "ET": ("阿姆哈拉语", "Amharic"),
 }
 
 # Per-country name overrides for high-weight countries whose region pool is a

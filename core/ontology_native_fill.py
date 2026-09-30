@@ -205,6 +205,15 @@ _GENERIC_PROFILE: dict[str, Any] = {
 
 _NO_RELIGION = ("无宗教", "其他", "")
 
+# culture_pool items that presuppose a specific religion — the item is only
+# sampled for personas whose religion is in the gate set (avoids e.g. a Muslim
+# persona "attending a community temple fair").
+_CULTURE_RELIGION_GATES: dict[str, frozenset[str]] = {
+    "节庆祭祖": frozenset({"佛教", "道教", "民间信仰", "无宗教"}),
+    "社区庙会": frozenset({"印度教", "佛教", "锡克教", "民间信仰"}),
+    "清真寺宗教生活": frozenset({"伊斯兰教"}),
+}
+
 
 def _profile(region_key: str | None) -> dict[str, Any]:
     return REGION_PROFILES.get(region_key or "", _GENERIC_PROFILE)
@@ -326,8 +335,10 @@ def _sample_roles(ctx, demo, prof, facts, rng) -> dict[str, Any]:
         out["work_authority_responsibility"] = "高：决策权与团队管理责任"
     elif "专业技术人员" in work:
         out["work_authority_responsibility"] = "中：专业自主权，责任集中于本职"
-    elif age < 18 or "退休" in work[0]:
-        out["work_authority_responsibility"] = "低：主要责任在学业/自我管理"
+    elif age < 18:
+        out["work_authority_responsibility"] = "低：主要责任在学业与自我管理"
+    elif work[0] == "退休者":
+        out["work_authority_responsibility"] = "低：已退出工作，责任限于自我管理"
     else:
         out["work_authority_responsibility"] = "低：执行既定流程，自主空间有限"
 
@@ -352,6 +363,7 @@ def _sample_roles(ctx, demo, prof, facts, rng) -> dict[str, Any]:
 
 def _sample_sip(ctx, demo, prof, rng) -> dict[str, Any]:
     income = demo["income"]
+    age = ctx["age"]
     out: dict[str, Any] = {}
     out["citizenship_nationality"] = demo["country_cn"]
     out["legal_residency_status"] = "本国公民" if rng.random() < 0.95 else "永久居民"
@@ -361,20 +373,28 @@ def _sample_sip(ctx, demo, prof, rng) -> dict[str, Any]:
         "low": "工薪/低收入阶层",
     }[income]
     out["social_status_prestige"] = (
-        "受尊敬的职业身份，社区认可度高"
+        "学生身份，社会地位随家庭与学业表现"
+        if age < 18
+        else "受尊敬的职业身份，社区认可度高"
         if income == "high"
         else "普通职业身份，社会认可一般"
     )
     memberships: list[str] = []
     if rng.random() < 0.5:
-        pool = ["行业协会", "工会", "宗教团体", "校友会", "社区组织", "文体俱乐部"]
+        pool = (
+            ["学校社团", "社区组织", "文体俱乐部"]
+            if age < 18
+            else ["行业协会", "工会", "宗教团体", "校友会", "社区组织", "文体俱乐部"]
+        )
         memberships.append(rng.choice(pool))
         if rng.random() < 0.2:
             memberships.append(rng.choice([x for x in pool if x not in memberships]))
     if memberships:
         out["institutional_memberships"] = memberships
     out["civic_institutional_participation"] = (
-        "参与投票与社区公共事务" if rng.random() < 0.4 else "较少参与公共事务"
+        "尚未获得投票权，公共参与限于校园与社区活动"
+        if age < 18
+        else "参与投票与社区公共事务" if rng.random() < 0.4 else "较少参与公共事务"
     )
     out["healthcare_entitlement_access"] = {
         "high": "可负担商业保险，医疗可及性高",
@@ -427,7 +447,11 @@ def _sample_culture_language(ctx, demo, prof, rng) -> dict[str, Any]:
         "mid": "本地主流媒体与社交平台为主",
         "low": "电视与本地广播为主，国际内容接触少",
     }[income]
-    out["cultural_participation"] = list(rng.sample(prof["culture_pool"], k=3))
+    pool = [
+        t for t in prof["culture_pool"]
+        if t not in _CULTURE_RELIGION_GATES or religion in _CULTURE_RELIGION_GATES[t]
+    ]
+    out["cultural_participation"] = list(rng.sample(pool, k=3))
     p_cross = 0.35 if (income == "high" or demo["urbanicity_label"] == "城市") else 0.12
     out["cross_cultural_experience"] = (
         "有跨国生活或旅行经历（工作/留学/务工）"
@@ -469,15 +493,26 @@ def _sample_context_ecology(ctx, demo, prof, facts, rng) -> dict[str, Any]:
     out["household_context"] = household
 
     if urban == "城市":
-        out["physical_environment"] = {
-            "high": "高层/商品房小区，公共交通密集",
-            "mid": "多层住宅区，公交覆盖",
-            "low": "老旧小区/自建房，基础设施老旧",
-        }[income]
+        if demo["region_key"] == "chinese":
+            out["physical_environment"] = {
+                "high": "高层/商品房小区，公共交通密集",
+                "mid": "多层住宅区，公交覆盖",
+                "low": "老旧小区/自建房，基础设施老旧",
+            }[income]
+        else:
+            out["physical_environment"] = {
+                "high": "高密度住宅区（公寓/联排住宅），公共交通密集",
+                "mid": "居住区与商业混杂，公交/地铁覆盖",
+                "low": "老旧街区或城郊聚居区，设施老化",
+            }[income]
     elif urban == "城镇":
         out["physical_environment"] = "低层住宅与沿街铺面，道路功能混合"
     else:
-        out["physical_environment"] = "宅基地自建房，农田环绕"
+        out["physical_environment"] = (
+            "宅基地自建房，农田环绕"
+            if demo["region_key"] == "chinese"
+            else "低密度乡村聚居，农田环绕"
+        )
     out["environment_climate"] = prof["climate"]
     out["economic_conditions"] = {
         "high": "家庭经济宽裕，消费与储蓄能力较强",
@@ -489,13 +524,16 @@ def _sample_context_ecology(ctx, demo, prof, facts, rng) -> dict[str, Any]:
         "mid": "区域劳动力市场，供需基本平衡",
         "low": "本地劳动力市场，岗位选择有限",
     }[income]
-    out["education_system"] = (
-        "高等教育可及性较高，升学与继续教育渠道畅通"
-        if ctx["education"] in ("本科", "硕士及以上")
-        else "中等教育为主，升学渠道存在但竞争激烈"
-        if ctx["education"] in ("高中/中专", "大专")
-        else "基础教育阶段或早期辍学，教育获取受限"
-    )
+    if ctx["education"] in ("本科", "硕士及以上"):
+        out["education_system"] = "高等教育可及性较高，升学与继续教育渠道畅通"
+    elif ctx["education"] in ("高中/中专", "大专"):
+        out["education_system"] = "中等教育为主，升学渠道存在但竞争激烈"
+    elif ctx["education"] == "未接受正式教育":
+        out["education_system"] = "未经历正式学校教育，学习主要发生在生活与劳动中"
+    elif age < 18:
+        out["education_system"] = "基础教育阶段在读，教育环境受区域学校条件制约"
+    else:
+        out["education_system"] = "教育止于小学/初中阶段，继续教育渠道有限"
     out["healthcare_system"] = {
         "high": "医疗资源可及，可选择性高",
         "mid": "公共医疗体系覆盖，等待时间中等",
@@ -560,25 +598,32 @@ def _sample_rco(ctx, demo, prof, facts, rng) -> dict[str, Any]:
         "mid": "基本生活资料可及，大件消费依赖储蓄或信贷",
         "low": "物质条件有限，基本需求优先",
     }[income]
-    out["care_resources"] = (
-        "家庭照护网络健全（配偶/子女分担）"
-        if (marital in ("已婚", "再婚") or facts["has_kids"])
-        else "照护资源主要依赖公共/付费服务"
-    )
-    out["career_opportunities"] = (
-        "职业晋升与转型渠道较多"
-        if ctx["education"] in ("本科", "硕士及以上")
-        else "岗位流动以平级为主"
-        if ctx["education"] in ("高中/中专", "大专")
-        else "职业路径狭窄，晋升机会有限"
-    )
-    out["learning_opportunities"] = (
-        "继续教育与职业培训渠道丰富"
-        if ctx["education"] in ("本科", "硕士及以上")
-        else "夜校/短期培训可及"
-        if ctx["education"] in ("高中/中专", "大专")
-        else "正规学习渠道有限，依赖工作经验积累"
-    )
+    if marital in ("已婚", "再婚") and facts["has_kids"]:
+        out["care_resources"] = "家庭照护网络健全（配偶/子女分担）"
+    elif marital in ("已婚", "再婚"):
+        out["care_resources"] = "家庭照护网络可用（配偶分担）"
+    elif facts["has_kids"]:
+        out["care_resources"] = "家庭照护网络限于子女（无配偶同住，互惠有限）"
+    else:
+        out["care_resources"] = "照护资源主要依赖公共/付费服务"
+    if age < 18:
+        out["career_opportunities"] = "职业尚未起步，未来机会取决于教育水平"
+        out["learning_opportunities"] = "在校接受正规教育，为主要学习渠道"
+    else:
+        out["career_opportunities"] = (
+            "职业晋升与转型渠道较多"
+            if ctx["education"] in ("本科", "硕士及以上")
+            else "岗位流动以平级为主"
+            if ctx["education"] in ("高中/中专", "大专")
+            else "职业路径狭窄，晋升机会有限"
+        )
+        out["learning_opportunities"] = (
+            "继续教育与职业培训渠道丰富"
+            if ctx["education"] in ("本科", "硕士及以上")
+            else "夜校/短期培训可及"
+            if ctx["education"] in ("高中/中专", "大专")
+            else "正规学习渠道有限，依赖工作经验积累"
+        )
     out["institutional_resources"] = {
         "high": "可获取法律、金融等专业服务",
         "mid": "公共服务为主，专业服务偶尔使用",
@@ -611,16 +656,24 @@ def _sample_rco(ctx, demo, prof, facts, rng) -> dict[str, Any]:
     if urban == "城市":
         out["healthcare_access"] = "就近优质医疗可及" if income == "high" else "公共医疗可及，专科需转诊"
     elif urban == "城镇":
-        out["healthcare_access"] = "乡镇卫生院为主，大医院需进城"
+        out["healthcare_access"] = (
+            "乡镇卫生院为主，大医院需进城"
+            if demo["region_key"] == "chinese"
+            else "基层医疗设施为主，专科照护需赴较大城市"
+        )
     else:
-        out["healthcare_access"] = "村医/乡镇卫生所，长途就医常见"
+        out["healthcare_access"] = (
+            "村医/乡镇卫生所，长途就医常见"
+            if demo["region_key"] == "chinese"
+            else "医疗资源稀缺，长途就医常见"
+        )
 
     barriers: list[str] = []
     if _is_clinical(ctx):
         barriers.append("症状负担影响工作/学习与社交参与")
     if income == "low":
         barriers.append("经济约束限制选择空间")
-    if ctx["education"] in ("小学", "初中", "未接受正式教育"):
+    if age >= 18 and ctx["education"] in ("小学", "初中", "未接受正式教育"):
         barriers.append("教育水平受限，信息获取与职业选择受限")
     if age >= 60:
         barriers.append("年龄相关的体力与机会限制")
