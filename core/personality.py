@@ -1551,7 +1551,10 @@ def sample_tags_from_ocean(ocean: dict[str, int],
             candidates.extend(PERSONALITY_TAGS[f"{dim}_low"]["tags"][:2])
 
     # 去重后随机选
-    unique = list(set(candidates))
+    # sorted() 固定去重后的初始顺序：set 迭代序依赖 PYTHONHASHSEED（字符串
+    # 哈希按进程随机化），直接 list(set(...)) 会让采样结果跨进程不可复现。
+    # 排序后再用 rng.shuffle，结果只取决于 (candidates, rng 状态)，全确定。
+    unique = sorted(set(candidates))
     rng.shuffle(unique)
     return unique[:min(count, len(unique))]
 

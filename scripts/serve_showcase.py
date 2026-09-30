@@ -28,12 +28,12 @@ import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-# --- Determinism guard ------------------------------------------------------
-# The engine's sampling path iterates over sets of strings, and CPython
-# randomizes string hashing per process (PYTHONHASHSEED). Pin it to 0 by
-# re-exec'ing exactly once so live persona generation is reproducible across
-# server restarts (same diagnosis + seed -> same card). Must run before
-# make_showcase_pool is imported (it carries the same guard).
+# --- Determinism guard (defense in depth) ------------------------------------
+# The engine's sampling path is audited to be hash-independent (full rationale
+# in scripts/make_full_pool.py). The guard is kept as belt-and-braces so live
+# persona generation stays reproducible across server restarts (same diagnosis
+# + seed -> same card) even if a future hash-ordered sampling path appears.
+# Must run before make_showcase_pool is imported (it carries the same guard).
 if os.environ.get("PYTHONHASHSEED") != "0":
     os.environ["PYTHONHASHSEED"] = "0"
     os.execv(sys.executable, [sys.executable] + sys.argv)

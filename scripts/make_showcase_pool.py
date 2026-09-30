@@ -28,11 +28,11 @@ import os
 import random
 import sys
 
-# --- Determinism guard ------------------------------------------------------
-# The engine's sampling path iterates over sets of strings, and CPython
-# randomizes string hashing per process (PYTHONHASHSEED). Pin it to 0 by
-# re-exec'ing exactly once, so the pool is byte-for-byte reproducible on any
-# machine / CI without the caller having to remember the env var.
+# --- Determinism guard (defense in depth) ------------------------------------
+# The engine's sampling path is audited to be hash-independent (full rationale
+# in scripts/make_full_pool.py). The guard is kept as belt-and-braces: it pins
+# PYTHONHASHSEED=0 by re-exec'ing exactly once, so any FUTURE hash-ordered
+# sampling path cannot silently break byte-for-byte pool reproducibility.
 # (Same guard as scripts/make_full_pool.py.)
 if os.environ.get("PYTHONHASHSEED") != "0":
     os.environ["PYTHONHASHSEED"] = "0"
