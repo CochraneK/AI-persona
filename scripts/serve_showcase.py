@@ -21,6 +21,7 @@ Endpoints:
 """
 
 import argparse
+import hashlib
 import json
 import os
 import random
@@ -59,6 +60,13 @@ def generate(diagnosis: str, seed: int) -> dict:
     card = _persona_to_card(p)
     card["seed"] = seed
     card["diagnosis_key"] = diagnosis
+    # Live cards are minted on a fresh engine instance, so the engine always
+    # labels them P-000001. Re-key the id on (diagnosis, seed) inside the
+    # P-100000..P-199999 band: reproducible (same inputs -> same id), and the
+    # band never collides with the pre-built showcase pool's
+    # P-000001..P-000070 or the full pool's P-000001..P-005000.
+    h = hashlib.sha1(f"{diagnosis}#{seed}".encode("utf-8")).hexdigest()
+    card["id"] = f"P-{100_000 + int(h[:8], 16) % 100_000:06d}"
     # Same ontology-native 5-domain block as the pre-built pool cards,
     # sampled on the per-card RNG so the page renders live cards identically.
     card["ontology"] = ofill.sample_context_fields(

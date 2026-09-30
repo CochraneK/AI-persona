@@ -431,11 +431,11 @@ def _persona_to_card(p) -> dict:
 def _fill_rng(diagnosis_key: str, seed: int) -> random.Random:
     """Per-card ontology RNG, derived from card identity (diagnosis + seed).
 
-    The 70-card pool reuses engine ids (all ``P-000001``), so the default
-    ``rng=None`` path (seeded by persona_id) would give every card the same
-    RNG start. Deriving from ``(diagnosis_key, seed)`` — unique per card —
-    keeps each card's 5-domain sampling independent while staying
-    deterministic across processes (sha1, PYTHONHASHSEED-independent).
+    The 70-card pool is re-keyed to unique ids in build order (see
+    ``_build_persona_pool``), but the RNG deliberately stays keyed on
+    ``(diagnosis_key, seed)``: that pair is unique per card, sha1-based and
+    PYTHONHASHSEED-independent, and re-keying it on the new ids would resample
+    every card's 5-domain block (non-surgical).
     """
     h = hashlib.sha1(f"{diagnosis_key}#{seed}".encode("utf-8")).hexdigest()
     return random.Random(int(h[:12], 16))
@@ -469,6 +469,16 @@ def _build_persona_pool() -> list[dict]:
             card["ontology"] = ofill.sample_context_fields(
                 ofill.persona_context(p), None, rng=_fill_rng(diag, seed))
             pool.append(card)
+    # Unique, stable addressing: each card above was minted by its own
+    # PersonaGenerator instance, so the engine gave every card the same id
+    # (P-000001, the per-instance counter starting at 1). Re-key the pool in
+    # its deterministic build order (20 healthy + 10 diagnoses x 5) so the 70
+    # cards are individually addressable. This id space is local to the
+    # showcase artifact; the 5000-card full pool (scripts/make_full_pool.py)
+    # is a separate artifact with its own P-000001..P-005000 range, and live
+    # cards (scripts/serve_showcase.py) use the P-100000..P-199999 band.
+    for n, card in enumerate(pool, start=1):
+        card["id"] = f"P-{n:06d}"
     return pool
 
 
