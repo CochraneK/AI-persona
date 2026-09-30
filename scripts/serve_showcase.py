@@ -28,15 +28,26 @@ import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
+# --- Determinism guard ------------------------------------------------------
+# The engine's sampling path iterates over sets of strings, and CPython
+# randomizes string hashing per process (PYTHONHASHSEED). Pin it to 0 by
+# re-exec'ing exactly once so live persona generation is reproducible across
+# server restarts (same diagnosis + seed -> same card). Must run before
+# make_showcase_pool is imported (it carries the same guard).
+if os.environ.get("PYTHONHASHSEED") != "0":
+    os.environ["PYTHONHASHSEED"] = "0"
+    os.execv(sys.executable, [sys.executable] + sys.argv)
+
 _REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, _REPO)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from core import PersonaGenerator  # noqa: E402
+from core import ontology_native_fill as ofill  # noqa: E402
 # Reuse the pool builder's diagnosis list and card projection so the API
 # response has EXACTLY the shape the page already renders (plus seed /
 # diagnosis_key / system_prompt).
-from make_showcase_pool import DIAGNOSES, HEALTHY, _persona_to_card  # noqa: E402
+from make_showcase_pool import DIAGNOSES, HEALTHY, _fill_rng, _persona_to_card  # noqa: E402
 
 WEB_DIR = os.path.join(_REPO, "web")
 KNOWN = set(DIAGNOSES) | {HEALTHY}
@@ -48,6 +59,10 @@ def generate(diagnosis: str, seed: int) -> dict:
     card = _persona_to_card(p)
     card["seed"] = seed
     card["diagnosis_key"] = diagnosis
+    # Same ontology-native 5-domain block as the pre-built pool cards,
+    # sampled on the per-card RNG so the page renders live cards identically.
+    card["ontology"] = ofill.sample_context_fields(
+        ofill.persona_context(p), None, rng=_fill_rng(diagnosis, seed))
     card["system_prompt"] = p.system_prompt
     return card
 

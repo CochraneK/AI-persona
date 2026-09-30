@@ -126,7 +126,7 @@ AI-persona/
 ├── scripts/                           # 实用工具脚本
 │   ├── generate_dataset.py            # 批量数据集生成
 │   ├── analyze_dataset.py             # 数据集分析工具
-│   ├── make_showcase_pool.py          # 展示页数据池 (70 人设 + 本体摘要, 幂等内联)
+│   ├── make_showcase_pool.py          # 展示页数据池 (70 人设, 每卡 5 域本体原生块; PYTHONHASHSEED=0 确定性守护; 幂等内联)
 │   ├── serve_showcase.py              # 展示页本地服务 (纯标准库; /api/persona 实时生成 + 可复现 seed)
 │   ├── make_full_pool.py              # ⭐ 国际全量池 (默认 5000 人设 × 52 国 × 11 诊断, 确定性分层 + 5 域本体原生块)
 │   └── _scratch/                      # 一次性构建脚本（归档备查）
@@ -155,7 +155,7 @@ AI-persona/
 │   └── _diag_names.json              # 诊断中文名映射
 │
 ├── web/                               # ⭐ 展示站（自包含、零外部依赖；index 双击即开, table/dashboard 需同源服务）
-│   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取 + 实时生成节）
+│   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池（每卡 5 域本体抽屉）+ 随机抽取 + 实时生成节）
 │   ├── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
 │   ├── pool.json                      # ⭐ 国际全量池（scripts/make_full_pool.py 生成, 5000 人设, ~25MB, 含 5 域本体原生块）
 │   ├── table.html                     # ⭐ 全量数据库（检索/筛选/排序/分页 + 完整档案卡弹窗, 含 5 域本体原生采样）
@@ -328,6 +328,8 @@ http://127.0.0.1:8765/
 展示页第五节「实时生成一个人」可任选诊断（10 诊断 + 健康对照）与 seed，
 实时调用引擎生成全新人设（不再受 70 份数据池限制）；相同 `(诊断, seed)`
 组合结果可复现，卡片下方可一键复制完整 LLM System Prompt。
+实时卡与 70 份池卡同构：同样携带 5 域本体原生块（同一 `_fill_rng` 派生 RNG），
+页面内以 5 个可折叠抽屉展示（roles / 制度位置 / 文化语言 / 情境生态 / 资源约束机会）。
 直接用 `file://` 双击打开 index.html 时该节不可用（其余 70 份池照常工作）。
 
 ### 国际全量池 + 数据库 / 仪表盘（GitHub Pages 在线）

@@ -22,15 +22,28 @@ Output:
     web/showcase_data.json
 """
 
+import hashlib
 import json
 import os
+import random
 import sys
+
+# --- Determinism guard ------------------------------------------------------
+# The engine's sampling path iterates over sets of strings, and CPython
+# randomizes string hashing per process (PYTHONHASHSEED). Pin it to 0 by
+# re-exec'ing exactly once, so the pool is byte-for-byte reproducible on any
+# machine / CI without the caller having to remember the env var.
+# (Same guard as scripts/make_full_pool.py.)
+if os.environ.get("PYTHONHASHSEED") != "0":
+    os.environ["PYTHONHASHSEED"] = "0"
+    os.execv(sys.executable, [sys.executable] + sys.argv)
 
 _REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO not in sys.path:
     sys.path.insert(0, _REPO)
 
 from core import PersonaGenerator  # noqa: E402
+from core import ontology_native_fill as ofill  # noqa: E402
 
 V2_PATH = os.path.join(_REPO, "ontology", "human_ontology.v2.json")
 CATALOG_PATH = os.path.join(_REPO, "ontology", "CANONICAL_CONCEPT_CATALOG.json")
@@ -415,6 +428,19 @@ def _persona_to_card(p) -> dict:
     }
 
 
+def _fill_rng(diagnosis_key: str, seed: int) -> random.Random:
+    """Per-card ontology RNG, derived from card identity (diagnosis + seed).
+
+    The 70-card pool reuses engine ids (all ``P-000001``), so the default
+    ``rng=None`` path (seeded by persona_id) would give every card the same
+    RNG start. Deriving from ``(diagnosis_key, seed)`` — unique per card —
+    keeps each card's 5-domain sampling independent while staying
+    deterministic across processes (sha1, PYTHONHASHSEED-independent).
+    """
+    h = hashlib.sha1(f"{diagnosis_key}#{seed}".encode("utf-8")).hexdigest()
+    return random.Random(int(h[:12], 16))
+
+
 def _build_persona_pool() -> list[dict]:
     pool: list[dict] = []
     # Healthy controls first, then the clinical diagnoses — the page is
@@ -426,6 +452,10 @@ def _build_persona_pool() -> list[dict]:
         card = _persona_to_card(p)
         card["seed"] = seed
         card["diagnosis_key"] = HEALTHY
+        # Ontology-native 5-domain block, sampled on a per-card RNG derived
+        # from card identity (deterministic, independent across cards).
+        card["ontology"] = ofill.sample_context_fields(
+            ofill.persona_context(p), None, rng=_fill_rng(HEALTHY, seed))
         pool.append(card)
     for diag in DIAGNOSES:
         for i in range(SEEDS_PER_DIAGNOSIS):
@@ -436,6 +466,8 @@ def _build_persona_pool() -> list[dict]:
             # Tag with the seed so the page can display "seed 20260930".
             card["seed"] = seed
             card["diagnosis_key"] = diag
+            card["ontology"] = ofill.sample_context_fields(
+                ofill.persona_context(p), None, rng=_fill_rng(diag, seed))
             pool.append(card)
     return pool
 
@@ -493,6 +525,8 @@ def main() -> int:
     print(f"  ontology: {ontology['domain_count']} domains, "
           f"{ontology['concept_count']} concepts, status={ontology['status']}")
     print(f"  personas: {len(personas)}")
+    dom_counts = sorted({len(c.get("ontology") or {}) for c in personas})
+    print(f"  ontology-native 5-domain fill: {dom_counts} domain(s) per card (target 5)")
     healthy_rows = [c for c in personas if c["diagnosis_key"] == HEALTHY]
     print(f"    {HEALTHY}: {len(healthy_rows)}")
     for diag in DIAGNOSES:
