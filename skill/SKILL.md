@@ -115,6 +115,7 @@ OCEAN 属于：
 - `core/persona_kernel.py`
 - `core/kernel_generator.py`
 - `core/legacy_adapter.py`
+- `core/ontology_native_fill.py`（5 域 / 59 概念本体原生确定性采样器：roles / 制度位置 / 文化语言 / 情境生态 / 资源约束）
 
 ## 修改 ontology 前
 

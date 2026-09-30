@@ -33,6 +33,7 @@ Runtime:
 - `core/persona_kernel.py` — ontology-native runtime model.
 - `core/kernel_generator.py` — v2 transitional generator with health-only psychiatric influence by default.
 - `core/legacy_adapter.py` — flat v1 Persona → PersonaKernel migration bridge.
+- `core/ontology_native_fill.py` — deterministic ontology-native sampler for the 5 bridge-never-filled domains (roles / social_institutional_position / culture_language / context_ecology / resources_constraints_opportunities, 59 concepts); the full pool uses it on an independent 4th RNG stream.
 - `core/generator.py` — legacy v1.x generator.
 - `core/archetypes.py` — legacy narrative-generation assets.
 - `core/personality.py` — trait/generation utilities; Big Five is one trait model, not the ontology.

@@ -104,7 +104,7 @@ tbody tr:nth-child(even):hover{background:var(--paper-2)}
     </div>
     <div class="seal">全量<br>档案</div>
   </div>
-  <p class="sub" id="sub">国际分层全量池：加载 <b>pool.json</b> 后，可检索、筛选、排序任意一份档案，点击行展开完整 34 字段档案卡。</p>
+  <p class="sub" id="sub">国际分层全量池：加载 <b>pool.json</b> 后，可检索、筛选、排序任意一份档案，点击行展开完整档案卡（含 5 域本体原生采样：角色 / 制度位置 / 文化语言 / 情境生态 / 资源约束）。</p>
 
   <div id="load"><div class="empty">正在载入 pool.json …</div></div>
 
@@ -163,6 +163,53 @@ const COLS=[
   {k:"archetype_name",t:"叙事型",sort:1},
 ];
 const state={all:[],filtered:[],page:0,sortKey:"id",sortDir:1,q:"",f:{diag:"",cont:"",cc:"",gender:"",edu:"",income:"",locale:""}};
+
+/* 5 本体原生采样域的中文标签表（键未列出的 relation 冗余键不展示） */
+const ONTO_DOMAINS={
+  roles:{title:"本体原生 · 角色 ROLES",keys:{
+    family_roles:"家庭角色",work_roles:"工作角色",education_roles:"教育角色",
+    caregiving_roles:"照护角色",dependent_care_roles:"被照护状态",community_roles:"社区角色",
+    work_authority_responsibility:"职权与责任",role_conflict:"角色冲突",role_load:"角色负荷"}},
+  social_institutional_position:{title:"本体原生 · 制度位置 SIP",keys:{
+    citizenship_nationality:"国籍",legal_residency_status:"居留身份",socioeconomic_class:"社会经济阶层",
+    social_status_prestige:"社会声望",institutional_memberships:"组织成员身份",
+    civic_institutional_participation:"公民参与",healthcare_entitlement_access:"医疗权益",
+    service_access:"公共服务可及",rights_access:"权利可及",
+    discrimination_stigma_exposure:"歧视与污名暴露",justice_system_exposure:"司法接触"}},
+  culture_language:{title:"本体原生 · 文化与语言 CL",keys:{
+    languages:"语言",religion_spirituality:"宗教与灵性",cultural_backgrounds:"文化背景",
+    enculturation_contexts:"社会化情境",customs_norms_exposure:"礼俗规范",
+    media_culture_exposure:"媒体文化",cultural_participation:"文化参与",
+    cross_cultural_experience:"跨文化经历"}},
+  context_ecology:{title:"本体原生 · 情境生态 CE",keys:{
+    neighborhood:"居住邻里",household_context:"家庭居住结构",physical_environment:"物质环境",
+    environment_climate:"气候环境",economic_conditions:"经济条件",labor_market:"劳动力市场",
+    education_system:"教育系统",healthcare_system:"医疗系统",gender_role_context:"性别角色环境",
+    digital_platform_environment:"数字平台环境",historical_events:"历史事件",
+    policy_legal_context:"政策与法律环境",regional_context:"区域背景",
+    school_work_institutions:"学校/工作机构",social_norms:"社会规范",
+    technology_media_environment:"技术媒体环境",urbanicity:"城市化水平",contexts:"情境嵌入"}},
+  resources_constraints_opportunities:{title:"本体原生 · 资源与约束 RCO",keys:{
+    material_resources:"物质资源",care_resources:"照护资源",career_opportunities:"职业机会",
+    learning_opportunities:"学习机会",institutional_resources:"制度性资源",
+    mobility_options:"出行方式",social_resources:"社会资源",time_resources:"时间资源",
+    healthcare_access:"医疗可及",barriers_constraints:"障碍与约束"}}
+};
+
+function ontoBlocks(o){
+  if(!o)return "";
+  let h="";
+  for(const [d,def] of Object.entries(ONTO_DOMAINS)){
+    const payload=o[d];
+    if(!payload)continue;
+    const rows=Object.entries(payload)
+      .filter(([k,v])=>def.keys[k]&&v!=null&&v!==""&&(!Array.isArray(v)||v.length))
+      .map(([k,v])=>`<div><div class="k">${def.keys[k]}</div><div class="v">${esc(Array.isArray(v)?v.join("、"):v)}</div></div>`);
+    if(!rows.length)continue;
+    h+=`<div class="block"><h4>${def.title}</h4><div class="g2">${rows.join("")}</div></div>`;
+  }
+  return h;
+}
 
 function $(id){return document.getElementById(id)}
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
@@ -309,6 +356,7 @@ function openModal(p){
   h+=`<div class="block"><h4>核心欲望 / 恐惧</h4><p><span class="lab">核心欲望</span><br>${esc(p.core_desire||"—")}</p><p><span class="lab">核心恐惧</span><br>${esc(p.core_fear||"—")}</p></div>`;
   h+=`<div class="block"><h4>角色弧线 ${esc(p.arc_type||"")}</h4><p>${esc(p.arc_description||"—")}</p></div>`;
   h+=`<div class="block"><h4>此刻状态</h4><p>${esc(p.current_status||"—")}</p></div>`;
+  h+=ontoBlocks(p.ontology);
   if((p.comorbidities||[]).length)h+=`<div class="block"><h4>共病</h4><p>${p.comorbidities.map(esc).join("、")}</p></div>`;
   if(p.archetype_one_liner)h+=`<div class="block"><h4>型 · 一句话</h4><p>${esc(p.archetype_one_liner)}</p></div>`;
   $("mbody").innerHTML=h;
@@ -344,7 +392,8 @@ async function boot(){
     state.all=d.personas||[];
     $("load").style.display="none";$("app").style.display="";
     const cov=d.coverage||{};
-    $("sub").innerHTML=`国际分层全量池：<b>${d.persona_count}</b> 份档案 · <b>${d.country_count}</b> 国 · <b>${d.diagnosis_count}</b> 诊断 · 引擎 v${d.engine_version} · 主种子 ${d.master_seed}。点击行展开完整档案。`;
+    const nd=(cov.ontology_domains||[]).length;
+    $("sub").innerHTML=`国际分层全量池：<b>${d.persona_count}</b> 份档案 · <b>${d.country_count}</b> 国 · <b>${d.diagnosis_count}</b> 诊断 · 本体原生 <b>${nd}/5</b> 域 · 引擎 v${d.engine_version} · 主种子 ${d.master_seed}。点击行展开完整档案。`;
     initFilters();applyFilters();render();
   }catch(err){
     $("load").innerHTML=`<div class="err"><b>未能载入 pool.json</b><br><br>`+

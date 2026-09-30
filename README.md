@@ -50,6 +50,7 @@ Key files:
 - `core/persona_kernel.py` — ontology-native runtime representation
 - `core/kernel_generator.py` — safe v2 generation layer
 - `core/legacy_adapter.py` — v1 Persona → v2 PersonaKernel bridge
+- `core/ontology_native_fill.py` — 5 域 / 59 概念本体原生确定性采样器（roles / sip / culture_language / context_ecology / rco）
 
 Important consequences:
 - birthplace / residence / migration are place relations; they do not imply culture;
@@ -104,7 +105,7 @@ AI-persona/
 │   ├── human_ontology.v1.json         # 唯一权威源 (19轴/10域/9阶段/13压力形态)
 │   └── README.md                      # 本体设计文档
 │
-├── core/                              # Phase 2: 核心引擎 (10 个模块)
+├── core/                              # Phase 2: 核心引擎 (15 个模块)
 │   ├── __init__.py                    # 完整公开 API
 │   ├── generator.py                   # PersonaGenerator 主类
 │   ├── human_ontology.py              # ⭐ canonical 本体加载器 (v1.3)
@@ -116,6 +117,10 @@ AI-persona/
 │   ├── cross_constraints.py           # 交叉约束校验 (诊断↔OCEAN↔人口学)
 │   ├── stratification.py              # ⭐ 分层采样 (2025 小普查, 流行病学性别比)
 │   ├── demographics_intl.py           # ⭐ 国际人口学采样器 (52 国/文化区/姓名/宗教/语言, 纯标准库)
+│   ├── persona_kernel.py              # ⭐ v2 kernel (18 域运行时表示 + validate 存储纪律)
+│   ├── kernel_generator.py            # v2 安全生成层
+│   ├── legacy_adapter.py              # v1 Persona → v2 PersonaKernel 桥接
+│   ├── ontology_native_fill.py        # ⭐ 本体原生采样器 (5 域/59 概念, 确定性, 第 4 RNG 流)
 │   └── README.md                      # 核心引擎完整文档
 │
 ├── scripts/                           # 实用工具脚本
@@ -123,7 +128,7 @@ AI-persona/
 │   ├── analyze_dataset.py             # 数据集分析工具
 │   ├── make_showcase_pool.py          # 展示页数据池 (70 人设 + 本体摘要, 幂等内联)
 │   ├── serve_showcase.py              # 展示页本地服务 (纯标准库; /api/persona 实时生成 + 可复现 seed)
-│   ├── make_full_pool.py              # ⭐ 国际全量池 (默认 5000 人设 × 52 国 × 11 诊断, 确定性分层)
+│   ├── make_full_pool.py              # ⭐ 国际全量池 (默认 5000 人设 × 52 国 × 11 诊断, 确定性分层 + 5 域本体原生块)
 │   └── _scratch/                      # 一次性构建脚本（归档备查）
 │
 ├── data/                              # 参考数据
@@ -152,9 +157,9 @@ AI-persona/
 ├── web/                               # ⭐ 展示站（自包含、零外部依赖；index 双击即开, table/dashboard 需同源服务）
 │   ├── index.html                     # 人类档案风展示页（18 域总览 + 70 人设池 + 随机抽取 + 实时生成节）
 │   ├── showcase_data.json             # 数据池载荷（scripts/make_showcase_pool.py 生成并内联进 index.html）
-│   ├── pool.json                      # ⭐ 国际全量池（scripts/make_full_pool.py 生成, 5000 人设, ~7MB）
-│   ├── table.html                     # ⭐ 全量数据库（检索/筛选/排序/分页 + 34 字段档案卡弹窗）
-│   └── dashboard.html                 # ⭐ 分布仪表盘（诊断/大洲/国家/年龄/性别/职业/教育/收入/宗教/OCEAN）
+│   ├── pool.json                      # ⭐ 国际全量池（scripts/make_full_pool.py 生成, 5000 人设, ~25MB, 含 5 域本体原生块）
+│   ├── table.html                     # ⭐ 全量数据库（检索/筛选/排序/分页 + 完整档案卡弹窗, 含 5 域本体原生采样）
+│   └── dashboard.html                 # ⭐ 分布仪表盘（诊断/大洲/国家/年龄/性别/职业/教育/收入/宗教/OCEAN + 原生域覆盖 KPI）
 │
 ├── skill/                             # WorkBuddy 技能
 │   └── SKILL.md                      # 一键安装技能
@@ -329,7 +334,7 @@ http://127.0.0.1:8765/
 
 ```bash
 # ① 生成国际全量池（纯标准库, 确定性可复现; 默认 N=5000, 52 国全覆盖, 11 诊断分层）
-python scripts/make_full_pool.py            # → web/pool.json (~7MB)
+python scripts/make_full_pool.py            # → web/pool.json (~25MB, 含 5 域本体原生块)
 python scripts/make_full_pool.py --n 8000    # 自定义规模
 
 # ② 本地预览数据库 / 仪表盘（fetch 需同源, file:// 双击会因 CORS 被拦）
@@ -345,7 +350,11 @@ cd web && python -m http.server 8000
 全量池 = 引擎生成的 23 字段人设卡 + 国际人口学底座（`core/demographics_intl.py`：
 姓名 / 国家 / 大洲 / 文化区 / 语言 / 宗教 / 族群 / 收入 / 城市化），
 使池子真正全球分布（按世界人口加权采样，52 国全覆盖）。
-`table.html` 与 `dashboard.html` 均零依赖、零图表库，仅 `fetch` 同目录 `pool.json`。
+每张卡另带 `ontology` 块：5 域 / 59 概念的本体原生采样
+（`core/ontology_native_fill.py`，独立第 4 RNG 流，既有 34 字段逐字节不变），
+补齐 legacy 桥接永不填的 roles / 制度位置 / 文化语言 / 情境生态 / 资源约束五域。
+`table.html`（档案卡弹窗展示 5 域）与 `dashboard.html`（原生域覆盖 KPI）均零依赖、
+零图表库，仅 `fetch` 同目录 `pool.json`。
 
 ### 自定义配置
 

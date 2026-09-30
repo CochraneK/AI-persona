@@ -30,18 +30,20 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .head .en{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase}
 .head .seal{margin-left:auto;width:60px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--teal);color:#f6efe1;border-radius:6px;transform:rotate(6deg);font-family:var(--kai);font-weight:700;font-size:12px;line-height:1.2;box-shadow:0 2px 0 var(--teal-2),inset 0 0 0 2px rgba(255,255,255,.18)}
 .sub{font-size:13px;color:var(--ink-2);margin:0 0 18px;max-width:72ch}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:16px}
 .kpi{background:var(--card);border:1px solid var(--line-soft);border-top:3px solid var(--seal);box-shadow:var(--shadow);padding:14px 14px 12px}
 .kpi:nth-child(2){border-top-color:var(--teal)}
 .kpi:nth-child(3){border-top-color:var(--gold)}
 .kpi:nth-child(4){border-top-color:var(--ink-2)}
 .kpi:nth-child(5){border-top-color:var(--seal-2)}
+.kpi:nth-child(6){border-top-color:var(--teal-2)}
 .kpi .num{font-family:var(--mono);font-size:30px;font-weight:700;line-height:1}
 .kpi:nth-child(1) .num{color:var(--seal)}
 .kpi:nth-child(2) .num{color:var(--teal)}
 .kpi:nth-child(3) .num{color:var(--gold)}
 .kpi:nth-child(4) .num{color:var(--ink)}
 .kpi:nth-child(5) .num{color:var(--seal-2)}
+.kpi:nth-child(6) .num{color:var(--teal-2)}
 .kpi .lbl{font-size:12px;color:var(--ink-2);margin-top:7px}
 .kpi .cap{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;margin-top:3px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -160,12 +162,14 @@ function build(d){
   const ncont=new Set(a.map(p=>p.continent)).size;
   const healthy=a.filter(p=>(p.primary_diagnosis||"").indexOf("健康")>=0).length;
   const occ=new Set(a.map(p=>p.occupation)).size;
+  const ndom=new Set(a.flatMap(p=>Object.keys(p.ontology||{}))).size;
   $("kpis").innerHTML=`
     <div class="kpi"><div class="num">${fmt(N)}</div><div class="lbl">档案总数</div><div class="cap">personas</div></div>
     <div class="kpi"><div class="num">${ncc}</div><div class="lbl">覆盖国家</div><div class="cap">countries</div></div>
     <div class="kpi"><div class="num">${ndiag}</div><div class="lbl">诊断类别</div><div class="cap">diagnoses</div></div>
     <div class="kpi"><div class="num">${ncont}</div><div class="lbl">大洲</div><div class="cap">continents</div></div>
-    <div class="kpi"><div class="num">${fmt(occ)}</div><div class="lbl">职业中类</div><div class="cap">occupations</div></div>`;
+    <div class="kpi"><div class="num">${fmt(occ)}</div><div class="lbl">职业中类</div><div class="cap">occupations</div></div>
+    <div class="kpi"><div class="num">${ndom}/5</div><div class="lbl">原生域覆盖</div><div class="cap">native domains</div></div>`;
 
   hbar($("c-diag"),topItems(countBy(a,p=>p.primary_diagnosis)), "var(--seal)");
   hbar($("c-cont"),topItems(countBy(a,p=>p.continent)), "var(--teal)");

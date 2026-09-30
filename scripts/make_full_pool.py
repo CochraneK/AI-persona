@@ -10,6 +10,11 @@ pool intended as a "whole-human, all-industry" database:
   * Per persona: the 23-field display card + an international demographics
     block (name / country / continent / region / language / religion /
     ethnicity / income / urbanicity) so the pool is genuinely global.
+  * Per persona: an "ontology" block — the five ontology-native sampled
+    domains (roles / social_institutional_position / culture_language /
+    context_ecology / resources_constraints_opportunities, 59 canonical
+    concepts) from core.ontology_native_fill, sampled on an independent
+    fourth RNG stream so the existing card + demo fields stay byte-identical.
 
 Deterministic: given the master seed and N the pool is byte-for-byte
 reproducible.  Pure stdlib.
@@ -44,6 +49,7 @@ if _REPO not in sys.path:
 
 from core import PersonaGenerator  # noqa: E402
 from core import demographics_intl as demo  # noqa: E402
+from core import ontology_native_fill as ofill  # noqa: E402
 
 OUT_PATH = os.path.join(_REPO, "web", "pool.json")
 
@@ -137,6 +143,7 @@ def _tally(values) -> dict:
 def build_pool(n: int) -> dict:
     gen = PersonaGenerator(rng_seed=MASTER_SEED)
     rng_demo = random.Random(MASTER_SEED + 1)
+    rng_fill = random.Random(MASTER_SEED + 3)  # independent stream for the 5 ontology-native domains
     diag_seq, country_seq = _build_sequences(n)
 
     personas = []
@@ -146,6 +153,8 @@ def build_pool(n: int) -> dict:
         card = _persona_to_card(p)
         for k in _DEMO_KEYS:
             card[k] = d[k]
+        ctx = ofill.persona_context(p)
+        card["ontology"] = ofill.sample_context_fields(ctx, d, rng=rng_fill)
         personas.append(card)
 
     age_bins: dict = {}
@@ -164,6 +173,11 @@ def build_pool(n: int) -> dict:
         "income": _tally([c["income"] for c in personas]),
         "locale": _tally([c["locale"] for c in personas]),
         "age_bins": age_bins,
+        "ontology_domains": sorted({d for c in personas for d in c["ontology"]}),
+        "ontology_concepts_covered": len(
+            {f"{d}.{k}" for c in personas for d, pl in c["ontology"].items() for k in pl}
+        ),
+        "ontology_concept_total": 59,
     }
 
     return {
@@ -201,6 +215,8 @@ def main() -> None:
     print(f"  genders    : {cov['genders']}")
     print(f"  top5 cc    : {list(cov['countries'].items())[:5]}")
     print(f"  age bins   : {cov['age_bins']}")
+    print(f"  ontology   : {len(cov['ontology_domains'])}/5 domains, "
+          f"{cov['ontology_concepts_covered']}/{cov['ontology_concept_total']} concepts")
 
 
 if __name__ == "__main__":

@@ -10,6 +10,12 @@ __version__ = "2.0.0"
 from .generator import Persona, PersonaGenerator, batch_generate, generate_persona
 from .kernel_generator import KernelGenerationPolicy, KernelGenerator, generate_kernel
 from .legacy_adapter import kernel_compatibility_report, legacy_persona_to_kernel
+from .ontology_native_fill import (
+    FILL_DOMAINS,
+    fill_ontology_native,
+    persona_context,
+    sample_context_fields,
+)
 from .persona_kernel import EntityRef, FieldMetadata, PersonaKernel
 from .personality import DIAGNOSIS_OCEAN_RANGES
 
@@ -38,5 +44,9 @@ __all__ = [
     "generate_kernel",
     "legacy_persona_to_kernel",
     "kernel_compatibility_report",
+    "FILL_DOMAINS",
+    "fill_ontology_native",
+    "persona_context",
+    "sample_context_fields",
     "DIAGNOSIS_OCEAN_RANGES",
 ]
