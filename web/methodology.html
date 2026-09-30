@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方法学 · AI-PERSONA</title>
+<style>
+:root{
+  --paper:#f3ecdb;
+  --paper-2:#ece2cc;
+  --card:#fbf6ea;
+  --ink:#26221a;
+  --ink-2:#4a4436;
+  --ink-3:#8a8271;
+  --seal:#b23a29;
+  --seal-2:#8e2c1e;
+  --teal:#2f6b64;
+  --teal-2:#24514c;
+  --line:#c9bda2;
+  --line-soft:#ddd3bf;
+  --shadow:0 2px 10px rgba(60,50,30,.08);
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;
+  --kai:"Kaiti SC","STKaiti",KaiTi,"Kaiti TC",serif;
+  --serif:Georgia,"Times New Roman","Songti SC",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  background-image:repeating-linear-gradient(0deg,rgba(120,100,60,.028) 0 1px,transparent 1px 28px);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:14px;line-height:1.65;
+}
+.page{max-width:1060px;margin:0 auto;padding:34px 26px 40px}
+
+/* ============ MASTHEAD ============ */
+.masthead{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
+  border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);
+  border-radius:8px;padding:26px 30px 22px;position:relative;overflow:hidden;
+}
+.masthead::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--seal)}
+.mark{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase;margin-bottom:10px}
+.masthead h1{font-family:var(--kai);font-size:44px;line-height:1.15;letter-spacing:.08em;font-weight:700}
+.masthead h1 em{font-style:normal;color:var(--seal)}
+.sub{margin-top:12px;font-size:14px;color:var(--ink-2);max-width:560px}
+.sub b{color:var(--ink)}
+.mast-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0}
+.stamp{
+  width:96px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--seal);color:#f6efe1;border-radius:8px;transform:rotate(6deg);
+  font-family:var(--kai);font-weight:700;font-size:20px;line-height:1.25;text-align:center;letter-spacing:.1em;
+  box-shadow:0 3px 0 var(--seal-2),inset 0 0 0 2px rgba(255,255,255,.22);
+}
+.stamp small{font-family:var(--mono);font-size:7.5px;letter-spacing:.18em;font-weight:400;margin-top:4px}
+.badges{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.badges span{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--teal);background:rgba(47,107,100,.08);border:1px solid rgba(47,107,100,.3);padding:3px 8px;border-radius:4px;white-space:nowrap}
+
+/* ============ NAV ============ */
+.topnav{display:flex;margin:16px 0 0;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);border-radius:6px;overflow:hidden}
+.topnav a{flex:1;text-align:center;padding:9px 6px;font-size:13px;color:var(--ink-2);text-decoration:none;border-right:1px solid var(--line-soft)}
+.topnav a:last-child{border-right:none}
+.topnav a:hover{background:var(--paper-2);color:var(--ink)}
+.topnav a.active{background:var(--seal);color:#f6efe1;font-weight:700}
+
+/* ============ SECTION ============ */
+.s{margin-top:30px}
+.s-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.s-no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--seal);border:1px solid var(--seal);background:rgba(178,58,41,.06);padding:2px 8px;border-radius:4px}
+.s-title{font-family:var(--kai);font-size:24px;font-weight:700;letter-spacing:.1em}
+.s-en{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase}
+.s-rule{flex:1;border-top:1px dashed var(--line);align-self:center}
+
+/* ============ CORE ============ */
+.core-line{
+  font-size:16.5px;line-height:1.75;background:var(--card);border:1px solid var(--line);
+  border-left:4px solid var(--teal);border-radius:6px;padding:16px 20px;box-shadow:var(--shadow);
+}
+.core-line b{color:var(--seal);font-family:var(--kai);letter-spacing:.03em}
+
+.arch{display:grid;grid-template-columns:1fr 300px;gap:18px;margin-top:16px;align-items:start}
+.arch-main{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.abox{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:12px 16px;box-shadow:var(--shadow)}
+.abox .t{font-family:var(--kai);font-weight:700;font-size:16px;letter-spacing:.05em}
+.abox .d{font-size:12.5px;color:var(--ink-2);margin-top:4px;line-height:1.6}
+.abox .d code{font-family:var(--mono);font-size:11px;background:var(--paper-2);padding:1px 5px;border-radius:3px;color:var(--teal-2)}
+.abox.l1{border-top:3px solid var(--teal)}
+.abox.l2{border-top:3px solid var(--seal)}
+.abox.l3{border-top:3px solid var(--ink-3)}
+.arrow{align-self:center;color:var(--ink-3);font-family:var(--mono);font-size:11px;padding:5px 0;text-align:center;line-height:1.4}
+.arrow b{display:block;font-size:14px;color:var(--teal)}
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fork .abox{padding:10px 12px}
+.arch-side{display:flex;flex-direction:column;gap:10px}
+.side-note{border:1px dashed var(--seal);background:rgba(178,58,41,.045);border-radius:6px;padding:12px 14px}
+.side-note .t{font-family:var(--kai);font-weight:700;font-size:14.5px;color:var(--seal)}
+.side-note .d{font-size:12px;color:var(--ink-2);margin-top:5px;line-height:1.65}
+.side-note .d code{font-family:var(--mono);font-size:10.5px;background:rgba(178,58,41,.08);padding:1px 4px;border-radius:3px}
+.side-note .link-line{font-family:var(--mono);font-size:10px;color:var(--seal);letter-spacing:.04em;margin-top:8px}
+
+/* ============ 18 DOMAINS ============ */
+.domgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:12px}
+.dom{
+  border:1px solid var(--line-soft);background:var(--card);border-radius:5px;
+  padding:7px 9px;box-shadow:var(--shadow);
+}
+.dom .zh{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.35}
+.dom .en{font-family:var(--mono);font-size:8px;letter-spacing:.02em;color:var(--ink-3);margin-top:3px;line-height:1.3;word-break:break-all}
+.dom.hl{border-color:var(--seal);background:rgba(178,58,41,.05)}
+.dom.hl .en{color:var(--seal)}
+.dom.hl .zh::after{content:" 可选域";font-family:var(--mono);font-size:8px;color:var(--seal);font-weight:400}
+
+/* ============ LAYERS ============ */
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.layer{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:14px 16px;box-shadow:var(--shadow)}
+.layer .lt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--teal);margin-bottom:8px}
+.layer ul{list-style:none}
+.layer li{font-size:12.5px;color:var(--ink-2);padding:3px 0 3px 16px;position:relative;line-height:1.55}
+.layer li::before{content:"—";position:absolute;left:0;color:var(--seal);font-family:var(--mono)}
+.layer li b{color:var(--ink)}
+.layer li code{font-family:var(--mono);font-size:10.5px;background:var(--paper-2);padding:1px 4px;border-radius:3px;color:var(--teal-2)}
+
+/* tier row */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.tier{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:11px 13px;box-shadow:var(--shadow)}
+.tier .tn{font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+.tier .tt{font-size:13px;font-weight:700;margin-top:3px}
+.tier .td{font-size:11.5px;color:var(--ink-2);margin-top:4px;line-height:1.55}
+.tier .st{display:inline-block;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:3px;margin-top:7px;letter-spacing:.06em}
+.st.ok{background:rgba(47,107,100,.12);color:var(--teal-2);border:1px solid rgba(47,107,100,.35)}
+.st.ready{background:rgba(140,110,30,.12);color:#7a611c;border:1px solid rgba(140,110,30,.35)}
+.st.no{background:rgba(120,110,95,.12);color:var(--ink-3);border:1px solid rgba(120,110,95,.35)}
+
+/* ============ BORROW TABLE ============ */
+table.borrow{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.borrow th{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  text-align:left;padding:9px 14px;background:var(--paper-2);color:var(--ink-2);border-bottom:1px solid var(--line);
+}
+.borrow td{padding:8.5px 14px;border-bottom:1px dotted var(--line-soft);font-size:12.5px;color:var(--ink-2);vertical-align:top;line-height:1.55}
+.borrow tr:last-child td{border-bottom:none}
+.borrow td.src{font-family:var(--mono);font-size:11px;color:var(--teal-2);white-space:nowrap}
+.borrow td.src i{font-style:normal;color:var(--ink-3)}
+.borrow b{color:var(--ink)}
+.borrow td code{font-family:var(--mono);font-size:10.5px;background:var(--paper-2);padding:1px 4px;border-radius:3px;color:var(--teal-2)}
+
+/* ============ WHY ============ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.why{
+  border:1px solid var(--line);background:var(--card);border-radius:6px;padding:14px 16px;box-shadow:var(--shadow);
+  display:flex;gap:12px;
+}
+.why .no{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--seal);color:var(--seal);
+  font-family:var(--mono);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.why .tt{font-size:14px;font-weight:700;font-family:var(--kai);letter-spacing:.04em;line-height:1.4}
+.why .tt small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ink-3);font-weight:400;margin-top:2px;text-transform:uppercase}
+.why .bd{font-size:12.5px;color:var(--ink-2);margin-top:7px;line-height:1.62}
+.why .bd b{color:var(--seal)}
+.why .bd .fix{color:var(--teal-2);font-weight:700}
+.why .bd code{font-family:var(--mono);font-size:10.5px;background:var(--paper-2);padding:1px 4px;border-radius:3px;color:var(--teal-2)}
+
+/* ============ CLEVER ============ */
+.clever{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cl{
+  border:1px solid var(--line-soft);background:var(--card);border-radius:6px;padding:11px 13px;box-shadow:var(--shadow);
+  border-top:3px solid var(--teal);
+}
+.cl:nth-child(3n+2){border-top-color:var(--seal)}
+.cl:nth-child(3n){border-top-color:var(--ink-3)}
+.cl .h{font-size:13px;font-weight:700;font-family:var(--kai);letter-spacing:.03em;line-height:1.4}
+.cl .h .n{font-family:var(--mono);font-size:9.5px;color:var(--ink-3);margin-right:5px}
+.cl .b{font-size:11.5px;color:var(--ink-2);margin-top:5px;line-height:1.6}
+.cl .b code{font-family:var(--mono);font-size:10px;background:var(--paper-2);padding:1px 4px;border-radius:3px;color:var(--teal-2)}
+
+/* ============ FOOTER ============ */
+footer{
+  margin-top:34px;border-top:1px solid var(--line);padding-top:16px;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+}
+footer .links a{
+  font-family:var(--mono);font-size:11px;color:var(--teal-2);text-decoration:none;margin-right:16px;letter-spacing:.04em;
+}
+footer .links a:hover{color:var(--seal);text-decoration:underline}
+footer .ver{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.08em}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:860px){
+  .masthead{flex-direction:column}
+  .mast-right{flex-direction:row;align-items:center;width:100%;justify-content:space-between}
+  .badges{align-items:flex-start}
+  .arch{grid-template-columns:1fr}
+  .layers,.why-grid{grid-template-columns:1fr}
+  .clever{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:1fr 1fr}
+  .domgrid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:560px){
+  .clever{grid-template-columns:1fr}
+  .domgrid{grid-template-columns:repeat(2,1fr)}
+  .masthead h1{font-size:32px}
+}
+
+/* ============ PRINT (A4) ============ */
+@media print{
+  body{background:#fff}
+  .page{max-width:none;padding:0}
+  .masthead,.abox,.layer,.tier,.why,.cl,.dom,table.borrow,footer{box-shadow:none;break-inside:avoid}
+  .s{margin-top:18px}
+  .topnav{display:none}
+  a{color:inherit}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="mast-left">
+      <div class="mark">档案 · AI-PERSONA · METHODOLOGY ONE-PAGER</div>
+      <h1>方法学<br><em>一页技术过程</em></h1>
+      <p class="sub"><b>人是什么</b>（Human Ontology）与 <b>人怎么生成</b>（Persona Engine）彻底分离——<br>一个可复现、可验证、可跨项目共享的模拟人物生成方法。</p>
+    </div>
+    <div class="mast-right">
+      <div class="stamp">方法学<small>METHODOLOGY</small></div>
+      <div class="badges">
+        <span>HUMAN ONTOLOGY v2.0.0 · CANONICAL</span>
+        <span>18 语义域 / 205 概念 / 类型化关系</span>
+        <span>纯标准库 · 零依赖 · 全链路可复现</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="topnav">
+    <a href="index.html">总览</a>
+    <a href="table.html">数据库</a>
+    <a href="dashboard.html">仪表盘</a>
+    <a href="methodology.html" class="active">方法学</a>
+  </nav>
+
+  <!-- ============ 00 核心 ============ -->
+  <section class="s" id="core">
+    <div class="s-head"><span class="s-no">00</span><span class="s-title">核心是什么</span><span class="s-en">Core Thesis</span><span class="s-rule"></span></div>
+    <p class="core-line">
+      一句话：<b>先定义「人是什么」，再实例化「一个具体的人」。</b>
+      Human Ontology v2 是唯一的语义权威（18 个语义域 / 205 概念 / 类型化关系 / 证据来源纪律），Persona Engine 负责把语义实例化成一个具体的人——最终组装成可直接喂 LLM 的 System Prompt。
+      精神科诊断不再是「人的根」，而是 18 域中<b>一个可选的健康模块</b>：同一个人，带不带诊断，都是完整的档案。
+    </p>
+    <div class="arch">
+      <div class="arch-main">
+        <div class="abox l1">
+          <div class="t">Human Ontology v2 · 语义权威层</div>
+          <div class="d"><code>canonical_domains</code> 18 域 · <code>CANONICAL_CONCEPT_CATALOG</code> 205 概念（31 评审 + 174 迁移）· <code>relation_families</code> 类型化关系 · provenance + temporality 契约 · <code>persona_kernel.schema.json</code> 交换信封</div>
+        </div>
+        <div class="arrow">↓ <b>实例化</b> PersonaKernel（元数据完整性纪律：孤儿值拒绝入库）</div>
+        <div class="fork">
+          <div class="abox l2">
+            <div class="t">Legacy Persona · 45 字段</div>
+            <div class="d"><code>generate_persona()</code> 向后兼容：16 步流水线、Archetype Grid、诊断条件化——仅用于复现 v1.x 数据集</div>
+          </div>
+          <div class="abox l2">
+            <div class="t">Kernel 消费方</div>
+            <div class="d"><code>generate_persona_kernel()</code>：AI-Ques / P003 / Future-Self / Avatar 共享同一 kernel</div>
+          </div>
+        </div>
+        <div class="arrow">↓ <b>组装</b></div>
+        <div class="abox l3">
+          <div class="t">LLM System Prompt · 模拟人物的最终形态</div>
+          <div class="d">人口学 + 人格 + 叙事链 + 事件时间线 + 当前状态 → LLM 直接扮演；精神科评估只是其中一个应用场景</div>
+        </div>
+      </div>
+      <div class="arch-side">
+        <div class="side-note">
+          <div class="t">诊断本体 · 可选模块</div>
+          <div class="d"><code>diagnosis_ontology.json</code>：ICD-11 Ch.06 + DSM-5-TR，278 诊断 → 37 生成范围，含共病关联。<b>保留、不删除</b>——但挂载位置从「根」移到「一个域下」。</div>
+          <div class="link-line">挂载 → mental_neurodevelopmental_health</div>
+          <div class="d" style="margin-top:8px">symptoms / functional impact / diagnoses(<i>optional</i>) / treatment / course / risk factors</div>
+        </div>
+        <div class="side-note" style="border-color:var(--teal);background:rgba(47,107,100,.05)">
+          <div class="t" style="color:var(--teal)">语义防火墙</div>
+          <div class="d">默认 <code>health_only</code>：诊断只允许影响健康域与当前状态。可测试不变式——同 seed 换诊断，非健康字段必须逐字节一致。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 框架 ============ -->
+  <section class="s" id="framework">
+    <div class="s-head"><span class="s-no">01</span><span class="s-title">框架：三层 + 四级验证</span><span class="s-en">Framework</span><span class="s-rule"></span></div>
+
+    <div class="layer" style="margin-bottom:0">
+      <div class="lt">L1 · SEMANTIC LAYER — 语义层（唯一权威，受治理变更）</div>
+      <ul>
+        <li><b>18 个语义域</b>（semantic namespaces，非 MECE 分区）：见下方域图</li>
+        <li><b>205 概念目录</b>：31 个评审过的一等概念（声明 kind / 基数 / 敏感度 / 存储模式 / 值契约）+ 174 个迁移临时叶</li>
+        <li><b>类型化关系族</b>：typed <code>EntityRef</code> 端点 + 谓词级目标约束（<code>works_for→organization</code>）</li>
+        <li><b>治理文件</b>：<code>CANONICAL_FIELD_REGISTRY</code> · <code>CONSUMER_CONTRACT</code> · <code>HUMAN_ONTOLOGY_REVIEW</code> · <code>RELEASE_GATE</code></li>
+      </ul>
+    </div>
+
+    <div class="domgrid">
+      <div class="dom"><div class="zh">发展</div><div class="en">development</div></div>
+      <div class="dom"><div class="zh">身体·功能·躯体健康</div><div class="en">body_functioning_health</div></div>
+      <div class="dom hl"><div class="zh">精神/神经发育健康</div><div class="en">mental_neurodevelopmental_health</div></div>
+      <div class="dom"><div class="zh">人格与心理组织</div><div class="en">personality_psychology</div></div>
+      <div class="dom"><div class="zh">能力·技能·兴趣</div><div class="en">abilities_skills_interests</div></div>
+      <div class="dom"><div class="zh">身份与自我概念</div><div class="en">identity_self_concept</div></div>
+      <div class="dom"><div class="zh">角色与责任</div><div class="en">roles</div></div>
+      <div class="dom"><div class="zh">关系与社会网络</div><div class="en">relationships</div></div>
+      <div class="dom"><div class="zh">地点·居住·流动</div><div class="en">place_mobility</div></div>
+      <div class="dom"><div class="zh">教育与学习</div><div class="en">education_learning</div></div>
+      <div class="dom"><div class="zh">工作与经济参与</div><div class="en">work_economic_participation</div></div>
+      <div class="dom"><div class="zh">社会制度地位</div><div class="en">social_institutional_position</div></div>
+      <div class="dom"><div class="zh">文化与语言</div><div class="en">culture_language</div></div>
+      <div class="dom"><div class="zh">生活事件与历史</div><div class="en">life_events</div></div>
+      <div class="dom"><div class="zh">情境与宏观生态</div><div class="en">context_ecology</div></div>
+      <div class="dom"><div class="zh">资源·约束·机会</div><div class="en">resources_constraints_opportunities</div></div>
+      <div class="dom"><div class="zh">生活方式与日常</div><div class="en">lifestyle_routines</div></div>
+      <div class="dom"><div class="zh">当前状态</div><div class="en">current_state</div></div>
+    </div>
+
+    <div class="layers">
+      <div class="layer">
+        <div class="lt">L2 · ENGINE LAYER — 引擎层（实例化 + 确定性）</div>
+        <ul>
+          <li><b>双 API</b>：legacy <code>generate_persona()</code>（45 字段）/ v2 <code>generate_persona_kernel()</code>（默认 health_only）</li>
+          <li><b>16 步流水线</b>：诊断→人口学→职业→共病→OCEAN→欲望/恐惧→Storr 链→弧线→信念→应激→触发器→安全行为→外貌→隐藏经历→事件→Prompt；每步独立 RNG 子采样器</li>
+          <li><b>Archetype Grid</b>：10 诊断 / 45 型 / 720 深层身份——narrative_identity 生成资产</li>
+          <li><b>本体原生采样器</b>：<code>ontology_native_fill</code> 补 5 域 59 概念（角色/制度/文化/生态/资源），第 4 条独立 RNG 流</li>
+          <li><b>分层采样</b>：流行病学性别比 + 6 年龄带 + 7 级教育；国际池 52 国按世界人口加权</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <div class="lt">L3 · DATA &amp; SURFACE LAYER — 数据与呈现层</div>
+        <ul>
+          <li><b>70 卡展示池</b>（20 健康 + 10 诊断×5，内联进 index.html，双击即开）</li>
+          <li><b>5000 卡国际全量池</b>（<code>pool.json</code> ~25MB，确定性分层可复现）</li>
+          <li><b>实时生成</b>：任意 (诊断, seed) → 全新人设，同输入必同输出</li>
+          <li><b>3 段 id 地址空间</b>：全量池 / 展示池 / 实时卡互不重叠，全部可寻址</li>
+          <li><b>web 三页</b>：index（18 域总览+池+实时）/ table（检索筛选分页+档案卡）/ dashboard（分布聚合）——零图表库、零外部请求</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tn">TIER A · 机器级</div>
+        <div class="tt">工程符合性</div>
+        <div class="td">184/184 competency questions 通过；RDF/OWL/SHACL 投影漂移检查</div>
+        <span class="st ok">已达成</span>
+      </div>
+      <div class="tier">
+        <div class="tn">TIER B1 · 多 AI 鲁棒</div>
+        <div class="tt">跨模型一致性</div>
+        <div class="td">24 对抗案例 / 56 原子事实，多模型一致率 + 隐藏 gold 准确率 + 「一致但错」指标</div>
+        <span class="st ready">就绪待跑</span>
+      </div>
+      <div class="tier">
+        <div class="tn">TIER B2 · 专家</div>
+        <div class="tt">领域标注</div>
+        <div class="td">人工/领域专家标注通道保留，但不再是前置条件</div>
+        <span class="st ready">可选</span>
+      </div>
+      <div class="tier">
+        <div class="tn">TIER C · 下游</div>
+        <div class="tt">应用效度</div>
+        <div class="td">需 P003 / AI-Ques 下游证据 + 外部语义网验证</div>
+        <span class="st no">未达成</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 借鉴 ============ -->
+  <section class="s" id="borrow">
+    <div class="s-head"><span class="s-no">02</span><span class="s-title">借鉴了什么</span><span class="s-en">Provenance of Ideas</span><span class="s-rule"></span></div>
+    <table class="borrow">
+      <tr><th style="width:34%">借鉴对象</th><th>本项目怎么用</th></tr>
+      <tr><td class="src">BFO 上层本体 <i>(Basic Formal Ontology)</i></td><td>六种本体类型 <b>entity / quality-disposition / role / relation / process-event / state</b> 显式分治——role 不是 event（角色转换才是 event），state 不是 trait，连续值与离散分类不混进同一棵树</td></tr>
+      <tr><td class="src">语义网 <i>(RDF / OWL / SHACL)</i> + Gruber competency questions</td><td>「一个概念一个 canonical home」= 语义层的参照完整性 + 单一事实源；投影成 RDF/OWL/SHACL 做漂移检查；<b>184 条 competency questions</b> 作为 Tier A 机器验收</td></tr>
+      <tr><td class="src">McKinsey MECE</td><td>改造成<b>局部 MECE</b>：只有回答同一问题、同一抽象层级的同级分类才要求互斥穷尽；连续 / 多值 / 关系 / 时间性事实显式声明语义，不假装 MECE</td></tr>
+      <tr><td class="src">大五人格 <i>(McCrae &amp; Costa, FFM)</i></td><td>明确降格：<code>personality_psychology.temperament_traits</code> 下的<b>一个特质模型</b>，不是本体 MECE 分区；只做措辞微调，不覆盖人设型（诊断条件化范围仅作 legacy 复现）</td></tr>
+      <tr><td class="src">Will Storr <i>《The Science of Storytelling》</i></td><td><b>Wound→Lie→Desire→Need</b> 叙事因果链：formative_wound / dysfunctional_beliefs / compensatory_desire / storr_need 四字段，让人物有「所以然」而不只是「是什么」</td></tr>
+      <tr><td class="src">Lajos Egri 三维角色论 + K.M. Weiland <i>《Creating Character Arcs》</i></td><td>core_desire / core_fear（静态维度）+ 三种角色弧线（正/负/平坦），按临床轨迹推理映射 37 诊断：27 正弧 / 4 负弧 / 6 平坦弧</td></tr>
+      <tr><td class="src">Beck 认知三角 + Bracha 5F 应激模型</td><td>dysfunctional_beliefs（自己/世界/未来）+ stress_pattern（Fight/Flight/Freeze/Fawn/Self-harm，primary + secondary）</td></tr>
+      <tr><td class="src">ICD-11 Ch.06 + DSM-5-TR + Holmes-Rahe LCU + ACEs + Erikson</td><td>诊断知识库（278→37 生成范围，含共病）· 6 域×4 阶段 143 事件模板矩阵（LCU 应激评分）· 触发器系统 · Erikson 发展阶段字段</td></tr>
+      <tr><td class="src">普查 / 流行病学分层抽样</td><td>性别比按诊断加权（厌食→90% 女、ASD→80% 男）、6 年龄带、7 级教育、52 国按世界人口加权——人口学来自真实分布，不是抛硬币</td></tr>
+      <tr><td class="src">W3C PROV 风格 provenance</td><td>五种认知来源 <b>observed / measured / inferred / generated / input_constraint</b> 互不冒充；推断与生成值必须携带 provenance + confidence + 时间类；unknown ≠ absent</td></tr>
+      <tr><td class="src">W3C CR→REC / 软件工程发布纪律</td><td>本体变更受治理（先查 registry、定 kind、验迁移、过 gate）；<b>release gate 全绿才能 canonical 转正</b>；验证分级声明，机器绿 ≠ 人类验证，AI 共识 ≠ 真值</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 03 为什么 ============ -->
+  <section class="s" id="why">
+    <div class="s-head"><span class="s-no">03</span><span class="s-title">为什么这么做：六个决策</span><span class="s-en">Design Decisions</span><span class="s-rule"></span></div>
+    <div class="why-grid">
+      <div class="why">
+        <div class="no">1</div>
+        <div>
+          <div class="tt">诊断当根 → 刻板印象机器<small>Diagnosis-as-root problem</small></div>
+          <div class="bd">初版以诊断为采样根：OCEAN、原型、事件全按诊断条件化，等于让诊断悄悄决定人格与人生史。<span class="fix">→ Person-first</span>：诊断降为可选健康模块，防火墙是<b>可测试不变式</b>（同 seed 换诊断，非健康字段逐字节一致），不是口号。</div>
+        </div>
+      </div>
+      <div class="why">
+        <div class="no">2</div>
+        <div>
+          <div class="tt">10²⁹ 空间幻觉 → 硬网格<small>From nominal combos to enumerable grid</small></div>
+          <div class="bd">名义组合数巨大，但深层字段模板池极小（每诊断仅 1 条 wound / 1 条 need），内核严重同质且不可覆盖验证。<span class="fix">→ Archetype Grid</span>：有限显式声明，「有多少种不同的人」第一次变得可回答（45 型 / 720 身份），实测深层去重率提升 3.5~10×。</div>
+        </div>
+      </div>
+      <div class="why">
+        <div class="no">3</div>
+        <div>
+          <div class="tt">全局 MECE 是陷阱 → 局部 MECE + 六型分离<small>The global-MECE trap</small></div>
+          <div class="bd">人的事实含连续值、多值、关系、时间性，强行压进一棵互斥树必然产生虚假二分。<span class="fix">→ 域是命名空间不是分区</span>：同级分类才 MECE；跨域事实用<b>类型化关系</b>连接而不是复制字面量。</div>
+        </div>
+      </div>
+      <div class="why">
+        <div class="no">4</div>
+        <div>
+          <div class="tt">OCEAN 抹平人设型 → 型优先<small>OCEAN flattening</small></div>
+          <div class="bd"><code>adjust_*_by_ocean()</code> 在极端 OCEAN 下整体替换 wound/desire/need 文本，人设型被抹平。<span class="fix">→ 型专属模板优先，OCEAN 只做措辞微调</span>；生成器刻意不传 ocean 给这些函数，并写入改动守则。</div>
+        </div>
+      </div>
+      <div class="why">
+        <div class="no">5</div>
+        <div>
+          <div class="tt">多项目共享 → canonical registry + 契约<small>Cross-project interop</small></div>
+          <div class="bd">AI-Persona / P003 / AI-Ques 需要同一套语义层，否则各建一套、语义漂移。<span class="fix">→ 一个概念一个 home + 消费方契约 + 186 个字段级迁移映射</span>：旧 API 仍可运行、旧数据集仍可复现，迁移不是重写。</div>
+        </div>
+      </div>
+      <div class="why">
+        <div class="no">6</div>
+        <div>
+          <div class="tt">验证诚实 → 分级声明<small>Honest validation tiers</small></div>
+          <div class="bd">机器门绿 ≠ 人类验证，多 AI 共识 ≠ 真值（可能一起错）。<span class="fix">→ Tier A/B1/B2/C 分级</span>：当前仅 A 达成、B1 就绪、C 未达成，文档明确禁止把绿门描述成科学有效性；B1 专设「一致但错」指标拦截集体误判。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 巧妙细节 ============ -->
+  <section class="s" id="clever">
+    <div class="s-head"><span class="s-no">04</span><span class="s-title">巧妙的技术细节</span><span class="s-en">Clever Details</span><span class="s-rule"></span></div>
+    <div class="clever">
+      <div class="cl">
+        <div class="h"><span class="n">①</span>正交单一语义家</div>
+        <div class="b">一个概念只定义一次，别处一律 typed reference / projection。「UI 允许重复，本体不允许」——把数据库 3NF 的思想用到语义层。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">②</span>局部 MECE</div>
+        <div class="b">约束只加在「同问同层」的同级分类上；OCEAN 五维虽是正交因子，在 v2 中被显式降格为「特质模型，不是 MECE 分区」——MECE 本身也被当成需要治理的声明。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">③</span>六个「≠」</div>
+        <div class="b">role≠event（角色转换是 event）、state≠trait、出生地≠文化≠国籍、诊断≠症状≠损害≠身份、关系观察≠全局特质、结构约束≠人格缺陷——每一条都是曾真实混淆过的案例。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">④</span>可测试的语义防火墙</div>
+        <div class="b"><code>health_only</code> 防火墙落在契约测试上：同 seed 换诊断，非健康人格与人生史必须逐字节一致。诊断影响被限定在 health/current-state 载荷内。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑤</span>第 4 条独立 RNG 流</div>
+        <div class="b">本体原生 5 域采样器从 <code>sha1(diagnosis_key, seed)</code> 派生独立种子——新增 59 个概念，既有 34 字段逐字节不变；与 PYTHONHASHSEED 无关。非侵入式演化。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑥</span>硬网格替代软概率</div>
+        <div class="b">Archetype 是有限显式声明而非概率软约束：空间可枚举、可覆盖、可出报告（<code>python core/archetypes.py</code>），「覆盖了多少种人」成为可回答的问题。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑦</span>普查校准分层采样</div>
+        <div class="b">性别/年龄/教育全部锚定真实分布（厌食 90% 女、ASD 80% 男、6 年龄带、7 级教育、52 国人口加权），消灭抛硬币式的人口学。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑧</span>Provenance 纪律</div>
+        <div class="b">observed/measured/inferred/generated/input_constraint 五种认知来源互不冒充；unknown ≠ absent；推断与生成值强制携带 provenance + confidence + 时间类。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑨</span>类型化关系 + 谓词约束</div>
+        <div class="b">typed <code>EntityRef</code> 端点，每个谓词约束目标类型（<code>works_for→organization</code>、<code>born_in→place</code>、<code>uses_language→language</code>）——参照完整性进语义层。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑩</span>元数据完整性</div>
+        <div class="b">每个域值必须有匹配字段元数据，孤儿值 / 缺失元数据在 <code>validate()</code> 被拒绝——数据质量靠 schema 强制，不靠约定。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑪</span>3 段 id 地址空间</div>
+        <div class="b">全量池 P-000001~005000 / 展示池 P-000001~000070（池内局部）/ 实时卡 P-100000~199999（<code>sha1(diag#seed)</code> 派生）——互不重叠、全部可寻址、实时卡可复现。</div>
+      </div>
+      <div class="cl">
+        <div class="h"><span class="n">⑫</span>纯标准库 · 零依赖</div>
+        <div class="b">整个引擎 + 全部 web 页面只用 Python/JS 标准库：零外部请求、双击即开、任意机器可复现——工程约束本身成为可移植性保证。</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="index.html">总览</a>
+      <a href="table.html">数据库</a>
+      <a href="dashboard.html">仪表盘</a>
+      <a href="https://github.com/CochraneK/AI-persona">GitHub</a>
+    </div>
+    <div class="ver">AI-PERSONA · HUMAN ONTOLOGY v2.0.0 CANONICAL · 2026-09-30 · 本页零外部请求，双击即开</div>
+  </footer>
+
+</div>
+</body>
+</html>
