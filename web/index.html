@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:,">
-<title>AI-Persona · 人类档案 — Human Ontology v2</title>
-<meta name="description" content="基于 Human Ontology v2 的人类模拟人物生成引擎。18 个语义命名空间描述一个完整的人，精神科只是其中一个模块；可随机抽取结构化档案（健康对照 + 患者）。研究用途，非临床诊断工具。">
+<title>AI-Persona · 人类档案 — Human Ontology</title>
+<meta name="description" content="基于 Human Ontology 的人类模拟人物生成引擎。18 个语义命名空间描述一个完整的人，精神科只是其中一个模块；可随机抽取结构化档案（健康对照 + 患者）。研究用途，非临床诊断工具。">
 <script id="showcase-data" type="application/json">
 /*__SHOWCASE_DATA_START__*/
 {
@@ -11071,7 +11071,7 @@ footer .meta a{color:var(--teal);text-decoration:none}
         </svg>
         档案 · AI-PERSONA
       </span>
-      <span>HUMAN ONTOLOGY v2.0.0 · CANONICAL</span>
+      <span>HUMAN ONTOLOGY · 正式版</span>
     </div>
 
     <nav class="topnav">
@@ -11085,7 +11085,7 @@ footer .meta a{color:var(--teal);text-decoration:none}
       <div class="cover-copy">
         <div class="tag">人类本体 · 模拟人物生成引擎</div>
         <h1>把一个人，<br>拆成 <em>18 个语义抽屉</em>，<br>再随机拼回一个「人」。</h1>
-        <p>基于 Human Ontology v2 的人类档案引擎。每一张档案都是一位完整的人——从生命历程到此刻的状态，可被 LLM 直接扮演；精神科评估，只是它的一个应用场景。</p>
+        <p>基于 Human Ontology 的人类档案引擎。每一张档案都是一位完整的人——从生命历程到此刻的状态，可被 LLM 直接扮演；精神科评估，只是它的一个应用场景。</p>
       </div>
       <div class="vtitle">人类档案</div>
       <div class="seal" aria-hidden="true"><span class="l1">研究用途</span><span class="l2">非临床诊断</span></div>
@@ -11117,16 +11117,16 @@ footer .meta a{color:var(--teal);text-decoration:none}
     </p>
 
     <div class="stats">
-      <div class="stat"><div class="num" id="st-domains">18</div><div class="lbl">语义命名空间<br>Semantic Namespaces</div><div class="cap">canonical domains</div></div>
-      <div class="stat"><div class="num" id="st-concepts">205</div><div class="lbl">Canonical 概念<br>One Home Each</div><div class="cap">concept catalog</div></div>
+      <div class="stat"><div class="num" id="st-domains">18</div><div class="lbl">语义命名空间<br>Semantic Namespaces</div><div class="cap">semantic domains</div></div>
+      <div class="stat"><div class="num" id="st-concepts">205</div><div class="lbl">概念目录<br>One Home Each</div><div class="cap">concept catalog</div></div>
       <div class="stat"><div class="num">45</div><div class="lbl">叙事元类型<br>Narrative Archetypes</div><div class="cap">10 诊断覆盖</div></div>
       <div class="stat"><div class="num" id="st-personas">70</div><div class="lbl">本页样例档案<br>Random Pool</div><div class="cap">20 健康对照 + 50 患者</div></div>
     </div>
 
     <div class="note">
-      <b>双 API（向后兼容）</b>：旧接口 <code>PersonaGenerator</code> 输出 45 字段扁平 Persona；
-      新接口 <code>generate_persona_kernel</code> 输出 ontology-native 的 <code>PersonaKernel</code>（默认
-      <code>health_only</code> 语义防火墙，诊断只影响健康域，不污染身份域）。
+      <b>两个入口</b>：<code>generate_persona()</code> 出 45 字段基础档案，也用于复现已有的旧数据；
+      <code>generate_persona_kernel()</code> 内部调用基础生成，再按防火墙包装成 18 域标准档案
+      （默认诊断只影响健康域，不污染身份域）。
     </div>
   </section>
 
@@ -11215,7 +11215,7 @@ footer .meta a{color:var(--teal);text-decoration:none}
       </span>
     </div>
     <div class="meta">
-      <span>AI-PERSONA · HUMAN ONTOLOGY v2.0.0</span>
+      <span>AI-PERSONA · HUMAN ONTOLOGY</span>
       <a href="https://github.com/CochraneK/AI-persona">CochraneK/AI-persona ↗</a>
     </div>
   </footer>
