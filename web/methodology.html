@@ -222,7 +222,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
     <div class="mast-right">
       <div class="stamp">方法学<small>METHODOLOGY</small></div>
       <div class="badges">
-        <span>人类本体 v2.0.0 · 正式版（canonical）</span>
+        <span>人类本体 · 正式版</span>
         <span>18 个语义域 · 205 个概念 · 类型化关系</span>
         <span>纯标准库 · 零依赖 · 全链路可复现</span>
       </div>
@@ -240,24 +240,24 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
     <div class="s-head"><span class="s-no">00</span><span class="s-title">核心是什么</span><span class="s-en">Core Thesis</span><span class="s-rule"></span></div>
     <p class="core-line">
       一句话：<b>先定义「人是什么」，再实例化「一个具体的人」。</b><br>
-      这套方法把两件事彻底分开。第一件是「人是什么」：由人类本体 v2 统一给出语义权威，包括 18 个语义域、205 个概念、类型化关系和证据来源纪律。第二件是「人怎么生成」：由人物引擎把语义实例化为一个具体的人，最终组装成可以直接交给大模型扮演的系统提示。<br>
+      这套方法把两件事彻底分开。第一件是「人是什么」：由人类本体统一给出语义权威，包括 18 个语义域、205 个概念、类型化关系和证据来源纪律。第二件是「人怎么生成」：由人物引擎把语义实例化为一个具体的人，最终组装成可以直接交给大模型扮演的系统提示。<br>
       精神科诊断不再是「人的根」，而是 18 个域中<b>一个可选的健康模块</b>——同一个人，带诊断或不带诊断，都是一份完整的档案。
     </p>
     <div class="arch">
       <div class="arch-main">
         <div class="abox l1">
-          <div class="t">人类本体 v2 · 语义权威层</div>
+          <div class="t">人类本体 · 语义权威层</div>
           <div class="d">18 个语义域、205 个概念（31 个评审过的一等概念加 174 个迁移概念）、类型化关系族，外加证据来源与时间性契约；交换格式由 <code>persona_kernel.schema.json</code> 定义。</div>
         </div>
-        <div class="arrow">↓ <b>实例化</b> 生成 PersonaKernel（每个值必须带元数据，孤儿值拒绝入库）</div>
+        <div class="arrow">↓ <b>实例化</b> 两个入口（确定性流水线，每个值必须带元数据，孤儿值拒绝入库）</div>
         <div class="fork">
           <div class="abox l2">
-            <div class="t">旧版 Persona · 45 字段</div>
-            <div class="d"><code>generate_persona()</code> 向后兼容：16 步流水线、原型网格、诊断条件化，仅用于复现 v1 数据集。</div>
+            <div class="t">基础生成 · 45 字段</div>
+            <div class="d"><code>generate_persona()</code>：16 步流水线、原型网格，生成 45 字段的基础人物档案，也用于复现已有的旧数据。</div>
           </div>
           <div class="abox l2">
-            <div class="t">内核消费方</div>
-            <div class="d"><code>generate_persona_kernel()</code>：AI-Ques、P003、Future-Self、Avatar 共享同一个内核。</div>
+            <div class="t">标准内核 · 18 域</div>
+            <div class="d"><code>generate_persona_kernel()</code>：内部调用基础生成，再按防火墙包装成 18 域标准档案；AI-Ques、P003、Future-Self、Avatar 都用它。</div>
           </div>
         </div>
         <div class="arrow">↓ <b>组装</b></div>
@@ -319,7 +319,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
       <div class="layer">
         <div class="lt">L2 · 引擎层 — 实例化与确定性</div>
         <ul>
-          <li><b>双 API</b>：旧版 <code>generate_persona()</code>（45 字段）与 v2 <code>generate_persona_kernel()</code>（默认 <code>health_only</code>）。</li>
+          <li><b>两个入口</b>：<code>generate_persona()</code> 出 45 字段基础档案；<code>generate_persona_kernel()</code> 出 18 域标准内核，默认 <code>health_only</code> 策略。</li>
           <li><b>16 步流水线</b>：诊断、人口学、职业、共病、人格特质、欲望与恐惧、Storr 叙事链、角色弧线、信念、应激、触发器、安全行为、外貌、隐藏经历、事件、提示词；每步使用独立的随机数子采样器。</li>
           <li><b>原型网格（Archetype Grid）</b>：10 个诊断、45 个原型、720 个深层身份，是叙事身份的生成资产。</li>
           <li><b>本体原生采样器</b>：<code>ontology_native_fill</code> 补全 5 个域共 59 个概念（角色、制度位置、文化语言、情境生态、资源约束），走第 4 条独立随机数流。</li>
@@ -373,7 +373,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
       <tr><td class="src">BFO 上层本体 <i>(Basic Formal Ontology)</i></td><td>借鉴它的六种本体类型：实体、品质-倾向、角色、关系、过程-事件、状态，各自显式分治。角色不是事件（角色转换才是事件），状态不是特质，连续值与离散分类不混进同一棵树。</td></tr>
       <tr><td class="src">语义网 <i>(RDF、OWL、SHACL)</i> 与 Gruber 胜任力问题</td><td>「一个概念只有一个规范归属」相当于语义层的参照完整性与单一事实源；本体可投影为 RDF、OWL、SHACL 做漂移检查；<b>184 条胜任力问题</b>用作 Tier A 的机器验收。</td></tr>
       <tr><td class="src">McKinsey 的 MECE 原则</td><td>改造成<b>局部 MECE</b>：只有回答同一问题、处于同一抽象层级的同级分类才要求互斥且穷尽；连续值、多值、关系、时间性事实显式声明自己的语义，不假装 MECE。</td></tr>
-      <tr><td class="src">大五人格 <i>(McCrae &amp; Costa)</i></td><td>明确降格为 <code>personality_psychology</code> 域下 temperament_traits 的<b>一个特质模型</b>，不是本体的 MECE 分区；它只做措辞微调，不覆盖人设原型（诊断条件化仅保留给旧版复现）。</td></tr>
+      <tr><td class="src">大五人格 <i>(McCrae &amp; Costa)</i></td><td>明确降格为 <code>personality_psychology</code> 域下 temperament_traits 的<b>一个特质模型</b>，不是本体的 MECE 分区；它只做措辞微调，不覆盖人设原型（诊断条件化只存在于基础入口）。</td></tr>
       <tr><td class="src">Will Storr <i>《The Science of Storytelling》</i></td><td>采用 <b>Wound→Lie→Desire→Need</b> 叙事因果链，落地为四个字段：初始创伤、失真信念、补偿性欲望、核心需要——让人物有「所以然」，而不只是「是什么」。</td></tr>
       <tr><td class="src">Lajos Egri 三维角色论 + Weiland <i>《Creating Character Arcs》</i></td><td>核心欲望与核心恐惧构成静态维度，再叠加三种角色弧线（正向、负向、平坦），按临床轨迹映射 37 个诊断：27 个正弧、4 个负弧、6 个平坦弧。</td></tr>
       <tr><td class="src">Beck 认知三角 + Bracha 5F 应激模型</td><td>失真信念分自己、世界、未来三个方向；应激反应分战斗、逃跑、冻结、讨好、自我伤害五类，各记录主要与次要反应。</td></tr>
@@ -392,7 +392,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
         <div class="no">1</div>
         <div>
           <div class="tt">诊断当根 → 刻板印象机器<small>Diagnosis-as-root problem</small></div>
-          <div class="bd">初版以诊断为采样根：人格、原型、事件全部按诊断条件化，等于让诊断悄悄决定人格与人生史。<span class="fix">→ 改为以人为先</span>：诊断降为可选健康模块，防火墙是<b>可测试的不变式</b>（同一种子换诊断，非健康字段逐字节一致），不是口号。</div>
+          <div class="bd">如果从诊断出发：人格、原型、事件全按诊断条件化，等于让诊断悄悄决定人格与人生史。<span class="fix">→ 改为以人为先</span>：诊断降为可选健康模块，防火墙是<b>可测试的不变式</b>（同一种子换诊断，非健康字段逐字节一致），不是口号。</div>
         </div>
       </div>
       <div class="why">
@@ -420,7 +420,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
         <div class="no">5</div>
         <div>
           <div class="tt">多项目共享 → 注册表 + 契约<small>Cross-project interop</small></div>
-          <div class="bd">AI-Persona、P003、AI-Ques 需要同一套语义层，否则各建一套、语义漂移。<span class="fix">→ 一个概念一个规范归属，加消费方契约与 186 个字段级迁移映射</span>：旧 API 仍可运行，旧数据集仍可复现，迁移不是重写。</div>
+          <div class="bd">AI-Persona、P003、AI-Ques 需要同一套语义层，否则各建一套、语义漂移。<span class="fix">→ 一个概念一个规范归属，加消费方契约与 186 个字段级迁移映射</span>：旧入口仍能用，旧数据仍可复现，现成使用者可以慢慢迁，不用推倒重来。</div>
         </div>
       </div>
       <div class="why">
@@ -442,7 +442,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
       </div>
       <div class="cl">
         <div class="h"><span class="n">②</span>局部 MECE</div>
-        <div class="b">互斥穷尽的约束只加在「同一问题、同一层级」的同级分类上。OCEAN 五维虽然是正交因子，在 v2 中被显式降格为「特质模型，不是 MECE 分区」——MECE 声明本身也受治理。</div>
+        <div class="b">互斥穷尽的约束只加在「同一问题、同一层级」的同级分类上。OCEAN 五维虽然是正交因子，在这里被显式降格为「特质模型，不是 MECE 分区」——MECE 声明本身也受治理。</div>
       </div>
       <div class="cl">
         <div class="h"><span class="n">③</span>六个「不等于」</div>
@@ -494,7 +494,7 @@ footer .ver{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-s
       <a href="dashboard.html">仪表盘</a>
       <a href="https://github.com/CochraneK/AI-persona">GitHub</a>
     </div>
-    <div class="ver">AI-PERSONA · 人类本体 v2.0.0 正式版 · 2026-09-30 · 本页零外部请求，双击即开</div>
+    <div class="ver">AI-PERSONA · 人类本体 · 2026-09-30 · 本页零外部请求，双击即开</div>
   </footer>
 </div>
 </body>
