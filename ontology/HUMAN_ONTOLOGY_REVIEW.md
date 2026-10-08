@@ -173,7 +173,7 @@ The shared ontology is physically hosted in **AI-Persona**.
 Compatibility:
 - `ontology/human_ontology.v1.json` — current compatibility canonical.
 
-v2 release candidate:
+v2.0.0 (canonical, promoted 2026-09-30):
 - `ontology/human_ontology.v2.json`
 - `ontology/CANONICAL_FIELD_REGISTRY.json`
 - `ontology/V1_TO_V2_MIGRATION.json`

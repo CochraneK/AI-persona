@@ -58,10 +58,9 @@ def validate_human_ontology(ontology: dict[str, Any]) -> None:
 
 @lru_cache(maxsize=1)
 def load_human_ontology_v2(*, require_canonical: bool = False) -> dict[str, Any]:
-    """Load Human Ontology v2 release candidate.
+    """Load Human Ontology v2 (v2.0.0 canonical since 2026-09-30).
 
-    require_canonical=True is intended for future production consumers after the
-    migration gate is complete.
+    require_canonical=True restricts loading to the canonical status.
     """
     ontology = _read_json(_V2_PATH)
     validate_human_ontology_v2(ontology, require_canonical=require_canonical)

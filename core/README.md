@@ -8,7 +8,7 @@
 > ## Ontology notice
 >
 > `../ontology/human_ontology.v1.json` remains the compatibility schema while
-> `../ontology/human_ontology.v2.json` is the current release candidate and semantic authority for new integrations.
+> `../ontology/human_ontology.v2.json` is the current canonical semantic authority for new integrations.
 > This legacy generator may keep old field names and the 6-domain × 4-stage event matrix for reproducibility; those are not canonical ontology structures.
 >
 > **Rule: one canonical semantic home + local MECE + typed relations.**

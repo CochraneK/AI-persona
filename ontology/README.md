@@ -5,7 +5,7 @@ AI-Persona hosts the canonical Human Ontology intended for AI-Persona, P003, AI-
 ## Current status
 
 - `human_ontology.v1.json` remains the canonical compatibility schema while migration proceeds.
-- `human_ontology.v2.json` is the executable **v2 release candidate**.
+- `human_ontology.v2.json` is the executable **v2.0.0** ontology, canonical since 2026-09-30.
 - `CANONICAL_FIELD_REGISTRY.json` defines 31 reviewed first-class concepts with kind, cardinality, sensitivity, storage and value contracts.
 - `CANONICAL_CONCEPT_CATALOG.json` exhaustively covers 205 canonical paths: 31 reviewed first-class concepts plus 174 provisional migrated leaves.
 - `V1_TO_V2_MIGRATION.json` records semantic migration from the 19 v1 coverage views.
@@ -16,7 +16,7 @@ AI-Persona hosts the canonical Human Ontology intended for AI-Persona, P003, AI-
 - `V1_V2_OVERLAP_AUDIT.md` records the overlap problems that motivated the refactor.
 - `EXTERNAL_ONTOLOGY_REGISTRY.json` tracks external standards/ontologies considered for alignment.
 
-v2 is not promoted to canonical until migration tests, semantic-firewall tests and repository-wide consistency checks pass.
+v2.0.0 was promoted to canonical on 2026-09-30 after migration tests, semantic-firewall tests and repository-wide consistency checks passed.
 
 ## Core rule
 
@@ -132,7 +132,7 @@ Ontology changes must follow `HUMAN_ONTOLOGY_REVIEW.md` and the v2 quality gates
 
 The runtime also enforces **metadata completeness**: every stored domain value has matching provenance/temporality metadata, and orphan metadata is rejected.
 
-Before v2 is marked canonical, the project must have:
+The v2.0.0 canonical promotion (2026-09-30) required:
 
 - resolved or explicitly accepted the overlap register;
 - unique canonical concept IDs and homes;
