@@ -36,6 +36,7 @@ def main() -> None:
 
     run("Legacy compatibility + psychiatric semantic firewall", "scripts/test_persona_kernel_compat.py")
     run("PersonaKernel typed-graph contract", "scripts/test_persona_kernel_contract.py")
+    run("PersonaTrace longitudinal regression", "scripts/test_persona_trace.py")
     run("Event sampling regression", "scripts/test_events_sampling.py")
     run("Scientific evaluation machine gate", "scripts/evaluate_human_ontology.py")
     run("Semantic-web projection drift", "scripts/export_semantic_projection.py", "--check")
