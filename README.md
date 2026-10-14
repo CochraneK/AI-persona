@@ -68,6 +68,15 @@ Important consequences:
 
 The existing 6-domain × 4-stage event matrix, Archetype Grid and legacy six-field generation modules remain useful compatibility/content assets, but they are **not** the canonical ontology.
 
+## Longitudinal PersonaTrace（实验性动态人物机制）
+
+新增可选 [PersonaTrace 模块](core/persona_trace.py) 及 [动态人物方法说明](evaluation/LONGITUDINAL_PERSONA.md)：已有 PersonaKernel 不变，额外记录合成人物随事件变化的版本、竞争性解释、双方不同视角、无变化结局和互相独立的未来分支。
+
+- **共用本体，不强制统一人物内容**：结构保存来源与时间，动机/独特体验/关系/叙事可以不同、重叠、开放、不映射；不要求所有人符合固定 character arc。
+- **演化不是预言**：一次事件不会自动定义人格，也不会根据诊断或人口学属性产生必然结局；变化必须由调用者显式授权/供给有效 Kernel。
+- **状态**：实验性代码和合成回归测试，不宣称已验证真实人物心理学。运行 `python scripts/test_persona_trace.py`；full gate `python scripts/run_ontology_ci.py` 亦纳入此测试。
+- 角色生成器、现有 ontology 和交换 schema 无破坏性修改；已有消费者可以不使用 PersonaTrace。
+
 ## Scientific validation
 
 Human Ontology distinguishes engineering conformance, cross-model robustness and downstream validation.
