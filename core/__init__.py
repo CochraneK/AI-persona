@@ -17,6 +17,7 @@ from .ontology_native_fill import (
     sample_context_fields,
 )
 from .persona_kernel import EntityRef, FieldMetadata, PersonaKernel
+from .persona_trace import CompetingHypothesis, PersonaTrace, TraceStep
 from .personality import DIAGNOSIS_OCEAN_RANGES
 
 
@@ -34,6 +35,9 @@ __all__ = [
     "Persona",
     "PersonaGenerator",
     "PersonaKernel",
+    "PersonaTrace",
+    "TraceStep",
+    "CompetingHypothesis",
     "EntityRef",
     "FieldMetadata",
     "KernelGenerator",
