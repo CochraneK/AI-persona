@@ -15,6 +15,10 @@ A green CI run proves that the current contracts are internally consistent. It d
 7. **Pragmatic validity** — does using the ontology improve P003, AI-Ques and other consumers?
 8. **FAIR / governance** — stable identifiers, versioning, provenance, reuse and change control.
 
+## Experimental longitudinal validation
+
+The [PersonaTrace methodology and synthetic example](LONGITUDINAL_PERSONA.md) adds an optional, non-deterministic temporal sidecar for competing explanations, change/no-change decisions, dyad perspectives and independent scenario branches. `scripts/test_persona_trace.py` checks basic software contracts. **It is not empirical evidence that personalities develop this way or that generated characters are psychologically realistic.** Every persona may have an individual narrative; no mandatory standardized personality content is implied.
+
 ## Current assets
 
 - `competency_questions.json` — 184 machine-checkable structural/regression CQs, including reviewed graph-predicate representability.
