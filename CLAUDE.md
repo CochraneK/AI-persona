@@ -51,6 +51,14 @@ Runtime:
 9. Unknown ≠ absent. Generated ≠ observed. Inferred ≠ measured.
 10. Inferred/generated values require provenance, confidence and temporal class.
 
+## Optional longitudinal synthetic-persona layer
+
+- `core/persona_trace.py` exposes `PersonaTrace` and `CompetingHypothesis` as a sidecar; do not add their fields to canonical `PersonaKernel` without a separate reviewed schema change.
+- `PersonaTrace` captures time/provenance, multiple possible explanations, context and multi-actor perspectives, explicit update/no-update choices, and independent branching.
+- Core semantic constraints remain in v2; *individual stories are not standardized*: unresolved overlap and freeform narrative are valid, and a generated event never independently proves a trait or a third party's intentions.
+- Synthetic regression: `scripts/test_persona_trace.py`; documentation: `evaluation/LONGITUDINAL_PERSONA.md`.
+- Do not import real people's personal records into this public repository.
+
 ## Public APIs
 
 Preferred v2 API:
